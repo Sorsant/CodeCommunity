@@ -1,0 +1,9 @@
+# Ignorar archivos generados por Django
+*.pyc
+__pycache__/
+
+# Ignorar el archivo de configuración de variables de entorno
+.env
+
+# Ignorar el directorio de archivos estáticos recopilados
+staticfiles/
