@@ -7,7 +7,7 @@ const App: React.FC = (): JSX.Element => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
 
       </Routes>
     </div>
