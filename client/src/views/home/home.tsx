@@ -1,9 +1,12 @@
-import React from 'react'
 
-const home: React.FC = (): JSX.Element => {
-    return (
-        <div>typescript de mierda</div>
+
+const Home: React.FC = () => {
+    return(
+<div>
+    <h1>Hola</h1>
+</div>
+
     )
 }
 
-export default home
+export default Home
