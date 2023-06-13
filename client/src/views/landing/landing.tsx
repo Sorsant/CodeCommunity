@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Login from "../login/login";
 
 const LandingPage: React.FC = () : JSX.Element => {
     return(
@@ -14,7 +15,7 @@ const LandingPage: React.FC = () : JSX.Element => {
                 <Link to="/home"><h1>Navega como invitado</h1></Link>
             </button>
             <div>
-                <h1>Aqui va renderizado el LOGIN</h1>
+                <Login />
             </div>
             </div>
         </div>
