@@ -15,7 +15,7 @@ const LandingPage: React.FC = () : JSX.Element => {
                 <Link to="/home"><h1>Navega como invitado</h1></Link>
             </button>
             <div>
-                <Login />
+                <Login /> 
             </div>
             </div>
         </div>
