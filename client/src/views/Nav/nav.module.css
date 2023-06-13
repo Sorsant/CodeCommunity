@@ -1,0 +1,44 @@
+.containerNav {
+    display: flex;
+    font-size: 12px;
+    background-color: rgb(190, 185, 176);
+}
+
+.divRegister {
+    display: flex;
+    position: absolute;
+    margin-left: 1580px;
+}
+
+.SignIn {
+    margin-right: 10px;
+    font-size: 10px;
+}
+
+.LogIn {
+    font-size: 10px;
+}
+
+.Contact {
+    font-size: 10px;
+    margin-right: 10px;
+}
+
+.home {
+    position: absolute;
+    margin-left: 850px;
+    font-size: 10px;
+}
+
+.divNQP {
+    display: flex;
+    margin-left: 300px;
+}
+
+.notices {
+    margin-right: 10px;
+}
+
+.Profile {
+    margin-left: 10px;
+}
