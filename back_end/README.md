@@ -17,3 +17,8 @@
 - `DB_PASSWORD=(SU_PASSWORD)`
 - `DB_HOST=localhost`
 - `DB_PORT=5432`
+
+7. Ejecuta en el terminal `pip install djangorestframework` para instalar el marco de desarrollo API RESTFUL en Django.
+
+8. Ejecuta `pip install django-cors-headers` para instalar el CORS que va a permitir comunicar SOLO al front con el back.
+
