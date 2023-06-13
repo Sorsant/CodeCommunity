@@ -1,0 +1,17 @@
+.landing {
+    display: block;
+    background-color: rgb(190, 185, 176);
+    border: 2px solid #000;
+    column-count: 2;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    border: 1px solid #000;
+}
+
+.buttons {
+    border-radius: 23px;
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
