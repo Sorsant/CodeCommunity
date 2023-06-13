@@ -6,6 +6,7 @@ import React from 'react';
 import LandingPage from './views/landing/landing';
 import Nav from './views/Nav/nav'
 import QandA from './views/QAPage/QAPage'
+import Register from './views/Register/register';
 
 const App: React.FC = (): JSX.Element => {
   const location = useLocation();
@@ -18,6 +19,7 @@ const App: React.FC = (): JSX.Element => {
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<LandingPage />} />
+        <Route path="/register" element={<Register />} />
         <Route path='/Q&A' element={<QandA />}></Route>
 
       </Routes>
