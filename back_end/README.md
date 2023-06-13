@@ -1,24 +1,19 @@
 
 # PASOS PARA UTILIZAR EL BACK-END
 
-1. Instala **Python 3.11.4**.
+- Instala **Python 3.11.4**.
 
-2. Ejecuta en el terminal `pip install django` para instalar Django.
+- Ejecuta `pip install virtualenv`, luego `python -m venv venv` para instalar el entorno virtual que se llamara "venv".
 
-3. Ejecuta en el terminal `pip install psycopg2` para instalar el adaptador de PostgreSQL.
+- Ejecuta `.\venv\Scripts\Activate.ps1` para activar el entorno virtual en la consola. En caso de que te aparezca un error *"la ejecución de scripts está deshabilitada en este sistema"* dale click derecho al icono de windows y selecciona la opción "Powershell (administrador)" y ejecutas `Set-ExecutionPolicy RemoteSigned` para permitir la ejecucion de entornos virtuales. Despues de terminar de trabajar con el entorno virtual se recomienda restablecer la politica de ejecucion con el comando `Set-ExecutionPolicy Restricted`.
 
-4. Ejecuta en el terminal `pip install python-decouple` para isntalar la biblioteca que nos permitira utilizar el `.env`
+- Ejecuta en el terminal `pip install -r requirements.txt` para instalar todas las dependecias necesarias.
 
-5. Entras a la terminal de PostgreSQL y vas a ejecutar `CREATE DATABASE codecommunity;`
+- Entras a la terminal de PostgreSQL y vas a ejecutar `CREATE DATABASE codecommunity;`
 
-6. Crea un archivo `.env` y vas a agregar los siguientes datos:
-- `DB_NAME=codecommunity`
-- `DB_USER=postgres`
-- `DB_PASSWORD=(SU_PASSWORD)`
-- `DB_HOST=localhost`
-- `DB_PORT=5432`
-
-7. Ejecuta en el terminal `pip install djangorestframework` para instalar el marco de desarrollo API RESTFUL en Django.
-
-8. Ejecuta `pip install django-cors-headers` para instalar el CORS que va a permitir comunicar SOLO al front con el back.
-
+- Crea un archivo `.env` y vas a agregar los siguientes datos:
+  - `DB_NAME=codecommunity`
+  - `DB_USER=postgres`
+  - `DB_PASSWORD=(SU_PASSWORD)`
+  - `DB_HOST=localhost`
+  - `DB_PORT=5432`
