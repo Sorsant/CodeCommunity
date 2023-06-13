@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import Thread from '../../components/Answer/Hilo';
 import styles from './QandA.module.css'
 import Posteo from './Question/Post';
@@ -33,9 +34,12 @@ const QandA: React.FC = () => {
                     <Thread key={thread.id} threadId={thread.id} tweets={thread.tweets} addTweet={addTweet} />
                 </div>
             ))}
+
         </div>
     );
 };
 
+
 export default QandA;
+
 
