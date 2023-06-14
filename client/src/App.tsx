@@ -10,6 +10,7 @@ import Register from "./views/Register/register";
 import Profile from "./views/profile/profile";
 import CommunityForm from "./views/CommunityForm/communityForm";
 import Edit from "./views/profile/edit";
+import CommunityCards from "./views/Community/communityCards";
 
 const App: React.FC = (): JSX.Element => {
   const location = useLocation();
@@ -18,7 +19,8 @@ const App: React.FC = (): JSX.Element => {
     <div>
       {location.pathname !== "/" ? <Nav /> : null}
       <Routes>
-        <Route path="/nosedonde" element={<CommunityForm />} />
+        <Route path="/communities" element={<CommunityCards />}/> {/*Revisar estas rutas, aun no estan bien definidas*/}
+        <Route path="/nosedonde" element={<CommunityForm />} /> {/*Revisar estas rutas, aun no estan bien definidas*/}
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<LandingPage />} />
