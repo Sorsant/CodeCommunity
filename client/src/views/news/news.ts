@@ -63,15 +63,6 @@ export const Data = [
         "Category": "Html Css"
       },
       {
-        "Title": "HTML and CSS in Emails: What Works in 2023?",
-        "Description": "Arguably, one of the most exciting aspects of web development in recent years has been a significantly more consistent level of support for new HTML, CSS, and ECMAScript (JavaScript) standards amongst web browsers. However, the same cannot be said for email clients despite the introduction of fresh features such as media queries, flex, rem units, and more.",
-        "Date": "JANUARY 10, 2023",
-        "Author": "DANIEL SCHWARZ",
-        "Link": "https://designmodo.com/html-css-emails/",
-        "Image": "https://blog.embluemail.com/wp-content/uploads/2018/02/diseniook-750x422_emblue.png",
-        "Category": "Html Css"
-      },
-      {
         "Title": "How To Use SASS In Your Create-React-App",
         "Description": "Create-react-app is facebook's attempt at setting up a developer to get started building react apps very quickly. It is a boilerplate that comes pre-configured with a wide array of tools and technologies that ensure a smooth running react application. However, create-react-app does not come with Sass preprocessing by default. To add sass preprocessing, we would need to add an extra dependency to our list of dependencies known as node-sass.",
         "Date": "April 21st 2020",
