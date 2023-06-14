@@ -8,7 +8,8 @@ import LandingPage from './views/landing/landing';
 import Nav from './views/Nav/nav'
 import QandA from './views/QAPage/QAPage'
 import Register from './views/Register/register';
-        import Profile from "./views/profile/profile";
+import Profile from "./views/profile/profile";
+import CommunityForm from './views/CommunityForm/communityForm';
 
 
 const App: React.FC = (): JSX.Element => {
@@ -19,6 +20,7 @@ const App: React.FC = (): JSX.Element => {
       {location.pathname !== "/" ? <Nav /> : null}
       <Routes>
 
+        <Route path="/nosedonde" element={<CommunityForm />} />
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<LandingPage />} />
