@@ -27,10 +27,14 @@ const Nav: React.FC = (): JSX.Element => {
         </Link>
       </button>
       <div className={styles.divNQP}>
-        <Link to="/notices" className={styles.notices}>
+        <Link to="/news" className={styles.notices}>
           <h1>Notices</h1>
         </Link>
-
+        <button className={styles.home}>
+        <Link to="/communities">
+          <h1>Community</h1>
+        </Link>
+      </button>
         <Link to="/Q&A" className={styles.QandA}>
           <h1>Q&A</h1>
         </Link>
