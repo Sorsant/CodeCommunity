@@ -6,10 +6,12 @@ import React from "react";
 import LandingPage from "./views/landing/landing";
 import Nav from "./views/Nav/nav";
 import QandA from "./views/QAPage/QAPage";
-import Register from "./views/register/register";
+import Register from "./views/Register/register";
 import Profile from "./views/profile/profile";
 import CommunityForm from "./views/CommunityForm/communityForm";
 import Edit from "./views/profile/edit";
+import CommunityCards from "./views/Community/communityCards";
+import NewsCards from "./views/news/newsCards";
 
 const App: React.FC = (): JSX.Element => {
   const location = useLocation();
@@ -18,7 +20,8 @@ const App: React.FC = (): JSX.Element => {
     <div>
       {location.pathname !== "/" ? <Nav /> : null}
       <Routes>
-        <Route path="/nosedonde" element={<CommunityForm />} />
+        <Route path="/communities" element={<CommunityCards />}/> {/*Revisar estas rutas, aun no estan bien definidas*/}
+        <Route path="/nosedonde" element={<CommunityForm />} /> {/*Revisar estas rutas, aun no estan bien definidas*/}
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<LandingPage />} />
@@ -26,6 +29,7 @@ const App: React.FC = (): JSX.Element => {
         <Route path="/Q&A" element={<QandA />}></Route>
         <Route path="/profile" element={<Profile />} />
         <Route path="/edit" element={<Edit />} />
+        <Route path="/News" element={<NewsCards />} />  {/*Revisar estas rutas, aun no estan bien definidas*/}
       </Routes>
     </div>
   );
