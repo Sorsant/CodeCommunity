@@ -1,4 +1,4 @@
-const Data = [
+export const Data = [
     {
       "Title": "AI and coding: How these tech companies are using generative AI for programming",
       "Description": "BOT or NOT? This special series explores the evolving relationship between humans and machines, examining the ways that robots, artificial intelligence and automation are impacting our work and lives.",
@@ -52,15 +52,6 @@ const Data = [
         "Link": "https://www.databasejournal.com/mysql/mongodb-vs-mysql-database-journal/",
         "Image": "https://www.interviewbit.com/blog/wp-content/uploads/2021/10/1.png",
         "Category": "mongoDB, MySQL "
-      },
-      {
-        "Title": "HTML and CSS in Emails: What Works in 2023?",
-        "Description": "Arguably, one of the most exciting aspects of web development in recent years has been a significantly more consistent level of support for new HTML, CSS, and ECMAScript (JavaScript) standards amongst web browsers. However, the same cannot be said for email clients despite the introduction of fresh features such as media queries, flex, rem units, and more.",
-        "Date": "JANUARY 10, 2023",
-        "Author": "DANIEL SCHWARZ",
-        "Link": "https://designmodo.com/html-css-emails/",
-        "Image": "https://blog.embluemail.com/wp-content/uploads/2018/02/diseniook-750x422_emblue.png",
-        "Category": "Html Css"
       },
       {
         "Title": "HTML and CSS in Emails: What Works in 2023?",
