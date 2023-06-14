@@ -22,13 +22,13 @@ const CommunityCard: React.FC <Communities> = ({name, description, language, ima
 
                     <img className={styles.image} src={image} alt="Image Not Found" />
 
-                    <h2>{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
+                    <h2 className={styles.text}>{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
 
-                    <h3>{language}</h3>
+                    <h3 className={styles.description}>{language}</h3>
                     
                     <div>
 
-                        <p>{description}</p>
+                        <p className={styles.description}>{description}</p>
 
                     </div>
                 </div>
