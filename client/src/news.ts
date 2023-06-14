@@ -1,4 +1,4 @@
-const Data = [
+export const Data = [
     {
       "Title": "AI and coding: How these tech companies are using generative AI for programming",
       "Description": "BOT or NOT? This special series explores the evolving relationship between humans and machines, examining the ways that robots, artificial intelligence and automation are impacting our work and lives.",

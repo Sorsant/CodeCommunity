@@ -5,7 +5,7 @@
     border: 2px solid #000;
     margin-left: 15vw;
     width: 20vw;
-    height: 50%;
+    height: 60%;
     border-radius: 10px;
     padding: 7px;
     margin-top: 25vh;
@@ -14,12 +14,15 @@
 
 .form {
     display: flex;
+    font-size: large;
+    text-align: center;
     flex-direction: column;
 }
 
 .data {
     border: 1px solid #ccc;
+    font-size: large;
     border-radius: 2px;
-    padding: 4px 6px;
-    margin: 0 4px;
+    padding: 30px 30px;
+    margin: 10px 4px;
 }
