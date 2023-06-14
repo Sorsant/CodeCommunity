@@ -1,11 +1,13 @@
 from django.db import models
 from .language import Language
-from django.contrib.auth.models import AbstractUser
+from .community import Community
+
 
 # Create your models here.
 
 class User(models.Model):
-    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+    language = models.ManyToManyField(Language)
+    community = models.ManyToManyField(Community)
     
     name = models.CharField()
     password = models.CharField()
