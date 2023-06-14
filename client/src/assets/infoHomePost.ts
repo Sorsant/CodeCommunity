@@ -110,3 +110,5 @@ const posteos = [
         gitHub: "https://github.com/"
     }
 ];
+
+export default posteos;

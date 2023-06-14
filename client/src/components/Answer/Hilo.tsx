@@ -20,7 +20,7 @@ const Thread: React.FC<ThreadProps> = ({ threadId, tweets, addTweet }) => {
     };
 
     return (
-        <div>
+        <div className={styles.hilo}>
             {tweets.map((tweet, index) => (
                 <div key={index}>
                     <div>{tweet}</div>

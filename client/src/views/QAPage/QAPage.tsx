@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Thread from '../../components/Answer/Hilo';
 import styles from './QandA.module.css'
-import Posteo from './Question/Post';
+import Posteo from './Form/Post';
 
 const QandA: React.FC = () => {
     const [threads, setThreads] = useState<{ id: string; tweets: string[] }[]>([]);
@@ -27,7 +27,7 @@ const QandA: React.FC = () => {
                 throw new Error('Function not implemented.');
             }} />
 
-            <button onClick={createThread}>Crear nuevo hilo</button>
+            <button onClick={createThread} className={styles.crearHilo}>Crear nuevo hilo</button>
 
             {threads.map(thread => (
                 <div>
