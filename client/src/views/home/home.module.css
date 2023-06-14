@@ -1,0 +1,15 @@
+.Container img {
+    width: 300px;
+    height: 300px;
+}
+
+.Container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-size: 10px;
+}
+
+.NewsCard {
+    font-size: 8px;
+    text-align: left;
+}

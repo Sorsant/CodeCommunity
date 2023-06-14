@@ -11,7 +11,8 @@ import Profile from "./views/profile/profile";
 import CommunityForm from "./views/CommunityForm/communityForm";
 import Edit from "./views/profile/edit";
 import CommunityCards from "./views/Community/communityCards";
-
+import PostDetail from "./views/detail/detail";
+import NewsCards from "./views/news/newsCards";
 const App: React.FC = (): JSX.Element => {
   const location = useLocation();
 
@@ -19,8 +20,10 @@ const App: React.FC = (): JSX.Element => {
     <div>
       {location.pathname !== "/" ? <Nav /> : null}
       <Routes>
-        <Route path="/communities" element={<CommunityCards />}/> {/*Revisar estas rutas, aun no estan bien definidas*/}
-        <Route path="/nosedonde" element={<CommunityForm />} /> {/*Revisar estas rutas, aun no estan bien definidas*/}
+        <Route path="/communities" element={<CommunityCards />} />{" "}
+        {/*Revisar estas rutas, aun no estan bien definidas*/}
+        <Route path="/nosedonde" element={<CommunityForm />} />{" "}
+        {/*Revisar estas rutas, aun no estan bien definidas*/}
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<LandingPage />} />
@@ -28,6 +31,10 @@ const App: React.FC = (): JSX.Element => {
         <Route path="/Q&A" element={<QandA />}></Route>
         <Route path="/profile" element={<Profile />} />
         <Route path="/edit" element={<Edit />} />
+        <Route path="/news" element={<NewsCards />} />
+        {/*Revisar estas rutas, aun no estan bien definidas*/}
+        <Route path="/detail" element={<PostDetail />} />{" "}
+        {/* tengo que agregarle lo del params */}
       </Routes>
     </div>
   );
