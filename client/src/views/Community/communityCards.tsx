@@ -10,7 +10,7 @@ const CommunityCards: React.FC = () : JSX.Element => {
             {
                 communities?.map((community) => {
                     return(
-                        <div key={community.name} className={styles.card}>
+                        <div key={community.name} className={styles.div}>
                             <CommunityCard 
                             name={community.name}
                             description={community.description}
