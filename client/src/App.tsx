@@ -7,7 +7,7 @@ import React from 'react';
 import LandingPage from './views/landing/landing';
 import Nav from './views/Nav/nav'
 import QandA from './views/QAPage/QAPage'
-import Register from './views/Register/register';
+import Register from './views/register/register';
 import Profile from "./views/profile/profile";
 import CommunityForm from './views/CommunityForm/communityForm';
 
