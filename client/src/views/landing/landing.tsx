@@ -12,12 +12,12 @@ const LandingPage: React.FC = () : JSX.Element => {
                 <Link to="/register"><h1>Registrate</h1></Link>
             </button>
             <button className={styles.buttons}>
-                <Link to="/home"><h1>Navega como invitado</h1></Link>
+                <Link to="/home"><h1>Navega como invitado!</h1></Link>
             </button>
             <div className={styles.container}>
             <div>
                 <Login /> 
-            </div>
+            </div> 
             </div>
         </div>
     )
