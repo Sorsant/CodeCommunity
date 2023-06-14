@@ -45,7 +45,7 @@ const Data = [
         "Category": "Java"
       },
       {
-        "Title": "mongoDB vs. MySQL",
+        "Title": "MongoDB vs. MySQL",
         "Description": "In this article, we are going to learn about MongoDB vs MySQL. We will walk you through the difference between MongoDB and MySQL, what are their features, which one to choose when, their advantages, disadvantages, and many more questions. In short, at the end of this article, you will have a good understanding of the fundamentals of MongoDB and MySQL.",
         "Date": "July 7, 2022",
         "Author": "David Manda",

@@ -1,13 +1,8 @@
-import { useState } from "react";
 import style from "./profile.module.css";
 import imagen from "./default.png";
+import { Link } from "react-router-dom";
 
 const Profile: React.FC = () => {
-  const [info, setInfo] = useState({
-    name: "name",
-    image: "xd",
-    description: "testing description",
-  });
   return (
     <div>
       <header className={style.header}>
@@ -15,7 +10,9 @@ const Profile: React.FC = () => {
           <h1 className={style.title}>Profile</h1>
         </div>
         <div className={style.containerButton}>
-          <button className={style.edit}>Edit</button>
+          <Link to="/edit">
+            <button className={style.edit}>Edit</button>
+          </Link>
         </div>
       </header>
 
