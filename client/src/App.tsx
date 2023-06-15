@@ -33,7 +33,7 @@ const App: React.FC = (): JSX.Element => {
         <Route path="/edit" element={<Edit />} />
         <Route path="/news" element={<NewsCards />} />
         {/*Revisar estas rutas, aun no estan bien definidas*/}
-        <Route path="/detail" element={<PostDetail />} />{" "}
+        <Route path="/detail/:id" element={<PostDetail />} />{" "}
         {/* tengo que agregarle lo del params */}
       </Routes>
     </div>
