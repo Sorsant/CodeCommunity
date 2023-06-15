@@ -17,7 +17,7 @@ const Home: React.FC = () => {
 
     return (
         <div className={styles.Container} >
-            <div>
+            <div className={styles.communityCard}>
                 <CommunityCard />
             </div>
             <div className={styles.PosteoCard}>
