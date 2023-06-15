@@ -4,5 +4,5 @@ from django.db import models
 class Community(models.Model):    
     name = models.CharField()
 
-    def str(self):
-        return self.username
+    def __str__(self):
+        return self.name

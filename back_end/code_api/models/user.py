@@ -18,5 +18,5 @@ class User(models.Model):
     postulation = models.BooleanField()
     email = models.EmailField()
 
-    def str(self):
-        return self.username
+    def __str__(self):
+        return self.nickname
