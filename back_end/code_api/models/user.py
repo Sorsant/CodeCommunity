@@ -7,9 +7,9 @@ from .community import Community
 
 class User(models.Model):
     language = models.ManyToManyField(Language)
-    community = models.ManyToManyField(Community)
+    community = models.ManyToManyField(Community, default = 1)
     
-    name = models.CharField()
+    name = models.CharField(max_length=255)
     password = models.CharField()
     nickname = models.CharField()
     lastname = models.CharField()
@@ -19,4 +19,4 @@ class User(models.Model):
     email = models.EmailField()
 
     def __str__(self):
-        return self.nickname
+        return self.name
