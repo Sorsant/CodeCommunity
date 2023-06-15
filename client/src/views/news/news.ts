@@ -9,7 +9,7 @@ export const Data = [
       "Category": "AI"
     },
     {
-        "Title": "THE BASICS OF CODING AND PROGRAMMING THAT YOU NEED TO KNOW",
+        "Title": "The basic of coding and programming that you need to know",
         "Description": "Coding and programming are two words that are often used interchangeably.However, they refer to two different aspects of computer science. Coding refers to the process of converting human-readable instructions (in natural language) into machine-readable commands (in a programming language). Programming refers to the process of designing, implementing, and testing software applications using programming languages. In this article, we’ll cover the basics of coding and programming that you need to know.",
         "Date": "JUNE 14, 2023",
         "Author": "MATTHEW LYNC",
