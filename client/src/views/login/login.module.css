@@ -1,0 +1,40 @@
+.Formu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 8px 8px 8px 1px rgba(0, 0, 0, 0.2);
+    border: 1px solid #000;
+    background-color:lightgray;
+    width: 500px;
+    height: 32%;
+}
+.containerdiv{
+        margin-top: 40px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+}
+
+.Account{
+    color: brown;
+    font-size: 20px;
+}
+.Password{
+    color: brown;
+    font-size: 20px;
+}
+.AccountLabel{
+    font-size: 21px;
+}
+.PasswordLabel{
+    font-size: 21px;
+}
+hr{
+    border:none
+}
+.container{
+    font-size: 15px;
+    width: 10%; 
+}
