@@ -11,5 +11,3 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
-    
-    # Preguntar por lo que se debe devolver en la linea decimotercera

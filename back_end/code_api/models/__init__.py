@@ -1,3 +1,4 @@
+from .news import News
 from .answer import Answer
 from .question import Question
 from .language import Language

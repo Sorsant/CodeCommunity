@@ -5,6 +5,7 @@ from .models.language import Language
 from .models.news import News
 from .models.community import Community
 from .models.user import User
+from .models.community import Community
 
 # Register your models here.
 admin.site.register(Question)
