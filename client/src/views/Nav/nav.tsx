@@ -16,7 +16,7 @@ const Nav: React.FC = (): JSX.Element => {
           </Link>
         </button>
         <button className={styles.LogIn}>
-          <Link to="/Log in">
+          <Link to="/login">
             <h1>Log in</h1>
           </Link>
         </button>
