@@ -1,15 +1,12 @@
-
 .card {
     position: relative;
     display: flex;
     border: 2px solid #000;
-    margin-left: 15vw;
     width: 20.5vw;
     height: 6vw;
     border-radius: 15px;
     padding: 7px;
-    margin-top: 1vh;
-    margin-left: 77vw;
+    margin-left: 90px;
 }
 
 .container {

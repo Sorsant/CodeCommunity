@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./communityCard.module.css";
+import styles from "./card.module.css";
 
 interface posteos {
     id: number;
@@ -26,22 +26,17 @@ const postCard: React.FC<posteos> = ({ nickname, description, user_imagen, titul
 
             <div>
                 <h3>{nickname}</h3>
-                <img src={user_imagen} alt={nickname} />
+                <img src={user_imagen} alt={nickname} className={styles.img1} />
                 <Link to={`/${id}`}><h2>{titulo}</h2></Link>
                 <h4>{description}</h4>
-                <img src={imagen} alt="imagen" />
+                <img src={imagen} alt={imagen} className={styles.img2} />
                 <h5>{gitHub}</h5>
                 <div>
                     <h5>{createDate}</h5>
                     <h5>{likes}</h5>
-
                 </div>
-
-
                 <div>
-
                     <p>{description}</p>
-
                 </div>
             </div>
         </div>
