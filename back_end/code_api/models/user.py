@@ -13,7 +13,6 @@ class User(models.Model):
     password = models.CharField()
     nickname = models.CharField()
     lastname = models.CharField()
-    language = models.CharField()
     birthday = models.DateField()
     postulation = models.BooleanField()
     email = models.EmailField()
