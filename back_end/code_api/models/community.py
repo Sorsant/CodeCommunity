@@ -6,7 +6,7 @@ class Community(models.Model):
     language = models.ManyToManyField(Language)
     
     name = models.CharField()
-    description = models.TextField()   
+    description = models.TextField()
     users = models.IntegerField(default=0)
     
     def __str__(self):
