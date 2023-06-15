@@ -21,7 +21,6 @@ const PosteoCards: React.FC = (): JSX.Element => {
                                 likes={post.likes}
                                 createDate={post.createDate}
                                 gitHub={post.gitHub}
-
                             />
                         </div>
                     )
