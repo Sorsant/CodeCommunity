@@ -7,3 +7,4 @@ from .community import Community
 from .post import Post
 from .likes import Likes
 from .comments import Comments
+from .admin import Admin
