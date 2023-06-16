@@ -64,7 +64,10 @@ const Posteohome: React.FC = (): JSX.Element => {
         event.preventDefault();
     };
 
+    const lauti = "gato"
+
     return (
+
         <div>
             <div>
                 <form onSubmit={handleOnSubmit}>
