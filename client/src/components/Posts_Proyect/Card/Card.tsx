@@ -16,7 +16,7 @@ interface posteos {
 
 //interface User {}
 
-const postCard: React.FC<posteos> = ({
+const postCard: React.FC <posteos> = ({
   nickname,
   description,
   user_imagen,
@@ -28,24 +28,22 @@ const postCard: React.FC<posteos> = ({
   createDate,
 }): JSX.Element => {
   return (
-    <div>
+    <div className={styles.container}>
       {/*Revisar el parametro para identificar el grupo*/}
-
       <div>
-        <h3>{nickname}</h3>
+        <h3 className={styles.text1}>{nickname}</h3>
         <img src={user_imagen} alt={nickname} className={styles.img1} />
         <Link to={`/detail/${id}`}>
-          <h2>{titulo}</h2>
+          <h2 className={styles.text3}>{titulo}</h2>
         </Link>
-        <h4>{description}</h4>
         <img src={imagen} alt={imagen} className={styles.img2} />
-        <h5>{gitHub}</h5>
-        <div>
-          <h5>{createDate}</h5>
-          <h5>{likes}</h5>
+        <h5 className={styles.text2}>Github: {gitHub}</h5>
+        <div className={styles.container2}>
+          <h5 className={styles.text2}>Created at: {createDate}</h5>
+          <h5 className={styles.text2}>{likes}⭐</h5>
         </div>
         <div>
-          <p>{description}</p>
+          <p className={styles.text2}>{description}</p>
         </div>
       </div>
     </div>
