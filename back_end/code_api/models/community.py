@@ -1,12 +1,14 @@
+from django.utils import timezone
 from .language import Language
 from django.db import models
 
 # Create your models here.
 class Community(models.Model):    
     language = models.ManyToManyField(Language)
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
     description = models.TextField(max_length=2000)
-    created = models.DateTimeField(auto_now_add=True, editable=False)
+    image = models.CharField(max_length=255)
+    created = models.DateTimeField(default=timezone.now, editable=False)
     
     def __str__(self):
         return self.name
