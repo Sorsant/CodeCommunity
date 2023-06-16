@@ -19,7 +19,7 @@ export const communities = [
       image: "https://i.pravatar.cc/300"
     },
     {
-      name: "PhotographyEnthusiasts",
+      name: "PhotographyLovers",
       description: "Comunidad para aficionados a la fotografía",
       language: "Java",
       image: "https://i.pravatar.cc/300"
