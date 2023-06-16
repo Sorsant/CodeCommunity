@@ -5,8 +5,9 @@
     width: 20.5vw;
     height: 6vw;
     border-radius: 15px;
-    padding: 7px;
+    padding: 6px;
     margin-left: 90px;
+    margin-top: 2px;
 }
 
 .container {
@@ -15,7 +16,7 @@
 
 .text {
     margin-left: 6vw;
-    margin-top: -5vw;
+    margin-top: -5.4vw;
 }
 
 .description {
