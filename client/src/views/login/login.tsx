@@ -78,8 +78,8 @@ setErrors(updatedErrors)
           disabled={
             !state.Password ||
             !state.Account ||
-            !!errors.Account ||
-            !!errors.Password
+            !errors.Account ||
+            !errors.Password
           }
         >
           Log In
