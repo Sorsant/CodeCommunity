@@ -5,14 +5,15 @@
 }
 
 .button-estilo {
-    margin-left: 1845px;
-    margin-top: -50px;
+    margin-left: 1830px;
+    margin-top: -70px;
+    width: 50px;
+    height: 50px;
 }
 
 .title {
     color: white;
     margin-right: 900px;
-
 }
 
 .containerNav {
@@ -20,9 +21,9 @@
 }
 
 .logo {
-    width: 80px;
-    height: 80px;
-    margin-left: 600px;
+    width: 60px;
+    height: 60px;
+    margin-left: 627px;
 }
 
 .logOut {
@@ -43,9 +44,9 @@
 }
 
 .logOut span h1 {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
 .logOut span {
@@ -70,7 +71,7 @@
 
 .logOut::before {
     content: "";
-    background: #000;
+    background: #ffffff;
     width: 120%;
     left: -10%;
     transform: skew(30deg);
@@ -81,10 +82,9 @@
     transform: translate3d(100%, 0, 0);
 }
 
-
 div.containerNav button.navbar-toggler {
     margin-left: auto;
-    width: 50px;
+    width: 150px;
     height: 250px;
 }
 

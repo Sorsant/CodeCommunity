@@ -5,7 +5,7 @@ import styles from './nav.module.css'
 const Nav: React.FC = (): JSX.Element => {
   return (
     <div className={styles.containerNav}>
-      <nav className="navbar navbar-dark bg-dark fixed-top">
+      <nav className="navbar navbar-dark bg-dark ">
         <Link to="/">
           <button className={styles.logOut}>
             <span>
