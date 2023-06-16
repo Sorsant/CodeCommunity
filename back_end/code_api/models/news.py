@@ -1,14 +1,16 @@
 from django.db import models
+from django.utils import timezone
 from .category import Category
 
 # Create your models here.
 class News(models.Model):    
     title = models.CharField(max_length=255)
     description = models.TextField(max_length=5000)
-    author = models.CharField(max_length=255)
+    image = models.CharField(max_length=255, blank=True)
+    author = models.CharField(max_length=255, blank=True)
     category = models.ManyToManyField(Category)
-    link = models.CharField(max_length=255)
-    created = models.DateTimeField(auto_now_add=True, editable=False)
+    link = models.CharField(max_length=255, blank=True)
+    created = models.DateTimeField(default=timezone.now, editable=False)
 
     def __str__(self):
         return self.title
