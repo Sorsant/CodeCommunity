@@ -13,6 +13,7 @@ import Edit from "./views/profile/edit";
 import CommunityCards from "./views/Community/communityCards";
 import PostDetail from "./views/detail/detail";
 import NewsCards from "./views/news/newsCards";
+import Form from "./components/News Post/Form";
 const App: React.FC = (): JSX.Element => {
   const location = useLocation();
 
@@ -35,6 +36,7 @@ const App: React.FC = (): JSX.Element => {
         {/*Revisar estas rutas, aun no estan bien definidas*/}
         <Route path="/detail/:id" element={<PostDetail />} />{" "}
         {/* tengo que agregarle lo del params */}
+        <Route path="/newsform" element={<Form />} />
       </Routes>
     </div>
   );
