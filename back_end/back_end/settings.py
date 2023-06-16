@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_filters',
     'rest_framework',
-    'django_filters',
     'code_api'
 ]
 
@@ -142,6 +141,6 @@ CORS_ALLOWED_ORIGINS = [
 # Django Filters
 
 # Filters global
-REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+# }
