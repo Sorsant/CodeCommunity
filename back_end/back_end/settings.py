@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-c1hf(lp1c^xo)2=v8ot8gye(jdx1cia3vl*d-vayf#_q=w-@vw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'django_filters',
     'rest_framework',
     'code_api'
 ]
@@ -137,10 +136,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "https://example.com"
 ]
-
-# Django Filters
-
-# Filters global
-# REST_FRAMEWORK = {
-#     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
-# }
