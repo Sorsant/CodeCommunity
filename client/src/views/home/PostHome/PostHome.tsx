@@ -2,44 +2,33 @@ import React, { useState } from 'react';
 import validate from './validatePost';
 
 interface FormPost {
-    nickname: string;
-    user_imagen: string;
-    titulo: string;
+
+    title: string;
     description: string;
-    imagen: string;
-    createDate: string;
+    image: string;
+
 }
 
 interface ErroresRegister {
-    nickname?: string;
-    user_imagen?: string;
-    titulo?: string;
+
+    title?: string;
     description?: string;
-    imagen?: string;
+    image?: string;
 
 }
 
 const Posteohome: React.FC = (): JSX.Element => {
-    const getCurrentDate = (): string => {
-        const currentDate = new Date().toLocaleString();
-        return currentDate;
-    };
 
 
     const [post, setPost] = useState<FormPost>({
-        nickname: '',
-        user_imagen: '',
-        imagen: '',
-        titulo: '',
+        image: '',
+        title: '',
         description: '',
-        createDate: getCurrentDate(),
     });
 
     const [errors, setErrors] = useState<ErroresRegister>({
-        nickname: '',
-        user_imagen: '',
-        imagen: '',
-        titulo: '',
+        image: '',
+        title: '',
         description: '',
     });
 
@@ -64,8 +53,6 @@ const Posteohome: React.FC = (): JSX.Element => {
         event.preventDefault();
     };
 
-    const lauti = "gato"
-
     return (
 
         <div>
@@ -76,12 +63,12 @@ const Posteohome: React.FC = (): JSX.Element => {
                         <label>Title</label>
                         <input
                             onChange={handleOnChange}
-                            value={post.titulo}
+                            value={post.title}
                             type="text"
                             name="titulo"
                             placeholder="your title"
                         />
-                        {errors.nickname && <span>{errors.nickname}</span>}
+                        {errors.title && <span>{errors.title}</span>}
 
                         <label>Description</label>
                         <input
@@ -93,21 +80,21 @@ const Posteohome: React.FC = (): JSX.Element => {
                         />
                         {errors.description && <span>{errors.description}</span>}
 
-                        <label>Imagen</label>
+                        <label>Image</label>
                         <input
                             onChange={handleOnChange}
-                            value={post.imagen}
+                            value={post.image}
                             type="image"
                             name="imagen"
                         />
-                        {errors.imagen && <span>{errors.imagen}</span>}
+                        {errors.image && <span>{errors.image}</span>}
 
 
                         <button
                             disabled={
-                                !post.titulo ||
+                                !post.title ||
                                 !post.description ||
-                                !errors.titulo ||
+                                !errors.title ||
                                 !!errors.description
                             }>
                             post
