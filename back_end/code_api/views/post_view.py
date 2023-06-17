@@ -9,5 +9,5 @@ class PostView(viewsets.ModelViewSet):
   queryset = Post.objects.all()
 
   filter_backends = [filters.SearchFilter, filters.OrderingFilter]
-  search_fields = ['title', 'description', 'username', 'created']
-  ordering_fields = ['title', 'description', 'username', 'created']
+  search_fields = ['title', 'description', 'user__name', 'created']
+  ordering_fields = ['title', 'description', 'user__name', 'created']
