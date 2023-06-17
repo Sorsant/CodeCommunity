@@ -1,5 +1,5 @@
 from django.urls import path, include
-from . import answer_urls, community_urls, language_urls, news_urls, question_urls, user_urls, post_urls, likes_urls, comments_urls
+from . import answer_urls, community_urls, language_urls, news_urls, question_urls, user_urls, post_urls, likes_urls, comments_urls, category_urls
 
 urlpatterns = [
     path("api/", include(answer_urls)),
@@ -10,5 +10,6 @@ urlpatterns = [
     path("api/", include(user_urls)),
     path("api/", include(post_urls)),
     path("api/", include(likes_urls)),
-    path("api/", include(comments_urls))
+    path("api/", include(comments_urls)),
+    path("api/", include(category_urls))
 ]
