@@ -1,0 +1,57 @@
+.Formu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 8px 8px 8px 1px rgba(0, 0, 0, 0.2);
+    border: 1px solid #000;
+    background-color:lightgray;
+    width: 600px;
+    height: 32%;
+}
+.containerdiv{
+        margin-top: 40px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+}
+
+label{
+    font-size: 15px;
+}
+.errorAuthor{
+    color: brown;
+    font-size: 15px;
+}
+.errorCategory{
+    color: brown;
+    font-size: 15px;
+}
+.errorCreateDate{
+    color: brown;
+    font-size: 15px;
+}
+.errorImage{
+    color: brown;
+    font-size: 15px;
+}
+.errorDescription{
+    color: brown;
+    font-size: 15px;
+}
+.errorTitle{
+    color: brown;
+    font-size: 15px;
+}
+.errorcreateDate{
+    color: brown;
+    font-size: 15px;
+}
+hr{
+    border:none
+}
+.container{
+    font-size: 15px;
+    width: 10%; 
+}
