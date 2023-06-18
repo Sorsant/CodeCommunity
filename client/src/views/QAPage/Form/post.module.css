@@ -1,0 +1,28 @@
+.form {
+    text-align: center;
+    margin-left: 600px;
+    background-color: rgb(207, 167, 93);
+    border-radius: 20px;
+    width: 30%;
+}
+
+.title {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.content {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.form button {
+    width: 100px;
+    height: 40px;
+    background-color: rgb(43, 41, 41);
+    color: white;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
