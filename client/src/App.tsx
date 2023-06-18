@@ -13,6 +13,8 @@ import Edit from "./views/profile/edit";
 import PostDetail from "./views/detail/detail";
 import Form from "./components/News Post/Form";
 import Books from "./views/Education/Books/books";
+import About from "./views/about/About";
+
 
 const App: React.FC = (): JSX.Element => {
   const location = useLocation();
@@ -35,6 +37,8 @@ const App: React.FC = (): JSX.Element => {
         <Route path="/detail/:id" element={<PostDetail />} />{" "}
         {/* tengo que agregarle lo del params */}
         <Route path="/newsform" element={<Form />} />
+        <Route path="/about" element={<About />}/>
+        
       </Routes>
     </div>
   );
