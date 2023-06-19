@@ -12,7 +12,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [ '*' ]
 
-CSRF_TRUSTED_ORIGINS = [ 'https://example.com' ]
+CSRF_TRUSTED_ORIGINS = [ 'https://codecommunity-production.up.railway.app' ]
 
 
 # Database
