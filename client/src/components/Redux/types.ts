@@ -1,13 +1,15 @@
+// types.ts
+export const GET_ALL_POST = 'GET_ALL_POST';
+export const GET_BY_NAME = "GET_BY_NAME";
+export const FILTER_ABC = "FILTER_ABC";
+// export const ADD_POST = 'ADD_POST';
+
 export interface Post {
-    id: number;
-    user_imagen: string;
-    nickname: string;
+    user: number;
+    title: string;
     description: string;
-    titulo: string;
-    imagen: string;
-    createDate: string;
-    gitHub: string;
-    likes: number;
+    image: string;
+    created: string;
 }
 
 export interface AppState {
@@ -15,9 +17,7 @@ export interface AppState {
     posteoFilter: Post[];
 }
 
-export const GET_ALL_POST = 'GET_ALL_POST';
-export const GET_BY_NAME = "GET_BY_NAME";
-export const FILTER_ABC = "FILTER_ABC";
+
 
 export interface GetPostsAction {
     type: typeof GET_ALL_POST;
@@ -30,3 +30,8 @@ export interface GetFilterABC {
 }
 
 export type ActionTypes = GetFilterABC | GetPostsAction;
+// export interface AddPostsAction {
+//     type: typeof ADD_POST;
+//     payload: Post[];
+// }
+

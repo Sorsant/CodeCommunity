@@ -8,6 +8,7 @@ import styles from './home.module.css'
 import SearchBar from '../../components/SearchBar/searchBar'
 import Filter from '../../components/Filter/Filter';
 
+//import Posteohome from './PostHome/PostHome';
 const Home: React.FC = () => {
     const dispatch = useDispatch();
 
@@ -34,6 +35,7 @@ const Home: React.FC = () => {
                 <Filter/>
             </div>
             {/* <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} /> */}
+            {/* <Posteohome /> */}
             <div className={styles.communityCard}>
                 <CommunityCard />
             </div>

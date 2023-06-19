@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import validate from './validatePost';
-
+import { useDispatch } from 'react-redux';
+//import { addHomePosts } from '../../../components/Redux/action'
 interface FormPost {
 
     title: string;
@@ -18,7 +19,7 @@ interface ErroresRegister {
 }
 
 const Posteohome: React.FC = (): JSX.Element => {
-
+    const dispatch = useDispatch();
 
     const [post, setPost] = useState<FormPost>({
         image: '',
@@ -49,15 +50,16 @@ const Posteohome: React.FC = (): JSX.Element => {
         setErrors(updatedErrors);
     };
 
-    const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-    };
-
+    // const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    //     event.preventDefault();
+    //     dispatch(addHomePosts(post));
+    // };
     return (
 
         <div>
             <div>
-                <form onSubmit={handleOnSubmit}>
+                <form >
+                    {/* onSubmit={handleOnSubmit} */}
                     <div>
                         <div></div>
                         <label>Title</label>
