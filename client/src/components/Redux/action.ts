@@ -1,20 +1,26 @@
-// actions.ts
 import { Dispatch } from 'redux';
-import { GET_ALL_POST, GetPostsAction, Post, FILTER_ABC, GetFilterABC } from './types';
-import data from '../../assets/infoHomePost';
+import { GET_ALL_POST, FILTER_ABC } from './types';
+import axios from 'axios';
+import { ActionTypes } from './types';
 
-export const getPosts = () => (dispatch: Dispatch<GetPostsAction>) => {
-    const hardcodedPosts: Post[] = data;
-
+export const getHomePosts = () => {
+  return async (dispatch: Dispatch<ActionTypes>): Promise<void> => {
+    const endpoint = 'http://127.0.0.1:8000/codec/api/post/';
+    const { data } = await axios.get(endpoint);
     dispatch({
-        type: GET_ALL_POST,
-        payload: hardcodedPosts,
+      type: GET_ALL_POST,
+      payload: data,
     });
+  };
 };
-export const filterAbc = (dispatch: Dispatch<GetFilterABC>) => {
-    const hardcodedPosts: Post[] = data;
-    dispatch ({
-               type: FILTER_ABC,
-                payload: hardcodedPosts,
-            });
-}
+
+export const filterAbc = (payload: any) => {
+  return async (dispatch: Dispatch<ActionTypes>): Promise<void> => {
+    const endpoint = 'http://127.0.0.1:8000/codec/api/post/?ordering=title/';
+    const { data } = await axios.get(endpoint);
+    dispatch({
+      type: FILTER_ABC,
+      payload: data,
+    });
+  };
+};
