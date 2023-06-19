@@ -7,6 +7,7 @@ import CommunityCard from '../../views/Community/communityCards';
 import NewsCard from '../news/newsCards'
 import styles from './home.module.css'
 import SearchBar from '../../components/SearchBar/searchBar'
+import Filter from '../../components/Filter/Filter';
 
 const Home: React.FC = () => {
     const dispatch = useDispatch();
@@ -30,6 +31,9 @@ const Home: React.FC = () => {
     return (
         <div className={styles.Container} >
             <SearchBar />
+            <div className={styles.filter}>
+                <Filter/>
+            </div>
             {/* <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} /> */}
             <div className={styles.communityCard}>
                 <CommunityCard />
@@ -40,6 +44,7 @@ const Home: React.FC = () => {
             <div className={styles.NewsCard}>
                 <NewsCard />
             </div>
+           
         </div>
 
     );

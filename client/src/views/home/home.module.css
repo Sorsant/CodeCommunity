@@ -13,7 +13,14 @@
     grid-row: 1;
     /* Agrega la propiedad grid-row para colocarlo en la primera fila */
 }
-
+.filter{
+    grid-column: 2;
+    grid-row: 1;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+    
+}
 .communityCard {
     grid-column: 3;
     /* Cambia 3/4 a 3 */
