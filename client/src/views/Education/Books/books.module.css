@@ -1,0 +1,30 @@
+.container {
+    border: 3px solid #000;
+    background-color: rgb(190, 185, 176);
+    display: flex;
+    flex-wrap: wrap;
+    width: 710px;
+    height: 350px;
+    margin: auto;
+    margin-top: 15%;
+}
+
+.book {
+    background-color: white;
+    border: 2px solid #000;
+    border-radius: 1%;
+    display: table;
+    width: 151px;
+    height: 260px;
+    margin: auto;
+}
+
+.image {
+    width: 150px;
+    height: 200px;
+}
+
+.text {
+    font-size: medium;
+    text-align: center;
+}
