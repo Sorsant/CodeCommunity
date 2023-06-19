@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPosts } from '../../components/Redux/action';
+import { getHomePosts } from '../../components/Redux/action';
 import { AppState } from '../../components/Redux/types';
 import PosteoCards from '../../components/Posts_Proyect/Cards/Cards';
 import CommunityCard from '../../views/Community/communityCards';
 import NewsCard from '../news/newsCards'
 import styles from './home.module.css'
 import SearchBar from '../../components/SearchBar/searchBar'
-
+import Posteohome from './PostHome/PostHome';
 const Home: React.FC = () => {
     const dispatch = useDispatch();
 
@@ -24,13 +24,14 @@ const Home: React.FC = () => {
     // }
 
     useEffect(() => {
-        dispatch(getPosts() as any);
+        dispatch(getHomePosts() as any);
     }, [dispatch]);
 
     return (
         <div className={styles.Container} >
             <SearchBar />
             {/* <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} /> */}
+            <Posteohome />
             <div className={styles.communityCard}>
                 <CommunityCard />
             </div>
