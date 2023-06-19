@@ -7,7 +7,7 @@ import CommunityCard from '../../views/Community/communityCards';
 import NewsCard from '../news/newsCards'
 import styles from './home.module.css'
 import SearchBar from '../../components/SearchBar/searchBar'
-import Posteohome from './PostHome/PostHome';
+//import Posteohome from './PostHome/PostHome';
 const Home: React.FC = () => {
     const dispatch = useDispatch();
 
@@ -31,7 +31,7 @@ const Home: React.FC = () => {
         <div className={styles.Container} >
             <SearchBar />
             {/* <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} /> */}
-            <Posteohome />
+            {/* <Posteohome /> */}
             <div className={styles.communityCard}>
                 <CommunityCard />
             </div>

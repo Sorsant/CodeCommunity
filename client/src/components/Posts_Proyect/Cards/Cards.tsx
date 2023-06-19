@@ -1,26 +1,25 @@
 import React from "react";
 import PosteoCard from "../Card/Card";
-import posteos from "../../../assets/infoHomePost";
+import { useSelector } from "react-redux";
+
 
 
 const PosteoCards: React.FC = (): JSX.Element => {
 
+    const posteos = useSelector((state: any) => state.posts);
+
     return (
         <div>
             {
-                posteos?.map((post) => {
+                posteos?.map((post: any) => {
                     return (
                         <div key={post.id} >
                             <PosteoCard
-                                id={post.id}
-                                nickname={post.nickname}
-                                user_imagen={post.user_imagen}
-                                titulo={post.titulo}
+                                id={post.id ? post.id : 1}
+                                title={post.title ? post.title : ""}
                                 description={post.description}
-                                imagen={post.imagen}
-                                likes={post.likes}
-                                createDate={post.createDate}
-                                gitHub={post.gitHub}
+                                image={post.image ? post.image : ""}
+                                created={post.created ? post.created : ""}
                             />
                         </div>
                     )
