@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { GET_ALL_POST, GetPostsAction, FILTER_ABC } from './types';
+import { GET_ALL_POST, GetPostsAction, FILTER_ABC, AddRegisterUser, ADD_REGISTER } from './types';
 // import data from '../../assets/infoHomePost';
 import axios from 'axios';
 import { ActionTypes } from './types';
@@ -39,3 +39,13 @@ export const filterAbc = (payload: any) => {
         });
     };
 };
+export const addRegister = (register: any): AddRegisterUser => {
+    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/user/'
+
+    const data = axios.post(endpoint, register);
+    return {
+        type: ADD_REGISTER,
+        payload: register
+    };
+
+}
