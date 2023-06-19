@@ -24,4 +24,6 @@ export interface GetPostsAction {
     payload: Post[];
 }
 
-export type ActionTypes = GetPostsAction;
+
+
+export type ActionTypes = GetPostsAction

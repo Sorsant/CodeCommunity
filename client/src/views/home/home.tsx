@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPosts } from '../../components/Redux/action';
+import { getHomePosts } from '../../components/Redux/action';
 import { AppState } from '../../components/Redux/types';
 import PosteoCards from '../../components/Posts_Proyect/Cards/Cards';
 import CommunityCard from '../../views/Community/communityCards';
@@ -24,7 +24,7 @@ const Home: React.FC = () => {
     // }
 
     useEffect(() => {
-        dispatch(getPosts() as any);
+        dispatch(getHomePosts() as any);
     }, [dispatch]);
 
     return (
