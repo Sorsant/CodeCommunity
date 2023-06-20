@@ -3,7 +3,7 @@ import CommunityCard from "./communityCard";
 import { communities } from "./CarpetaInfoProvisional/infoCommunities";
 import styles from "./communityCard.module.css";
 
-const CommunityCards: React.FC = () : JSX.Element => {
+const CommunityCards = () => {
 
     return (
         <div className={styles.cards}>
