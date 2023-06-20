@@ -18,6 +18,7 @@ export interface AppState {
 }
 
 
+
 export interface GetPostsAction {
     type: typeof GET_ALL_POST;
     payload: Post[];

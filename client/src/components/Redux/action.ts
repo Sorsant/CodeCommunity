@@ -1,22 +1,12 @@
-// actions.ts
 import { Dispatch } from 'redux';
 import { GET_ALL_POST, GetPostsAction, FILTERABC, FilterAction } from './types';
 // import data from '../../assets/infoHomePost';
 import axios from 'axios';
-
-// export const getPosts = () => (dispatch: Dispatch<GetPostsAction>) => {
-//     const hardcodedPosts: Post[] = data;
-
-//     dispatch({
-//         type: GET_ALL_POST,
-//         payload: hardcodedPosts,
-//     });
-// };
+import { ActionTypes } from './types';
 
 export const getHomePosts = () => {
 
     const endpoint = 'http://127.0.0.1:8000/codec/api/post/'
-
     return async (dispatch: Dispatch<GetPostsAction>) => {
         const { data } = await axios.get(endpoint);
 
@@ -25,7 +15,6 @@ export const getHomePosts = () => {
             payload: data,
         });
     };
-
 }
 
 export const filter = (payload: any) => {
@@ -58,3 +47,13 @@ export const filter = (payload: any) => {
 // };
 
 
+// export const filterAbc = (payload: any) => {
+//     return async (dispatch: Dispatch<ActionTypes>): Promise<void> => {
+//         const endpoint = 'http://127.0.0.1:8000/codec/api/post/?ordering=title/';
+//         const { data } = await axios.get(endpoint);
+//         dispatch({
+//             type: FILTER_ABC,
+//             payload: data,
+//         });
+//     };
+// };
