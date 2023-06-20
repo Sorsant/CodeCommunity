@@ -2,18 +2,10 @@ import style from "./detail.module.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-interface posteos {
-  id: number
-  title: string;
-  description: string;
-  image: string;
-  created: string;
-}
+const PostDetail = () => {
+  const { id } = useParams();
 
-const PostDetail: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const postId = parseInt(id ?? "0");
-  const [post, setPost] = useState<posteos | undefined>(undefined);
+  const [post, setPost] = useState(undefined);
 
   // useEffect(() => {
   //   setPost(posteos.find((post) => post.id === postId));

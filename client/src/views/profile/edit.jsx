@@ -1,4 +1,4 @@
-const Edit: React.FC = () => {
+const Edit = () => {
   return (
     <div>
       <h1>edicion</h1>
