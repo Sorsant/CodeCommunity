@@ -7,7 +7,7 @@ import NewsCard from '../news/newsCards';
 import styles from './home.module.css';
 import SearchBar from '../../components/SearchBar/searchBar';
 import Filter from '../../components/Filter/Filter';
-
+import Posteohome from './PostHome/PostHome'
 const Home = () => {
     const dispatch = useDispatch();
 
@@ -18,6 +18,7 @@ const Home = () => {
     return (
         <div className={styles.Container}>
             <SearchBar />
+            <Posteohome />
             <div className={styles.filter}>
                 <Filter />
             </div>

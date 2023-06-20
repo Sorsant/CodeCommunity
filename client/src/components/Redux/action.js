@@ -1,8 +1,8 @@
-import { GET_ALL_POST, FILTER_ABC, ADD_REGISTER } from './action-types';
+import { GET_ALL_POST, FILTER_ABC, ADD_REGISTER,ADD_POST } from './action-types';
 import axios from 'axios';
 
 export const getHomePosts = () => {
-    const endpoint = 'http://127.0.0.1:8000/codec/api/post/'
+    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/post/'
     return async (dispatch) => {
         const { data } = await axios.get(endpoint);
         return dispatch({
@@ -14,19 +14,19 @@ export const getHomePosts = () => {
 
 //
 
-// export const addHomePosts = (post: any): AddPostsAction => {
-//     const endpoint = 'http://127.0.0.1:8000/codec/api/post/'
-//     const add = axios.post(endpoint, post);
-//     return {
-//         type: 'ADD_POST',
-//         payload: post,
-//     };
-// };
+export const addHomePosts = (post)  => {
+    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/post/'
+    const add = axios.post(endpoint, post);
+    return {
+        type: 'ADD_POST',
+        payload: post,
+    };
+};
 
 
 export const filterAbc = (payload) => {
     return async (dispatch) => {
-        const endpoint = 'http://127.0.0.1:8000/codec/api/post/?ordering=title/';
+        const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/post/?ordering=title/';
         const { data } = await axios.get(endpoint);
         dispatch({
             type: FILTER_ABC,
