@@ -3,6 +3,7 @@ import { AppState, ActionTypes, GET_ALL_POST } from './types';
 
 const initialState: AppState = {
     posts: [],
+    posteoFilter: [],
 };
 
 export const rootReducer = (state = initialState, action: ActionTypes): AppState => {

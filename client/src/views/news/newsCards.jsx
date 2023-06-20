@@ -1,7 +1,7 @@
 import NewsCard from "./newsCard";
 import { Data } from "./news"
 
-const NewsCards: React.FC = () : JSX.Element => {
+const NewsCards = () => {
     return (
         <div>
             {

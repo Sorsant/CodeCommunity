@@ -1,25 +1,18 @@
 import { useState } from "react";
 import validate from "./validate"
 import styles from "./login.module.css"
-interface ErrorLogin{
-  Account?: string;
-    Password?: string;
-}
-interface FormLogin {
-  Account: string;
-  Password: string;
-}
-const Login: React.FC = () => {
-  const [state, setState] = useState<FormLogin>({
+
+const Login = () => {
+  const [state, setState] = useState({
     Account: "",
     Password: "",
   });
-  const [errors, setErrors] = useState<ErrorLogin>({
+  const [errors, setErrors] = useState({
     Account:"",
     Password:""
   })
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event) => {
     const { name, value } = event.target 
   setState({
     ...state,
@@ -32,7 +25,7 @@ const Login: React.FC = () => {
 setErrors(updatedErrors)
   }
 
-  const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleOnSubmit = (event) => {
     event.preventDefault();
 };
   console.log(state);

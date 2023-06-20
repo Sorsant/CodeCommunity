@@ -1,34 +1,15 @@
 import { useState } from "react";
 import validate from "./validate";
 import styles from "./Form.module.css"
-interface FormPost {
-    Link: string;
-    Title: string;
-    Description?: string;
-    Author: string;
-    Category: string;
-    Image: string;
-    createDate:string
-}
 
-interface ErrorsForm {
-    Link?: string;
-    Title?: string;
-    Description?: string;
-    Author?: string;
-    Category?: string;
-    Image?: string
-    createDate?:string
-}
-
-const Form: React.FC = (): JSX.Element => {
-    const getCurrentDate = (): string => {
+const Form = () => {
+    
+    const getCurrentDate = () => {
         const currentDate = new Date().toLocaleString();
         return currentDate;
     };
 
-
-    const [postNews, setPost] = useState<FormPost>({
+    const [postNews, setPost] = useState({
         Link: '',
         Title: '',
         Category: '',
@@ -38,7 +19,7 @@ const Form: React.FC = (): JSX.Element => {
         createDate: getCurrentDate(),
     });
 
-    const [errors, setErrors] = useState<ErrorsForm>({
+    const [errors, setErrors] = useState({
         Link: '',
         Title: '',
         Category: '',
@@ -49,7 +30,7 @@ const Form: React.FC = (): JSX.Element => {
     });
 
 
-    const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleOnChange = (event) => {
         const { name, value } = event.target;
 
         setPost({
@@ -65,7 +46,7 @@ const Form: React.FC = (): JSX.Element => {
         setErrors(updatedErrors);
     };
 
-    const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleOnSubmit = (event) => {
         event.preventDefault();
     };
 

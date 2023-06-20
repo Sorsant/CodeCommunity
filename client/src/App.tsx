@@ -1,3 +1,5 @@
+import axios from "axios";
+axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./views/home/home";
 import Login from "./views/login/login";

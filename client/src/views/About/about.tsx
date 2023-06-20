@@ -1,6 +1,6 @@
 import styles from "./About.module.css"
 
-const About: React.FC = () : JSX.Element => {
+const About= () => {
   return (
     <div className={styles.ConteinerDiv}>
         <div className={styles.ConteinerDiv2}>

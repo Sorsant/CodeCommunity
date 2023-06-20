@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import validate from './validate';
+import { useDispatch } from 'react-redux';
+// import { addRegister } from '../../components/Redux/action'
 
 interface FormRegister {
     nickname: string;
@@ -18,6 +20,7 @@ interface ErroresRegister {
 }
 
 const Register: React.FC = (): JSX.Element => {
+    const dispatch = useDispatch()
     const [register, setRegister] = useState<FormRegister>({
         nickname: '',
         name: '',
@@ -52,6 +55,7 @@ const Register: React.FC = (): JSX.Element => {
 
     const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        dispatch(addRegister(register))
     };
 
     return (
