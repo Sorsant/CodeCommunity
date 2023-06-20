@@ -14,6 +14,7 @@ import Edit from "./views/profile/edit";
 import Form from "./components/News Post/Form";
 import Books from "./views/Education/Books/books";
 // import About from "./views/About/about";
+import Footer from "./views/Footer/footer";
 const App: React.FC = (): JSX.Element => {
   const location = useLocation();
 
@@ -36,6 +37,7 @@ const App: React.FC = (): JSX.Element => {
         <Route path="/newsform" element={<Form />} />
         {/* <Route path="/about" element={<About />} /> */}
       </Routes>
+      {location.pathname !== "/" ? <Footer /> : null}
     </div>
   );
 };
