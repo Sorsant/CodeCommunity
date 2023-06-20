@@ -5,16 +5,14 @@ import axios from 'axios';
 import { ActionTypes } from './types';
 
 export const getHomePosts = () => {
-
     const endpoint = 'http://127.0.0.1:8000/codec/api/post/'
     return async (dispatch: Dispatch<GetPostsAction>) => {
         const { data } = await axios.get(endpoint);
-
         return dispatch({
             type: GET_ALL_POST,
             payload: data,
         });
-    };
+    }
 }
 
 //

@@ -7,6 +7,8 @@ import CommunityCard from '../../views/Community/communityCards';
 import NewsCard from '../news/newsCards'
 import styles from './home.module.css'
 import SearchBar from '../../components/SearchBar/searchBar'
+import post from '../../assets/infoHomePost'
+
 const Home: React.FC = () => {
     const dispatch = useDispatch();
 
