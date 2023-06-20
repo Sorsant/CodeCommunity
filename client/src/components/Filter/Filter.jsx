@@ -4,32 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppState, GetFilterABC } from "../Redux/types";
 import { Dispatch } from "redux";
 
-const Filter: React.FC = (): JSX.Element => {
-  const dispatch: Dispatch<GetFilterABC> = useDispatch();
-  interface Post {
-    user: number;
-    title: string;
-    description: string;
-    image: string;
-    created: string;
-  }
-  
-  const posts = useSelector((state: AppState) => state.posts);
+const Filter = () => {
+  const dispatch = useDispatch();
 
-  interface GetFilterABC {
-    type: "FILTER_ABC";
-    payload: Post;
-  }
-  
-  const handleFilterAbc = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const action: GetFilterABC = {
-      type: "FILTER_ABC",
-      payload: event.target.value as unknown as Post,
-    };
-    dispatch(action);
+  const posts = useSelector((state) => state.posts);
+
+  const handleFilterAbc = (event) => {
+   
   };
-  
-  
 
   return (
     <div className={styles.container}>

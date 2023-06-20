@@ -49,7 +49,7 @@ export const filterAbc = (payload: any) => {
     };
 };
 export const addRegister = (register: any): AddRegisterUser => {
-    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/user/'
+    const endpoint = 'http://127.0.0.1:8000/codec/api/user/'
 
     const data = axios.post(endpoint, register);
     return {

@@ -1,27 +1,11 @@
 import React, { useState } from 'react';
 import validate from './validate';
 import { useDispatch } from 'react-redux';
-// import { addRegister } from '../../components/Redux/action'
+import { addRegister } from '../../components/Redux/action';
 
-interface FormRegister {
-    nickname: string;
-    name: string;
-    lastname: string;
-    email: string;
-    password: string;
-}
-
-interface ErroresRegister {
-    email?: string;
-    password?: string;
-    nickname?: string;
-    name?: string;
-    lastname?: string;
-}
-
-const Register: React.FC = (): JSX.Element => {
-    const dispatch = useDispatch()
-    const [register, setRegister] = useState<FormRegister>({
+const Register = () => {
+    const dispatch = useDispatch();
+    const [register, setRegister] = useState({
         nickname: '',
         name: '',
         lastname: '',
@@ -29,7 +13,7 @@ const Register: React.FC = (): JSX.Element => {
         password: '',
     });
 
-    const [errors, setErrors] = useState<ErroresRegister>({
+    const [errors, setErrors] = useState({
         nickname: '',
         name: '',
         lastname: '',
@@ -37,7 +21,7 @@ const Register: React.FC = (): JSX.Element => {
         password: '',
     });
 
-    const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleOnChange = (event) => {
         const { name, value } = event.target;
 
         setRegister({
@@ -53,9 +37,9 @@ const Register: React.FC = (): JSX.Element => {
         setErrors(updatedErrors);
     };
 
-    const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleOnSubmit = (event) => {
         event.preventDefault();
-        dispatch(addRegister(register))
+        dispatch(addRegister(register));
     };
 
     return (
@@ -68,7 +52,7 @@ const Register: React.FC = (): JSX.Element => {
                             onChange={handleOnChange}
                             value={register.nickname}
                             type="text"
-                            name="nickname" // Corregido: usar "nickname" en lugar de "name"
+                            name="nickname" // Corrected: use "nickname" instead of "name"
                             placeholder="Your nickname"
                         />
                         {errors.nickname && <span>{errors.nickname}</span>}
@@ -125,7 +109,8 @@ const Register: React.FC = (): JSX.Element => {
                                 !!errors.lastname ||
                                 !!errors.nickname ||
                                 !!errors.name
-                            }>
+                            }
+                        >
                             Register
                         </button>
                     </div>

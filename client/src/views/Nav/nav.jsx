@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from './nav.module.css'
+import styles from './nav.module.css';
 
-const Nav: React.FC = (): JSX.Element => {
+const Nav = () => {
   return (
     <div className={styles.containerNav}>
       <nav className="navbar navbar-dark bg-dark ">

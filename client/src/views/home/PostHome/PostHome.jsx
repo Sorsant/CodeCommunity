@@ -1,40 +1,25 @@
 import React, { useState } from 'react';
 import validate from './validatePost';
 import { useDispatch } from 'react-redux';
-import { getHomePosts } from '../../../components/Redux/action'
-interface FormPost {
+import { addHomePosts } from '../../components/Redux/action';
 
-    title: string;
-    description: string;
-    image: string;
 
-}
-
-interface ErroresRegister {
-
-    title?: string;
-    description?: string;
-    image?: string;
-
-}
-
-const Posteohome: React.FC = (): JSX.Element => {
+const Posteohome = () => {
     const dispatch = useDispatch();
 
-    const [post, setPost] = useState<FormPost>({
+    const [post, setPost] = useState ({
         image: '',
         title: '',
         description: '',
     });
 
-    const [errors, setErrors] = useState<ErroresRegister>({
+    const [errors, setErrors] = useState  ({
         image: '',
         title: '',
         description: '',
     });
 
-
-    const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleOnChange = (event) => {
         const { name, value } = event.target;
 
         setPost({
@@ -50,20 +35,15 @@ const Posteohome: React.FC = (): JSX.Element => {
         setErrors(updatedErrors);
     };
 
-    const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleOnSubmit = (event) => {
         event.preventDefault();
-        dispatch((dispatch: Dispatch<ActionTypes>) => getHomePosts(post)(dispatch));
-
-
-
-
+        dispatch(addHomePosts(post));
     };
-    return (
 
+    return (
         <div>
             <div>
-                <form >
-                    {/* onSubmit={handleOnSubmit} */}
+                <form onSubmit={handleOnSubmit}>
                     <div>
                         <div></div>
                         <label>Title</label>
@@ -71,8 +51,8 @@ const Posteohome: React.FC = (): JSX.Element => {
                             onChange={handleOnChange}
                             value={post.title}
                             type="text"
-                            name="titulo"
-                            placeholder="your title"
+                            name="title"
+                            placeholder="Your title"
                         />
                         {errors.title && <span>{errors.title}</span>}
 
@@ -90,20 +70,20 @@ const Posteohome: React.FC = (): JSX.Element => {
                         <input
                             onChange={handleOnChange}
                             value={post.image}
-                            type="image"
-                            name="imagen"
+                            type="text"
+                            name="image"
                         />
                         {errors.image && <span>{errors.image}</span>}
-
 
                         <button
                             disabled={
                                 !post.title ||
                                 !post.description ||
-                                !errors.title ||
+                                !!errors.title ||
                                 !!errors.description
-                            }>
-                            post
+                            }
+                        >
+                            Post
                         </button>
                     </div>
                 </form>

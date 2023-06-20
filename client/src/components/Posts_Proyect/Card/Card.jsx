@@ -2,23 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./card.module.css";
 
-interface posteos {
-  id: number
-  title: string;
-  description: string;
-  image: string;
-  created: string;
-}
+
 
 //interface User {}
 
-const postCard: React.FC<posteos> = ({
+const postCard = ({
   id,
   title,
   description,
   image,
   created,
-}): JSX.Element => {
+}) => {
   return (
     <div className={styles.container}>
       {/*Revisar el parametro para identificar el grupo*/}

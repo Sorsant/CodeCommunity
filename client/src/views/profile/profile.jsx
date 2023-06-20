@@ -2,7 +2,7 @@ import style from "./profile.module.css";
 import imagen from "./default.png";
 import { Link } from "react-router-dom";
 
-const Profile: React.FC = () => {
+const Profile = () => {
   return (
     <div>
       <header className={style.header}>
