@@ -6,16 +6,30 @@ import { Dispatch } from "redux";
 
 const Filter: React.FC = (): JSX.Element => {
   const dispatch: Dispatch<GetFilterABC> = useDispatch();
-
+  interface Post {
+    user: number;
+    title: string;
+    description: string;
+    image: string;
+    created: string;
+  }
+  
   const posts = useSelector((state: AppState) => state.posts);
 
+  interface GetFilterABC {
+    type: "FILTER_ABC";
+    payload: Post;
+  }
+  
   const handleFilterAbc = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const action: GetFilterABC = {
       type: "FILTER_ABC",
-      payload: [event.target.value],
+      payload: event.target.value as unknown as Post,
     };
     dispatch(action);
   };
+  
+  
 
   return (
     <div className={styles.container}>

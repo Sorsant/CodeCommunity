@@ -14,9 +14,9 @@ import Edit from "./views/profile/edit";
 import Form from "./components/News Post/Form";
 import Books from "./views/Education/Books/books";
 // import About from "./views/About/about";
+
 const App: React.FC = (): JSX.Element => {
   const location = useLocation();
-
   return (
     <div>
       {location.pathname !== "/" ? <Nav /> : null}
