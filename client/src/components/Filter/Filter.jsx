@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "./filter.module.css";
-import { filterAZ, filterZA, getHomePosts } from "../Redux/action"
+import { filterAZ, filterZA, getHomePosts } from "../Redux/Actions/Get/action-get"
 import { useDispatch, useSelector } from "react-redux";
 
 const Filter = () => {

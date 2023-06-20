@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import validate from './validatePost';
 import { useDispatch } from 'react-redux';
-import { addHomePosts } from '../../../components/Redux/action';
+import { addHomePosts } from '../../../components/Redux/Actions/Post/action-post';
 
 
 const Posteohome = () => {

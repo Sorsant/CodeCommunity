@@ -1,4 +1,4 @@
-import { ADD_REGISTER,ADD_POST } from '../..action-types';
+import { ADD_REGISTER,ADD_POST } from '../../action-types';
 
 import axios from 'axios';
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getHomePosts } from '../../components/Redux/action';
+import { getHomePosts } from '../../components/Redux/Actions/Get/action-get';
 import PosteoCards from '../../components/Posts_Proyect/Cards/Cards';
 import CommunityCard from '../../views/Community/communityCards';
 import NewsCard from '../news/newsCards';
