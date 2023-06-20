@@ -5,16 +5,16 @@ import { communities } from "../Community/CarpetaInfoProvisional/infoCommunities
 import { useParams } from "react-router-dom";
 //import { useState } from "react";
 
-const DetailCommunity = ({name, description, language, image, created}) => {
+const DetailCommunity = ({ name, description, language, image, created }) => {
 
     //const [ communy, setCommuny ] = useState <Community | undefined> (undefined);
 
-    const communi = communities.filter((community) => community.name === nameId);
+    const communi = communities.filter((community) => community.name === name);
 
     return (
         <div>
             {
-               
+
             }
         </div>
     )

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Filter.module.css";
+import styles from "./filter.module.css";
 import { useDispatch, useSelector } from "react-redux";
 
 const Filter = () => {
@@ -8,7 +8,7 @@ const Filter = () => {
   const posts = useSelector((state) => state.posts);
 
   const handleFilterAbc = (event) => {
-   
+
   };
 
   return (
