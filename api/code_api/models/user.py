@@ -9,12 +9,15 @@ class User(models.Model):
     password = models.CharField(max_length=255)
     nickname = models.CharField(max_length=255, unique=True)
     lastname = models.CharField(max_length=255)
+    
     birthday = models.DateField(blank=True)
     postulation = models.BooleanField(default=False)
     email = models.EmailField(unique=True)
+    
     language = models.ManyToManyField(Language, blank=True)
     community = models.ManyToManyField(Community, blank=True)
     premium = models.BooleanField(default=False)
+    
     created = models.DateTimeField(default=timezone.now, editable=False)
     modified = models.DateTimeField(auto_now=True, editable=False)
     
