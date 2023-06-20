@@ -15,10 +15,8 @@ import Edit from "./views/profile/edit";
 import Form from "./components/News Post/Form";
 import Books from "./views/Education/Books/books";
 // import About from "./views/About/about";
-//import DetailCommunity from "./views/DetailCommunity/detailCommunity";
 
-axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
-const App: React.FC = (): JSX.Element => {
+const App = () => {
   const location = useLocation();
 
   return (
@@ -34,7 +32,7 @@ const App: React.FC = (): JSX.Element => {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/Q&A" element={<QandA />}></Route>
+        <Route path="/Q&A" element={<QandA />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/edit" element={<Edit />} />
         {/* <Route path="/detail/:id" element={<PostDetail />} />{" "} */}
