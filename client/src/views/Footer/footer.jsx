@@ -2,7 +2,7 @@ import React from "react";
 import style from "./footer.module.css";
 import { Link } from "react-router-dom";
 
-const Footer: React.FC = (): JSX.Element => {
+const Footer = () => {
   return (
     <div className={style.footerWrapper}>
       <div className={`${style.footer_dark} ${style.stickyFooter}`}>

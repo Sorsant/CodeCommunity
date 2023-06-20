@@ -15,7 +15,7 @@ import PostDetail from "./views/detail/detail";
 import Form from "./components/News Post/Form";
 import Books from "./views/Education/Books/books";
 import Footer from "./views/Footer/footer";
-// import About from "./views/About/about";
+import About from "./views/About/about";
 axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 
 const App = () => {

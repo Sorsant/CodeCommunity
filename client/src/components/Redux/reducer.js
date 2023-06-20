@@ -6,7 +6,7 @@ const initialState = {
     posteoFilter: [],
 };
 
-export const rootReducer = (state = initialState, { type, payload }) => {
+const reducer = (state = initialState, { type, payload }) => {
     switch (type) {
         case GET_ALL_POST:
             return {
@@ -35,3 +35,5 @@ export const rootReducer = (state = initialState, { type, payload }) => {
             return state;
     }
 };
+
+export default reducer

@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import styles from './post.module.css'
 
-interface PostFormProps {
-    onSubmit: (title: string, content: string) => void;
-}
 
-const PostForm: React.FC<PostFormProps> = ({ onSubmit }) => {
+const PostForm = ({ onSubmit }) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit(title, content);
         setTitle('');
