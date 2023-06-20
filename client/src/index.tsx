@@ -1,3 +1,5 @@
+// import axios from "axios";
+// axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';

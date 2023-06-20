@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { FilterAction, Post } from '../../components/Redux/types';
+import { GetFilterABC, Post } from '../../components/Redux/types';
 import { getHomePosts } from '../../components/Redux/action';
 import PosteoCards from '../../components/Posts_Proyect/Cards/Cards';
 import CommunityCard from '../../views/Community/communityCards';
@@ -11,8 +11,8 @@ const Home: React.FC = () => {
     const dispatch = useDispatch();
 
     const handleFilterAbc = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const action: FilterAction = {
-            type: "FILTERABC",
+        const action: GetFilterABC = {
+            type: "FILTER_ABC",
             payload: [event.target.value as unknown as Post],
         };
         dispatch(action);

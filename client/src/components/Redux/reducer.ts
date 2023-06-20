@@ -1,9 +1,9 @@
 // reducers.ts
-import { AppState, ActionTypes, GET_ALL_POST, FILTERABC, GetPostsAction } from './types';
+import { AppState, ActionTypes, GET_ALL_POST, FILTER_ABC } from './types';
 
 const initialState: AppState = {
     posts: [],
-    filterABC: []
+    filterABC: [],
 };
 
 export const rootReducer = (state = initialState, action: ActionTypes): AppState => {
@@ -15,7 +15,7 @@ export const rootReducer = (state = initialState, action: ActionTypes): AppState
                 filterABC: action.payload
             };
 
-        case FILTERABC: {
+        case FILTER_ABC: {
             let orderName = [...state.filterABC];
 
             // if (action.payload === "a-z") {
