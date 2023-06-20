@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./views/home/home";
 import Login from "./views/login/login";
@@ -13,9 +14,11 @@ import Edit from "./views/profile/edit";
 // import PostDetail from "./views/detail/detail";
 import Form from "./components/News Post/Form";
 import Books from "./views/Education/Books/books";
-// import About from "./views/About/about";
 import Footer from "./views/Footer/footer";
-const App: React.FC = (): JSX.Element => {
+// import About from "./views/About/about";
+axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
+
+const App = () => {
   const location = useLocation();
 
   return (
@@ -30,7 +33,7 @@ const App: React.FC = (): JSX.Element => {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/Q&A" element={<QandA />}></Route>
+        <Route path="/Q&A" element={<QandA />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/edit" element={<Edit />} />
         {/* <Route path="/detail/:id" element={<PostDetail />} />{" "} */}

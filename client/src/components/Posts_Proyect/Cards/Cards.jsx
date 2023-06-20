@@ -4,14 +4,14 @@ import { useSelector } from "react-redux";
 
 
 
-const PosteoCards: React.FC = (): JSX.Element => {
+const PosteoCards = () => {
 
-    const posteos = useSelector((state: any) => state.posts);
+    const posteos = useSelector((state) => state.posts);
 
     return (
         <div>
             {
-                posteos?.map((post: any) => {
+                posteos?.map((post) => {
                     return (
                         <div key={post.id} >
                             <PosteoCard

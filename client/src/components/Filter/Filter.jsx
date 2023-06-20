@@ -6,13 +6,12 @@ const Filter = () => {
 
   const posts = useSelector((state) => state.posts);
 
-  const handleFilterAbc = (event) => {
-    const action = {
-      type: "FILTER_ABC",
-      payload: [event.target.value],
-    };
-    dispatch(action);
-  };
+  // const handleFilterAbc = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  //   const action: GetFilterABC = {
+
+  //   };
+  //   dispatch(action);
+  // };
 
   return (
     <div className={styles.container}>
@@ -28,7 +27,7 @@ const Filter = () => {
         <option value="old">Older</option>
       </select>
 
-      <select className={styles.selectTres} onChange={handleFilterAbc}>
+      <select className={styles.selectTres}>
         <option>Order</option>
         <option value="Asc">a-z</option>
         <option value="Desc">z-a</option>
