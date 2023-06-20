@@ -1,13 +1,15 @@
 import React from "react";
 import PosteoCard from "../Card/Card";
-import { useSelector } from "react-redux";
-
+import posteos from "../../../assets/infoHomePost";
 
 
 const PosteoCards = () => {
 
+<<<<<<< HEAD:client/src/components/Posts_Proyect/Cards/Cards.tsx
+=======
     const posteos = useSelector((state) => state.posts);
 
+>>>>>>> 364027fc57fcbca82f980e640e695cc7aab24f7f:client/src/components/Posts_Proyect/Cards/Cards.jsx
     return (
         <div>
             {
@@ -15,11 +17,15 @@ const PosteoCards = () => {
                     return (
                         <div key={post.id} >
                             <PosteoCard
-                                id={post.id ? post.id : 1}
-                                title={post.title ? post.title : ""}
+                                id={post.id}
+                                nickname={post.nickname}
+                                user_imagen={post.user_imagen}
+                                titulo={post.titulo}
                                 description={post.description}
-                                image={post.image ? post.image : ""}
-                                created={post.created ? post.created : ""}
+                                imagen={post.imagen}
+                                likes={post.likes}
+                                createDate={post.createDate}
+                                gitHub={post.gitHub}
                             />
                         </div>
                     )

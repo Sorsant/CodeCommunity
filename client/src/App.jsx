@@ -11,7 +11,7 @@ import Register from "./views/Register/register";
 import Profile from "./views/profile/profile";
 import CommunityForm from "./views/CommunityForm/communityForm";
 import Edit from "./views/profile/edit";
-// import PostDetail from "./views/detail/detail";
+import PostDetail from "./views/detail/detail";
 import Form from "./components/News Post/Form";
 import Books from "./views/Education/Books/books";
 import Footer from "./views/Footer/footer";
@@ -38,7 +38,7 @@ const App = () => {
         <Route path="/edit" element={<Edit />} />
         {/* <Route path="/detail/:id" element={<PostDetail />} />{" "} */}
         <Route path="/newsform" element={<Form />} />
-        {/* <Route path="/about" element={<About />} /> */}
+        <Route path="/about" element={<About />} />
       </Routes>
       {location.pathname !== "/" ? <Footer /> : null}
     </div>

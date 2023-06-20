@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 
-interface FormularioProps {
-    onSubmit: (question: string, answer: string) => void;
-}
 
-const Formulario: React.FC<FormularioProps> = ({ onSubmit }) => {
+const Formulario = ({ onSubmit }) => {
     const [question, setQuestion] = useState('');
     const [answer, setAnswer] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit(question, answer);
         setQuestion('');

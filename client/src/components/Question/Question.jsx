@@ -1,10 +1,6 @@
 import React from 'react';
 
-interface QuestionProps {
-    question: string;
-}
-
-const Question: React.FC<QuestionProps> = ({ question }) => {
+const Question = ({ question }) => {
     return (
         <div className="question">
             <p>{question}</p>
