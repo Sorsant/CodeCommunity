@@ -20,12 +20,13 @@ axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 const App = () => {
   const location = useLocation();
   return (
-    <div>
+    <div> 
       {location.pathname !== "/" ? <Nav /> : null}
-      <Routes>
+      <Routes> 
+        {/*<Route path="/groups/:name" element={<DetailCommunity />} />*/}
         <Route path="/education" element={<Books />} />
         {/*Revisar estas rutas, aun no estan bien definidas*/}
-        <Route path="/nosedonde" element={<CommunityForm />} />{" "}
+        <Route path="/communities" element={<CommunityForm />} />{" "}
         {/*Revisar estas rutas, aun no estan bien definidas*/}
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
