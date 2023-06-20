@@ -1,20 +1,5 @@
-const validate = (communityForm: {
-    name: string;
-    description: string;
-    language: string;
-    //image?: string;
-}): {
-    name?: string;
-    description?: string;
-    language?: string;
-    //image?: string;
-} => {
-    let errors: {
-        name?: string;
-        description?: string;
-        language?: string;
-    //    image?: string;
-    } = {};
+const validate = (communityForm) => {
+    let errors = {};
 
     if (communityForm.name.length <= 10) {
         errors.name = 'The name of the group must have more than 10 characters';

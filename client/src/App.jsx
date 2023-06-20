@@ -1,5 +1,4 @@
 import axios from "axios";
-axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./views/home/home";
 import Login from "./views/login/login";
@@ -21,12 +20,13 @@ const App = () => {
   const location = useLocation();
 
   return (
-    <div>
+    <div> 
       {location.pathname !== "/" ? <Nav /> : null}
-      <Routes>
+      <Routes> 
+        {/*<Route path="/groups/:name" element={<DetailCommunity />} />*/}
         <Route path="/education" element={<Books />} />
         {/*Revisar estas rutas, aun no estan bien definidas*/}
-        <Route path="/nosedonde" element={<CommunityForm />} />{" "}
+        <Route path="/communities" element={<CommunityForm />} />{" "}
         {/*Revisar estas rutas, aun no estan bien definidas*/}
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
