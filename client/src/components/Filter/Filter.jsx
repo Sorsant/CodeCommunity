@@ -1,29 +1,30 @@
 import React, { useEffect } from "react";
 import styles from "./filter.module.css";
-import { filterAZ, filterZA } from "../Redux/action"
+import { filterAZ, filterZA, getHomePosts } from "../Redux/Actions/Get/action-get"
 import { useDispatch, useSelector } from "react-redux";
 
 const Filter = () => {
   const dispatch = useDispatch();
 
-  const filterAbc = useSelector((state) => state.filterAbc);
+  // const filterAbc = useSelector((state) => state.filterAbc);
 
   const handleFilterAZ = (event) => {
-
-    if (event === "a-z") {
-      dispatch(filterAZ)
-    }
-    if (event === "z-a") {
-      dispatch(filterZA)
-    }
-
     const { value } = event.target
-    dispatch(filterAbc(value))
+
+    if (value === "Acn") {
+      dispatch(filterAZ())
+    }
+    if (value === "Dcn") {
+      dispatch(filterZA())
+    }
+    if (value === "default") {
+      dispatch(getHomePosts())
+    }
   };
 
-  useEffect(() => {
-    dispatch(filterAZ());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(filterAZ());
+  // }, [dispatch]);
 
   return (
     <div className={styles.container}>
@@ -41,8 +42,9 @@ const Filter = () => {
 
       <select className={styles.selectTres} onChange={handleFilterAZ}>
         <option>Order</option>
-        <option value="a-z">a-z</option>
-        <option value="z-a">z-a</option>
+        <option value="Acn">a-z</option>
+        <option value="Dcn">z-a</option>
+        <option value="default">Default</option>
       </select>
     </div>
   );
