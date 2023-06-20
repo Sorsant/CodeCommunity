@@ -1,9 +1,9 @@
 // reducers.ts
-import { GET_ALL_POST, FILTER_ABC } from './action-types';
+import { GET_ALL_POST, FILTER_AZ } from './action-types';
 
 const initialState = {
     posts: [],
-    posteoFilter: [],
+    filterAZ: [],
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -12,24 +12,15 @@ const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 posts: payload,
-                filterABC: payload
+                filterAZ: payload
             };
 
-        case FILTER_ABC: {
-            let orderName = [...state.filterABC];
-
-            // if (action.payload === "a-z") {
-            //     orderName = orderName.sort((a, b) => a.title.localeCompare(b.title));
-            // } else if (action.payload === "z-a") {
-            //     orderName = orderName.sort((a, b) => b.title.localeCompare(a.title));
-            // }
-
+        case FILTER_AZ: {
             return {
                 ...state,
-                filterABC: orderName,
+                filterAZ: payload,
             };
         }
-
 
         default:
             return state;

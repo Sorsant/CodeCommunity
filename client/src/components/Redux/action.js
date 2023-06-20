@@ -1,4 +1,4 @@
-import { GET_ALL_POST, FILTER_ABC, ADD_REGISTER } from './action-types';
+import { GET_ALL_POST, FILTER_AZ, ADD_REGISTER } from './action-types';
 import axios from 'axios';
 
 export const getHomePosts = () => {
@@ -24,16 +24,27 @@ export const getHomePosts = () => {
 // };
 
 
-export const filterAbc = (payload) => {
+export const filterAZ = () => {
+    const endpoint = 'http://127.0.0.1:8000/codec/api/post/?ordering=title'
     return async (dispatch) => {
-        const endpoint = 'http://127.0.0.1:8000/codec/api/post/?ordering=title/';
         const { data } = await axios.get(endpoint);
-        dispatch({
-            type: FILTER_ABC,
-            payload
+        return dispatch({
+            type: FILTER_AZ,
+            payload: data,
         });
-    };
+    }
 };
+
+export const filterZA = () => {
+    const endpoint = 'http://127.0.0.1:8000/codec/api/post/?ordering=-title'
+    return async (dispatch) => {
+        const { data } = await axios.get(endpoint);
+        return dispatch({
+            type: FILTER_AZ,
+            payload: data,
+        });
+    }
+}
 export const addRegister = (register) => {
     const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/user/'
 

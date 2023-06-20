@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './post.module.css'
+import styles from "./post.module.css";
 
 
 const PostForm = ({ onSubmit }) => {
