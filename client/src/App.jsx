@@ -14,15 +14,17 @@ import Edit from "./views/profile/edit";
 import PostDetail from "./views/detail/detail";
 import Form from "./components/News Post/Form";
 import Books from "./views/Education/Books/books";
+import Footer from "./views/Footer/footer";
 // import About from "./views/About/about";
+axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 
 const App = () => {
   const location = useLocation();
 
   return (
-    <div> 
+    <div>
       {location.pathname !== "/" ? <Nav /> : null}
-      <Routes> 
+      <Routes>
         {/*<Route path="/groups/:name" element={<DetailCommunity />} />*/}
         <Route path="/education" element={<Books />} />
         {/*Revisar estas rutas, aun no estan bien definidas*/}
@@ -35,11 +37,11 @@ const App = () => {
         <Route path="/Q&A" element={<QandA />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/edit" element={<Edit />} />
-        <Route path="/detail/:id" element={<PostDetail />} />{" "}
-        {/* tengo que agregarle lo del params */}
+        {/* <Route path="/detail/:id" element={<PostDetail />} />{" "} */}
         <Route path="/newsform" element={<Form />} />
         <Route path="/about" element={<About />} />
       </Routes>
+      {location.pathname !== "/" ? <Footer /> : null}
     </div>
   );
 };
