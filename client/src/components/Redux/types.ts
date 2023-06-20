@@ -12,13 +12,17 @@ export interface Post {
     image: string;
     created: string;
 }
-
-export interface AppState {
-    posts: Post[];
-    posteoFilter: Post[];
+export interface FormPost {
+  title: string;
+  description: string;
+  image: string;
 }
 
 
+export interface AppState {
+    posts: Post[];
+  }
+  
 
 export interface GetPostsAction {
     type: typeof GET_ALL_POST;

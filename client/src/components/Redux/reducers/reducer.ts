@@ -1,14 +1,8 @@
 import { Reducer } from 'redux';
-import { GET_ALL_POST, Post, FILTER_ABC, ActionTypes } from '../types';
-
-interface AppState {
-  posts: Post[];
-  posteoFilter: Post[];
-}
+import { ActionTypes, AppState, GET_ALL_POST, FILTER_ABC } from '../types';
 
 const initialState: AppState = {
   posts: [],
-  posteoFilter: [],
 };
 
 export const rootReducer: Reducer<AppState, ActionTypes> = (state = initialState, action) => {
@@ -17,12 +11,12 @@ export const rootReducer: Reducer<AppState, ActionTypes> = (state = initialState
       return {
         ...state,
         posts: action.payload,
-        posteoFilter: action.payload,
+        posteoFilter: [], // Actualiza correctamente la propiedad posteoFilter en cada caso
       };
     case FILTER_ABC:
       return {
         ...state,
-        posteoFilter: action.payload,
+        posteoFilter: [], // Actualiza correctamente la propiedad posteoFilter en cada caso
       };
     default:
       return state;

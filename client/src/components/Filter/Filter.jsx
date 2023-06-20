@@ -7,12 +7,9 @@ const Filter = () => {
 
   const posts = useSelector((state) => state.posts);
 
-  // const handleFilterAbc = (event: React.ChangeEvent<HTMLSelectElement>) => {
-  //   const action: GetFilterABC = {
-
-  //   };
-  //   dispatch(action);
-  // };
+  const handleFilterAbc = (event) => {
+   
+  };
 
   return (
     <div className={styles.container}>
