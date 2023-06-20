@@ -1,7 +1,7 @@
 // types.ts
 export const GET_ALL_POST = 'GET_ALL_POST';
 export const GET_BY_NAME = "GET_BY_NAME";
-// export const ADD_POST = 'ADD_POST';
+export const FILTERABC = 'FILTERABC';
 
 export interface Post {
     user: number;
@@ -11,8 +11,10 @@ export interface Post {
     created: string;
 }
 
+
 export interface AppState {
     posts: Post[];
+    filterABC: Post[];
 }
 
 
@@ -20,9 +22,9 @@ export interface GetPostsAction {
     type: typeof GET_ALL_POST;
     payload: Post[];
 }
-// export interface AddPostsAction {
-//     type: typeof ADD_POST;
-//     payload: Post[];
-// }
-export type ActionTypes = GetPostsAction;
+export interface FilterAction {
+    type: typeof FILTERABC;
+    payload: Post[];
+}
+export type ActionTypes = GetPostsAction | FilterAction;
 //| AddPostsAction

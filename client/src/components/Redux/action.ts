@@ -1,6 +1,6 @@
 // actions.ts
 import { Dispatch } from 'redux';
-import { GET_ALL_POST, GetPostsAction } from './types';
+import { GET_ALL_POST, GetPostsAction, FILTERABC, FilterAction } from './types';
 // import data from '../../assets/infoHomePost';
 import axios from 'axios';
 
@@ -24,12 +24,16 @@ export const getHomePosts = () => {
             type: GET_ALL_POST,
             payload: data,
         });
-
-
     };
 
 }
 
+export const filter = (payload: any) => {
+    return {
+        type: FILTERABC,
+        payload: payload
+    }
+}
 // export const addHomePosts = (post: FormPost): AddPostsAction =>  {
 
 //     const endpoint = 'http://127.0.0.1:8000/codec/api/post/'

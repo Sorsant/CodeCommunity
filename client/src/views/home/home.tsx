@@ -1,27 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { FilterAction, Post } from '../../components/Redux/types';
 import { getHomePosts } from '../../components/Redux/action';
-import { AppState } from '../../components/Redux/types';
 import PosteoCards from '../../components/Posts_Proyect/Cards/Cards';
 import CommunityCard from '../../views/Community/communityCards';
 import NewsCard from '../news/newsCards'
 import styles from './home.module.css'
 import SearchBar from '../../components/SearchBar/searchBar'
-//import Posteohome from './PostHome/PostHome';
+
 const Home: React.FC = () => {
     const dispatch = useDispatch();
 
-    // const [serchString, setSearchString] = useState("")
-
-    // const handleChange = (e) => {
-    //     e.preventDefault()
-    //     setSearchString(e.target.value)
-    // }
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     dispatch(getByName(searchString))
-    // }
+    const handleFilterAbc = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const action: FilterAction = {
+            type: "FILTERABC",
+            payload: [event.target.value as unknown as Post],
+        };
+        dispatch(action);
+    };
 
     useEffect(() => {
         dispatch(getHomePosts() as any);
@@ -30,8 +26,16 @@ const Home: React.FC = () => {
     return (
         <div className={styles.Container} >
             <SearchBar />
-            {/* <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} /> */}
-            {/* <Posteohome /> */}
+            <div>
+                <div>
+                    <select className={styles.select} onChange={event => { handleFilterAbc(event) }} defaultValue={"DEFAULT"}>
+                        <option className={styles.option} value="DEFAULT" >Alphabetical</option>
+                        <option className={styles.option} value="a-z">From A to Z</option>
+                        <option className={styles.option} value="z-a">From Z to A</option>
+                    </select>
+                </div>
+            </div>
+
             <div className={styles.communityCard}>
                 <CommunityCard />
             </div>
@@ -42,8 +46,7 @@ const Home: React.FC = () => {
                 <NewsCard />
             </div>
         </div>
-
     );
 };
 
-export default Home
+export default Home;

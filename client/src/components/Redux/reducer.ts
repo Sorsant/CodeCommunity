@@ -1,8 +1,9 @@
 // reducers.ts
-import { AppState, ActionTypes, GET_ALL_POST } from './types';
+import { AppState, ActionTypes, GET_ALL_POST, FILTERABC, GetPostsAction } from './types';
 
 const initialState: AppState = {
     posts: [],
+    filterABC: []
 };
 
 export const rootReducer = (state = initialState, action: ActionTypes): AppState => {
@@ -11,13 +12,25 @@ export const rootReducer = (state = initialState, action: ActionTypes): AppState
             return {
                 ...state,
                 posts: action.payload,
+                filterABC: action.payload
             };
-        // case ADD_POST: {
-        //     return {
-        //         ...state,
-        //         posts: action.payload
-        //     }
-        // }
+
+        case FILTERABC: {
+            let orderName = [...state.filterABC];
+
+            // if (action.payload === "a-z") {
+            //     orderName = orderName.sort((a, b) => a.title.localeCompare(b.title));
+            // } else if (action.payload === "z-a") {
+            //     orderName = orderName.sort((a, b) => b.title.localeCompare(a.title));
+            // }
+
+            return {
+                ...state,
+                filterABC: orderName,
+            };
+        }
+
+
         default:
             return state;
     }
