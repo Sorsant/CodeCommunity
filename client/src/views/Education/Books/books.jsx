@@ -5,7 +5,7 @@ import Book3 from "./BooksImages/Book3ClairDeLune.png";
 import Book4 from "./BooksImages/Book4Rhapsodie.png";
 import styles from "./books.module.css";
 
-const Books: React.FC = () : JSX.Element => {
+const Books = () => {
     return (
         <div className={styles.container}>
             <h3 className={styles.text}>Here you have a little selection of books for your learning, we hope you enjoy it!</h3>

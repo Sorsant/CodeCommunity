@@ -1,17 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./communityCard.module.css";
+import DetailCommunity from "../DetailCommunity/detailCommunity";
 
-interface Communities {
-    name: string;
-    description: string;
-    language: string;
-    image: string;
-}
-
-//interface User {}
-
-const CommunityCard: React.FC <Communities> = ({name, description, language, image}) : JSX.Element => {
+const CommunityCard = ({name, description, language, image, created}) => {
 
     return (
         <div className={styles.card}>
@@ -29,6 +21,7 @@ const CommunityCard: React.FC <Communities> = ({name, description, language, ima
                     <div>
 
                         <p className={styles.description}>{description}</p>
+                        <p className={styles.description}>{created}</p>
 
                     </div>
                 </div>

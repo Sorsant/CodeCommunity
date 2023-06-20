@@ -3,30 +3,16 @@ import styles from "./communityForm.module.css";
 import { useState } from "react";
 import validate from "./validate";
 
-interface FormCommunity {
-    name: string;
-    description: string;
-    language: string;
-    //image?: string;
-}
+const CommunityForm = () => {
 
-interface ErrorsCommunity {
-    name?: string;
-    description?: string;
-    language?: string;
-    //image?: string;
-}
-
-const CommunityForm: React.FC = () : JSX.Element => {
-
-    const [ inputValues, setInputValues ] = useState<FormCommunity>({
+    const [ inputValues, setInputValues ] = useState({
         name: "",
         description: "",
         language: "",
       //  image: ""
     })
 
-    const [ errors, setErrors ] = useState<ErrorsCommunity>({
+    const [ errors, setErrors ] = useState({
         name: "",
         description: "",
         language: "",
@@ -37,7 +23,7 @@ const CommunityForm: React.FC = () : JSX.Element => {
         //event.preventDefault();  
     };
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { //Or we can also add "| React.ChangeEvent<HTMLSelectElement>" for omit a second handler(handleChangeOption).
+    const handleChange = (event) => { 
         setInputValues({
             ...inputValues,
             [event.target.name]: event.target.value
@@ -51,7 +37,7 @@ const CommunityForm: React.FC = () : JSX.Element => {
         setErrors(messageErrors);
     }
 
-    const handleChangeOption = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const handleChangeOption = (event) => {
         setInputValues({
             ...inputValues,
             [event.target.name]: event.target.value
