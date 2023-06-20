@@ -3,8 +3,13 @@ import PosteoCard from "../Card/Card";
 import posteos from "../../../assets/infoHomePost";
 
 
-const PosteoCards: React.FC = (): JSX.Element => {
+const PosteoCards = () => {
 
+<<<<<<< HEAD:client/src/components/Posts_Proyect/Cards/Cards.tsx
+=======
+    const posteos = useSelector((state) => state.posts);
+
+>>>>>>> 364027fc57fcbca82f980e640e695cc7aab24f7f:client/src/components/Posts_Proyect/Cards/Cards.jsx
     return (
         <div>
             {

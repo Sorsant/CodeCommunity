@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./card.module.css";
 
+<<<<<<< HEAD:client/src/components/Posts_Proyect/Card/Card.tsx
 interface posteos {
   id: number;
   user_imagen: string;
@@ -27,6 +28,19 @@ const postCard: React.FC<posteos> = ({
   gitHub,
   createDate,
 }): JSX.Element => {
+=======
+
+
+//interface User {}
+
+const postCard = ({
+  id,
+  title,
+  description,
+  image,
+  created,
+}) => {
+>>>>>>> 364027fc57fcbca82f980e640e695cc7aab24f7f:client/src/components/Posts_Proyect/Card/Card.jsx
   return (
     <div className={styles.container}>
       {/*Revisar el parametro para identificar el grupo*/}
