@@ -1,9 +1,6 @@
 import React from "react";
 import styles from "./Filter.module.css";
-import { filterAbc } from "../Redux/action";
 import { useDispatch, useSelector } from "react-redux";
-import { AppState, GetFilterABC } from "../Redux/types";
-import { Dispatch } from "redux";
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -31,7 +28,7 @@ const Filter = () => {
         <option value="old">Older</option>
       </select>
 
-      <select className={styles.selectTres} onChange={handleFilterAbc}>
+      <select className={styles.selectTres}>
         <option>Order</option>
         <option value="Asc">a-z</option>
         <option value="Desc">z-a</option>
