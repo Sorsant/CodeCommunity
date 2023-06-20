@@ -7,19 +7,19 @@ import { addHomePosts } from '../../components/Redux/action';
 const Posteohome = () => {
     const dispatch = useDispatch();
 
-    const [post, setPost] = useState < FormPost > ({
+    const [post, setPost] = useState ({
         image: '',
         title: '',
         description: '',
     });
 
-    const [errors, setErrors] = useState < ErroresRegister > ({
+    const [errors, setErrors] = useState  ({
         image: '',
         title: '',
         description: '',
     });
 
-    const handleOnChange = () => {
+    const handleOnChange = (event) => {
         const { name, value } = event.target;
 
         setPost({
@@ -35,7 +35,7 @@ const Posteohome = () => {
         setErrors(updatedErrors);
     };
 
-    const handleOnSubmit = () => {
+    const handleOnSubmit = (event) => {
         event.preventDefault();
         dispatch(addHomePosts(post));
     };

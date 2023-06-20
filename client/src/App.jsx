@@ -20,7 +20,6 @@ axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 
 const App = () => {
   const location = useLocation();
-
   return (
     <div>
       {location.pathname !== "/" ? <Nav /> : null}
