@@ -4,10 +4,12 @@ import Thread from '../../components/Answer/Hilo';
 import styles from './QandA.module.css'
 import Posteo from './Form/Post';
 
-const QandA: React.FC = () => {
-    const [threads, setThreads] = useState<{ id: string; tweets: string[] }[]>([]);
+const QandA = () => {
+    const [threads, setThreads] = useState({
+        id: ""
+    })
 
-    const addTweet = (threadId: string, tweet: string) => {
+    const addTweet = (threadId, tweet) => {
         setThreads(prevThreads =>
             prevThreads.map(thread =>
                 thread.id === threadId ? { ...thread, tweets: [...thread.tweets, tweet] } : thread
@@ -23,7 +25,7 @@ const QandA: React.FC = () => {
     return (
         <div className={styles.divQA}>
             <h1>Q & A</h1>
-            <Posteo onSubmit={function (title: string, content: string): void {
+            <Posteo onSubmit={function (title, content) {
                 throw new Error('Function not implemented.');
             }} />
 

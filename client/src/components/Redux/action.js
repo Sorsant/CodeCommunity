@@ -1,12 +1,9 @@
-import { Dispatch } from 'redux';
-import { GET_ALL_POST, GetPostsAction, FILTER_ABC, AddRegisterUser, ADD_REGISTER } from './types';
-// import data from '../../assets/infoHomePost';
+import { GET_ALL_POST, FILTER_ABC, ADD_REGISTER } from './action-types';
 import axios from 'axios';
-import { ActionTypes } from './types';
 
 export const getHomePosts = () => {
     const endpoint = 'http://127.0.0.1:8000/codec/api/post/'
-    return async (dispatch: Dispatch<GetPostsAction>) => {
+    return async (dispatch) => {
         const { data } = await axios.get(endpoint);
         return dispatch({
             type: GET_ALL_POST,
@@ -27,23 +24,23 @@ export const getHomePosts = () => {
 // };
 
 
-export const filterAbc = (payload: any) => {
-    return async (dispatch: Dispatch<ActionTypes>): Promise<void> => {
+export const filterAbc = (payload) => {
+    return async (dispatch) => {
         const endpoint = 'http://127.0.0.1:8000/codec/api/post/?ordering=title/';
         const { data } = await axios.get(endpoint);
         dispatch({
             type: FILTER_ABC,
-            payload: data,
+            payload
         });
     };
 };
-export const addRegister = (register: any): AddRegisterUser => {
-    const endpoint = 'http://127.0.0.1:8000/codec/api/user/'
+export const addRegister = (register) => {
+    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/user/'
 
     const data = axios.post(endpoint, register);
     return {
         type: ADD_REGISTER,
-        payload: register
+        payload: data
     };
 
 }

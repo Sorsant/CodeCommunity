@@ -1,18 +1,18 @@
 // reducers.ts
-import { AppState, ActionTypes, GET_ALL_POST, FILTER_ABC } from './types';
+import { GET_ALL_POST, FILTER_ABC } from './action-types';
 
-const initialState: AppState = {
+const initialState = {
     posts: [],
-    filterABC: [],
+    posteoFilter: [],
 };
 
-export const rootReducer = (state = initialState, action: ActionTypes): AppState => {
-    switch (action.type) {
+export const rootReducer = (state = initialState, { type, payload }) => {
+    switch (type) {
         case GET_ALL_POST:
             return {
                 ...state,
-                posts: action.payload,
-                filterABC: action.payload
+                posts: payload,
+                filterABC: payload
             };
 
         case FILTER_ABC: {

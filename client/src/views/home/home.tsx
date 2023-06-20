@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { GetFilterABC, Post } from '../../components/Redux/types';
+import { GetFilterABC, Post } from '../../components/Redux/action-types';
 import { getHomePosts } from '../../components/Redux/action';
 import PosteoCards from '../../components/Posts_Proyect/Cards/Cards';
 import CommunityCard from '../../views/Community/communityCards';

@@ -1,16 +1,10 @@
 import React from 'react';
 import styles from './hilo.module.css'
 
-type ThreadProps = {
-    threadId: string;
-    tweets: string[];
-    addTweet: (threadId: string, tweet: string) => void;
-};
-
-const Thread: React.FC<ThreadProps> = ({ threadId, tweets, addTweet }) => {
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+const Thread = ({ threadId, tweets, addTweet }) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        const input = event.currentTarget.elements[0] as HTMLInputElement;
+        const input = event.currentTarget.elements[0];
         const tweet = input.value.trim();
 
         if (tweet) {
