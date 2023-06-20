@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./Filter.module.css";
 import { filterAbc } from "../Redux/action";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,10 +10,10 @@ const Filter: React.FC = (): JSX.Element => {
 
   const posts = useSelector((state: AppState) => state.posts);
 
-  const handleFilterAbc = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleFilterAbc = (event: any) => {
     const action: GetFilterABC = {
       type: "FILTER_ABC",
-      payload: [event.target.value],
+      payload: [event.target.value]
     };
     dispatch(action);
   };
