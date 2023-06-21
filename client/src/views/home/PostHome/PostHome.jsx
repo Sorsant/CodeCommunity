@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import validate from './validatePost';
+import styles from './post.module.css'
 import { useDispatch } from 'react-redux';
 import { addHomePosts } from '../../../components/Redux/Actions/Post/action-post';
 
@@ -43,62 +44,57 @@ const Posteohome = () => {
     };
 
     return (
-        <div>
-            <div>
-                <form onSubmit={handleOnSubmit}>
-                    {console.log(post)}
-                    <div>
+        <div className={styles.containerForm}>
+            <form onSubmit={handleOnSubmit}  >
+                <label>Title</label>
+                <input
+                    onChange={handleOnChange}
+                    value={post.title}
+                    type="text"
+                    name="title"
+                    placeholder="Your title"
+                />
+                {errors.title && <span>{errors.title}</span>}
 
-                        <label>Title</label>
-                        <input
-                            onChange={handleOnChange}
-                            value={post.title}
-                            type="text"
-                            name="title"
-                            placeholder="Your title"
-                        />
-                        {errors.title && <span>{errors.title}</span>}
+                <label>Description</label>
+                <input
+                    onChange={handleOnChange}
+                    value={post.description}
+                    type="text"
+                    name="description"
+                    placeholder=""
+                />
+                {errors.description && <span>{errors.description}</span>}
 
-                        <label>Description</label>
-                        <input
-                            onChange={handleOnChange}
-                            value={post.description}
-                            type="text"
-                            name="description"
-                            placeholder=""
-                        />
-                        {errors.description && <span>{errors.description}</span>}
+                <label>Image</label>
+                <input
+                    onChange={handleOnChange}
+                    value={post.image}
+                    type="text"
+                    name="image"
+                />
+                {errors.image && <span>{errors.image}</span>}
 
-                        <label>Image</label>
-                        <input
-                            onChange={handleOnChange}
-                            value={post.image}
-                            type="text"
-                            name="image"
-                        />
-                        {errors.image && <span>{errors.image}</span>}
+                <label>user</label>
+                <input
+                    onChange={handleOnChange}
+                    value={post.user}
+                    type="text"
+                    name="user"
+                />
 
-                        <label>user</label>
-                        <input
-                            onChange={handleOnChange}
-                            value={post.user}
-                            type="text"
-                            name="user"
-                        />
-
-                        <button
-                            disabled={
-                                !post.title ||
-                                !post.description ||
-                                !!errors.title ||
-                                !!errors.description
-                            }
-                        >
-                            Post
-                        </button>
-                    </div>
-                </form>
-            </div>
+                <button
+                    disabled={
+                        !post.title ||
+                        !post.description ||
+                        !!errors.title ||
+                        !!errors.description
+                    }
+                    className={styles.button}
+                >
+                    Post
+                </button>
+            </form>
         </div>
     );
 };

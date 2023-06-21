@@ -5,3 +5,5 @@ export const ADD_REGISTER = "ADD_REGISTER";
 export const ADD_POST = 'ADD_POST';
 export const FILTER_ZA = "FILTER_ZA";
 export const FILTER_AZ = "FILTER_AZ";
+export const FILTER_PUBLICATIONS = "FILTER_PUBLICATIONS"
+export const SEARCH = "SEARCH";

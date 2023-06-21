@@ -1,4 +1,4 @@
-import { GET_ALL_POST, FILTER_AZ, FILTER_ZA } from '../../action-types';
+import { GET_ALL_POST, FILTER_AZ, FILTER_ZA, FILTER_PUBLICATIONS, SEARCH } from '../../action-types';
 
 import axios from 'axios';
 
@@ -34,3 +34,23 @@ export const filterZA = () => {
         });
     }
 }
+
+export const filterPublications = (payload) => {
+    return {
+        type: FILTER_PUBLICATIONS,
+        payload,
+    };
+};
+
+export const search = (name) => {
+    const endpoint = `https://codecommunity-production.up.railway.app/codec/api/post/?search=${name}`
+    return async (dispatch) => {
+        const { data } = await axios.get(endpoint);
+        console.log(data);
+        return dispatch({
+            type: SEARCH,
+            payload: data,
+        });
+    }
+}
+
