@@ -7,3 +7,4 @@ export const FILTER_AZ = "FILTER_AZ";
 export const GET_ALL_LANGUAGES = "GET_ALL_LANGUAGES";
 export const POST_USER = "POST_USER";
 export const FILTER_ABC = "FILTER_ABC";
+export const FILTER_PUBLICATIONS = "FILTER_PUBLICATIONS"

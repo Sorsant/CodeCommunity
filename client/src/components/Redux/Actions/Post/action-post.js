@@ -5,10 +5,9 @@ import axios from 'axios';
 
 
 export const addHomePosts = (post) => {
-    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/post/'
-    const add = axios.post(endpoint, post);
-    return {
-        type: ADD_POST,
-        payload: post,
-    };
+return async function (dispatch) {
+    const url = await axios.post("https://codecommunity-production.up.railway.app/codec/api/post/", post)
+    console.log(url)
+    return url
+}
 };
