@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import styles from "./filter.module.css";
-import { filterAZ, filterZA, getHomePosts } from "../Redux/Actions/Get/action-get"
+import { filterAZ, filterZA, getHomePosts, filterPublications } from "../Redux/Actions/Get/action-get"
 import { useDispatch, useSelector } from "react-redux";
 
 const Filter = () => {
   const dispatch = useDispatch();
 
-  // const filterAbc = useSelector((state) => state.filterAbc);
+//  const posts = useSelector((state) => state.posts);
 
   const handleFilterAZ = (event) => {
     const { value } = event.target
@@ -21,11 +21,17 @@ const Filter = () => {
       dispatch(getHomePosts())
     }
   };
-
-  // useEffect(() => {
-  //   dispatch(filterAZ());
-  // }, [dispatch]);
-
+  const handleFilterPublications = (event) => {
+    const { value } = event.target;
+  
+    if (value === "news") {
+      dispatch(filterPublications(value));
+    }
+  
+    if (value === "old") {
+      dispatch(filterPublications(value));
+    }
+  };
   return (
     <div className={styles.container}>
       <select className={styles.selectUno}>
@@ -34,7 +40,7 @@ const Filter = () => {
         <option value="less">Less like</option>
       </select>
 
-      <select className={styles.selectDos}>
+      <select className={styles.selectDos} onChange={handleFilterPublications}>
         <option value={'DEFAULT'} disabled>Publications</option>
         <option value="news">Newest</option>
         <option value="old">Older</option>

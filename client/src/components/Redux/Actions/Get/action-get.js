@@ -1,9 +1,9 @@
-import { GET_ALL_POST, FILTER_AZ, FILTER_ZA } from '../../action-types';
+import { GET_ALL_POST, FILTER_AZ,FILTER_ZA, FILTER_PUBLICATIONS } from '../../action-types';
 
 import axios from 'axios';
 
 export const getHomePosts = () => {
-    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/post/'
+    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/post/' 
     return async (dispatch) => {
         const { data } = await axios.get(endpoint);
         return dispatch({
@@ -13,7 +13,7 @@ export const getHomePosts = () => {
     }
 }
 export const filterAZ = () => {
-
+   
     const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/post/?ordering=title';
     return async (dispatch) => {
         const { data } = await axios.get(endpoint);
@@ -34,3 +34,10 @@ export const filterZA = () => {
         });
     }
 }
+export const filterPublications = (payload) => {
+    return {
+      type: FILTER_PUBLICATIONS,
+      payload,
+    };
+  };
+
