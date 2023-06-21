@@ -11,7 +11,7 @@ const Posteohome = () => {
         image: '',
         title: '',
         description: '',
-        user:""
+        user: ""
     });
 
     const [errors, setErrors] = useState({
@@ -46,9 +46,9 @@ const Posteohome = () => {
         <div>
             <div>
                 <form onSubmit={handleOnSubmit}>
-                {console.log(post)}
+                    {console.log(post)}
                     <div>
-                        <div></div>
+
                         <label>Title</label>
                         <input
                             onChange={handleOnChange}
@@ -77,7 +77,7 @@ const Posteohome = () => {
                             name="image"
                         />
                         {errors.image && <span>{errors.image}</span>}
-                        
+
                         <label>user</label>
                         <input
                             onChange={handleOnChange}

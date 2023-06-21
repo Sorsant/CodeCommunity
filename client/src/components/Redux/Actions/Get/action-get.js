@@ -1,9 +1,9 @@
-import { GET_ALL_POST, FILTER_AZ,FILTER_ZA } from '../../action-types';
+import { GET_ALL_POST, FILTER_AZ, FILTER_ZA } from '../../action-types';
 
 import axios from 'axios';
 
 export const getHomePosts = () => {
-    const endpoint = 'http://127.0.0.1:8000/codec/api/post' 
+    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/post/'
     return async (dispatch) => {
         const { data } = await axios.get(endpoint);
         return dispatch({
@@ -13,8 +13,8 @@ export const getHomePosts = () => {
     }
 }
 export const filterAZ = () => {
-   
-    const endpoint = 'http://127.0.0.1:8000/codec/api/post/?ordering=title';
+
+    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/post/?ordering=title';
     return async (dispatch) => {
         const { data } = await axios.get(endpoint);
         return dispatch({
@@ -25,7 +25,7 @@ export const filterAZ = () => {
 };
 
 export const filterZA = () => {
-    const endpoint = 'http://127.0.0.1:8000/codec/api/post/?ordering=-title'
+    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/post/?ordering=-title'
     return async (dispatch) => {
         const { data } = await axios.get(endpoint);
         return dispatch({
@@ -34,4 +34,3 @@ export const filterZA = () => {
         });
     }
 }
-

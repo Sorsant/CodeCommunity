@@ -29,7 +29,7 @@ const Nav = () => {
           </button>
           <div className="offcanvas offcanvas-end text-bg-dark" tabIndex={-1} id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
             <div className="offcanvas-header">
-              <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">
+              <h5 className={`offcanvas-title ${styles['title_toggle']}`} id="offcanvasDarkNavbarLabel">
                 Code Community
               </h5>
               <button
@@ -43,26 +43,26 @@ const Nav = () => {
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <div className={styles.info}>
                   <li className="nav-item">
-                    <Link to="/Contact" >
+                    <Link to="/Contact" className={styles.link} >
                       <h1 className={styles.contact}>Contact</h1>
                     </Link>
                   </li>
 
                   <li className="nav-item">
-                    <Link to="/register" >
+                    <Link to="/register" className={styles.link} >
                       <h1 className={styles.sign}>Sign in</h1>
                     </Link>
                   </li>
 
                   <li className="nav-item">
-                    <Link to="/login" >
+                    <Link to="/login" className={styles.link} >
                       <h1 className={styles.login}>Log in</h1>
                     </Link>
                   </li>
                 </div>
                 <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
+                  <a className={`nav-link dropdown-toggle ${styles['button-sections']}`} href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    SECTIONS
                   </a>
                   <ul className="dropdown-menu dropdown-menu-dark">
                     <li className="nav-item">
