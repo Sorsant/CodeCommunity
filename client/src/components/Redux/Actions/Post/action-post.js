@@ -5,18 +5,17 @@ import axios from 'axios';
 
 
 export const addHomePosts = (post)  => {
-    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/post/'
-    const add = axios.post(endpoint, post);
-    return {
-        type: ADD_POST ,
-        payload: post,
-    };
+    return async function (dispatch) {
+        const url = await axios.post('http://127.0.0.1:8000/codec/api/post/', post)
+        console.log(url)
+        return url
+    }
 };
 
 
 
 export const addRegister = (register) => {
-    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/user/'
+    const endpoint = 'http://127.0.0.1:8000/codec/api/user/'
 
     const data = axios.post(endpoint, register);
     return {
