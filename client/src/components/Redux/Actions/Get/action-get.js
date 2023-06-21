@@ -1,4 +1,4 @@
-import { GET_ALL_POST, FILTER_AZ,FILTER_ZA } from '../../action-types';
+import { GET_ALL_POST, FILTER_AZ, FILTER_ZA } from '../../action-types';
 
 import axios from 'axios';
 
@@ -13,7 +13,7 @@ export const getHomePosts = () => {
     }
 }
 export const filterAZ = () => {
-   
+
     const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/post/?ordering=title';
     return async (dispatch) => {
         const { data } = await axios.get(endpoint);
@@ -34,4 +34,3 @@ export const filterZA = () => {
         });
     }
 }
-

@@ -9,7 +9,7 @@ export const addHomePosts = (post) => {
     const add = axios.post(endpoint, post);
     return {
         type: ADD_POST,
-        payload: add,
+        payload: post,
     };
 };
 

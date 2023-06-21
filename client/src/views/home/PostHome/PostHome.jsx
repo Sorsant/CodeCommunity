@@ -8,10 +8,10 @@ const Posteohome = () => {
     const dispatch = useDispatch();
 
     const [post, setPost] = useState({
-        user: '',
         image: '',
         title: '',
         description: '',
+        user: ""
     });
 
     const [errors, setErrors] = useState({
@@ -38,6 +38,7 @@ const Posteohome = () => {
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
+        console.log(event.target.value)
         dispatch(addHomePosts(post));
     };
 
@@ -45,14 +46,8 @@ const Posteohome = () => {
         <div>
             <div>
                 <form onSubmit={handleOnSubmit}>
+                    {console.log(post)}
                     <div>
-                        <label>User</label>
-                        <input
-                            onChange={handleOnChange}
-                            value={post.user}
-                            type="text"
-                            name="user"
-                            placeholder="Your User" />
 
                         <label>Title</label>
                         <input
@@ -82,6 +77,14 @@ const Posteohome = () => {
                             name="image"
                         />
                         {errors.image && <span>{errors.image}</span>}
+
+                        <label>user</label>
+                        <input
+                            onChange={handleOnChange}
+                            value={post.user}
+                            type="text"
+                            name="user"
+                        />
 
                         <button
                             disabled={

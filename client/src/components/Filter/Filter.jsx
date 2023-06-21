@@ -29,19 +29,19 @@ const Filter = () => {
   return (
     <div className={styles.container}>
       <select className={styles.selectUno}>
-        <option value="like">Outstanding</option>
+        <option value={'DEFAULT'} disabled>Outstanding</option>
         <option value="All">More like</option>
         <option value="less">Less like</option>
       </select>
 
       <select className={styles.selectDos}>
-        <option>Publications</option>
+        <option value={'DEFAULT'} disabled>Publications</option>
         <option value="news">Newest</option>
         <option value="old">Older</option>
       </select>
 
       <select className={styles.selectTres} onChange={handleFilterAZ}>
-        <option>Order</option>
+        <option value={'DEFAULT'} disabled>Order</option>
         <option value="Acn">a-z</option>
         <option value="Dcn">z-a</option>
         <option value="default">Default</option>
