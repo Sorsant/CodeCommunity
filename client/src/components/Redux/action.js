@@ -1,4 +1,4 @@
-import { GET_ALL_POST, FILTER_ABC, ADD_REGISTER } from './action-types';
+import { GET_ALL_POST, FILTER_ABC, ADD_REGISTER, GET_ALL_LANGUAGES, POST_USER } from './action-types';
 import axios from 'axios';
 
 export const getHomePosts = () => {
@@ -34,13 +34,32 @@ export const filterAbc = (payload) => {
         });
     };
 };
-export const addRegister = (register) => {
-    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/user/'
 
-    const data = axios.post(endpoint, register);
-    return {
-        type: ADD_REGISTER,
-        payload: data
+export const postUser = (payload) => { //Crea un User (posteo)
+    return async () => {
+        try {
+            let createUser = await axios.post('https://codecommunity-production.up.railway.app/codec/api/user/', payload);
+            console.log(createUser);
+            alert('The User was created!');
+            return createUser;
+        } catch (error) {
+            alert("This User already exists...")
+            console.log(error);
+        }
     };
+};
 
-}
+export const getAllLanguages = () => { //Trae todos los lenguajes al selector para filtrar
+    return async (dispatch) => {
+        try {
+            let url = 'https://codecommunity-production.up.railway.app/codec/api/language';
+            let json = await axios.get(url);
+            return dispatch({
+                type: GET_ALL_LANGUAGES,
+                payload: json.data
+            });
+        } catch (error) {
+          console.log(error);  
+        };
+    };
+};

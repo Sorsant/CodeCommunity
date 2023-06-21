@@ -1,9 +1,10 @@
 // reducers.ts
-import { GET_ALL_POST, FILTER_ABC } from './action-types';
+import { GET_ALL_POST, FILTER_ABC, GET_ALL_LANGUAGES, POST_USER } from './action-types';
 
 const initialState = {
     posts: [],
     posteoFilter: [],
+    languages: []
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -29,6 +30,16 @@ const reducer = (state = initialState, { type, payload }) => {
                 filterABC: orderName,
             };
         }
+
+        case GET_ALL_LANGUAGES: //Trae todos los lenguages de la DB
+            return {
+                ...state,
+                languages: payload
+            }
+        case POST_USER: 
+            return {
+                ...state
+            }
 
 
         default:
