@@ -1,5 +1,5 @@
 // reducers.ts
-import { GET_ALL_POST, FILTER_AZ, FILTER_ZA, ADD_POST, FILTER_PUBLICATIONS, GET_ALL_LANGUAGES, POST_USER } from './action-types';
+import { GET_ALL_POST, FILTER_AZ, FILTER_ZA, ADD_POST, FILTER_PUBLICATIONS, GET_ALL_LANGUAGES, POST_USER, SEARCH } from './action-types';
 
 const initialState = {
     posts: [],
@@ -7,7 +7,7 @@ const initialState = {
     languages: []
 };
 
-const reducer = (state = initialState, { type, payload }) => { 
+const reducer = (state = initialState, { type, payload }) => {
     switch (type) {
         case GET_ALL_POST:
             return {
@@ -37,7 +37,7 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...state,
                 languages: payload
             }
-        case POST_USER: 
+        case POST_USER:
             return {
                 ...state
             }
@@ -65,6 +65,12 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...state,
                 posts: sortedPosts,
             };
+        }
+        case SEARCH: {
+            return {
+                ...state,
+                posts: payload
+            }
         }
         default:
             return state;
