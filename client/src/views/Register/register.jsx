@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import validate from './validate';
 import { useDispatch } from 'react-redux';
-import { addRegister } from '../../components/Redux/action';
+import { addRegister } from '../../components/Redux/Actions/Post/action-post';
 
 const Register = () => {
     const dispatch = useDispatch();

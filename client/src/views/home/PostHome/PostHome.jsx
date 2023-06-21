@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import validate from './validatePost';
 import { useDispatch } from 'react-redux';
-import { addHomePosts } from '../../components/Redux/action';
+import { addHomePosts } from '../../../components/Redux/Actions/Post/action-post';
 
 
 const Posteohome = () => {
     const dispatch = useDispatch();
 
-    const [post, setPost] = useState ({
+    const [post, setPost] = useState({
         image: '',
         title: '',
         description: '',
     });
 
-    const [errors, setErrors] = useState  ({
+    const [errors, setErrors] = useState({
         image: '',
         title: '',
         description: '',
