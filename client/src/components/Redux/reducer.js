@@ -1,9 +1,9 @@
 // reducers.ts
-import { GET_ALL_POST, FILTER_ABC, GET_ALL_LANGUAGES, POST_USER } from './action-types';
+import { GET_ALL_POST, FILTER_AZ, FILTER_ZA, ADD_POST, GET_ALL_LANGUAGES, POST_USER } from './action-types';
 
 const initialState = {
     posts: [],
-    posteoFilter: [],
+    addPost:[],
     languages: []
 };
 
@@ -13,25 +13,26 @@ const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 posts: payload,
-                filterABC: payload
             };
 
-        case FILTER_ABC: {
-            let orderName = [...state.filterABC];
-
-            // if (action.payload === "a-z") {
-            //     orderName = orderName.sort((a, b) => a.title.localeCompare(b.title));
-            // } else if (action.payload === "z-a") {
-            //     orderName = orderName.sort((a, b) => b.title.localeCompare(a.title));
-            // }
-
+        case FILTER_AZ: {
             return {
                 ...state,
-                filterABC: orderName,
+                posts: payload,
             };
         }
-
-        case GET_ALL_LANGUAGES: //Trae todos los lenguages de la DB
+        case FILTER_ZA:{
+            return{
+                ...state,
+                posts: payload
+            }
+        }
+        case ADD_POST: {
+            return {
+                ...state,
+            };
+        }
+        case GET_ALL_LANGUAGES:
             return {
                 ...state,
                 languages: payload

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import validate from './validate';
 import { useDispatch, useSelector } from 'react-redux';
 import { postUser, getAllLanguages } from '../../components/Redux/action';
+import styles from "./register.module.css";
 
 const Register = () => {
 
@@ -79,10 +80,10 @@ const Register = () => {
     }
 
     return (
-        <div>
+        <div className={styles.container}>
             <div>
                 <form onSubmit={handleOnSubmit}>
-                    <div>
+                    <div className={styles.containerForm}>
 
                         <label>User Image</label>
                         <input
@@ -92,8 +93,10 @@ const Register = () => {
                             name="user_image"
                             placeholder="Image URL"
                         />
+                       
                         {/*Revisar validaciones, agregar validacion de imagen de usuario*/}
-
+                    <div />
+                    <div className={styles.containerForm}></div>
                         <label>Name</label>
                         <input
                             onChange={event => {handleOnChange(event)}}
@@ -103,7 +106,8 @@ const Register = () => {
                             placeholder="Name"
                         />
                         {errors.name && <span>{errors.name}</span>}
-
+                    <div />
+                    <div className={styles.containerForm}></div>
                         <label>Lastname</label>
                         <input
                             onChange={event => {handleOnChange(event)}}
@@ -113,7 +117,8 @@ const Register = () => {
                             placeholder="Lastname"
                         />
                         {errors.lastname && <span>{errors.lastname}</span>}
-
+                    <div />
+                    <div className={styles.containerForm}></div>
                         <label>My nickname</label>
                         <input
                             onChange={event => {handleOnChange(event)}}
@@ -123,7 +128,8 @@ const Register = () => {
                             placeholder="Your nickname"
                         />
                         {errors.nickname && <span>{errors.nickname}</span>}
-
+                    <div />
+                    <div className={styles.containerForm}></div>
                         <label>Email</label>
                         <input
                             onChange={event => {handleOnChange(event)}}
@@ -133,17 +139,19 @@ const Register = () => {
                             placeholder="Your email"
                         />
                         {errors.email && <span>{errors.email}</span>}
-
+                    <div /> 
+                    <div className={styles.containerForm}></div>
                         <label>Birthday</label>
                         <input
                             onChange={event => {handleOnChange(event)}}
                             value={register.birthday}
                             type="text"
                             name="birthday"
-                            placeholder="dd/mm/aaaa"
+                            placeholder="aaaa-mm-dd"
                         />
                         {/*Hacer validaciones de cumpleaños*/}
-
+                    <div />
+                    <div className={styles.containerForm}></div>
                         <label>Password</label>
                         <input
                             onChange={event => {handleOnChange(event)}}
@@ -153,20 +161,22 @@ const Register = () => {
                             placeholder="Your password"
                         />
                         {errors.password && <span>{errors.password}</span>}
-
+                    <div />
+                    <div className={styles.containerForm}></div>
                         <select onChange={event => {handleChangeOption(event)}}>
 
                         <option>Select Language</option>
                         {
-                            languages?.map(e => {
+                            languages?.map(element => {
                                 return (
-                                    <option key={e.id} value={e.id} name={languages}>{e.name}</option>
+                                    <option key={element.id} value={element.id} name={register.language}>{element.name}</option>
                                 )
                             })
                         }
                         </select>
                         {/*Hacer validaciones para el select de Languages*/}
-
+                    <div />
+                    <div className={styles.containerForm}></div>
                         <button
                             disabled={
                                 !register.email ||

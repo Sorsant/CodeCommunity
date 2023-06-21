@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import validate from './validatePost';
 import { useDispatch } from 'react-redux';
-import { addHomePosts } from '../../components/Redux/action';
+import { addHomePosts } from '../../../components/Redux/Actions/Post/action-post';
 
 
 const Posteohome = () => {
     const dispatch = useDispatch();
 
-    const [post, setPost] = useState ({
+    const [post, setPost] = useState({
         image: '',
         title: '',
         description: '',
+        user: ""
     });
 
-    const [errors, setErrors] = useState  ({
+    const [errors, setErrors] = useState({
         image: '',
         title: '',
         description: '',
@@ -37,6 +38,7 @@ const Posteohome = () => {
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
+        console.log(event.target.value)
         dispatch(addHomePosts(post));
     };
 
@@ -44,8 +46,9 @@ const Posteohome = () => {
         <div>
             <div>
                 <form onSubmit={handleOnSubmit}>
+                    {console.log(post)}
                     <div>
-                        <div></div>
+
                         <label>Title</label>
                         <input
                             onChange={handleOnChange}
@@ -74,6 +77,14 @@ const Posteohome = () => {
                             name="image"
                         />
                         {errors.image && <span>{errors.image}</span>}
+
+                        <label>user</label>
+                        <input
+                            onChange={handleOnChange}
+                            value={post.user}
+                            type="text"
+                            name="user"
+                        />
 
                         <button
                             disabled={

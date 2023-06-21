@@ -1,4 +1,4 @@
-import { GET_ALL_POST, FILTER_ABC, ADD_REGISTER, GET_ALL_LANGUAGES, POST_USER } from './action-types';
+import { GET_ALL_POST, FILTER_ABC, GET_ALL_LANGUAGES } from './action-types';
 import axios from 'axios';
 
 export const getHomePosts = () => {
