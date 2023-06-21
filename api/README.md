@@ -4,7 +4,9 @@
 
 -  Ejecuta `pip install virtualenv`, luego `python -m venv venv` para instalar el entorno virtual que se llamara "venv".
 
--  Ejecuta `.\venv\Scripts\Activate.ps1` para activar el entorno virtual en la consola. En caso de que te aparezca un error _"la ejecución de scripts está deshabilitada en este sistema"_ dale click derecho al icono de windows y selecciona la opción "Powershell (administrador)" y ejecutas `Set-ExecutionPolicy RemoteSigned` para permitir la ejecucion de entornos virtuales. Despues de terminar de trabajar con el entorno virtual se recomienda restablecer la politica de ejecucion con el comando `Set-ExecutionPolicy Restricted`.
+- Ejecutar el entorno virtual (preguntar a Felipe :c)
+
+En caso de que te aparezca un error _"la ejecución de scripts está deshabilitada en este sistema"_ dale click derecho al icono de windows y selecciona la opción "Powershell (administrador)" y ejecutas `Set-ExecutionPolicy RemoteSigned` para permitir la ejecucion de entornos virtuales. Despues de terminar de trabajar con el entorno virtual se recomienda restablecer la politica de ejecucion con el comando `Set-ExecutionPolicy Restricted`.
 
 -  Ejecuta en el terminal `pip install -r requirements.txt` para instalar todas las dependecias necesarias.
 
