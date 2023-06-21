@@ -1,0 +1,14 @@
+.container {
+    border: 3px solid #000;
+    display: flex;
+    flex-wrap: wrap;
+    width: 380px;
+    height: auto;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.containerForm {
+    display: contents;
+    width: 50px;
+}

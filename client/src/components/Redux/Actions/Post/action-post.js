@@ -1,4 +1,4 @@
-import { ADD_REGISTER, ADD_POST } from '../../action-types';
+import { ADD_POST } from '../../action-types';
 
 import axios from 'axios';
 
@@ -11,15 +11,3 @@ return async function (dispatch) {
     return url
 }
 };
-
-
-
-export const addRegister = (register) => {
-    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/user/'
-    const data = axios.post(endpoint, register);
-    return {
-        type: ADD_REGISTER,
-        payload: data
-    };
-
-}
