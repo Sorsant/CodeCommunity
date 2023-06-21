@@ -66,6 +66,7 @@ const Login = () => {
 
         {errors.Password && <span className={styles.Password}>{errors.Password}</span>}
         <hr className={"line"}></hr>
+        Link
         <button
           className={styles['sign-in_btn']}
           disabled={

@@ -8,6 +8,7 @@ const Posteohome = () => {
     const dispatch = useDispatch();
 
     const [post, setPost] = useState({
+        user: '',
         image: '',
         title: '',
         description: '',
@@ -45,7 +46,14 @@ const Posteohome = () => {
             <div>
                 <form onSubmit={handleOnSubmit}>
                     <div>
-                        <div></div>
+                        <label>User</label>
+                        <input
+                            onChange={handleOnChange}
+                            value={post.user}
+                            type="text"
+                            name="user"
+                            placeholder="Your User" />
+
                         <label>Title</label>
                         <input
                             onChange={handleOnChange}
