@@ -1,7 +1,21 @@
 from pathlib import Path
+from decouple import config
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+# Cloudinary imports
+
+#import cloudinary
+#from .module import cloudinary
+#import cloudinary.uploader
+#import cloudinary.api
+
+#print(cloudinary)
+
+
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -15,7 +29,9 @@ BASE_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary'
 ]
 
 LOCAL_APPS = [
@@ -25,6 +41,8 @@ LOCAL_APPS = [
 THIRD_APPS = [
   'corsheaders',
   'rest_framework',
+  
+  
 ]
 
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
@@ -117,3 +135,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000"
 ]
+
+# Cloudinary-django integration
+
+# cloudinary.config( 
+#   cloud_name = config('CLOUD_NAME'), 
+#   api_key = config('API_KEY'), 
+#   api_secret = "McovSyzAVo-BHNz1ajg8OCs8EUs" 
+# )
