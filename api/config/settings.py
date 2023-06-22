@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
+STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG')
@@ -111,6 +112,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
     ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ]
 }
 
 
@@ -149,14 +153,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny'
-    ]
-}
-
-STRIPE_SECRET_KEY = 'sk_test_51NL9TyB0138Dzwzeb6TwTUR5RZHD9emoo9aZ761jRWVbz3nZldZOX00vP7NzjuaprUheMkwUN1PTFF1B9OtKVO2o00xd9S3jTp'
 
 STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles')
 
