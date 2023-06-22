@@ -19,6 +19,7 @@ En caso de que te aparezca un error _"la ejecución de scripts está deshabilita
    -  `DB_PASSWORD=(SU_PASSWORD)`
    -  `DB_HOST=localhost`
    -  `DB_PORT=5432`
+   -  `SECRET_KEY=django-insecure-s*aeyf73twr_tzl40xgl7^((3wvnzauv7mnm3bps+av7h)tapo`
 
 ##
 

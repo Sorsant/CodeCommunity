@@ -24,9 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = ['*']
+
 CSRF_TRUSTED_ORIGINS = ['https://codecommunity-production.up.railway.app']
 
 # Application definition
@@ -41,7 +42,7 @@ BASE_APPS = [
 ]
 
 LOCAL_APPS = [
-    'code_api'
+    'code_api.apps.CodeApiConfig'
 ]
 
 THIRD_APPS = [
@@ -52,9 +53,9 @@ THIRD_APPS = [
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -96,6 +97,20 @@ DATABASES = {
         'HOST': config('DB_HOST'),
         'PORT': config('DB_PORT'),
     }
+}
+
+
+## User model
+
+AUTH_USER_MODEL = 'code_api.AppUser'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    ),
 }
 
 
@@ -147,13 +162,18 @@ STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CORS Authorized
+
+# CORS
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
 ]
+
+CORS_ALLOW_CREDENTIALS = True
