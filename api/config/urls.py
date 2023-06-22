@@ -22,5 +22,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('codec/', include('code_api.routes.principal_urls'))
+    path('codec/', include('code_api.routes.principal_urls')),
+    path('stripe/', include('code_api.routes.stripe_urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
