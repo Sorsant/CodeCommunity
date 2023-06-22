@@ -1,8 +1,21 @@
 import style from "./profile.module.css";
 import imagen from "./default.png";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import React, { useEffect } from 'react';
+import { getUser } from "../../components/Redux/Actions/Get/action-get"
+import { useDispatch } from 'react-redux';
+
+
+
 
 const Profile = () => {
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch]);
+
   return (
     <div>
       <header className={style.header}>
@@ -18,19 +31,19 @@ const Profile = () => {
 
       <div className={style.profile}>
         <div className={style.profile_info}>
-          <h2 className={style.profile_name}>John Doe</h2>
+          <h2 className={style.profile_name}>Nickname: {user.nickname}</h2>
+          <h2 className={style.profile_name}>Name :{user.name}</h2>
+          <h2 className={style.profile_name}>Lastname:{user.lastname}</h2>
+          <h2 className={style.profile_name}>Email: {user.email}</h2>
+          <h2 className={style.profile_name}>Birthday: {user.birthday}</h2>
+          <h2 className={style.profile_name}>Communitys:{user.community}</h2>
           <ul>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>PostgresSQL</li>
+            {user.language}
           </ul>
-          <p className={style.profile_description}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet
-            euismod arcu at bibendum.
-          </p>
+
         </div>
         <div className={style.profile_picture}>
-          <img src={imagen} alt="" />
+          <img src={user.user_image} alt={user.nickname} />
         </div>
       </div>
     </div>

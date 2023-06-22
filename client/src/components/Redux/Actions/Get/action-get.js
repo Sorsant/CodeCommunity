@@ -1,4 +1,4 @@
-import { GET_ALL_POST, FILTER_AZ,FILTER_ZA, FILTER_PUBLICATIONS } from '../../action-types';
+import { GET_ALL_POST, FILTER_AZ,FILTER_ZA, FILTER_PUBLICATIONS, GET_USER } from '../../action-types';
 
 import axios from 'axios';
 
@@ -30,6 +30,16 @@ export const filterZA = () => {
         const { data } = await axios.get(endpoint);
         return dispatch({
             type: FILTER_ZA,
+            payload: data,
+        });
+    }
+}
+export const getUser = (user) => { // en user iria el usuario de la db cargado
+    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/user/2'
+    return async (dispatch) => {
+        const { data } = await axios.get(endpoint);
+        return dispatch({
+            type: GET_USER,
             payload: data,
         });
     }

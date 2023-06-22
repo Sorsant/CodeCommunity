@@ -6,19 +6,17 @@ import { addRegister } from '../../components/Redux/Actions/Post/action-post';
 const Register = () => {
     const dispatch = useDispatch();
     const [register, setRegister] = useState({
-        nickname: '',
-        name: '',
-        lastname: '',
+        username: '',
         email: '',
         password: '',
+        confirmpassword: '',
     });
 
     const [errors, setErrors] = useState({
-        nickname: '',
-        name: '',
-        lastname: '',
+        username: '',
         email: '',
         password: '',
+        confirmpassword: '',
     });
 
     const handleOnChange = (event) => {
@@ -47,68 +45,55 @@ const Register = () => {
             <div>
                 <form onSubmit={handleOnSubmit}>
                     <div>
-                        <label>My nickname</label>
+                        <label>My Username</label><br />
                         <input
                             onChange={handleOnChange}
-                            value={register.nickname}
+                            value={register.username}
                             type="text"
-                            name="nickname" // Corrected: use "nickname" instead of "name"
-                            placeholder="Your nickname"
-                        />
-                        {errors.nickname && <span>{errors.nickname}</span>}
-
-                        <label>Name</label>
-                        <input
-                            onChange={handleOnChange}
-                            value={register.name}
-                            type="text"
-                            name="name"
-                            placeholder="Name"
-                        />
-                        {errors.name && <span>{errors.name}</span>}
-
-                        <label>Lastname</label>
-                        <input
-                            onChange={handleOnChange}
-                            value={register.lastname}
-                            type="text"
-                            name="lastname"
-                            placeholder="Lastname"
-                        />
-                        {errors.lastname && <span>{errors.lastname}</span>}
-
-                        <label>Email</label>
+                            name="username"
+                            placeholder="Your username"
+                        /><br />
+                        {errors.username && <span>{errors.username}</span>}<br />
+                        <label>Email</label><br />
                         <input
                             onChange={handleOnChange}
                             value={register.email}
                             type="email"
                             name="email"
                             placeholder="Your email"
-                        />
-                        {errors.email && <span>{errors.email}</span>}
+                        /><br />
+                        {errors.email && <span>{errors.email}</span>}<br />
 
-                        <label>Password</label>
+                        <label>Password</label><br />
                         <input
                             onChange={handleOnChange}
                             value={register.password}
                             type="password"
                             name="password"
                             placeholder="Your password"
-                        />
-                        {errors.password && <span>{errors.password}</span>}
+                        /><br />
+                        {errors.password && <span>{errors.password}</span>}<br />
+                        <label>Confirm password</label><br />
+                        <input
+                            onChange={handleOnChange}
+                            value={register.confirmpassword}
+                            type="password"
+                            name="confirmpassword"
+                            placeholder="Confirm your password"
+                        /><br />
+                        {errors.confirmpassword && <span>{errors.confirmpassword}</span>}<br />
 
                         <button
                             disabled={
                                 !register.email ||
                                 !register.password ||
-                                !register.name ||
-                                !register.lastname ||
-                                !register.nickname ||
+                                !register.username ||
+                                !register.confirmpassword ||
                                 !!errors.email ||
                                 !!errors.password ||
-                                !!errors.lastname ||
-                                !!errors.nickname ||
-                                !!errors.name
+                                !!errors.username ||
+                                !!errors.confirmpassword
+
                             }
                         >
                             Register

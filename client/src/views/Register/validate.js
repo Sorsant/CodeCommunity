@@ -6,45 +6,23 @@ const validate = (register) => {
     }
 
     if (register.email.length > 25) {
-        errors.email = 'Must be under 35';
+        errors.email = 'Must be under 25';
     }
 
     if (register.email === '') {
         errors.email = 'Email is required';
     }
 
-    if (register.nickname === '') {
-        errors.nickname = 'Account is required';
+    if (register.username === '') {
+        errors.username = 'Username is required';
     }
 
-    if (register.nickname.length < 4) {
-        errors.nickname = 'Must be greater than 4 digits';
+    if (register.username.length < 4) {
+        errors.username = 'Must be greater than 4 digits';
     }
 
-    if (register.nickname.length > 10) {
-        errors.nickname = 'Must be less than 10 digits';
-    }
-
-    if (register.name === '') {
-        errors.name = 'Name is required';
-    }
-
-    if (register.name.length < 3) {
-        errors.name = 'Must be greater than 3 characters';
-    } else if (register.name.length > 15) {
-        errors.name = 'Must be less than 15 characters';
-    }
-
-    if (register.lastname === '') {
-        errors.lastname = 'Last name is required';
-    }
-
-    if (register.lastname.length < 4) {
-        errors.lastname = 'Must be greater than 4 characters';
-    }
-
-    if (register.lastname.length > 10) {
-        errors.lastname = 'Must be less than 10 characters';
+    if (register.username.length > 10) {
+        errors.username = 'Must be less than 10 digits';
     }
 
     if (register.password.length < 6) {
@@ -56,7 +34,9 @@ const validate = (register) => {
     if (!/\d/.test(register.password)) {
         errors.password = 'Must have at least one numeric character';
     }
-
+    if (register.password === register.confirmpassword) {
+        errors.confirmpassword = 'Passwords do not match';
+    }
     return errors;
 };
 

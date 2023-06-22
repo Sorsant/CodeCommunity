@@ -1,8 +1,10 @@
+import "./App.css";
+import React from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./views/home/home";
 import Login from "./views/login/login";
-import "./App.css";
 import React from "react";
 import LandingPage from "./views/landing/landing";
 import Nav from "./views/Nav/nav";
@@ -16,9 +18,25 @@ import Form from "./components/News Post/Form";
 import Books from "./views/Education/Books/books";
 import Footer from "./views/Footer/footer";
 import About from "./views/About/about";
+
+
+
 axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+axios.defaults.withCredentials = true;
+
+const client = axios.create({
+  baseURL: 'https://codecommunity-production.up.railway.app/'
+})
 
 const App = () => {
+  const [currentUser, setCurrentUser] = useState();
+  const [registrationToggle, setRegistrationToggle] = useState(false);
+  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
   const location = useLocation();
   return (
     <div>

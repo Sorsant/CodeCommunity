@@ -1,9 +1,10 @@
 // reducers.ts
-import { GET_ALL_POST, FILTER_AZ, FILTER_ZA, ADD_POST, FILTER_PUBLICATIONS } from './action-types';
+import { GET_ALL_POST, FILTER_AZ, FILTER_ZA, ADD_POST, FILTER_PUBLICATIONS ,GET_USER } from './action-types';
 
 const initialState = {
     posts: [],
-    addPost: []
+    addPost: [],
+    user:[],
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -55,6 +56,13 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...state,
                 posts: sortedPosts,
             };
+        }
+
+        case GET_USER:{
+            return{
+                ...state,
+                user: payload,
+            }
         }
         default:
             return state;
