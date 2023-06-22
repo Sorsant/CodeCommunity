@@ -1,9 +1,18 @@
 import React from "react";
+import { useEffect } from "react";
 import CommunityCard from "./communityCard";
-import { communities } from "./CarpetaInfoProvisional/infoCommunities";
+import { useSelector, useDispatch } from "react-redux";
 import styles from "./communityCard.module.css";
+import { getAllCommunities } from "../../components/Redux/Actions/Get/action-get";
 
 const CommunityCards = () => {
+
+    const dispatch = useDispatch();
+    const communities = useSelector((state) => state.communities);
+
+    useEffect(() => {
+        dispatch(getAllCommunities())
+    }, [dispatch]);
 
     return (
         <div className={styles.cards}>

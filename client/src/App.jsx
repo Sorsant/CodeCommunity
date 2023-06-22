@@ -11,11 +11,12 @@ import Register from "./views/Register/register";
 import Profile from "./views/profile/profile";
 import CommunityForm from "./views/CommunityForm/communityForm";
 import Edit from "./views/profile/edit";
-import PostDetail from "./views/detail/detail";
+//import PostDetail from "./views/detail/detail";
 import Form from "./components/News Post/Form";
 import Books from "./views/Education/Books/books";
 import Footer from "./views/Footer/footer";
 import About from "./views/About/about";
+import DetailCommunity from "./views/DetailCommunity/detailCommunity";
 axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
     <div>
       {location.pathname !== "/" ? <Nav /> : null}
       <Routes>
+        <Route path="/communities/:name" element={<DetailCommunity />} />
         {/*<Route path="/groups/:name" element={<DetailCommunity />} />*/}
         <Route path="/education" element={<Books />} />
         {/*Revisar estas rutas, aun no estan bien definidas*/}
