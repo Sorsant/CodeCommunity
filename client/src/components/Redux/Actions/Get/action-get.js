@@ -1,6 +1,8 @@
-import { GET_ALL_POST, FILTER_AZ, FILTER_ZA, FILTER_PUBLICATIONS, SEARCH } from '../../action-types';
+import { GET_ALL_POST, FILTER_AZ, FILTER_ZA, FILTER_PUBLICATIONS, SEARCH, GET_COMMUNITY, GET_ALL_COMMUNITIES } from '../../action-types';
 
 import axios from 'axios';
+
+import { communities } from '../../../../views/Community/CarpetaInfoProvisional/infoCommunities'; // Datos sustitutos de la DB
 
 export const getHomePosts = () => {
     const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/post/'
@@ -53,4 +55,25 @@ export const search = (name) => {
         });
     }
 }
+
+export const getAllCommunities = () => { //Trae a todas las comunidades 
+    const allCommunities = communities;
+    return (dispatch) => {
+        return dispatch ({
+            type: GET_ALL_COMMUNITIES,
+            payload: allCommunities
+        })
+    }
+}
+
+export const getCommunity = (name) => { //Filtra las comunidades buscando la comunidad por el nombre de la misma
+    const findedCommunity = communities.find((community) => community.name === name);
+    return (dispatch) => {
+        return dispatch ({
+            type: GET_COMMUNITY,
+            payload: findedCommunity
+        });
+    }
+}
+
 

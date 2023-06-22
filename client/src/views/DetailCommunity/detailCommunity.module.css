@@ -1,0 +1,23 @@
+
+.container {
+    border: 1px solid #000;
+    display: flex;
+}
+
+.name {
+    font-size: xx-large;
+    text-align: left;
+}
+
+.image {
+    width: 100px;
+    border-radius: 999%;
+}
+
+.language {
+    font-size: medium;
+}
+
+.description {
+    font-size: x-large;
+}

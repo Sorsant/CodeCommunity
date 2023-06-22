@@ -9,3 +9,5 @@ export const POST_USER = "POST_USER";
 export const FILTER_ABC = "FILTER_ABC";
 export const FILTER_PUBLICATIONS = "FILTER_PUBLICATIONS"
 export const SEARCH = "SEARCH";
+export const GET_COMMUNITY = "GET_COMMUNITY";
+export const GET_ALL_COMMUNITIES = "GET_ALL_COMMUNITIES";

@@ -1,21 +1,29 @@
 import React from "react";
-//import SmallUser from "../SmallUser/smallUser";
-import { communities } from "../Community/CarpetaInfoProvisional/infoCommunities";
-//import posteos from "../../assets/infoHomePost";
 import { useParams } from "react-router-dom";
-//import { useState } from "react";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getCommunity } from "../../components/Redux/Actions/Get/action-get";
+import SmallUser from "../SmallUser/smallUser";
+import styles from "./detailCommunity.module.css"
 
-const DetailCommunity = ({ name, description, language, image, created }) => {
+const DetailCommunity = () => {
+    
+    const dispatch = useDispatch();
+    const { name } = useParams();
 
-    //const [ communy, setCommuny ] = useState <Community | undefined> (undefined);
+    const community = useSelector((state) => state.detailCommunity)
 
-    const communi = communities.filter((community) => community.name === name);
+    useEffect(() => {
+        dispatch(getCommunity(name))
+    }, [dispatch, name]);
 
     return (
-        <div>
-            {
-
-            }
+        <div className={styles.container}>
+            <h1 className={styles.name}>{community.name}</h1>
+            <img src={community.image} alt={community.image} className={styles.image}/>
+            <SmallUser />
+            <p className={styles.language}>{community.language}</p>
+            <p className={styles.description}>{community.description}</p>
         </div>
     )
 }
