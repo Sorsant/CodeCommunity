@@ -2,10 +2,14 @@ from django.db import models
 from django.utils import timezone
 from .language import Language
 from .community import Community
+#from cloudinary_storage.storage import MediaCloudinaryStorage
+from cloudinary.models import CloudinaryField
 
 class User(models.Model):
     name = models.CharField(max_length=255)
-    user_image = models.CharField(max_length=255, blank=True)
+    #user_image = models.CharField(max_length=255, blank=True)
+    #user_image = models.ImageField(upload_to='images/', blanck=True)
+    user_image = CloudinaryField('image')
     password = models.CharField(max_length=255)
     nickname = models.CharField(max_length=255, unique=True)
     lastname = models.CharField(max_length=255)
