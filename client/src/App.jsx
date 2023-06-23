@@ -26,7 +26,7 @@ const App = () => {
     <div>
       {location.pathname !== "/" ? <Nav /> : null}
       <Routes>
-        <Route path="/communities/:name" element={<DetailCommunity />} />
+        <Route path="/communities/:id" element={<DetailCommunity />} />
         {/*<Route path="/groups/:name" element={<DetailCommunity />} />*/}
         <Route path="/education" element={<Books />} />
         {/*Revisar estas rutas, aun no estan bien definidas*/}

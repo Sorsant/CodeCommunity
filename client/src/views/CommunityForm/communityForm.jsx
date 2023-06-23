@@ -125,8 +125,6 @@ const CommunityForm = () => {
             <div className={styles.communityCardContainer}>
                 <CommunityCard />
             </div>
-
-
         </div>
     );
 };

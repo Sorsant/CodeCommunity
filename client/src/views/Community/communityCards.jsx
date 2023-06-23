@@ -26,6 +26,7 @@ const CommunityCards = () => {
                 return (
                     <div key={community.name} className={styles.div}>
                         <CommunityCard
+                            id={community.id}
                             name={community.name}
                             description={community.description}
                             language={languageNames}

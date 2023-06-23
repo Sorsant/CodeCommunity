@@ -5,8 +5,7 @@ const initialState = {
     posts: [],
     addPost: [],
     languages: [],
-    communities:[],
-    detailCommunity: [],
+    communities: [],
     category: [],
     news: [],
     users: []
@@ -75,31 +74,31 @@ const reducer = (state = initialState, { type, payload }) => {
         case GET_COMMUNITY:
             return {
                 ...state,
-                detailCommunity: payload
+                communities: payload
             }
         case GET_ALL_COMMUNITIES:
             return {
                 ...state,
                 communities: payload
             }
-            case GET_CATEGORY: {
-                return{
-                    ...state,
-                    category: payload
-                }
+        case GET_CATEGORY: {
+            return {
+                ...state,
+                category: payload
             }
-            case GET_NEWS: {
-                return{
-                    ...state,
-                    news: payload
-                }
+        }
+        case GET_NEWS: {
+            return {
+                ...state,
+                news: payload
             }
-            case USERS:{
-                return{
-                    ...state,
-                    users: payload
-                }
+        }
+        case USERS: {
+            return {
+                ...state,
+                users: payload
             }
+        }
         default:
             return state;
     }

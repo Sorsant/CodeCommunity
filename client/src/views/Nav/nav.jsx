@@ -6,13 +6,6 @@ const Nav = () => {
   return (
     <div className={styles.containerNav}>
       <nav className="navbar navbar-dark bg-dark ">
-        <Link to="/">
-          <button className={styles.logOut}>
-            <span>
-              <h1>Log out</h1>
-            </span>
-          </button>
-        </Link>
         <img src="https://i.ibb.co/6yz0s2y/Murcielago.png" alt="logo" className={styles.logo} />
         <div className={styles.title}>
           <img src="https://cdn.discordapp.com/attachments/881403103054811170/1119070813992259604/Sin-t-tulo-removebg-preview.png" alt="title" />
@@ -59,6 +52,13 @@ const Nav = () => {
                       <h1 className={styles.login}>Log in</h1>
                     </Link>
                   </li>
+                  <Link to="/">
+                    <button className={styles.logOut}>
+                      <span>
+                        <h1>Log out</h1>
+                      </span>
+                    </button>
+                  </Link>
                 </div>
                 <li className="nav-item dropdown">
                   <a className={`nav-link dropdown-toggle ${styles['buttonSections']}`} href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
