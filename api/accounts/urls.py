@@ -1,7 +1,7 @@
 from rest_framework import routers
-from code_api.views.admin_view import AdminView
+from accounts.views import UserView
 
 router = routers.DefaultRouter()
-router.register(r'admin', AdminView, 'admin')
+router.register(r'users', UserView, 'users')
 
 urlpatterns = router.urls
