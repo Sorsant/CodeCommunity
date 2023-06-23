@@ -1,8 +1,8 @@
-import { GET_ALL_POST, FILTER_AZ, FILTER_ZA, FILTER_PUBLICATIONS, SEARCH, GET_COMMUNITY, GET_ALL_COMMUNITIES } from '../../action-types';
+import { GET_ALL_POST, FILTER_AZ, FILTER_ZA, FILTER_PUBLICATIONS, SEARCH, GET_COMMUNITY, GET_ALL_COMMUNITIES, GET_ALL_LANGUAGES } from '../../action-types';
 
 import axios from 'axios';
 
-import { communities } from '../../../../views/Community/CarpetaInfoProvisional/infoCommunities'; // Datos sustitutos de la DB
+// import { communities } from '../../../../views/Community/CarpetaInfoProvisional/infoCommunities'; // Datos sustitutos de la DB
 
 export const getHomePosts = () => {
     const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/post/'
@@ -57,23 +57,40 @@ export const search = (name) => {
 }
 
 export const getAllCommunities = () => { //Trae a todas las comunidades 
-    const allCommunities = communities;
-    return (dispatch) => {
-        return dispatch ({
+    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/community/';
+    return async (dispatch) => {
+        const { data } = await axios.get(endpoint);
+        return dispatch({
             type: GET_ALL_COMMUNITIES,
-            payload: allCommunities
+            payload: data
         })
     }
 }
 
-export const getCommunity = (name) => { //Filtra las comunidades buscando la comunidad por el nombre de la misma
-    const findedCommunity = communities.find((community) => community.name === name);
-    return (dispatch) => {
-        return dispatch ({
+export const getCommunity = (id) => { //Filtra las comunidades buscando la comunidad por el nombre de la misma
+    const endpoint = `https://codecommunity-production.up.railway.app/codec/api/community/${id}`
+    return async (dispatch) => {
+        const { data } = await axios.get(endpoint);
+        return dispatch({
             type: GET_COMMUNITY,
-            payload: findedCommunity
+            payload: data
         });
     }
 }
+
+export const getAllLanguages = () => { //Trae todos los lenguajes al selector para filtrar
+    return async (dispatch) => {
+        try {
+            let url = 'https://codecommunity-production.up.railway.app/codec/api/language';
+            let json = await axios.get(url);
+            return dispatch({
+                type: GET_ALL_LANGUAGES,
+                payload: json.data
+            });
+        } catch (error) {
+            console.log(error);
+        };
+    };
+};
 
 

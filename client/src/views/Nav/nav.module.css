@@ -221,8 +221,9 @@ div.containerNav button.navbar-toggler {
     width: 100%;
 }
 
-.button-sections {
+.buttonSections {
     font-size: 15px;
+    font-weight: bold;
     background-color: rgb(43, 189, 99);
     width: 25%;
     padding: 7px;
