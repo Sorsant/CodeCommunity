@@ -5,6 +5,7 @@ import { addCommunity } from '../../components/Redux/Actions/Post/action-post';
 import { getAllLanguages } from "../../components/Redux/Actions/Get/action-get";
 import validate from "./validate";
 import { useDispatch, useSelector } from "react-redux";
+import CommunityCard from "../Community/communityCards";
 
 const CommunityForm = () => {
     const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const CommunityForm = () => {
         name: "",
         description: "",
         image: "",
-        language: [], // Ahora la propiedad "language" será un array de IDs de lenguajes seleccionados
+        language: [],
         created: ""
     });
 
@@ -62,63 +63,70 @@ const CommunityForm = () => {
     }, [dispatch]);
 
     return (
-        <div className={styles.container}>
-            {console.log(inputValues)}
-            <form className={styles.form} onSubmit={handleSubmit}>
-                <h2>Create Group</h2>
+        <div>
+            <div className={styles.container}>
+                {console.log(inputValues)}
+                <form className={styles.form} onSubmit={handleSubmit}>
+                    <h2>Create Group</h2>
 
-                <input
-                    onChange={handleChange}
-                    value={inputValues.name}
-                    className={styles.data}
-                    type="text"
-                    name="name"
-                    placeholder="Name your group"
-                />
-                {errors.name && <span>{errors.name}</span>}
+                    <input
+                        onChange={handleChange}
+                        value={inputValues.name}
+                        className={styles.data}
+                        type="text"
+                        name="name"
+                        placeholder="Name your group"
+                    />
+                    {errors.name && <span>{errors.name}</span>}
 
-                <input
-                    onChange={handleChange}
-                    value={inputValues.description}
-                    className={styles.data}
-                    type="text"
-                    name="description"
-                    placeholder="Describe your group"
-                />
-                {errors.description && <span>{errors.description}</span>}
+                    <input
+                        onChange={handleChange}
+                        value={inputValues.description}
+                        className={styles.data}
+                        type="text"
+                        name="description"
+                        placeholder="Describe your group"
+                    />
+                    {errors.description && <span>{errors.description}</span>}
 
-                <input
-                    onChange={handleChange}
-                    value={inputValues.image}
-                    className={styles.data}
-                    type="text"
-                    name="image"
-                    placeholder="Put an image"
-                />
-                {errors.description && <span>{errors.description}</span>}
+                    <input
+                        onChange={handleChange}
+                        value={inputValues.image}
+                        className={styles.data}
+                        type="text"
+                        name="image"
+                        placeholder="Put an image"
+                    />
+                    {errors.description && <span>{errors.description}</span>}
 
-                <label htmlFor="languages">Languages:</label>
+                    <label htmlFor="languages">Languages:</label>
 
-                <select
-                    onChange={handleChangeOption}
-                    name="language"
-                    value={inputValues.language}
-                >
-                    {languages.map((lan) => (
-                        <option
-                            className={styles.opciones}
-                            value={lan.id}
-                            key={lan.id}
-                            selected={inputValues.language.includes(lan.id)} // Verificamos si el ID del lenguaje está en el array de lenguajes seleccionados
-                        >
-                            {lan.name}
-                        </option>
-                    ))}
-                </select>
-                {errors.language && <span>{errors.language}</span>}
+                    <select
+                        onChange={handleChangeOption}
+                        name="language"
+                        value={inputValues.language}
+                    >
+                        {languages.map((lan) => (
+                            <option
+                                className={styles.opciones}
+                                value={lan.id}
+                                key={lan.id}
+                                selected={inputValues.language.includes(lan.id)} // Verificamos si el ID del lenguaje está en el array de lenguajes seleccionados
+                            >
+                                {lan.name}
+                            </option>
+                        ))}
+                    </select>
+                    {errors.language && <span>{errors.language}</span>}
 
-                <button disabled={disabled}>Create</button>
-            </form>
+                    <button disabled={disabled}>Create</button>
+                </form>
+            </div>
+            <div className={styles.communityCardContainer}>
+                <CommunityCard />
+            </div>
+
+
         </div>
     );
 };

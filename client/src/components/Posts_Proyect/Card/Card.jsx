@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "./card.module.css"
 
- const PostCard = ({
+const PostCard = ({
   id,
   title,
   description,
@@ -50,12 +50,12 @@ import styles from "./card.module.css"
 //           return (
 //             <div className={styles.cardContainer} key={post.id}>
 //               <div className={styles.userContainer}>
-                
+
 //                 <img src={user.user_image} alt={user.name} />
 //                 <h2>{user.name}</h2>
 //                 {user.premium && user.postulation && (
 //                   <p>
-                    
+
 //                     <Link to={`/instructor/${user.id}`}>
 //                       <button> Puedes pagarle a este instructor</button>
 //                     </Link>
@@ -67,7 +67,7 @@ import styles from "./card.module.css"
 //                 <h2>{post.title}</h2>
 //                 <h2>{post.description}</h2>
 //                 <img src={post.image} alt={post.title} />
-           {/* <Link to={`/detail/${id}`} className={styles.linkDetail}>
+{/* <Link to={`/detail/${id}`} className={styles.linkDetail}>
             <h2 className={styles.text4}>More Info</h2>
               </Link> */}
 //               </div>
@@ -79,7 +79,7 @@ import styles from "./card.module.css"
 //   );
 // };
 
- 
+
 
 
 export default PostCard;
