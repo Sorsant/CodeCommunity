@@ -1,4 +1,4 @@
-.container {
+/* .container {
     position: relative;
     display: flex;
     border: 2px solid #000;
@@ -82,4 +82,53 @@
     margin-top: -11px;
     margin-bottom: 15px;
     color: black;
+} */
+.containerForm {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.userContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.userContainer h2 {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.userContainer img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.postContainer {
+    text-align: center;
+}
+
+.postContainer h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.postContainer img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 8px;
 }

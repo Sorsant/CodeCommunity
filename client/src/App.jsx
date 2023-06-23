@@ -12,10 +12,11 @@ import Profile from "./views/profile/profile";
 import CommunityForm from "./views/CommunityForm/communityForm";
 import Edit from "./views/profile/edit";
 //import PostDetail from "./views/detail/detail";
-import Form from "./components/News Post/Form";
+import NewsPost from "./components/News Post/NewsPost";
 import Books from "./views/Education/Books/books";
 import Footer from "./views/Footer/footer";
 import About from "./views/About/about";
+import Instructor from "./views/Instructor/instructor";
 import DetailCommunity from "./views/DetailCommunity/detailCommunity";
 axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 
@@ -39,8 +40,9 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/edit" element={<Edit />} />
         {/* <Route path="/detail/:id" element={<PostDetail />} />{" "} */}
-        <Route path="/newsform" element={<Form />} />
+        <Route path="/newspost" element={<NewsPost />} />
         <Route path="/about" element={<About />} />
+        <Route path="/instructor/:user" element={<Instructor />} />
       </Routes>
       {location.pathname !== "/" ? <Footer /> : null}
     </div>

@@ -1,12 +1,15 @@
 // reducers.ts
-import { GET_ALL_POST, FILTER_AZ, FILTER_ZA, ADD_POST, FILTER_PUBLICATIONS, GET_ALL_LANGUAGES, POST_USER, SEARCH, GET_COMMUNITY, GET_ALL_COMMUNITIES } from './action-types';
+import { GET_ALL_POST, FILTER_AZ, FILTER_ZA, ADD_POST, FILTER_PUBLICATIONS, GET_ALL_LANGUAGES, POST_USER, SEARCH, GET_COMMUNITY, GET_ALL_COMMUNITIES, GET_CATEGORY, GET_NEWS, USERS } from './action-types';
 
 const initialState = {
     posts: [],
     addPost: [],
     languages: [],
     communities:[],
-    detailCommunity: []
+    detailCommunity: [],
+    category: [],
+    news: [],
+    users: []
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -16,7 +19,6 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...state,
                 posts: payload,
             };
-
         case FILTER_AZ: {
             return {
                 ...state,
@@ -45,7 +47,6 @@ const reducer = (state = initialState, { type, payload }) => {
             }
         case FILTER_PUBLICATIONS: {
             const sortedPosts = [...state.posts];
-
             if (payload === "news") {
                 sortedPosts.sort((a, b) => {
                     const dateA = new Date(a.created);
@@ -53,16 +54,13 @@ const reducer = (state = initialState, { type, payload }) => {
                     return dateB - dateA;
                 });
             }
-
             if (payload === "old") {
                 sortedPosts.sort((a, b) => {
                     const dateA = new Date(a.created);
                     const dateB = new Date(b.created);
-
                     return dateA - dateB;
                 });
             }
-
             return {
                 ...state,
                 posts: sortedPosts,
@@ -83,6 +81,24 @@ const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 communities: payload
+            }
+            case GET_CATEGORY: {
+                return{
+                    ...state,
+                    category: payload
+                }
+            }
+            case GET_NEWS: {
+                return{
+                    ...state,
+                    news: payload
+                }
+            }
+            case USERS:{
+                return{
+                    ...state,
+                    users: payload
+                }
             }
         default:
             return state;

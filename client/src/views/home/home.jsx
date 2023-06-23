@@ -8,6 +8,7 @@ import styles from './home.module.css';
 import SearchBar from '../../components/SearchBar/searchBar';
 import Filter from '../../components/Filter/Filter';
 import Posteohome from './PostHome/PostHome'
+import { getUser } from '../../components/Redux/Actions/Get/action-get';
 const Home = () => {
     const dispatch = useDispatch();
 
@@ -15,6 +16,11 @@ const Home = () => {
         dispatch(getHomePosts());
     }, [dispatch]);
 
+    // useEffect(() => {
+    //     dispatch(getUser());
+    //   }, [dispatch]);
+    
+ 
     return (
         <div className={styles.Container}>
             <SearchBar />
