@@ -32,59 +32,43 @@
 }
 
 .logOut {
-    outline: none;
-    cursor: pointer;
-    border: none;
-    padding: 0.9rem 2rem;
-    margin: 0;
-    font-family: inherit;
-    font-size: inherit;
+    margin-right: 10px;
+
+    border: unset;
+    border-radius: 15px;
+    color: #212121;
+    z-index: 1;
+    background: #e8e8e8;
     position: relative;
-    display: inline-block;
-    letter-spacing: 0.05rem;
-    border-radius: 500px;
+    font-weight: 1000;
+    font-size: 14px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms;
     overflow: hidden;
-    background: #e6b30d;
-
-}
-
-.logOut span h1 {
-    font-size: 15px;
-    font-weight: bold;
-    color: rgb(0, 0, 0);
-}
-
-.logOut span {
-    position: relative;
-    z-index: 10;
-    transition: color 0.4s;
-}
-
-.logOut:hover span {
-    color: rgb(255, 255, 255);
-}
-
-.logOut::before,
-.logOut::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
 }
 
 .logOut::before {
     content: "";
-    background: #ffffff;
-    width: 120%;
-    left: -10%;
-    transform: skew(30deg);
-    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #13b6a8;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms
+}
+
+.logOut:hover {
+    color: #e8e8e8;
 }
 
 .logOut:hover::before {
-    transform: translate3d(100%, 0, 0);
+    width: 100%;
 }
 
 div.containerNav button.navbar-toggler {
@@ -103,7 +87,7 @@ div.containerNav button.navbar-toggler {
 }
 
 .contact {
-    margin-right: 10px;
+    margin-right: 5px;
     padding: 10px 25px;
     border: unset;
     border-radius: 15px;
@@ -112,7 +96,7 @@ div.containerNav button.navbar-toggler {
     background: #e8e8e8;
     position: relative;
     font-weight: 1000;
-    font-size: 18px;
+    font-size: 14px;
     -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     transition: all 250ms;
@@ -152,7 +136,7 @@ div.containerNav button.navbar-toggler {
     background: #e8e8e8;
     position: relative;
     font-weight: 1000;
-    font-size: 18px;
+    font-size: 14px;
     -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     transition: all 250ms;
@@ -191,7 +175,7 @@ div.containerNav button.navbar-toggler {
     background: #e8e8e8;
     position: relative;
     font-weight: 1000;
-    font-size: 18px;
+    font-size: 14px;
     -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     transition: all 250ms;

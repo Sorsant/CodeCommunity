@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./communityCard.module.css";
 
-const CommunityCard = ({ name, description, language, image, created }) => {
+const CommunityCard = ({ id, name, description, language, image, created }) => {
 
     return (
         <div className={styles.card}>
 
-            <Link to={`/communities/${name}`}> {/*Revisar el parametro para identificar el grupo*/}
+            <Link to={`/communities/${id}`}> {/*Revisar el parametro para identificar el grupo*/}
 
                 <div className={styles.container}>
 
