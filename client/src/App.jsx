@@ -18,6 +18,7 @@ import Footer from "./views/Footer/footer";
 import About from "./views/About/about";
 import Instructor from "./views/Instructor/instructor";
 import DetailCommunity from "./views/DetailCommunity/detailCommunity";
+import FakeHome from "./views/FakeHome/fakeHome";
 axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 
 const App = () => {
@@ -43,6 +44,7 @@ const App = () => {
         <Route path="/newspost" element={<NewsPost />} />
         <Route path="/about" element={<About />} />
         <Route path="/instructor/:user" element={<Instructor />} />
+        <Route path="/fakeHome" element={<FakeHome />} />
       </Routes>
       {location.pathname !== "/" ? <Footer /> : null}
     </div>
