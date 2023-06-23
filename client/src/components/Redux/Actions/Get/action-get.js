@@ -1,4 +1,5 @@
-import { GET_ALL_POST, FILTER_AZ, FILTER_ZA, FILTER_PUBLICATIONS, SEARCH, GET_COMMUNITY, GET_ALL_COMMUNITIES, GET_ALL_LANGUAGES } from '../../action-types';
+import { GET_ALL_POST, FILTER_AZ, FILTER_ZA, FILTER_PUBLICATIONS, SEARCH, GET_COMMUNITY, GET_ALL_COMMUNITIES, GET_ALL_LANGUAGES, GET_CATEGORY, GET_NEWS, USERS } from '../../action-types';
+
 
 import axios from 'axios';
 
@@ -77,6 +78,18 @@ export const getCommunity = (id) => { //Filtra las comunidades buscando la comun
         });
     }
 }
+export const Getcategory = () => {
+    return async (dispatch) => {
+        const response = await axios.get("https://codecommunity-production.up.railway.app/codec/api/category/");
+        const data = response.data;
+        const categoryList = Array.isArray(data) ? data : [data];
+        dispatch({
+            type: GET_CATEGORY,
+            payload: categoryList,
+        });
+
+    };
+};
 
 export const getAllLanguages = () => { //Trae todos los lenguajes al selector para filtrar
     return async (dispatch) => {
@@ -94,3 +107,24 @@ export const getAllLanguages = () => { //Trae todos los lenguajes al selector pa
 };
 
 
+export const getNews = () => {
+    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/news/'
+    return async (dispatch) => {
+        const { data } = await axios.get(endpoint);
+        return dispatch({
+            type: GET_NEWS,
+            payload: data,
+        })
+    }
+}
+export const getUser = () => {
+    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/user/'
+    return async (dispatch) => {
+        const { data } = await axios.get(endpoint);
+        console.log(data);
+        return dispatch({
+            type: USERS,
+            payload: data,
+        });
+    }
+}

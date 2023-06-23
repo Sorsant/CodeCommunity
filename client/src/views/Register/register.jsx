@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import validate from './validate';
 import { useDispatch, useSelector } from 'react-redux';
-import { postUser, getAllLanguages } from '../../components/Redux/action';
+import { getAllLanguages } from '../../components/Redux/Actions/Get/action-get';
+import { postUser } from '../../components/Redux/Actions/Post/action-post';
 import styles from "./register.module.css";
 
 const Register = () => {
@@ -87,96 +88,96 @@ const Register = () => {
 
                         <label>User Image</label>
                         <input
-                            onChange={event => {handleOnChange(event)}}
+                            onChange={event => { handleOnChange(event) }}
                             value={register.user_image}
                             type="text"
                             name="user_image"
                             placeholder="Image URL"
                         />
-                       
+
                         {/*Revisar validaciones, agregar validacion de imagen de usuario*/}
-                    <div />
-                    <div className={styles.containerForm}></div>
+                        <div />
+                        <div className={styles.containerForm}></div>
                         <label>Name</label>
                         <input
-                            onChange={event => {handleOnChange(event)}}
+                            onChange={event => { handleOnChange(event) }}
                             value={register.name}
                             type="text"
                             name="name"
                             placeholder="Name"
                         />
                         {errors.name && <span>{errors.name}</span>}
-                    <div />
-                    <div className={styles.containerForm}></div>
+                        <div />
+                        <div className={styles.containerForm}></div>
                         <label>Lastname</label>
                         <input
-                            onChange={event => {handleOnChange(event)}}
+                            onChange={event => { handleOnChange(event) }}
                             value={register.lastname}
                             type="text"
                             name="lastname"
                             placeholder="Lastname"
                         />
                         {errors.lastname && <span>{errors.lastname}</span>}
-                    <div />
-                    <div className={styles.containerForm}></div>
+                        <div />
+                        <div className={styles.containerForm}></div>
                         <label>My nickname</label>
                         <input
-                            onChange={event => {handleOnChange(event)}}
+                            onChange={event => { handleOnChange(event) }}
                             value={register.nickname}
                             type="text"
                             name="nickname" // Corrected: use "nickname" instead of "name"
                             placeholder="Your nickname"
                         />
                         {errors.nickname && <span>{errors.nickname}</span>}
-                    <div />
-                    <div className={styles.containerForm}></div>
+                        <div />
+                        <div className={styles.containerForm}></div>
                         <label>Email</label>
                         <input
-                            onChange={event => {handleOnChange(event)}}
+                            onChange={event => { handleOnChange(event) }}
                             value={register.email}
                             type="email"
                             name="email"
                             placeholder="Your email"
                         />
                         {errors.email && <span>{errors.email}</span>}
-                    <div /> 
-                    <div className={styles.containerForm}></div>
+                        <div />
+                        <div className={styles.containerForm}></div>
                         <label>Birthday</label>
                         <input
-                            onChange={event => {handleOnChange(event)}}
+                            onChange={event => { handleOnChange(event) }}
                             value={register.birthday}
                             type="text"
                             name="birthday"
                             placeholder="aaaa-mm-dd"
                         />
                         {/*Hacer validaciones de cumpleaños*/}
-                    <div />
-                    <div className={styles.containerForm}></div>
+                        <div />
+                        <div className={styles.containerForm}></div>
                         <label>Password</label>
                         <input
-                            onChange={event => {handleOnChange(event)}}
+                            onChange={event => { handleOnChange(event) }}
                             value={register.password}
                             type="password"
                             name="password"
                             placeholder="Your password"
                         />
                         {errors.password && <span>{errors.password}</span>}
-                    <div />
-                    <div className={styles.containerForm}></div>
-                        <select onChange={event => {handleChangeOption(event)}}>
+                        <div />
+                        <div className={styles.containerForm}></div>
+                        <select onChange={event => { handleChangeOption(event) }}>
 
-                        <option>Select Language</option>
-                        {
-                            languages?.map(element => {
-                                return (
-                                    <option key={element.id} value={element.id} name={register.language}>{element.name}</option>
-                                )
-                            })
-                        }
+                            <option>Select Language</option>
+                            {
+                                languages?.map(element => {
+                                    return (
+                                        <option key={element.id} value={element.id} name={register.language}>{element.name}</option>
+                                    )
+                                })
+                            }
                         </select>
                         {/*Hacer validaciones para el select de Languages*/}
-                    <div />
-                    <div className={styles.containerForm}></div>
+                        <div />
+                        <div className={styles.containerForm}></div>
                         <button
                             disabled={
                                 !register.email ||

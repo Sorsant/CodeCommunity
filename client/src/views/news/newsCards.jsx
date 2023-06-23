@@ -1,21 +1,29 @@
 import NewsCard from "./newsCard";
-import { Data } from "./news"
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getNews } from "../../components/Redux/Actions/Get/action-get";
 
 const NewsCards = () => {
+const dispatch = useDispatch()
+const news = useSelector(state => state.news)
+
+useEffect(() => {
+    dispatch(getNews());
+}, [dispatch]);
+
     return (
         <div>
             {
-                Data?.map((news) => {
+                news?.map((news) => {
                     return(
-                        <div key={news.Title} >
+                        <div key={news.id} >
                             <NewsCard 
-                            Link={news.Link}
-                            Category={news.Category}
-                            Author={news.Author}
-                            Image={news.Image}
-                            Date={news.Date}
-                            Description={news.Description}
-                            Title={news.Title}
+                            Link={news.link}
+                            Category={news.category.name}
+                            Author={news.author}
+                            Image={news.image}
+                            Description={news.description}
+                            Title={news.title}
                             />
                         </div>
                     )
