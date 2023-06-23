@@ -1,6 +1,6 @@
 import { useState } from "react";
-import validate from "./validate"
-import styles from "./login.module.css"
+import validate from "./validate";
+import styles from "./login.module.css";
 
 const Login = () => {
   const [state, setState] = useState({
@@ -9,21 +9,21 @@ const Login = () => {
   });
   const [errors, setErrors] = useState({
     Account: "",
-    Password: ""
-  })
+    Password: "",
+  });
 
   const handleChange = (event) => {
-    const { name, value } = event.target
+    const { name, value } = event.target;
     setState({
       ...state,
       [name]: value,
-    })
+    });
     const updatedErrors = validate({
       ...state,
       [name]: value,
     });
-    setErrors(updatedErrors)
-  }
+    setErrors(updatedErrors);
+  };
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
@@ -39,7 +39,8 @@ const Login = () => {
         </div>
         <div className={styles.input_container}>
           <label className={styles.input_label}>Account: </label>
-          <input className={styles.input_field}
+          <input
+            className={styles.input_field}
             placeholder="Account"
             type="text"
             name="Account"
@@ -48,12 +49,14 @@ const Login = () => {
           ></input>
         </div>
         <hr className={"line"}></hr>
-        {errors.Account && <span className={styles.Account}>{errors.Account}</span>}
+        {errors.Account && (
+          <span className={styles.Account}>{errors.Account}</span>
+        )}
         <hr></hr>
-
         <div className={styles.input_container}>
           <label className={styles.input_label}>Password: </label>
-          <input className={styles.input_field}
+          <input
+            className={styles.input_field}
             placeholder="Password"
             type="password"
             name="Password"
@@ -61,14 +64,14 @@ const Login = () => {
             value={state.Password}
           ></input>
         </div>
-
         <hr className={"line"}></hr>
-
-        {errors.Password && <span className={styles.Password}>{errors.Password}</span>}
+        {errors.Password && (
+          <span className={styles.Password}>{errors.Password}</span>
+        )}
         <hr className={"line"}></hr>
         Link
         <button
-          className={styles['sign-in_btn']}
+          className={styles["sign-in_btn"]}
           disabled={
             !state.Password ||
             !state.Account ||
@@ -78,7 +81,6 @@ const Login = () => {
         >
           Log In
         </button>
-
         <div className={styles.separator}>
           <hr className={styles.line} />
           <span>Or</span>
@@ -89,7 +91,6 @@ const Login = () => {
         </button>
       </form>
     </div>
-
   );
 };
 
