@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
 import styles from "./filter.module.css";
 import { filterAZ, filterZA, getHomePosts, filterPublications } from "../Redux/Actions/Get/action-get"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const Filter = () => {
   const dispatch = useDispatch();
 
-//  const posts = useSelector((state) => state.posts);
+  //  const posts = useSelector((state) => state.posts);
 
   const handleFilterAZ = (event) => {
     const { value } = event.target
@@ -23,11 +22,11 @@ const Filter = () => {
   };
   const handleFilterPublications = (event) => {
     const { value } = event.target;
-  
+
     if (value === "news") {
       dispatch(filterPublications(value));
     }
-  
+
     if (value === "old") {
       dispatch(filterPublications(value));
     }

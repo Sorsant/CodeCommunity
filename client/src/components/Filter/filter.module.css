@@ -1,18 +1,14 @@
 .container {
     position: absolute;
-    margin-left: 250px;
-    margin-top: -90px;
+    margin-left: 190px;
+    margin-top: 40px;
     padding: 50px;
 }
 
-.selectUno {
+.container select {
+    margin-right: 10px;
     font-size: 20px;
-}
-
-.selectDos {
-    font-size: 20px;
-}
-
-.selectTres {
-    font-size: 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
 }

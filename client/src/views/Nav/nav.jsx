@@ -61,7 +61,7 @@ const Nav = () => {
                   </li>
                 </div>
                 <li className="nav-item dropdown">
-                  <a className={`nav-link dropdown-toggle ${styles['button-sections']}`} href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a className={`nav-link dropdown-toggle ${styles['buttonSections']}`} href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     SECTIONS
                   </a>
                   <ul className="dropdown-menu dropdown-menu-dark">

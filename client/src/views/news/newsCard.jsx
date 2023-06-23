@@ -1,19 +1,25 @@
 import React from "react";
-import styles from "./newsCard.module.css"
+import styles from "./newsCard.module.css";
 
-
-
-const NewsCard = ({ Link, Date, Category, Author, Image, Description, Title }) => {
+const NewsCard = ({ Link, Category, Author, Image, Description, Title }) => {
     return (
-        <div className={styles.ContainerCardNews}>
-            <h1 className={styles.title}>{Title}</h1>
-            <h2 className={styles.description}>{Description}</h2>
-            <img alt="Image Not Found" src={Image}></img>
-            <a href={Link} target="_blank" rel="noopener noreferrer"> <h4 className={styles.ReadMore}>Read more</h4></a>
-            <h3 className={styles.Author}>{Author}</h3>
-            <h3 className={styles.Category}>{Category}</h3>
+        <div className={`card ${styles.newsCard}`} style={{ height: "620px" }}>
+            <img src={Image} className="card-img-top" alt="Image Not Found" />
+            <div className="card-body">
+                <h5 className="card-title">{Title}</h5>
+                <p className="card-text">{Description}</p>
+                <a href={Link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                    Read more
+                </a>
+                <p className="card-text">
+                    <small className="text-muted">Category: {Category}</small>
+                </p>
+                <p className="card-text">
+                    <small className="text-muted">Author: {Author}</small>
+                </p>
+            </div>
         </div>
-    )
+    );
+};
 
-}
 export default NewsCard;

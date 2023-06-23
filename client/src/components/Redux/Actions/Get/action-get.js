@@ -1,8 +1,9 @@
-import { GET_ALL_POST, FILTER_AZ, FILTER_ZA, FILTER_PUBLICATIONS, SEARCH, GET_COMMUNITY, GET_ALL_COMMUNITIES, GET_CATEGORY, GET_NEWS, USERS } from '../../action-types';
+import { GET_ALL_POST, FILTER_AZ, FILTER_ZA, FILTER_PUBLICATIONS, SEARCH, GET_COMMUNITY, GET_ALL_COMMUNITIES, GET_ALL_LANGUAGES, GET_CATEGORY, GET_NEWS, USERS } from '../../action-types';
+
 
 import axios from 'axios';
 
-import { communities } from '../../../../views/Community/CarpetaInfoProvisional/infoCommunities'; // Datos sustitutos de la DB
+// import { communities } from '../../../../views/Community/CarpetaInfoProvisional/infoCommunities'; // Datos sustitutos de la DB
 
 export const getHomePosts = () => {
     const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/post/'
@@ -57,21 +58,23 @@ export const search = (name) => {
 }
 
 export const getAllCommunities = () => { //Trae a todas las comunidades 
-    const allCommunities = communities;
-    return (dispatch) => {
-        return dispatch ({
+    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/community/';
+    return async (dispatch) => {
+        const { data } = await axios.get(endpoint);
+        return dispatch({
             type: GET_ALL_COMMUNITIES,
-            payload: allCommunities
+            payload: data
         })
     }
 }
 
-export const getCommunity = (name) => { //Filtra las comunidades buscando la comunidad por el nombre de la misma
-    const findedCommunity = communities.find((community) => community.name === name);
-    return (dispatch) => {
-        return dispatch ({
+export const getCommunity = (id) => { //Filtra las comunidades buscando la comunidad por el nombre de la misma
+    const endpoint = `https://codecommunity-production.up.railway.app/codec/api/community/${id}`
+    return async (dispatch) => {
+        const { data } = await axios.get(endpoint);
+        return dispatch({
             type: GET_COMMUNITY,
-            payload: findedCommunity
+            payload: data
         });
     }
 }
@@ -81,21 +84,38 @@ export const Getcategory = () => {
         const data = response.data;
         const categoryList = Array.isArray(data) ? data : [data];
         dispatch({
-          type: GET_CATEGORY,
-          payload: categoryList,
+            type: GET_CATEGORY,
+            payload: categoryList,
         });
-      
-    };
-  };
 
-  export const getNews = () =>{
+    };
+};
+
+export const getAllLanguages = () => { //Trae todos los lenguajes al selector para filtrar
+    return async (dispatch) => {
+        try {
+            let url = 'https://codecommunity-production.up.railway.app/codec/api/language';
+            let json = await axios.get(url);
+            return dispatch({
+                type: GET_ALL_LANGUAGES,
+                payload: json.data
+            });
+        } catch (error) {
+            console.log(error);
+        };
+    };
+};
+
+
+export const getNews = () => {
     const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/news/'
-    return async (dispatch) =>{
+    return async (dispatch) => {
         const { data } = await axios.get(endpoint);
         return dispatch({
             type: GET_NEWS,
             payload: data,
-    })}
+        })
+    }
 }
 export const getUser = () => {
     const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/user/'

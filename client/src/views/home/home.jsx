@@ -19,8 +19,8 @@ const Home = () => {
     // useEffect(() => {
     //     dispatch(getUser());
     //   }, [dispatch]);
-    
- 
+
+
     return (
         <div className={styles.Container}>
             <SearchBar />
@@ -29,12 +29,14 @@ const Home = () => {
                 <Filter />
             </div>
             <div className={styles.communityCard}>
+                <h1 className={styles.title1}>Comunidades</h1>
                 <CommunityCard />
             </div>
             <div className={styles.PosteoCard}>
                 <PosteoCards />
             </div>
             <div className={styles.NewsCard}>
+                <h1 className={styles.title2}>Noticias</h1>
                 <NewsCard />
             </div>
         </div>

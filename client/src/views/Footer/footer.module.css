@@ -74,7 +74,7 @@
   }
 }
 
-.footer_dark .item.social > p {
+.footer_dark .item.social>p {
   font-size: 20px;
   width: 36px;
   height: 36px;
@@ -88,7 +88,7 @@
   opacity: 0.75;
 }
 
-.footer_dark .item.social > p:hover {
+.footer_dark .item.social>p:hover {
   opacity: 0.9;
 }
 

@@ -1,12 +1,13 @@
-/* .container {
+.container {
     position: relative;
     display: flex;
-    border: 2px solid #000;
+    border: 2px solid #272525;
     border-radius: 1%;
     width: 800px;
     height: 350px;
     padding: 6px;
-    margin-top: 80px;
+    margin-top: 220px;
+    margin-left: 50px;
 }
 
 .headerCard {
@@ -23,7 +24,7 @@
     text-decoration: none;
     position: absolute;
     margin-left: 370px;
-    margin-top: 140px;
+    margin-top: 100px;
     color: white;
     background-color: #2f915b;
     border-radius: 10px;
@@ -67,7 +68,7 @@
 }
 
 .text2 {
-    font-size: small;
+    font-size: 14px;
     margin-left: 210px;
     margin-top: -62px;
 }
@@ -82,7 +83,8 @@
     margin-top: -11px;
     margin-bottom: 15px;
     color: black;
-} */
+}
+
 .containerForm {
     display: flex;
     flex-wrap: wrap;

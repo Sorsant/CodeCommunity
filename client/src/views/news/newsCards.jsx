@@ -1,35 +1,33 @@
-import NewsCard from "./newsCard";
+import React, { useEffect } from "react";
+import { Carousel } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
 import { getNews } from "../../components/Redux/Actions/Get/action-get";
+import NewsCard from "./newsCard";
 
 const NewsCards = () => {
-const dispatch = useDispatch()
-const news = useSelector(state => state.news)
+    const dispatch = useDispatch();
+    const news = useSelector((state) => state.news);
 
-useEffect(() => {
-    dispatch(getNews());
-}, [dispatch]);
+    useEffect(() => {
+        dispatch(getNews());
+    }, [dispatch]);
 
     return (
-        <div>
-            {
-                news?.map((news) => {
-                    return(
-                        <div key={news.id} >
-                            <NewsCard 
-                            Link={news.link}
-                            Category={news.category.name}
-                            Author={news.author}
-                            Image={news.image}
-                            Description={news.description}
-                            Title={news.title}
-                            />
-                        </div>
-                    )
-                })
-            }
-        </div>
-    )
-}
-export default NewsCards
+        <Carousel fade interval={3000} controls={false}>
+            {news?.map((newsItem) => (
+                <Carousel.Item key={newsItem.id} >
+                    <NewsCard
+                        Link={newsItem.link}
+                        Category={newsItem.category.name}
+                        Author={newsItem.author}
+                        Image={newsItem.image}
+                        Description={newsItem.description}
+                        Title={newsItem.title}
+                    />
+                </Carousel.Item>
+            ))}
+        </Carousel>
+    );
+};
+
+export default NewsCards;

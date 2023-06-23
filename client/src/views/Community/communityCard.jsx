@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./communityCard.module.css";
 
-const CommunityCard = ({name, description, language, image, created}) => {
+const CommunityCard = ({ name, description, language, image, created }) => {
 
     return (
         <div className={styles.card}>
@@ -13,10 +13,10 @@ const CommunityCard = ({name, description, language, image, created}) => {
 
                     <img className={styles.image} src={image} alt="Not Found" />
 
-                    <h2 className={styles.text}>{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
+                    <h2 className={styles.text}>{name}</h2>
 
                     <h3 className={styles.description}>{language}</h3>
-                    
+
                     <div>
 
                         <p className={styles.description}>{description}</p>

@@ -10,6 +10,7 @@ export const FILTER_ABC = "FILTER_ABC";
 export const FILTER_PUBLICATIONS = "FILTER_PUBLICATIONS"
 export const SEARCH = "SEARCH";
 export const GET_COMMUNITY = "GET_COMMUNITY";
+export const POST_COMMUNITY = "POST_COMMUNITY";
 export const GET_ALL_COMMUNITIES = "GET_ALL_COMMUNITIES";
 export const ADD_NEWS = "ADD_NEWS";
 export const GET_CATEGORY = "GET_CATEGORY";
