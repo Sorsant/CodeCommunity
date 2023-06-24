@@ -104,9 +104,7 @@ const Posteohome = () => {
           </button>
         </form>
       ) : (
-        <div className={styles.advice_container}>
-          <p className={styles.advice}>login to post!</p>
-        </div>
+        <p className={styles.advice}>login to post!</p>
       )}
     </div>
   );
