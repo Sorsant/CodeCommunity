@@ -1,6 +1,6 @@
 import React from "react";
 
-import Login from "../login/login";
+// import Login from "../login/login";
 import styles from "./landing.module.css";
 
 import { Link } from "react-router-dom";

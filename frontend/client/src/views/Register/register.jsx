@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import validate from './validate';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllLanguages } from '../../components/Redux/Actions/Get/action-get';
+import { getAllLanguages } from '../../test/features/user';
 import { postUser } from '../../components/Redux/Actions/Post/action-post'
 import styles from "./register.module.css";
 
