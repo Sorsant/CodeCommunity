@@ -10,8 +10,8 @@ class AnswerView(viewsets.ModelViewSet, ListAPIView):
   serializer_class = AnswerSerializer
   queryset = Answer.objects.all()
   filter_backends = [filters.SearchFilter, filters.OrderingFilter]
-  search_fields = ['question__title', 'description', 'user__name', 'created']
-  ordering_fields = ['question__title', 'description', 'user__name', 'created']
+  search_fields = ['question__title', 'description', 'user__first_name', 'created']
+  ordering_fields = ['question__title', 'description', 'user__first_name', 'created']
   
   def get_queryset(self):
     queryset = super().get_queryset()
@@ -26,6 +26,6 @@ class AnswerView(viewsets.ModelViewSet, ListAPIView):
       queryset = queryset.filter(description__contains=description)
       
     if user:
-      queryset = queryset.filter(user__name__contains=user)
+      queryset = queryset.filter(user__first_name__contains=user)
       
     return queryset

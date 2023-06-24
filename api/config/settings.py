@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from decouple import config
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,8 +30,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['https://codecommunity-production.up.railway.app']
-
 # Application definition
 
 BASE_APPS = [
@@ -43,7 +42,8 @@ BASE_APPS = [
 ]
 
 LOCAL_APPS = [
-    'code_api.apps.CodeApiConfig'
+    'code_api',
+    'users',
 ]
 
 THIRD_APPS = [
@@ -110,18 +110,22 @@ EMAIL_HOST_USER = "codecommunity0@gmail.com"
 EMAIL_HOST_PASSWORD = "axuzfhuoanndtpin"
 
 
-## User model
-
-AUTH_USER_MODEL = 'code_api.AppUser'
+# REST_FRAMEWORK auth
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': (
+    'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
-    ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
-    ),
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ]
 }
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
+}
+
+AUTH_USER_MODEL = 'users.UserAccount'
 
 
 # Password validation
@@ -170,12 +174,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 # CORS
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "http://127.0.0.1:3000",
+    "http://localhost:5000",
 ]
-
-CORS_ALLOW_CREDENTIALS = True
