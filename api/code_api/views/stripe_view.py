@@ -28,6 +28,15 @@ class StripeCheckoutView(APIView):
                         'price': 'price_1NL9cvB0138DzwzeUYrOaM98',
                         'quantity': 1,
                     },
+                    {
+                        'price': 'price_1NMZ1OB0138DzwzeqwxNveSv',
+                        'quantity': 1,
+                    },
+                    {
+                        'price': 'price_1NMZAtB0138Dzwzee1eT4Ok1',
+                        'quantity': 1,
+                    },
+                    
                 ],
                 payment_method_types= ['card'],
                 mode='payment',
