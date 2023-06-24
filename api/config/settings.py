@@ -23,22 +23,19 @@ import cloudinary.uploader
 import cloudinary.api
 
 
-
-
-
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
+STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = ['*']
+
 CSRF_TRUSTED_ORIGINS = ['https://codecommunity-production.up.railway.app']
 
 # Application definition
@@ -54,7 +51,7 @@ BASE_APPS = [
 ]
 
 LOCAL_APPS = [
-    'code_api'
+    'code_api.apps.CodeApiConfig'
 ]
 
 THIRD_APPS = [
@@ -66,9 +63,9 @@ THIRD_APPS = [
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -113,6 +110,23 @@ DATABASES = {
 }
 
 
+## User model
+
+AUTH_USER_MODEL = 'code_api.AppUser'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ]
+}
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -153,21 +167,25 @@ STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CORS Authorized
+
+# CORS
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
 ]
 
-# Cloudinary-django integration
+CORS_ALLOW_CREDENTIALS = True
 
+# Cloudinary-django integration
 cloudinary.config( 
   cloud_name = config('CLOUD_NAME'), 
   api_key = config('API_KEY'), 
-  api_secret = "McovSyzAVo-BHNz1ajg8OCs8EUs" 
+  api_secret = config('API_SECRET')
 )
