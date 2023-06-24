@@ -1,0 +1,127 @@
+.divContainer {
+    /* background-color: rgba(68, 68, 68, 0.349); */
+    position: absolute;
+    margin-left: 400px;
+    margin-top: -55px;
+    padding: 35px;
+}
+
+.search {
+    position: absolute;
+    margin-top: -23px;
+    width: 280px;
+    --input-line: #e2dddda8;
+    --input-text-color: #808080;
+    --input-text-hover-color: transparent;
+    --input-border-color: #808080;
+    --input-border-hover-color: #999999;
+    --input-bg-color: #333333;
+    --search-max-width: 350px;
+    --search-min-width: 150px;
+    --border-radius: 5px;
+    --transition-cubic-bezier: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search_box {
+    max-width: var(--search-max-width);
+    min-width: var(--search-min-width);
+    height: 35px;
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--border-radius);
+    padding: 5px 15px;
+    background: var(--input-bg-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: var(--transition-cubic-bezier);
+}
+
+.search-box:hover {
+    border-color: var(--input-border-hover-color);
+}
+
+.search_field {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    left: -5px;
+    border: 0;
+}
+
+.search_icon {
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    top: 7px;
+    right: 18px;
+}
+
+.search_box_icon {
+    width: 55px;
+    height: 35px;
+    position: absolute;
+    top: -6px;
+    right: -21px;
+    background: transparent;
+    border-bottom-right-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    transition: var(--transition-cubic-bezier);
+}
+
+.search_box_icon:hover {
+    background: var(--var-border-color);
+}
+
+
+.bar {
+    width: calc(100% - 29px);
+    height: 100%;
+    border: 0;
+    border-color: transparent;
+    font-size: 1.5rem;
+    padding-right: 0px;
+    color: var(--input-line);
+    background: var(--input-bg-color);
+    border-right: 2px solid var(--input-border-color);
+    outline: none;
+}
+
+.bar::-webkit-input-placeholder {
+    color: var(--input-text-color);
+}
+
+.bar::-moz-input-placeholder {
+    color: var(--input-text-color);
+}
+
+.bar::-ms-input-placeholder {
+    color: var(--input-text-color);
+}
+
+.bar:focus::-webkit-input-placeholder {
+    color: var(--input-text-hover-color);
+}
+
+.bar:focus::-moz-input-placeholder {
+    color: var(--input-text-hover-color);
+}
+
+.bar:focus::-ms-input-placeholder {
+    color: var(--input-text-hover-color);
+}
+
+.button {
+    width: 52px;
+    height: 35px;
+    top: -6px;
+    right: -21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-bottom-right-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    transition: var(--transition-cubic-bezier);
+    opacity: .4;
+}
+
+.button:hover {
+    opacity: .8;
+}
