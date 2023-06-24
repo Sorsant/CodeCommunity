@@ -127,7 +127,11 @@ SIMPLE_JWT = {
 
 AUTH_USER_MODEL = 'users.UserAccount'
 
-CSRF_TRUSTED_ORIGINS = ['codecommunity-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = [
+    'https://codecommunity-production.up.railway.app',
+    'http://localhost:3000',
+    'http://localhost:5000',
+]
 
 
 # Password validation
