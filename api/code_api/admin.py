@@ -12,12 +12,36 @@ from .models.category import Category
 from .models.user_comp import UserComplement
 
 # Register your models here.
-admin.site.register(Question)
-admin.site.register(Answer)
 admin.site.register(Language)
-admin.site.register(Community)
-admin.site.register(News)
-admin.site.register(Post)
-admin.site.register(Comments)
 admin.site.register(Category)
-admin.site.register(UserComplement)
+
+@admin.register(Answer)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('question', 'user', 'created')
+
+@admin.register(Comments)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('post', 'user', 'created')
+
+@admin.register(Community)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('name', 'created')
+
+@admin.register(News)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'created')
+
+@admin.register(Post)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('title', 'user', 'created', 'get_likes_count')
+    def get_likes_count(self, obj):
+        return obj.likes.count()
+    get_likes_count.short_description = 'Likes'
+
+@admin.register(Question)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('title', 'user', 'created')
+
+@admin.register(UserComplement)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('user', 'postulation', 'premium', 'created')

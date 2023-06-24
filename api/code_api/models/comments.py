@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from .post import Post
-from accounts.models import UserAccount
+from users.models import UserAccount
 
 # Create your models here.
 class Comments(models.Model):
@@ -16,4 +16,4 @@ class Comments(models.Model):
       super().save(*args, **kwargs)
   
   def __str__(self):
-    return f"Comment on post: {self.post.title} (user: {self.user.name})"
+    return self.user.email

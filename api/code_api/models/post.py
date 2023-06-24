@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from accounts.models import UserAccount
+from users.models import UserAccount
 
 # Create your models here.
 class Post(models.Model):

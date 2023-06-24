@@ -1,5 +1,5 @@
 from django.urls import path, include
-from accounts import urls
+from users import urls
 from . import answer_urls, community_urls, language_urls, news_urls, question_urls, user_comp_urls, post_urls, comments_urls, category_urls
 
 urlpatterns = [

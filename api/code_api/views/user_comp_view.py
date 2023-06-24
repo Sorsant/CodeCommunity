@@ -8,8 +8,8 @@ class UserComplementView(viewsets.ModelViewSet, APIView):
   queryset = UserComplement.objects.all()
   
   filter_backends = [filters.SearchFilter, filters.OrderingFilter]
-  search_fields = ['user__name', 'language__name', 'community__name', 'created']
-  ordering_fields = ['user__name', 'language__name', 'community__name','created']
+  search_fields = ['user_first_name', 'language__name', 'community__name', 'created']
+  ordering_fields = ['user__first_name', 'language__name', 'community__name','created']
   
   def get_queryset(self):
     queryset = super().get_queryset()
@@ -18,7 +18,7 @@ class UserComplementView(viewsets.ModelViewSet, APIView):
     community = self.request.query_params.get('community', None)
     
     if name:
-      queryset = queryset.filter(user__name__contains=name)
+      queryset = queryset.filter(user__first_name__contains=name)
       
     if language:
       queryset = queryset.filter(language__name__contains=language)

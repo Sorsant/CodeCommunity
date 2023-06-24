@@ -1,7 +1,7 @@
 from django.utils import timezone
 from django.db import models
 from .question import Question
-from accounts.models import UserAccount
+from users.models import UserAccount
 
 # Create your models here.
 class Answer(models.Model):

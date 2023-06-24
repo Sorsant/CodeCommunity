@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 from .language import Language
 from .community import Community
-from accounts.models import UserAccount
+from users.models import UserAccount
 
 class UserComplement(models.Model):
     user = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
@@ -20,4 +20,4 @@ class UserComplement(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.user.name
+        return self.user.first_name
