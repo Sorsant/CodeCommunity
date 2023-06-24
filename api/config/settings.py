@@ -22,7 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
-STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
+STRIPE_SECRET_KEY= 'sk_test_51NL9TyB0138Dzwzeb6TwTUR5RZHD9emoo9aZ761jRWVbz3nZldZOX00vP7NzjuaprUheMkwUN1PTFF1B9OtKVO2o00xd9S3jTp'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -123,7 +124,6 @@ REST_FRAMEWORK = {
     ),
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -172,6 +172,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # CORS
+
+SITE_URL = 'http://localhost:3000'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
