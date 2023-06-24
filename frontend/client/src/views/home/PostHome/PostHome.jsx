@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import validate from './validatePost';
 import styles from './post.module.css'
 import { useDispatch } from 'react-redux';
-import { addHomePosts } from '../../../components/Redux/Actions/Post/action-post';
+import { addHomePosts } from '../../../test/features/user';
 
 
 const Posteohome = () => {

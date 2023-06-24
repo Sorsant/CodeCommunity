@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-
+import axios from 'axios';
 export const register = createAsyncThunk(
 	'users/register',
 	async ({ first_name, last_name, email, password }, thunkAPI) => {
@@ -90,10 +90,10 @@ export const login = createAsyncThunk(
 );
 
 export const checkAuth = createAsyncThunk(
-	'users/verify',
+	'https://codecommunity-production.up.railway.app/users/verify',
 	async (_, thunkAPI) => {
 		try {
-			const res = await fetch('/api/users/verify', {
+			const res = await fetch('https://codecommunity-production.up.railway.app/api/users/verify', {
 				method: 'GET',
 				headers: {
 					Accept: 'application/json',
@@ -137,12 +137,60 @@ export const logout = createAsyncThunk('users/logout', async (_, thunkAPI) => {
 		return thunkAPI.rejectWithValue(err.response.data);
 	}
 });
-
+export const getHomePosts = createAsyncThunk('posts/getHomePosts', async () => {
+	const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/post/';
+	const response = await axios.get(endpoint);
+	return response.data;
+  });
+  
+  export const filterAZ = createAsyncThunk('posts/filterAZ', async () => {
+	const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/post/?ordering=title/';
+	const response = await axios.get(endpoint);
+	return response.data;
+  });
+  
+  export const filterZA = createAsyncThunk('posts/filterZA', async () => {
+	const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/post/?ordering=-title/';
+	const response = await axios.get(endpoint);
+	return response.data;
+  });
+  
+  export const filterPublications = createAsyncThunk('posts/filterPublications', async (payload) => {
+	// Implement your logic for filtering publications
+	return payload;
+  });
+  
+  export const search = createAsyncThunk('posts/search', async (name) => {
+	const endpoint = `https://codecommunity-production.up.railway.app/codec/api/post/?search=${name}`;
+	const response = await axios.get(endpoint);
+	return response.data;
+  });
+  
+ 
+  export const getAllLanguages = createAsyncThunk('languages/getAllLanguages', async () => {
+	const url = 'https://codecommunity-production.up.railway.app/codec/api/language/';
+	const response = await axios.get(url);
+	return response.data;
+  });
+  
+  export const addHomePosts = createAsyncThunk('posts/addHomePosts', async (post) => {
+	const url = 'https://codecommunity-production.up.railway.app/codec/api/post/';
+	const response = await axios.post(url, post);
+	return response.data;
+  });
+  
+  export const postUser = createAsyncThunk('posts/postUser', async (payload) => {
+	const createUser = await axios.post('https://codecommunity-production.up.railway.app/codec/api/users/', payload);
+	return createUser.data;
+  });
 const initialState = {
 	isAuthenticated: false,
 	user: null,
 	loading: false,
 	registered: false,
+	posts: [],
+    addPost: [],   
+    languages: []
 };
 
 const userSlice = createSlice({
@@ -181,6 +229,7 @@ const userSlice = createSlice({
 			.addCase(getUser.fulfilled, (state, action) => {
 				state.loading = false;
 				state.user = action.payload;
+				state.users = action.payload; // Update users in state
 			})
 			.addCase(getUser.rejected, state => {
 				state.loading = false;
@@ -205,6 +254,30 @@ const userSlice = createSlice({
 			})
 			.addCase(logout.rejected, state => {
 				state.loading = false;
+			})
+			.addCase(getHomePosts.fulfilled, (state, action) => {
+				state.posts = action.payload;
+			})
+			.addCase(filterAZ.fulfilled, (state, action) => {
+				state.posts = action.payload;
+			})
+			.addCase(filterZA.fulfilled, (state, action) => {
+				state.posts = action.payload;
+			})
+			.addCase(filterPublications.fulfilled, (state, action) => {
+				state.posts = action.payload;
+			})
+			.addCase(search.fulfilled, (state, action) => {
+				state.posts = action.payload;
+			})
+			.addCase(getAllLanguages.fulfilled, (state, action) => {
+				state.languages = action.payload;
+			})
+			.addCase(addHomePosts.fulfilled, (state, action) => {
+				// Handle successful post addition if needed
+			})
+			.addCase(postUser.fulfilled, (state, action) => {
+				// Handle successful user creation if needed
 			});
 	},
 });

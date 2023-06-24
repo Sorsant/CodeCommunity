@@ -3,7 +3,6 @@ import axios from "axios";
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes, useLocation } from "react-router-dom";
-import { checkAuth } from './test/features/user';
 
 
 
@@ -14,7 +13,7 @@ import QandA from "./views/QAPage/QAPage";
 import Profile from "./views/profile/profile";
 import CommunityForm from "./views/CommunityForm/communityForm";
 import Edit from "./views/profile/edit";
-import PostDetail from "./views/detail/detail";
+// import PostDetail from "./views/detail/detail";
 // import Form from "./elements/News Post/Form";
 import Books from "./views/Education/Books/books";
 import Footer from "./views/Footer/footer";
@@ -25,6 +24,7 @@ import DashboardPage from './test/containers/DashboardPage';
 import LoginPage from './test/containers/LoginPage';
 import RegisterPage from './test/containers/RegisterPage';
 
+import { checkAuth } from './test/features/user';
 
 
 
@@ -51,7 +51,7 @@ const App = () => {
 
 
         <Route path="/" element={<LandingPage />} />
-        {/* <Route path="/home" element={<Home />} /> */}
+        <Route path="/home" element={<Home />} />
         {/*<Route path="/groups/:name" element={<DetailCommunity />} />*/}
         <Route path="/education" element={<Books />} />
         {/*Revisar estas rutas, aun no estan bien definidas*/}
