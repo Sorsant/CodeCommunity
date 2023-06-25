@@ -1,4 +1,4 @@
-import { GET_ALL_POST, FILTER_AZ, FILTER_ZA, FILTER_PUBLICATIONS, SEARCH, GET_COMMUNITY, GET_ALL_COMMUNITIES, GET_ALL_LANGUAGES, GET_CATEGORY, GET_NEWS, USERS } from '../../action-types';
+import { GET_ALL_POST, FILTER_AZ, FILTER_ZA, FILTER_PUBLICATIONS, SEARCH, GET_COMMUNITY, GET_ALL_COMMUNITIES, GET_ALL_LANGUAGES, GET_CATEGORY, GET_NEWS, USERS, GETPOSTID, GET_USER_EXTRA } from '../../action-types';
 
 
 import axios from 'axios';
@@ -78,6 +78,18 @@ export const getCommunity = (id) => { //Filtra las comunidades buscando la comun
         });
     }
 }
+
+export const getPostId = (id) => {
+    const endpoint = `https://codecommunity-production.up.railway.app/codec/api/post/${id}`
+    return async (dispatch) => {
+        const { data } = await axios.get(endpoint);
+        return dispatch({
+            type: GETPOSTID,
+            payload: data,
+        });
+    }
+}
+
 export const Getcategory = () => {
     return async (dispatch) => {
         const response = await axios.get("https://codecommunity-production.up.railway.app/codec/api/category/");
@@ -124,6 +136,27 @@ export const getUser = (id) => {
             type: USERS,
             payload: data
         });
+    
+    }}
+
+export const getUserId = (id) => {
+    const endpoint = `https://codecommunity-production.up.railway.app/codec/api/users/${id}`
+    return async (dispatch) => {
+        const { data } = await axios.get(endpoint);
+        return dispatch({
+            type: USERS,
+            payload: data
+        });
     }
 }
-  
+export const getUserExtra = () => {
+    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/user_extras/';
+    return async (dispatch) => {
+        const { data } = await axios.get(endpoint);
+        return dispatch({
+            type: GET_USER_EXTRA,
+            payload: data
+        });
+    
+    }}
+

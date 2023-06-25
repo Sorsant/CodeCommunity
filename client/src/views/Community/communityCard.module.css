@@ -3,11 +3,11 @@
     display: flex;
     border: 2px solid #000;
     width: 20.5vw;
-    height: 6vw;
+    height: 8vw;
     border-radius: 15px;
     padding: 6px;
-    margin-left: 80px;
     margin-top: 5px;
+    margin-left: 120px;
 }
 
 .container {

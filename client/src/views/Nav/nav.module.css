@@ -1,227 +1,214 @@
-.title img {
-    width: 200px;
-    height: 70px;
-    border-radius: 10px;
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+.title h1 {
+  color: #d5dae4;
+  font-family: 'Orbitron', sans-serif;
+  margin-left: 10px;
 }
 
 .title_toggle {
-    font-size: 20px;
-    text-decoration: underline;
+  font-size: 20px;
+  text-decoration: underline;
 }
 
-.button-estilo {
-    margin-left: 1830px;
-    margin-top: -70px;
-    width: 50px;
-    height: 50px;
+.toggle {
+  margin-left: 1830px;
+  margin-top: -70px;
+  width: 50px;
+  height: 50px;
 }
 
 .title {
-    color: white;
-    margin-right: 900px;
+  color: white;
+  margin-right: 900px;
 }
 
 .containerNav {
-    display: flex;
-}
-
-.logo {
-    width: 60px;
-    height: 60px;
-    margin-left: 627px;
+  display: flex;
 }
 
 .logOut {
-    outline: none;
-    cursor: pointer;
-    border: none;
-    padding: 0.9rem 2rem;
-    margin: 0;
-    font-family: inherit;
-    font-size: inherit;
-    position: relative;
-    display: inline-block;
-    letter-spacing: 0.05rem;
-    border-radius: 500px;
-    overflow: hidden;
-    background: #e6b30d;
-
-}
-
-.logOut span h1 {
-    font-size: 15px;
-    font-weight: bold;
-    color: rgb(0, 0, 0);
-}
-
-.logOut span {
-    position: relative;
-    z-index: 10;
-    transition: color 0.4s;
-}
-
-.logOut:hover span {
-    color: rgb(255, 255, 255);
-}
-
-.logOut::before,
-.logOut::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
+  margin-right: 5px;
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 16px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
 }
 
 .logOut::before {
-    content: "";
-    background: #ffffff;
-    width: 120%;
-    left: -10%;
-    transform: skew(30deg);
-    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #b61e13;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms
+}
+
+.logOut:hover {
+  color: #e8e8e8;
 }
 
 .logOut:hover::before {
-    transform: translate3d(100%, 0, 0);
+  width: 100%;
+}
+
+.containerLogOut {
+  position: absolute;
+  margin-top: 820px;
+  margin-left: 5px;
 }
 
 div.containerNav button.navbar-toggler {
-    margin-left: auto;
-    width: 150px;
-    height: 250px;
+  margin-left: auto;
+  width: 150px;
+  height: 250px;
 }
 
 .info {
-    display: flex;
+  display: flex;
 }
 
 .link {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .contact {
-    margin-right: 10px;
-    padding: 10px 25px;
-    border: unset;
-    border-radius: 15px;
-    color: #212121;
-    z-index: 1;
-    background: #e8e8e8;
-    position: relative;
-    font-weight: 1000;
-    font-size: 18px;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    transition: all 250ms;
-    overflow: hidden;
+  margin-right: 5px;
+  padding: 10px 20px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 16px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
 }
 
 .contact::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    border-radius: 15px;
-    background-color: #13b6a8;
-    z-index: -1;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    transition: all 250ms
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #13b6a8;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
 }
 
 .contact:hover {
-    color: #e8e8e8;
+  color: #e8e8e8;
 }
 
 .contact:hover::before {
-    width: 100%;
+  width: 100%;
 }
 
 .sign {
-    margin-right: 10px;
-    padding: 10px 25px;
-    border: unset;
-    border-radius: 15px;
-    color: #212121;
-    z-index: 1;
-    background: #e8e8e8;
-    position: relative;
-    font-weight: 1000;
-    font-size: 18px;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    transition: all 250ms;
-    overflow: hidden;
+  margin-right: 10px;
+  padding: 10px 20px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 16px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
 }
 
 .sign::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    border-radius: 15px;
-    background-color: #13b6a8;
-    z-index: -1;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    transition: all 250ms
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #13b6a8;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
 }
 
 .sign:hover {
-    color: #e8e8e8;
+  color: #e8e8e8;
 }
 
 .sign:hover::before {
-    width: 100%;
+  width: 100%;
 }
 
 .login {
-    padding: 10px 25px;
-    border: unset;
-    border-radius: 15px;
-    color: #212121;
-    z-index: 1;
-    background: #e8e8e8;
-    position: relative;
-    font-weight: 1000;
-    font-size: 18px;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    transition: all 250ms;
-    overflow: hidden;
+  margin-right: 5px;
+  padding: 10px 12px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 16px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
 }
 
 .login::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    border-radius: 15px;
-    background-color: #13b6a8;
-    z-index: -1;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    transition: all 250ms
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #13b6a8;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
 }
 
 .login:hover {
-    color: #e8e8e8;
+  color: #e8e8e8;
 }
 
 .login:hover::before {
-    width: 100%;
+  width: 100%;
 }
 
-.buttonSections {
+/* .buttonSections {
     font-size: 15px;
     font-weight: bold;
     background-color: rgb(43, 189, 99);
@@ -230,4 +217,4 @@ div.containerNav button.navbar-toggler {
     margin: 5px;
     color: #212121;
     border-radius: 10px;
-}
+} */

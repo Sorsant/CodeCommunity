@@ -3,49 +3,60 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "./card.module.css";
 
+const PostCard = ({ id }) => {
+  const loggin = useSelector((state) => state.loggin);
+  const users = useSelector((state) => state.users);
+  const post = useSelector((state) => state.posts.find((post) => post.id === id));
 
-
-const PostCard = () => {
-     const users = useSelector(state => state.users);
-     const posteos = useSelector(state => state.posts);
-  
-     return (
-       <div className={styles.containerForm}>
-         {posteos.map((post) => {
-           const user = users.find(user => user.id === post.user);
-  
-           if (user) {
-             return (
-              <div className={styles.cardContainer} key={post.id}>
-                 <div className={styles.userContainer}>
-  
-                  {/* <img src={user.user_image} alt={user.name} /> */}
-                  <h2>{user.first_name}</h2>
-                  {/* {user.premium && user.postulation && (
-                    <p>
-                     <Link to={`/instructore/${user.id}`}>
-                       <button> Puedes pagarle a este instructor</button>
-                     </Link>
-                    </p>
-                  )} */}
-                </div>
-  
-                 <div className={styles.postContainer}>
-                 <h2>{post.title}</h2>
-                 <h2>{post.description}</h2>
-                   <img src={post.image} alt={post.title} />
-  {
-     <Link to={`/detail/${user.id}`} className={styles.linkDetail}>
-              <h2 className={styles.text4}>More Info</h2>
-                </Link> 
+  if (!post) {
+    // No se encontró la publicación correspondiente al ID proporcionado
+    return null;
   }
-                </div>
-               </div>
-            );
-          }
-         })}
-       </div>
-     );
-   };
-  
-  export default PostCard;
+
+  const user = users.find((user) => user.id === post.user);
+
+  if (!user) {
+    // No se encontró el usuario correspondiente a la publicación
+    return null;
+  }
+
+  const handleMoreInfo = () => {
+    if (loggin) {
+      // Si el usuario está logueado, redirige a `/detail/${id}`
+      window.location.href = `/detail/${id}`;
+    } else {
+      // Si el usuario no está logueado, muestra el componente de login
+      window.location.href = `/login`;
+    }
+  };
+
+  return (
+    <div className={styles.containerForm}>
+      <div className={styles.cardContainer} key={post.id}>
+        <div className={styles.userContainer}>
+          {/* <img src={user.user_image} alt={user.name} /> */}
+          <h2>{user.first_name} {user.last_name}</h2>
+          {user.premium && user.postulation && (
+            <p>
+              <Link to={`/instructor/${user.id}`}>
+                <button> Puedes pagarle a este instructor</button>
+              </Link>
+            </p>
+          )}
+        </div>
+
+        <div className={styles.postContainer}>
+          <h2>{post.title}</h2>
+          <h2>{post.description}</h2>
+          <img src={post.image} alt={post.title} />
+
+          <Link to={`/detail/${id}`} onClick={handleMoreInfo} className={styles.linkDetail}>
+            <h2 className={styles.text4}>More Info</h2>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PostCard;
