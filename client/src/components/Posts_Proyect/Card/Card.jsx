@@ -1,15 +1,21 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import styles from "./card.module.css"
+import styles from "./card.module.css";
 
-const PostCard = ({
-  id,
-  title,
-  description,
-  image,
-  created,
-}) => {
+const PostCard = ({ id, title, description, image, created }) => {
+  const loggin = useSelector((state) => state.loggin);
+
+  const handleMoreInfo = () => {
+    if (loggin) {
+      // Si el usuario está logueado, redirige a `/detail/${id}`
+      window.location.href = `/detail/${id}`;
+    } else {
+      // Si el usuario no está logueado, muestra el componente de login
+      window.location.href = `/login`;
+    }
+  };
+
   return (
     <div className={styles.container}>
       {/*Revisar el parametro para identificar el grupo*/}
@@ -28,7 +34,7 @@ const PostCard = ({
         <div>
           <p className={styles.text2}>{description}</p>
         </div>
-        <Link to={`/detail/${id}`} className={styles.linkDetail}>
+        <Link to="#" className={styles.linkDetail} onClick={handleMoreInfo}>
           <h2 className={styles.text4}>More Info</h2>
         </Link>
       </div>
@@ -67,19 +73,18 @@ const PostCard = ({
 //                 <h2>{post.title}</h2>
 //                 <h2>{post.description}</h2>
 //                 <img src={post.image} alt={post.title} />
-{/* <Link to={`/detail/${id}`} className={styles.linkDetail}>
+{
+  /* <Link to={`/detail/${id}`} className={styles.linkDetail}>
             <h2 className={styles.text4}>More Info</h2>
-              </Link> */}
+              </Link> */
+}
 //               </div>
 //             </div>
 //           );
-//         } 
+//         }
 //       })}
 //     </div>
 //   );
 // };
-
-
-
 
 export default PostCard;

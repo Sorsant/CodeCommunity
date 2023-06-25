@@ -7,35 +7,37 @@ import NewsCard from '../news/newsCards';
 import styles from './home.module.css';
 import Filter from '../../components/Filter/Filter';
 import Posteohome from './PostHome/PostHome'
-import { getUser } from '../../components/Redux/Actions/Get/action-get';
+import { getUser } from "../../components/Redux/Actions/Get/action-get";
+import { fakeLoggin } from "../../components/Redux/Actions/Fake/fake";
 
 const Home = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(getHomePosts());
-    }, [dispatch]);
+  useEffect(() => {
+    dispatch(getHomePosts());
+    dispatch(fakeLoggin());
+  }, [dispatch]);
 
-    return (
-        <div className={styles.Container}>
+  return (
+    <div className={styles.Container}>
 
-            <Posteohome />
-            <div className={styles.filter}>
-                <Filter />
-            </div>
-            <div className={styles.communityCard}>
-                <h1 className={styles.title1}>Comunidades</h1>
-                <CommunityCard />
-            </div>
-            <div className={styles.PosteoCard}>
-                <PosteoCards />
-            </div>
-            <div className={styles.NewsCard}>
-                <h1 className={styles.title2}>Noticias</h1>
-                <NewsCard />
-            </div>
-        </div>
-    );
+      <Posteohome />
+      <div className={styles.filter}>
+        <Filter />
+      </div>
+      <div className={styles.communityCard}>
+        <h1 className={styles.title1}>Comunidades</h1>
+        <CommunityCard />
+      </div>
+      <div className={styles.PosteoCard}>
+        <PosteoCards />
+      </div>
+      <div className={styles.NewsCard}>
+        <h1 className={styles.title2}>Noticias</h1>
+        <NewsCard />
+      </div>
+    </div>
+  );
 };
 
 export default Home;

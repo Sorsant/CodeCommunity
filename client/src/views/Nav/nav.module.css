@@ -1,32 +1,48 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
 .title h1 {
     color: #d5dae4;
     font-family: 'Orbitron', sans-serif;
     margin-left: 10px;
+=======
+.title img {
+  width: 200px;
+  height: 70px;
+  border-radius: 10px;
+>>>>>>> 40534f959674979f62b5a3ece8ab687702047748
 }
 
 .title_toggle {
-    font-size: 20px;
-    text-decoration: underline;
+  font-size: 20px;
+  text-decoration: underline;
 }
 
+<<<<<<< HEAD
 .toggle {
     margin-left: 1830px;
     margin-top: -70px;
     width: 50px;
     height: 50px;
+=======
+.button-estilo {
+  margin-left: 1830px;
+  margin-top: -70px;
+  width: 50px;
+  height: 50px;
+>>>>>>> 40534f959674979f62b5a3ece8ab687702047748
 }
 
 .title {
-    color: white;
-    margin-right: 900px;
+  color: white;
+  margin-right: 900px;
 }
 
 .containerNav {
-    display: flex;
+  display: flex;
 }
 
+<<<<<<< HEAD
 .logOut {
     margin-right: 5px;
     padding: 10px 20px;
@@ -57,14 +73,52 @@
     -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     transition: all 250ms
+=======
+.logo {
+  width: 60px;
+  height: 60px;
+  margin-left: 627px;
+}
+
+.logOut {
+  margin-right: 10px;
+
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 14px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+}
+
+.logOut::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #13b6a8;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+>>>>>>> 40534f959674979f62b5a3ece8ab687702047748
 }
 
 .logOut:hover {
-    color: #e8e8e8;
+  color: #e8e8e8;
 }
 
 .logOut:hover::before {
-    width: 100%;
+  width: 100%;
 }
 
 .containerLogOut {
@@ -74,21 +128,22 @@
 }
 
 div.containerNav button.navbar-toggler {
-    margin-left: auto;
-    width: 150px;
-    height: 250px;
+  margin-left: auto;
+  width: 150px;
+  height: 250px;
 }
 
 .info {
-    display: flex;
+  display: flex;
 }
 
 .link {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .contact {
+<<<<<<< HEAD
     margin-right: 5px;
     padding: 10px 20px;
     border: unset;
@@ -103,32 +158,49 @@ div.containerNav button.navbar-toggler {
     box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     transition: all 250ms;
     overflow: hidden;
+=======
+  margin-right: 5px;
+  padding: 10px 25px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 14px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+>>>>>>> 40534f959674979f62b5a3ece8ab687702047748
 }
 
 .contact::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    border-radius: 15px;
-    background-color: #13b6a8;
-    z-index: -1;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    transition: all 250ms
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #13b6a8;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
 }
 
 .contact:hover {
-    color: #e8e8e8;
+  color: #e8e8e8;
 }
 
 .contact:hover::before {
-    width: 100%;
+  width: 100%;
 }
 
 .sign {
+<<<<<<< HEAD
     margin-right: 10px;
     padding: 10px 20px;
     border: unset;
@@ -143,32 +215,49 @@ div.containerNav button.navbar-toggler {
     box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     transition: all 250ms;
     overflow: hidden;
+=======
+  margin-right: 10px;
+  padding: 10px 25px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 14px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+>>>>>>> 40534f959674979f62b5a3ece8ab687702047748
 }
 
 .sign::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    border-radius: 15px;
-    background-color: #13b6a8;
-    z-index: -1;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    transition: all 250ms
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #13b6a8;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
 }
 
 .sign:hover {
-    color: #e8e8e8;
+  color: #e8e8e8;
 }
 
 .sign:hover::before {
-    width: 100%;
+  width: 100%;
 }
 
 .login {
+<<<<<<< HEAD
     margin-right: 5px;
     padding: 10px 12px;
     border: unset;
@@ -183,31 +272,47 @@ div.containerNav button.navbar-toggler {
     box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     transition: all 250ms;
     overflow: hidden;
+=======
+  padding: 10px 25px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 14px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+>>>>>>> 40534f959674979f62b5a3ece8ab687702047748
 }
 
 .login::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    border-radius: 15px;
-    background-color: #13b6a8;
-    z-index: -1;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    transition: all 250ms
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #13b6a8;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
 }
 
 .login:hover {
-    color: #e8e8e8;
+  color: #e8e8e8;
 }
 
 .login:hover::before {
-    width: 100%;
+  width: 100%;
 }
 
+<<<<<<< HEAD
 /* .buttonSections {
     font-size: 15px;
     font-weight: bold;
@@ -218,3 +323,18 @@ div.containerNav button.navbar-toggler {
     color: #212121;
     border-radius: 10px;
 } */
+=======
+.buttonSections {
+  font-size: 15px;
+  font-weight: bold;
+  background-color: rgb(43, 189, 99);
+  width: 25%;
+  padding: 7px;
+  margin: 5px;
+  color: #212121;
+  border-radius: 10px;
+}
+.log {
+  font-size: 20px;
+}
+>>>>>>> 40534f959674979f62b5a3ece8ab687702047748

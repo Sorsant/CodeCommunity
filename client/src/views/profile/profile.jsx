@@ -1,6 +1,7 @@
 import style from "./profile.module.css";
 import imagen from "./default.png";
 import { Link } from "react-router-dom";
+import { ProductDisplay } from "../../components/Payment/payment";
 
 const Profile = () => {
   return (
@@ -14,6 +15,7 @@ const Profile = () => {
             <button className={style.edit}>Edit</button>
           </Link>
         </div>
+        <ProductDisplay />
       </header>
 
       <div className={style.profile}>

@@ -1,77 +1,77 @@
 .containerForm {
-    background-color: rgb(221, 212, 212);
-    position: absolute;
-    margin-left: 370px;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: -60px;
+  background-color: rgb(221, 212, 212);
+  position: absolute;
+  margin-left: 370px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: -60px;
 }
 
 .containerForm label {
-    margin-right: 10px;
-    margin-left: 10px;
-    font-weight: bold;
-    border-radius: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
 .errors {
-    position: absolute;
-    margin-top: 50px;
-    margin-left: -190px;
-    font-weight: bold;
-    color: red;
-    font-size: 13px;
+  position: absolute;
+  margin-top: 50px;
+  margin-left: -190px;
+  font-weight: bold;
+  color: red;
+  font-size: 13px;
 }
 
 .containerForm input {
-    width: 190px;
-    height: 35px;
-    border-radius: 5px;
-    border: 2px #323232 solid;
-    padding: 5px 15px;
-    background-color: #e8e8e8;
-    font-size: 12px;
-    font-weight: 500;
+  width: 190px;
+  height: 35px;
+  border-radius: 5px;
+  border: 2px #323232 solid;
+  padding: 5px 15px;
+  background-color: #e8e8e8;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .button {
-    padding: 5px 20px;
-    border: unset;
-    border-radius: 15px;
-    color: #212121;
-    z-index: 1;
-    background: #e8e8e8;
-    position: relative;
-    margin-left: 5px;
-    font-weight: 1000;
-    font-size: 15px;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    transition: all 250ms;
-    overflow: hidden;
-    cursor: pointer;
+  padding: 5px 20px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  margin-left: 5px;
+  font-weight: 1000;
+  font-size: 15px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    border-radius: 15px;
-    z-index: -1;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    transition: all 250ms
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms
 }
 
 .button:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 
 .linkButton {
-    text-decoration: none;
-    color: #212121;
+  text-decoration: none;
+  color: #212121;
 }
