@@ -4,7 +4,6 @@ import styles from './post.module.css'
 import { useDispatch } from 'react-redux';
 import { addHomePosts } from '../../../components/Redux/Actions/Post/action-post';
 
-
 const Posteohome = () => {
     const dispatch = useDispatch();
 
@@ -38,7 +37,6 @@ const Posteohome = () => {
     };
 
     const handleOnSubmit = (event) => {
-        event.preventDefault();
         console.log(event.target.value)
         dispatch(addHomePosts(post));
     };
@@ -46,7 +44,7 @@ const Posteohome = () => {
     return (
         <div className={styles.containerForm}>
             <form onSubmit={handleOnSubmit}  >
-                <label>Title</label>
+                <label for="validationCustom01" className="form-label">Title</label>
                 <input
                     onChange={handleOnChange}
                     value={post.title}
@@ -54,7 +52,7 @@ const Posteohome = () => {
                     name="title"
                     placeholder="Your title"
                 />
-                {errors.title && <span>{errors.title}</span>}
+                {errors.title && <span className={styles.errors}>{errors.title}</span>}
 
                 <label>Description</label>
                 <input
@@ -62,9 +60,9 @@ const Posteohome = () => {
                     value={post.description}
                     type="text"
                     name="description"
-                    placeholder=""
+                    placeholder="Your description"
                 />
-                {errors.description && <span>{errors.description}</span>}
+                {errors.description && <span className={styles.errors}>{errors.description}</span>}
 
                 <label>Image</label>
                 <input
@@ -72,8 +70,9 @@ const Posteohome = () => {
                     value={post.image}
                     type="text"
                     name="image"
+                    placeholder="Your image"
                 />
-                {errors.image && <span>{errors.image}</span>}
+                {errors.image && <span className={styles.errors}>{errors.image}</span>}
 
                 <label>user</label>
                 <input
@@ -81,6 +80,7 @@ const Posteohome = () => {
                     value={post.user}
                     type="text"
                     name="user"
+                    placeholder="Your user"
                 />
 
                 <button

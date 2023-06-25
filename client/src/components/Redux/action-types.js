@@ -16,4 +16,5 @@ export const ADD_NEWS = "ADD_NEWS";
 export const GET_CATEGORY = "GET_CATEGORY";
 export const GET_NEWS = "GET_NEWS";
 export const USERS = "USERS";
+export const GETPOSTID = "GETPOSTID";
 

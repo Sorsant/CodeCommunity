@@ -1,21 +1,23 @@
 .container {
     position: relative;
     display: flex;
-    border: 2px solid #272525;
-    border-radius: 1%;
-    width: 800px;
+    border: 2px solid #564c5f;
+    border-radius: 10px;
+    width: 700px;
     height: 350px;
     padding: 6px;
-    margin-top: 220px;
-    margin-left: 50px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    margin-left: 120px;
 }
 
 .headerCard {
     display: flex;
     background-color: wheat;
-    padding: 0 5px;
     min-height: 15%;
     margin-bottom: 18px;
+    margin-left: 87px;
+    width: 100%;
     justify-content: center;
     border-radius: 10px;
 }
@@ -23,7 +25,7 @@
 .linkDetail {
     text-decoration: none;
     position: absolute;
-    margin-left: 370px;
+    margin-left: 310px;
     margin-top: 100px;
     color: white;
     background-color: #2f915b;
@@ -52,9 +54,7 @@
 }
 
 .text1 {
-    font-size: large;
     margin-top: 10px;
-    margin-left: 5px;
     font-size: 22px;
 }
 

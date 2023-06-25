@@ -5,10 +5,10 @@ import PosteoCards from '../../components/Posts_Proyect/Cards/Cards';
 import CommunityCard from '../../views/Community/communityCards';
 import NewsCard from '../news/newsCards';
 import styles from './home.module.css';
-import SearchBar from '../../components/SearchBar/searchBar';
 import Filter from '../../components/Filter/Filter';
 import Posteohome from './PostHome/PostHome'
 import { getUser } from '../../components/Redux/Actions/Get/action-get';
+
 const Home = () => {
     const dispatch = useDispatch();
 
@@ -16,14 +16,9 @@ const Home = () => {
         dispatch(getHomePosts());
     }, [dispatch]);
 
-    // useEffect(() => {
-    //     dispatch(getUser());
-    //   }, [dispatch]);
-
-
     return (
         <div className={styles.Container}>
-            <SearchBar />
+
             <Posteohome />
             <div className={styles.filter}>
                 <Filter />

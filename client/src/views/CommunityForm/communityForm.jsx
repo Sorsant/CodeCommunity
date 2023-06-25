@@ -111,7 +111,7 @@ const CommunityForm = () => {
                                 className={styles.opciones}
                                 value={lan.id}
                                 key={lan.id}
-                                selected={inputValues.language.includes(lan.id)} // Verificamos si el ID del lenguaje está en el array de lenguajes seleccionados
+                                selected={inputValues.language.includes(lan.id)}
                             >
                                 {lan.name}
                             </option>
