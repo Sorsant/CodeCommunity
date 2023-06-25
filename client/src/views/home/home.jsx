@@ -7,7 +7,8 @@ import NewsCard from '../news/newsCards';
 import styles from './home.module.css';
 import Filter from '../../components/Filter/Filter';
 import Posteohome from './PostHome/PostHome'
-import { getUser } from "../../components/Redux/Actions/Get/action-get";
+import { getUser } from '../../components/Redux/Actions/Get/action-get';
+import { Getcategory } from "../../components/Redux/Actions/Get/action-get";
 import { fakeLoggin } from "../../components/Redux/Actions/Fake/fake";
 
 const Home = () => {
@@ -16,7 +17,10 @@ const Home = () => {
   useEffect(() => {
     dispatch(getHomePosts());
     dispatch(fakeLoggin());
+    dispatch(getUser());
+    dispatch((Getcategory()))
   }, [dispatch]);
+
 
   return (
     <div className={styles.Container}>

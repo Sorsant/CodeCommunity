@@ -2,8 +2,16 @@ import style from "./profile.module.css";
 import imagen from "./default.png";
 import { Link } from "react-router-dom";
 import { ProductDisplay } from "../../components/Payment/payment";
-
+import { useEffect } from "react";
+import { getUserExtra } from "../../components/Redux/Actions/Get/action-get";
+import { useDispatch } from "react-redux";
 const Profile = () => {
+const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getUserExtra());
+  }, [dispatch]);
+
   return (
     <div>
       <header className={style.header}>

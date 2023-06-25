@@ -1,7 +1,7 @@
 import { useState } from "react";
 import validate from "./validate";
 import styles from "./login.module.css";
-
+import SearchBar from "../../components/SearchBar/searchBar";
 const Login = () => {
   const [state, setState] = useState({
     Account: "",
@@ -32,6 +32,15 @@ const Login = () => {
   console.log(errors);
   return (
     <div className={styles.containerdiv}>
+       <div className={styles.containerNav}>
+      <nav className="navbar navbar-dark bg-dark ">
+        <SearchBar />
+        <div className={styles.title}>
+          <h1>Code</h1>
+          <h1>Community</h1>
+        </div>
+        </nav>
+        </div>
       <hr></hr>
       <form onSubmit={handleOnSubmit} className={styles.form_container}>
         <div className={styles.title_container}>

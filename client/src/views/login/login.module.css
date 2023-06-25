@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
 .form_container {
     width: fit-content;
     height: fit-content;
@@ -14,7 +16,15 @@
     border-radius: 11px;
     font-family: "Inter", sans-serif;
   }
-  
+  .title {
+    color: white;
+    margin-right: 900px;
+  }
+  .title h1 {
+    color: #d5dae4;
+    font-family: 'Orbitron', sans-serif;
+    margin-left: 10px;
+  }
   .logo_container {
     box-sizing: border-box;
     width: 80px;

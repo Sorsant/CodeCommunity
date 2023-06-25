@@ -1,6 +1,6 @@
 // reducers.ts
 import {
-  GET_ALL_POST, FILTER_AZ, FILTER_ZA, ADD_POST, FILTER_PUBLICATIONS, GET_ALL_LANGUAGES, POST_USER, SEARCH, GET_COMMUNITY, GET_ALL_COMMUNITIES, GET_CATEGORY, GET_NEWS, USERS, GETPOSTID, FAKE_BUTTON,
+  GET_ALL_POST, FILTER_AZ, FILTER_ZA, ADD_POST, FILTER_PUBLICATIONS, GET_ALL_LANGUAGES, POST_USER, SEARCH, GET_COMMUNITY, GET_ALL_COMMUNITIES, GET_CATEGORY, GET_NEWS, USERS, GETPOSTID, FAKE_BUTTON,GET_USER_EXTRA,
   FAKE_LOGGIN,
 } from './action-types';
 
@@ -13,6 +13,7 @@ const initialState = {
   news: [],
   users: [],
   loggin: true,
+  userExtra:[]
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -120,6 +121,12 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         loggin: payload,
+      };
+    }
+    case GET_USER_EXTRA:{
+      return {
+        ...state,
+        userExtra: payload,
       };
     }
     default:

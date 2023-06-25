@@ -1,136 +1,50 @@
-.container {
-    position: relative;
-    display: flex;
-    border: 2px solid #564c5f;
-    border-radius: 10px;
-    width: 700px;
-    height: 350px;
-    padding: 6px;
-    margin-top: 70px;
-    margin-bottom: 50px;
-    margin-left: 120px;
-}
-
-.headerCard {
-    display: flex;
-    background-color: wheat;
-    min-height: 15%;
-    margin-bottom: 18px;
-    margin-left: 87px;
-    width: 100%;
-    justify-content: center;
-    border-radius: 10px;
-}
-
-.linkDetail {
-    text-decoration: none;
-    position: absolute;
-    margin-left: 310px;
-    margin-top: 100px;
-    color: white;
-    background-color: #2f915b;
-    border-radius: 10px;
-    padding: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-}
-
-.text4 {
-    font-size: 15px;
-    font-weight: bold;
-
-}
-
-.linkDetail:hover {
-    transform: translateY(-7px);
-}
-
-.linkDetail:active {
-    transform: translateY(-1px);
-}
-
-.container2 {
-    display: contents;
-}
-
-.text1 {
-    margin-top: 10px;
-    font-size: 22px;
-}
-
-.img1 {
-    width: 40px;
-    height: 40px;
-    margin-left: 5px;
-    margin-bottom: 15 0px;
-    margin-top: 5px;
-    border-radius: 50%;
-}
-
-.text2 {
-    font-size: 14px;
-    margin-left: 210px;
-    margin-top: -62px;
-}
-
-.img2 {
-    width: 200px;
-    height: 200px;
-}
-
-.text3 {
-    font-size: large;
-    margin-top: -11px;
-    margin-bottom: 15px;
-    color: black;
-}
-
 .containerForm {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra las cards horizontalmente */
 }
 
 .cardContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 300px;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
 .userContainer {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 10px;
 }
 
 .userContainer h2 {
-    font-size: 18px;
-    margin-right: 10px;
+  font-size: 18px;
+  margin-right: 10px;
 }
 
 .userContainer img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-left: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 10px;
 }
 
 .postContainer {
-    text-align: center;
+  text-align: center;
 }
 
 .postContainer h2 {
-    font-size: 16px;
-    margin-bottom: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .postContainer img {
-    max-width: 200px;
-    max-height: 200px;
-    border-radius: 8px;
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 8px;
 }

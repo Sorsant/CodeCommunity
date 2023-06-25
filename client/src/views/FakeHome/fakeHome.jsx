@@ -8,6 +8,8 @@ import NewsCard from "../news/newsCards";
 import styles from "./fakeHome.module.css";
 import Filter from "../../components/Filter/Filter";
 import Posteohome from "../home/PostHome/PostHome";
+import { getUser } from '../../components/Redux/Actions/Get/action-get';
+import { Getcategory } from "../../components/Redux/Actions/Get/action-get";
 
 const FakeHome = () => {
   const dispatch = useDispatch();
@@ -15,6 +17,8 @@ const FakeHome = () => {
   useEffect(() => {
     dispatch(getHomePosts());
     dispatch(fakeButton());
+    dispatch(getUser());
+    dispatch((Getcategory()))
   }, [dispatch]);
 
   return (

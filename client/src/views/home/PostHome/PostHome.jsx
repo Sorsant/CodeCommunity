@@ -4,10 +4,13 @@ import styles from "./post.module.css";
 import { useDispatch } from "react-redux";
 import { addHomePosts } from "../../../components/Redux/Actions/Post/action-post";
 import { useSelector } from "react-redux";
+import { getUserExtra } from "../../../components/Redux/Actions/Get/action-get";
+import { useEffect } from "react";
 
 const Posteohome = () => {
   const loggin = useSelector((state) => state.loggin);
   const dispatch = useDispatch();
+  const userExtra = useSelector((state) => state.userExtra);
 
   const [post, setPost] = useState({
     image: "",
@@ -21,6 +24,10 @@ const Posteohome = () => {
     title: "",
     description: "",
   });
+
+  useEffect(() => {
+    dispatch(getUserExtra());
+  }, [dispatch]);
 
   const handleOnChange = (event) => {
     const { name, value } = event.target;
@@ -39,13 +46,31 @@ const Posteohome = () => {
   };
 
   const handleOnSubmit = (event) => {
-    if (loggin) {
-      event.preventDefault();
-      console.log(event.target.value);
-      dispatch(addHomePosts(post));
-    } else {
+    event.preventDefault();
+
+    if (!loggin) {
       // Si el usuario no está logueado, muestra el componente de login
       window.location.href = `/login`;
+      return;
+    }
+
+    const userNumber = Number(post.user);
+  const premiumUser = userExtra.find((user) => user.premium && user.user === userNumber);
+console.log(premiumUser)
+    if (premiumUser) {
+      dispatch(addHomePosts(post));
+      setPost({
+        image: "",
+        title: "",
+        description: "",
+        user: "",
+      });
+    } else {
+      alert("You need to be a premium user to post.");
+      setPost({
+        ...post,
+        user: "",
+      });
     }
   };
 
@@ -89,7 +114,7 @@ const Posteohome = () => {
             type="text"
             name="user"
           />
-
+{console.log(post)}
           <button
             disabled={
               !post.title ||

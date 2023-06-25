@@ -25,7 +25,7 @@ const App = () => {
   const location = useLocation();
   return (
     <div>
-      {location.pathname !== "/" ? <Nav /> : null}
+      {location.pathname !== "/" && location.pathname !== "/login" ? <Nav /> : null}
       <Routes>
         <Route path="/communities/:id" element={<DetailCommunity />} />
         {/*<Route path="/groups/:name" element={<DetailCommunity />} />*/}
@@ -43,7 +43,7 @@ const App = () => {
         <Route path="/detail/:id" element={<PostDetail />} />{" "}
         <Route path="/newspost" element={<NewsPost />} />
         <Route path="/about" element={<About />} />
-        <Route path="/instructor/:user" element={<Instructor />} />
+        <Route path="/instructor" element={<Instructor />} />
         <Route path="/fakeHome" element={<FakeHome />} />
       </Routes>
       {location.pathname !== "/" ? <Footer /> : null}

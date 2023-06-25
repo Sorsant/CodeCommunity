@@ -19,3 +19,5 @@ export const USERS = "USERS";
 export const GETPOSTID = "GETPOSTID";
 export const FAKE_LOGGIN = "FAKE_LOGGIN";
 export const FAKE_BUTTON = "FAKE_BUTTON";
+export const GET_USER_EXTRA = "GET_USER_EXTRA";
+

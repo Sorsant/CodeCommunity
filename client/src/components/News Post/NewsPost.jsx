@@ -4,10 +4,14 @@ import styles from "./NewsPost.module.css";
 import { addNews } from "../Redux/Actions/Post/action-post";
 import { useDispatch, useSelector } from "react-redux";
 import { Getcategory } from "../Redux/Actions/Get/action-get";
+import { useNavigate } from "react-router-dom";
+
+
 
 const NewsPost = () => {
     const dispatch = useDispatch();
     const selectCategory = useSelector(state => state.category)
+    const navigate = useNavigate();
 
     useEffect(()=>{
         dispatch((Getcategory()))
@@ -56,13 +60,16 @@ const handleOnChange = (event) => {
 const handleOnSubmit = (event) => {
     event.preventDefault();
     dispatch(addNews(postNews));
+    alert("Noticia creada");
+    navigate("/home");
 };
 const handleSelect = (event) => {
-    setPost({ ...postNews, category: [...postNews.category, event.target.value] });
+    setPost({ ...postNews,  category:[...postNews.category,event.target.value] });
     setErrors(
-    validate({ ...postNews, category: [...postNews.category, event.target.value] })
-    );
-};
+    validate({ ...postNews, category:[...postNews.category,event.target.value] })
+    )
+}
+
 return (
     <div className={styles.form}>
         {console.log({selectCategory})}
@@ -150,7 +157,7 @@ return (
             <option name="category" className={styles.category}>Elegir category</option>
             {
             selectCategory?.map((p) => 
-            <option key={p.id}>{p.nombre}</option>
+            <option key={p.id} value={p.id}>{p.name}</option>
             )}
         </select>
         <hr></hr>

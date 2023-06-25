@@ -1,8 +1,10 @@
 import React from "react";
 import { API_URL } from "../../config/index";
 import styles from "./payment.module.css";
+// import { GET_USER_EXTRA } from "../Redux/action-types";
 
 const ProductDisplay = () => (
+
   <section className={styles.container}>
     <div className={styles.product}>
       <div className={styles.description}>
