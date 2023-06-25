@@ -94,6 +94,12 @@ const Nav = () => {
                         <h1>Profile</h1>
                       </Link>
                     </li>
+                    <li className="nav-item">
+                      <Link to="/instructor" className="dropdown-item" >
+                        <h1>Instructor</h1>
+                      </Link>
+                      
+                    </li>
                   </ul>
                 </li>
               </ul>

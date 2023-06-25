@@ -1,0 +1,19 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .card h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .card p {
+    font-size: 14px;
+    color: #888;
+  }
+  .link{
+    font-size: 15px;
+  }

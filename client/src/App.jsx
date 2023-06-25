@@ -42,7 +42,7 @@ const App = () => {
         {/* <Route path="/detail/:id" element={<PostDetail />} />{" "} */}
         <Route path="/newspost" element={<NewsPost />} />
         <Route path="/about" element={<About />} />
-        <Route path="/instructor/:user" element={<Instructor />} />
+        <Route path="/instructor" element={<Instructor />} />
       </Routes>
       {location.pathname !== "/" ? <Footer /> : null}
     </div>

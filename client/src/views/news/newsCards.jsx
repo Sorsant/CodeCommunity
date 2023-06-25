@@ -18,7 +18,7 @@ const NewsCards = () => {
                 <Carousel.Item key={newsItem.id} >
                     <NewsCard
                         Link={newsItem.link}
-                        Category={newsItem.category.name}
+                        Category={newsItem.category.id}
                         Author={newsItem.author}
                         Image={newsItem.image}
                         Description={newsItem.description}

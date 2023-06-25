@@ -82,10 +82,9 @@ export const Getcategory = () => {
     return async (dispatch) => {
         const response = await axios.get("https://codecommunity-production.up.railway.app/codec/api/category/");
         const data = response.data;
-        const categoryList = Array.isArray(data) ? data : [data];
         dispatch({
             type: GET_CATEGORY,
-            payload: categoryList,
+            payload:data
         });
 
     };
@@ -117,14 +116,14 @@ export const getNews = () => {
         })
     }
 }
-export const getUser = () => {
-    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/user/'
+export const getUser = (id) => {
+    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/users/';
     return async (dispatch) => {
         const { data } = await axios.get(endpoint);
-        console.log(data);
         return dispatch({
             type: USERS,
-            payload: data,
+            payload: data
         });
     }
 }
+  
