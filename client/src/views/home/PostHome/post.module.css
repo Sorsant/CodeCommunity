@@ -4,6 +4,7 @@
   margin-left: 370px;
   padding: 10px;
   border-radius: 5px;
+  margin-top: -60px;
 }
 
 .containerForm label {
@@ -13,6 +14,15 @@
   border-radius: 5px;
 }
 
+.errors {
+  position: absolute;
+  margin-top: 50px;
+  margin-left: -190px;
+  font-weight: bold;
+  color: red;
+  font-size: 13px;
+}
+
 .containerForm input {
   width: 190px;
   height: 35px;
@@ -20,7 +30,7 @@
   border: 2px #323232 solid;
   padding: 5px 15px;
   background-color: #e8e8e8;
-  font-size: 15;
+  font-size: 12px;
   font-weight: 500;
 }
 
@@ -50,21 +60,18 @@
   height: 100%;
   width: 0;
   border-radius: 15px;
-  background-color: #212121;
   z-index: -1;
   -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  transition: all 250ms;
+  transition: all 250ms
 }
 
 .button:hover {
-  color: #e8e8e8;
+  transform: translateY(-5px);
 }
 
-.button:hover::before {
-  width: 100%;
-}
-.advice {
+
+.linkButton {
+  text-decoration: none;
   color: #212121;
-  font-size: 30px;
 }

@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./communityCard.module.css";
 import { getAllCommunities } from "../../components/Redux/Actions/Get/action-get";
-import CommunityCard from "../Community/communityCard"
+import { getAllLanguages } from "../../components/Redux/Actions/Get/action-get";
+import CommunityCard from "../Community/communityCard";
 
 const CommunityCards = () => {
     const dispatch = useDispatch();
@@ -11,15 +12,22 @@ const CommunityCards = () => {
 
     useEffect(() => {
         dispatch(getAllCommunities());
+        dispatch(getAllLanguages());
     }, [dispatch]);
 
+    if (!Array.isArray(communities) || !Array.isArray(languages)) {
+        return <div>No hay comunidades disponibles.</div>;
+    }
 
+    const findLanguageById = (languageId) => {
+        return languages.find((lang) => lang.id === languageId);
+    };
 
     return (
         <div className={styles.cards}>
-            {communities?.map((community) => {
+            {communities.map((community) => {
                 const languageNames = community.language.map((languageId) => {
-                    const language = languages.find((lang) => lang.id === languageId);
+                    const language = findLanguageById(languageId);
                     return language ? language.name : "";
                 });
 

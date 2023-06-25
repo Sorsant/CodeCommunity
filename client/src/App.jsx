@@ -11,7 +11,7 @@ import Register from "./views/Register/register";
 import Profile from "./views/profile/profile";
 import CommunityForm from "./views/CommunityForm/communityForm";
 import Edit from "./views/profile/edit";
-//import PostDetail from "./views/detail/detail";
+import PostDetail from "./views/detail/detail";
 import NewsPost from "./components/News Post/NewsPost";
 import Books from "./views/Education/Books/books";
 import Footer from "./views/Footer/footer";
@@ -40,7 +40,7 @@ const App = () => {
         <Route path="/Q&A" element={<QandA />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/edit" element={<Edit />} />
-        {/* <Route path="/detail/:id" element={<PostDetail />} />{" "} */}
+        <Route path="/detail/:id" element={<PostDetail />} />{" "}
         <Route path="/newspost" element={<NewsPost />} />
         <Route path="/about" element={<About />} />
         <Route path="/instructor/:user" element={<Instructor />} />

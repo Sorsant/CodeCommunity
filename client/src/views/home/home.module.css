@@ -1,6 +1,6 @@
 .Container {
     display: grid;
-    grid-template-columns: 1.5fr 3fr 1.5fr;
+    grid-template-columns: 521px 850px 521px;
     grid-template-rows: auto;
     /* Elimina la definición de las filas para que se ajusten automáticamente */
     font-size: 10px;
@@ -9,29 +9,27 @@
 
 .title1 {
     margin-left: 200px;
-    background-color: rgba(0, 204, 255, 0.74);
     width: 35%;
     padding: 5px;
     border-radius: 10px;
     font-weight: bold;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
 }
 
 .title2 {
     margin-left: 120px;
-    background-color: rgba(0, 204, 255, 0.74);
     width: 22%;
     padding: 5px;
     border-radius: 10px;
     font-weight: bold;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
 }
 
 .PosteoCard {
     grid-column: 2;
-    /* Cambia 2/3 a 2 */
     grid-row: 1;
-    /* Agrega la propiedad grid-row para colocarlo en la primera fila */
 }
 
 .filter {

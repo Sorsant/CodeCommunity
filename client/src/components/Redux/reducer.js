@@ -1,21 +1,8 @@
 // reducers.ts
 import {
-  GET_ALL_POST,
-  FILTER_AZ,
-  FILTER_ZA,
-  ADD_POST,
-  FILTER_PUBLICATIONS,
-  GET_ALL_LANGUAGES,
-  POST_USER,
-  SEARCH,
-  GET_COMMUNITY,
-  GET_ALL_COMMUNITIES,
-  GET_CATEGORY,
-  GET_NEWS,
-  USERS,
-  FAKE_BUTTON,
+  GET_ALL_POST, FILTER_AZ, FILTER_ZA, ADD_POST, FILTER_PUBLICATIONS, GET_ALL_LANGUAGES, POST_USER, SEARCH, GET_COMMUNITY, GET_ALL_COMMUNITIES, GET_CATEGORY, GET_NEWS, USERS, GETPOSTID, FAKE_BUTTON,
   FAKE_LOGGIN,
-} from "./action-types";
+} from './action-types';
 
 const initialState = {
   posts: [],
@@ -44,8 +31,8 @@ const reducer = (state = initialState, { type, payload }) => {
     case FILTER_ZA: {
       return {
         ...state,
-        posts: payload,
-      };
+        posts: payload
+      }
     }
     case ADD_POST: {
       return {
@@ -55,12 +42,12 @@ const reducer = (state = initialState, { type, payload }) => {
     case GET_ALL_LANGUAGES:
       return {
         ...state,
-        languages: payload,
-      };
+        languages: payload
+      }
     case POST_USER:
       return {
-        ...state,
-      };
+        ...state
+      }
     case FILTER_PUBLICATIONS: {
       const sortedPosts = [...state.posts];
       if (payload === "news") {
@@ -85,37 +72,44 @@ const reducer = (state = initialState, { type, payload }) => {
     case SEARCH: {
       return {
         ...state,
-        posts: payload,
-      };
+        posts: payload
+      }
+    }
+    case GETPOSTID: {
+      return {
+        ...state,
+        posts: payload
+      }
     }
     case GET_COMMUNITY:
       return {
         ...state,
-        communities: payload,
-      };
+        communities: payload
+      }
     case GET_ALL_COMMUNITIES:
       return {
         ...state,
-        communities: payload,
-      };
+        communities: payload
+      }
     case GET_CATEGORY: {
       return {
         ...state,
-        category: payload,
-      };
+        category: payload
+      }
     }
     case GET_NEWS: {
       return {
         ...state,
-        news: payload,
-      };
+        news: payload
+      }
     }
     case USERS: {
       return {
         ...state,
-        users: payload,
-      };
+        users: payload
+      }
     }
+
     case FAKE_BUTTON: {
       return {
         ...state,

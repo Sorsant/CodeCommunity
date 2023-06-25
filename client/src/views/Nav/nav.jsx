@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SearchBar from "../../components/SearchBar/searchBar";
 import styles from "./nav.module.css";
 import { useSelector } from "react-redux";
 
@@ -9,21 +10,14 @@ const Nav = () => {
   return (
     <div className={styles.containerNav}>
       <nav className="navbar navbar-dark bg-dark ">
-        <img
-          src="https://i.ibb.co/6yz0s2y/Murcielago.png"
-          alt="logo"
-          className={styles.logo}
-        />
+        <SearchBar />
         <div className={styles.title}>
-          <img
-            src="https://cdn.discordapp.com/attachments/881403103054811170/1119070813992259604/Sin-t-tulo-removebg-preview.png"
-            alt="title"
-          />
+          <h1>Code</h1>
+          <h1>Community</h1>
         </div>
         <div className="container-fluid">
           <button
-            className={`navbar-toggler ${styles["button-estilo"]}`}
-            type="button"
+            className={`navbar-toggler ${styles['toggle']}`} type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasDarkNavbar"
             aria-controls="offcanvasDarkNavbar"
@@ -71,23 +65,19 @@ const Nav = () => {
                       <h1 className={styles.login}>Log in</h1>
                     </Link>
                   </li>
-                  <Link to="/">
-                    <button className={styles.logOut}>
-                      <span>
-                        <h1>Log out</h1>
-                      </span>
-                    </button>
-                  </Link>
+
+                  <div className={styles.containerLogOut}>
+                    <li className="nav-item" >
+                      <Link to="/" className={styles.link} >
+                        <h1 className={styles.logOut}>Log out</h1>
+                      </Link>
+                    </li>
+                  </div>
+
                 </div>
                 {loggin ? (
                   <li className="nav-item dropdown">
-                    <a
-                      className={`nav-link dropdown-toggle ${styles["buttonSections"]}`}
-                      href="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
+                    <a className={`nav-link dropdown-toggle ${styles['buttonSections']}`} href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ fontSize: '14px', fontWeight: 'bold', backgroundColor: 'white', width: '25%', padding: '7px', marginRight: '5px', marginTop: '5px', color: 'black', borderRadius: '10px', ':hover': { backgroundColor: '#23E871', color: 'white' } }}>
                       SECTIONS
                     </a>
                     <ul className="dropdown-menu dropdown-menu-dark">
