@@ -1,16 +1,9 @@
-<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
 .title h1 {
-    color: #d5dae4;
-    font-family: 'Orbitron', sans-serif;
-    margin-left: 10px;
-=======
-.title img {
-  width: 200px;
-  height: 70px;
-  border-radius: 10px;
->>>>>>> 40534f959674979f62b5a3ece8ab687702047748
+  color: #d5dae4;
+  font-family: 'Orbitron', sans-serif;
+  margin-left: 10px;
 }
 
 .title_toggle {
@@ -18,19 +11,11 @@
   text-decoration: underline;
 }
 
-<<<<<<< HEAD
 .toggle {
-    margin-left: 1830px;
-    margin-top: -70px;
-    width: 50px;
-    height: 50px;
-=======
-.button-estilo {
   margin-left: 1830px;
   margin-top: -70px;
   width: 50px;
   height: 50px;
->>>>>>> 40534f959674979f62b5a3ece8ab687702047748
 }
 
 .title {
@@ -42,55 +27,17 @@
   display: flex;
 }
 
-<<<<<<< HEAD
 .logOut {
-    margin-right: 5px;
-    padding: 10px 20px;
-    border: 1px solid black;
-    border-radius: 15px;
-    color: #212121;
-    z-index: 1;
-    background: #e8e8e8;
-    position: relative;
-    font-weight: 1000;
-    font-size: 16px;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    transition: all 250ms;
-    overflow: hidden;
-}
-
-.logOut::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    border-radius: 15px;
-    background-color: #b61e13;
-    z-index: -1;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    transition: all 250ms
-=======
-.logo {
-  width: 60px;
-  height: 60px;
-  margin-left: 627px;
-}
-
-.logOut {
-  margin-right: 10px;
-
-  border: unset;
+  margin-right: 5px;
+  padding: 10px 20px;
+  border: 1px solid black;
   border-radius: 15px;
   color: #212121;
   z-index: 1;
   background: #e8e8e8;
   position: relative;
   font-weight: 1000;
-  font-size: 14px;
+  font-size: 16px;
   -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   transition: all 250ms;
@@ -105,12 +52,11 @@
   height: 100%;
   width: 0;
   border-radius: 15px;
-  background-color: #13b6a8;
+  background-color: #b61e13;
   z-index: -1;
   -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  transition: all 250ms;
->>>>>>> 40534f959674979f62b5a3ece8ab687702047748
+  transition: all 250ms
 }
 
 .logOut:hover {
@@ -122,9 +68,9 @@
 }
 
 .containerLogOut {
-    position: absolute;
-    margin-top: 820px;
-    margin-left: 5px;
+  position: absolute;
+  margin-top: 820px;
+  margin-left: 5px;
 }
 
 div.containerNav button.navbar-toggler {
@@ -143,24 +89,8 @@ div.containerNav button.navbar-toggler {
 }
 
 .contact {
-<<<<<<< HEAD
-    margin-right: 5px;
-    padding: 10px 20px;
-    border: unset;
-    border-radius: 15px;
-    color: #212121;
-    z-index: 1;
-    background: #e8e8e8;
-    position: relative;
-    font-weight: 1000;
-    font-size: 16px;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    transition: all 250ms;
-    overflow: hidden;
-=======
   margin-right: 5px;
-  padding: 10px 25px;
+  padding: 10px 20px;
   border: unset;
   border-radius: 15px;
   color: #212121;
@@ -168,12 +98,11 @@ div.containerNav button.navbar-toggler {
   background: #e8e8e8;
   position: relative;
   font-weight: 1000;
-  font-size: 14px;
+  font-size: 16px;
   -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   transition: all 250ms;
   overflow: hidden;
->>>>>>> 40534f959674979f62b5a3ece8ab687702047748
 }
 
 .contact::before {
@@ -200,24 +129,8 @@ div.containerNav button.navbar-toggler {
 }
 
 .sign {
-<<<<<<< HEAD
-    margin-right: 10px;
-    padding: 10px 20px;
-    border: unset;
-    border-radius: 15px;
-    color: #212121;
-    z-index: 1;
-    background: #e8e8e8;
-    position: relative;
-    font-weight: 1000;
-    font-size: 16px;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    transition: all 250ms;
-    overflow: hidden;
-=======
   margin-right: 10px;
-  padding: 10px 25px;
+  padding: 10px 20px;
   border: unset;
   border-radius: 15px;
   color: #212121;
@@ -225,12 +138,11 @@ div.containerNav button.navbar-toggler {
   background: #e8e8e8;
   position: relative;
   font-weight: 1000;
-  font-size: 14px;
+  font-size: 16px;
   -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   transition: all 250ms;
   overflow: hidden;
->>>>>>> 40534f959674979f62b5a3ece8ab687702047748
 }
 
 .sign::before {
@@ -257,23 +169,8 @@ div.containerNav button.navbar-toggler {
 }
 
 .login {
-<<<<<<< HEAD
-    margin-right: 5px;
-    padding: 10px 12px;
-    border: unset;
-    border-radius: 15px;
-    color: #212121;
-    z-index: 1;
-    background: #e8e8e8;
-    position: relative;
-    font-weight: 1000;
-    font-size: 16px;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    transition: all 250ms;
-    overflow: hidden;
-=======
-  padding: 10px 25px;
+  margin-right: 5px;
+  padding: 10px 12px;
   border: unset;
   border-radius: 15px;
   color: #212121;
@@ -281,12 +178,11 @@ div.containerNav button.navbar-toggler {
   background: #e8e8e8;
   position: relative;
   font-weight: 1000;
-  font-size: 14px;
+  font-size: 16px;
   -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   transition: all 250ms;
   overflow: hidden;
->>>>>>> 40534f959674979f62b5a3ece8ab687702047748
 }
 
 .login::before {
@@ -312,7 +208,6 @@ div.containerNav button.navbar-toggler {
   width: 100%;
 }
 
-<<<<<<< HEAD
 /* .buttonSections {
     font-size: 15px;
     font-weight: bold;
@@ -323,18 +218,3 @@ div.containerNav button.navbar-toggler {
     color: #212121;
     border-radius: 10px;
 } */
-=======
-.buttonSections {
-  font-size: 15px;
-  font-weight: bold;
-  background-color: rgb(43, 189, 99);
-  width: 25%;
-  padding: 7px;
-  margin: 5px;
-  color: #212121;
-  border-radius: 10px;
-}
-.log {
-  font-size: 20px;
-}
->>>>>>> 40534f959674979f62b5a3ece8ab687702047748

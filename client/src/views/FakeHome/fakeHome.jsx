@@ -6,7 +6,6 @@ import PosteoCards from "../../components/Posts_Proyect/Cards/Cards";
 import CommunityCard from "../../views/Community/communityCards";
 import NewsCard from "../news/newsCards";
 import styles from "./fakeHome.module.css";
-import SearchBar from "../../components/SearchBar/searchBar";
 import Filter from "../../components/Filter/Filter";
 import Posteohome from "../home/PostHome/PostHome";
 
@@ -20,7 +19,6 @@ const FakeHome = () => {
 
   return (
     <div className={styles.Container}>
-      <SearchBar />
       <Posteohome />
       <div className={styles.filter}>
         <Filter />
