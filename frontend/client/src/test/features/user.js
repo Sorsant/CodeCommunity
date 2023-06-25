@@ -1,5 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+
+// Configurar los encabezados por defecto
+axios.defaults.headers.common['Accept'] = 'application/json';
+axios.defaults.headers.common['Content-Type'] = 'application/json';
+
+// Configurar las opciones de las cookies
+axios.defaults.withCredentials = true;
+
 export const register = createAsyncThunk(
 	'users/register',
 	async ({ first_name, last_name, email, password }, thunkAPI) => {
@@ -91,7 +99,7 @@ export const login = createAsyncThunk(
 
 export const checkAuth = createAsyncThunk(
 	'https://codecommunity-production.up.railway.app/users/verify',
-	async (_, thunkAPI) => {
+	async (_, thunkAPI) => { 
 		try {
 			const res = await fetch('https://codecommunity-production.up.railway.app/api/users/verify', {
 				method: 'GET',
