@@ -1,44 +1,44 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { reset_password_confirm } from '../actions/auth';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { resetPasswordConfirm } from '../actions/auth';
 
-const ResetPasswordConfirm = ({ match, reset_password_confirm }) => {
+const ResetPasswordConfirm = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const { uid, token } = useParams();
     const [requestSent, setRequestSent] = useState(false);
     const [formData, setFormData] = useState({
-        new_password: '',
-        re_new_password: ''
+        newPassword: '',
+        reNewPassword: ''
     });
 
-    const { new_password, re_new_password } = formData;
+    const { newPassword, reNewPassword } = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const onSubmit = e => {
         e.preventDefault();
 
-        const uid = match.params.uid;
-        const token = match.params.token;
-
-        reset_password_confirm(uid, token, new_password, re_new_password);
+        dispatch(resetPasswordConfirm(uid, token, newPassword, reNewPassword));
         setRequestSent(true);
     };
 
     if (requestSent) {
-        return <Redirect to='/' />
+        navigate('/');
     }
 
     return (
         <div className='container mt-5'>
-            <form onSubmit={e => onSubmit(e)}>
-            <div className='form-group'>
+            <form onSubmit={onSubmit}>
+                <div className='form-group'>
                     <input
                         className='form-control'
                         type='password'
                         placeholder='New Password'
-                        name='new_password'
-                        value={new_password}
-                        onChange={e => onChange(e)}
+                        name='newPassword'
+                        value={newPassword}
+                        onChange={onChange}
                         minLength='6'
                         required
                     />
@@ -48,17 +48,19 @@ const ResetPasswordConfirm = ({ match, reset_password_confirm }) => {
                         className='form-control'
                         type='password'
                         placeholder='Confirm New Password'
-                        name='re_new_password'
-                        value={re_new_password}
-                        onChange={e => onChange(e)}
+                        name='reNewPassword'
+                        value={reNewPassword}
+                        onChange={onChange}
                         minLength='6'
                         required
                     />
                 </div>
-                <button className='btn btn-primary' type='submit'>Reset Password</button>
+                <button className='btn btn-primary' type='submit'>
+                    Reset Password
+                </button>
             </form>
         </div>
     );
 };
 
-export default connect(null, { reset_password_confirm })(ResetPasswordConfirm);
+export default ResetPasswordConfirm;
