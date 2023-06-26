@@ -39,3 +39,9 @@
 .user{
     font-size: small;
 }
+
+.button {
+    font-size: medium;
+    width: 100px;
+    text-align: center;
+}
