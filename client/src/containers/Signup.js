@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { signup } from '../actions/auth';
+import { signup } from '../../src/components/Redux/Actions/test/auth';
 import axios from 'axios';
 
 const Signup = ({ signup, isAuthenticated }) => {
