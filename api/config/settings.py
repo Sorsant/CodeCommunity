@@ -29,8 +29,7 @@ import cloudinary.api
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
-STRIPE_SECRET_KEY= 'sk_test_51NL9TyB0138Dzwzeb6TwTUR5RZHD9emoo9aZ761jRWVbz3nZldZOX00vP7NzjuaprUheMkwUN1PTFF1B9OtKVO2o00xd9S3jTp'
-
+STRIPE_SECRET_KEY= config('STRIPE_SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
