@@ -2,11 +2,12 @@ from django.db import models
 from django.utils import timezone
 from .language import Language
 from .community import Community
+# from cloudinary.models import CloudinaryField
 from users.models import UserAccount
 
 class UserComplement(models.Model):
     user = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
-    user_image = models.CharField(max_length=255, blank=True)
+    user_image = models.CharField(blank=True)
     birthday = models.DateField(blank=True)
     postulation = models.BooleanField(default=False)
     language = models.ManyToManyField(Language, blank=True)
@@ -21,3 +22,6 @@ class UserComplement(models.Model):
 
     def __str__(self):
         return self.user.first_name
+
+
+# user_image = CloudinaryField('image', folder="ImagePost")
