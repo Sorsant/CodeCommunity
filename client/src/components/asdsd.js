@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { signup } from '../../src/components/Redux/Actions/test/auth';
+import { signup } from '../actions/auth';
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
 
 const Signup = () => {
     const [accountCreated, setAccountCreated] = useState(false);
@@ -52,10 +51,10 @@ const Signup = () => {
     };
 
     if (isAuthenticated) {
-        return <Navigate to='/' />;
+        return <Redirect to='/' />
     }
     if (accountCreated) {
-        return <Navigate to='/login' />;
+        return <Redirect to='/login' />
     }
 
     return (
