@@ -20,6 +20,15 @@ import Instructor from "./views/Instructor/instructor";
 import DetailCommunity from "./views/DetailCommunity/detailCommunity";
 import FakeHome from "./views/FakeHome/fakeHome";
 axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
+// import Home from './containers/Home';
+// import Login from './containers/Login';
+// import Signup from './containers/Signup';
+// import Activate from './containers/Activate';
+// import ResetPassword from './containers/ResetPassword';
+// import ResetPasswordConfirm from './containers/ResetPasswordConfirm';
+// import Facebook from './containers/Facebook';
+// import Google from './containers/Google';
+// import Layout from './hocs/Layout';
 
 const App = () => {
   const location = useLocation();
@@ -27,24 +36,26 @@ const App = () => {
     <div>
       {location.pathname !== "/" && location.pathname !== "/login" ? <Nav /> : null}
       <Routes>
-        <Route path="/communities/:id" element={<DetailCommunity />} />
-        {/*<Route path="/groups/:name" element={<DetailCommunity />} />*/}
-        <Route path="/education" element={<Books />} />
-        {/*Revisar estas rutas, aun no estan bien definidas*/}
-        <Route path="/communities" element={<CommunityForm />} />{" "}
-        {/*Revisar estas rutas, aun no estan bien definidas*/}
-        <Route path="/home" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/Q&A" element={<QandA />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/edit" element={<Edit />} />
-        <Route path="/detail/:id" element={<PostDetail />} />{" "}
-        <Route path="/newspost" element={<NewsPost />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/instructor" element={<Instructor />} />
-        <Route path="/fakeHome" element={<FakeHome />} />
+        <Layout>
+          <Route path="/communities/:id" element={<DetailCommunity />} />
+          {/*<Route path="/groups/:name" element={<DetailCommunity />} />*/}
+          <Route path="/education" element={<Books />} />
+          {/*Revisar estas rutas, aun no estan bien definidas*/}
+          <Route path="/communities" element={<CommunityForm />} />{" "}
+          {/*Revisar estas rutas, aun no estan bien definidas*/}
+          <Route path="/home" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/Q&A" element={<QandA />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/edit" element={<Edit />} />
+          <Route path="/detail/:id" element={<PostDetail />} />{" "}
+          <Route path="/newspost" element={<NewsPost />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/instructor" element={<Instructor />} />
+          <Route path="/fakeHome" element={<FakeHome />} />
+        </Layout>
       </Routes>
       {location.pathname !== "/" ? <Footer /> : null}
     </div>
