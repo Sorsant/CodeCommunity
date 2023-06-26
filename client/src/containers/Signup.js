@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { signup } from '../../src/components/Redux/Actions/test/auth';
 import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
-const Signup = ({ signup, isAuthenticated }) => {
+const Signup = () => {
     const [accountCreated, setAccountCreated] = useState(false);
+    const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+    const dispatch = useDispatch();
+
     const [formData, setFormData] = useState({
         first_name: '',
         last_name: '',
@@ -22,7 +26,7 @@ const Signup = ({ signup, isAuthenticated }) => {
         e.preventDefault();
 
         if (password === re_password) {
-            signup(first_name, last_name, email, password, re_password);
+            dispatch(signup(first_name, last_name, email, password, re_password));
             setAccountCreated(true);
         }
     };
@@ -48,10 +52,10 @@ const Signup = ({ signup, isAuthenticated }) => {
     };
 
     if (isAuthenticated) {
-        return <Redirect to='/' />
+        return <Navigate to='/' />;
     }
     if (accountCreated) {
-        return <Redirect to='/login' />
+        return <Navigate to='/login' />;
     }
 
     return (
@@ -132,8 +136,4 @@ const Signup = ({ signup, isAuthenticated }) => {
     );
 };
 
-const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated
-});
-
-export default connect(mapStateToProps, { signup })(Signup);
+export default Signup;
