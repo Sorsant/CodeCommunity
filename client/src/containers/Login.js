@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { login } from '../actions/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import {  useSelector} from 'react-redux';
+import { login } from '../../src/components/Redux/Actions/test/auth';
 import axios from 'axios';
 
-const Login = ({ login, isAuthenticated }) => {
+const Login = ( ) => {
     const [formData, setFormData] = useState({
         email: '',
         password: '' 
     });
-
+ const navigate = useNavigate()
+    const isAuthenticated = useSelector  ((state) => state.isAuthenticated)
+   
     const { email, password } = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -41,7 +43,7 @@ const Login = ({ login, isAuthenticated }) => {
     };
 
     if (isAuthenticated) {
-        return <Redirect to='/' />
+        return navigate('/')
     }
 
     return (
@@ -91,8 +93,5 @@ const Login = ({ login, isAuthenticated }) => {
     );
 };
 
-const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated
-});
 
-export default connect(mapStateToProps, { login })(Login);
+export default Login;
