@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { resetPasswordConfirm } from '../actions/auth';
+import { reset_password_confirm } from '../../src/components/Redux/Actions/test/auth';
 
 const ResetPasswordConfirm = () => {
     const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const ResetPasswordConfirm = () => {
     const onSubmit = e => {
         e.preventDefault();
 
-        dispatch(resetPasswordConfirm(uid, token, newPassword, reNewPassword));
+        dispatch(reset_password_confirm(uid, token, newPassword, reNewPassword));
         setRequestSent(true);
     };
 

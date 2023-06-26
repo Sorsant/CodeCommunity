@@ -19,7 +19,7 @@ import {
     FACEBOOK_AUTH_SUCCESS,
     FACEBOOK_AUTH_FAIL,
     LOGOUT
-} from './types';
+} from '../../action-types';
 
 export const load_user = () => async dispatch => {
     if (localStorage.getItem('access')) {
@@ -29,11 +29,11 @@ export const load_user = () => async dispatch => {
                 'Authorization': `JWT ${localStorage.getItem('access')}`,
                 'Accept': 'application/json'
             }
-        }; 
+        };
 
         try {
             const res = await axios.get(`${process.env.REACT_APP_API_URL}/auth/users/me/`, config);
-    
+
             dispatch({
                 type: USER_LOADED_SUCCESS,
                 payload: res.data
@@ -121,7 +121,7 @@ export const checkAuthenticated = () => async dispatch => {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             }
-        }; 
+        };
 
         const body = JSON.stringify({ token: localStorage.getItem('access') });
 
