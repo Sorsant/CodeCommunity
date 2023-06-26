@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { reset_password } from '../actions/auth';
+import { reset_password } from '../../src/components/Redux/Actions/test/auth';
 
 const ResetPassword = () => {
     const dispatch = useDispatch();

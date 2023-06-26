@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { useDispatch } from '../../src/components/Redux/Actions/test/auth';
+import { useSelector, useDispatch } from 'react-redux';
 import queryString from 'query-string';
 import { googleAuthenticate } from '../../src/components/Redux/Actions/test/auth';
 const Google = () => {
