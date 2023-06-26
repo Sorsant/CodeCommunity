@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import {  useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import { login } from '../../src/components/Redux/Actions/test/auth';
 import axios from 'axios';
 
-const Login = ( ) => {
+const Login = () => {
     const [formData, setFormData] = useState({
         email: '',
-        password: '' 
+        password: ''
     });
- const navigate = useNavigate()
-    const isAuthenticated = useSelector  ((state) => state.isAuthenticated)
-   
+    const navigate = useNavigate()
+    const isAuthenticated = useSelector((state) => state.isAuthenticated)
+
     const { email, password } = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
