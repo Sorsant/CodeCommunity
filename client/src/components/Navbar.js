@@ -1,16 +1,16 @@
 import React, { Fragment, useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { logout } from '../actions/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { logout } from '../components/Redux/Actions/test/auth';
 
-const Navbar = ({ logout, isAuthenticated }) => {
+const Navbar = () => {
     const [redirect, setRedirect] = useState(false);
-
+    const isAuthenticated = useSelector  ((state) => state.isAuthenticated)
     const logout_user = () => {
         logout();
         setRedirect(true);
     };
-
+    const navigate = useNavigate();
     const guestLinks = () => (
         <Fragment>
             <li className='nav-item'>
@@ -52,13 +52,11 @@ const Navbar = ({ logout, isAuthenticated }) => {
                     </ul>
                 </div>
             </nav>
-            {redirect ? <Redirect to='/' /> : <Fragment></Fragment>}
+            {redirect ? navigate('/') : <Fragment></Fragment>}
         </Fragment>
     );
 };
 
-const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated
-});
 
-export default connect(mapStateToProps, { logout })(Navbar);
+
+export default Navbar;
