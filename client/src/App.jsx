@@ -7,7 +7,7 @@ import React from "react";
 import LandingPage from "./views/landing/landing";
 import Nav from "./views/Nav/nav";
 import QandA from "./views/QAPage/QAPage";
-import Register from "./views/Register/register";
+// import Register from "./views/Register/register";
 import Profile from "./views/profile/profile";
 import CommunityForm from "./views/CommunityForm/communityForm";
 import Edit from "./views/profile/edit";
@@ -55,7 +55,7 @@ const App = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<LandingPage />} />
-          <Route path="/register" element={<Register />} />
+          {/* <Route path="/register" element={<Register />} /> */}
           <Route path="/Q&A" element={<QandA />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/edit" element={<Edit />} />
