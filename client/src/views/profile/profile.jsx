@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { getUserExtra } from "../../components/Redux/Actions/Get/action-get";
 import { useDispatch } from "react-redux";
 const Profile = () => {
-const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getUserExtra());

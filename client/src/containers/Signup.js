@@ -7,7 +7,8 @@ import { Navigate } from 'react-router-dom';
 
 const Signup = () => {
     const [accountCreated, setAccountCreated] = useState(false);
-    const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+    const isAuthenticated = useSelector(state => state.auth && state.auth.isAuthenticated);
+
     const dispatch = useDispatch();
 
     const [formData, setFormData] = useState({

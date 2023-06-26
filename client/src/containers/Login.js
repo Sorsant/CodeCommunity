@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { login } from '../../src/components/Redux/Actions/test/auth';
+import styles from './login.module.css'
 import axios from 'axios';
 
 const Login = () => {
@@ -48,6 +49,12 @@ const Login = () => {
 
     return (
         <div className='container mt-5'>
+            <nav className="navbar navbar-dark bg-dark ">
+                <div className={styles.title}>
+                    <h1>Code</h1>
+                    <h1>Community</h1>
+                </div>
+            </nav>
             <h1>Sign In</h1>
             <p>Sign into your Account</p>
             <form onSubmit={e => onSubmit(e)}>

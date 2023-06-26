@@ -36,13 +36,13 @@ const PostCard = ({ id }) => {
         <div className={styles.userContainer}>
           {/* <img src={user.user_image} alt={user.name} /> */}
           <h2>{user.first_name} {user.last_name}</h2>
-          {user.premium && user.postulation && (
+          {/* {user.premium && user.postulation && (
             <p>
               <Link to={`/instructor/${user.id}`}>
                 <button> Puedes pagarle a este instructor</button>
               </Link>
             </p>
-          )}
+          )} */}
         </div>
 
         <div className={styles.postContainer}>

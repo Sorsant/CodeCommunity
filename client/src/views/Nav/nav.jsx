@@ -111,14 +111,14 @@ const Nav = () => {
                         </Link>
                       </li>
                       <li className="nav-item">
-                      <Link to="/instructor" className="dropdown-item" >
-                        <h1>Instructor</h1>
-                      </Link>
-                    </li>
+                        <Link to="/instructor" className="dropdown-item" >
+                          <h1>Instructor</h1>
+                        </Link>
+                      </li>
                     </ul>
                   </li>
                 ) : (
-                  <p className={styles.log}>logueate gil</p>
+                  <p className={styles.log}>Go to log!</p>
                 )}
               </ul>
             </div>

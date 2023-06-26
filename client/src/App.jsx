@@ -31,7 +31,7 @@ const App = () => {
   const location = useLocation();
   return (
     <div>
-      {location.pathname !== "/" ? <Nav /> : null}
+      {location.pathname !== "/" && location.pathname !== "/login" ? <Nav /> : null}
       <Routes>
 
         {/* <Route  path='/' element={Home} /> */}
