@@ -118,7 +118,7 @@ const Nav = () => {
                     </ul>
                   </li>
                 ) : (
-                  <p className={styles.log}>logueate gil</p>
+                  <p className={styles.log}>logueate </p>
                 )}
               </ul>
             </div>
