@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCommunity, getAllLanguages } from "../../components/Redux/Actions/Get/action-get";
 import styles from "./detailCommunity.module.css";
+//import { smallUser } from "../SmallUser/smallUser";
 
 const DetailCommunity = () => {
     const dispatch = useDispatch();
@@ -41,6 +42,7 @@ const DetailCommunity = () => {
         <div className={styles.container}>
             <h1 className={styles.name}>{community.name}</h1>
             <img src={community.image} alt={community.image} className={styles.image} />
+            {/*<smallUser className={styles.user}/>*/} 
             <p className={styles.language}>{languageNames.join(", ")}</p>
             <p className={styles.description}>{community.description}</p>
         </div>

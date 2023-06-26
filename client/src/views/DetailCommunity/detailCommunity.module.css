@@ -1,23 +1,34 @@
 
 .container {
-    border: 1px solid #000;
     display: flex;
+    align-items: center;
+    margin: auto;
+    width: 1000px;
+    height: 200px;
 }
 
 .name {
     font-size: xx-large;
-    text-align: left;
+    text-align: center;
+    width: 300px;
 }
 
 .image {
-    width: 100px;
-    border-radius: 999%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
 }
 
 .language {
     font-size: medium;
+    width: 100px;
+    text-align: center;
 }
 
 .description {
     font-size: x-large;
+}
+
+.user{
+    font-size: small;
 }
