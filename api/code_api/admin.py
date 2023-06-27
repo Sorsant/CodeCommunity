@@ -44,4 +44,4 @@ class BookAdmin(admin.ModelAdmin):
 
 @admin.register(UserComplement)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('user', 'postulation', 'premium', 'created')
+    list_display = ('id', 'postulation', 'premium', 'created')
