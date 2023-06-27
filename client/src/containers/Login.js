@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import {  useSelector} from 'react-redux';
-import { login } from '../../src/components/Redux/Actions/test/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import {login } from '../../src/components/Redux/Actions/test/auth';
 import axios from 'axios';
 
-const Login = ( ) => {
+const Login = () => {
     const [formData, setFormData] = useState({
         email: '',
-        password: '' 
+        password: ''
     });
- const navigate = useNavigate()
-    const isAuthenticated = useSelector  ((state) => state.isAuthenticated)
-   
+    const dispatch =useDispatch()
+    const navigate = useNavigate()
+    const isAuthenticated = useSelector((state) => state.isAuthenticated)
+
     const { email, password } = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,7 +20,7 @@ const Login = ( ) => {
     const onSubmit = e => {
         e.preventDefault();
 
-        login(email, password);
+        dispatch(login(email, password));
     };
 
     const continueWithGoogle = async () => {

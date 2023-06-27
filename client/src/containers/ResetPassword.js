@@ -1,41 +1,38 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { reset_password } from '../actions/auth';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { reset_password } from '../../src/components/Redux/Actions/test/auth';
 
-const ResetPassword = ({ reset_password }) => {
+const ResetPassword = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [requestSent, setRequestSent] = useState(false);
-    const [formData, setFormData] = useState({
-        email: ''
-    });
+    const [email, setEmail] = useState('');
 
-    const { email } = formData;
-
-    const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+    const onChange = e => setEmail(e.target.value);
 
     const onSubmit = e => {
         e.preventDefault();
 
-        reset_password(email);
+        dispatch(reset_password(email));
         setRequestSent(true);
     };
 
     if (requestSent) {
-        return <Redirect to='/' />
+        navigate('/');
     }
 
     return (
         <div className='container mt-5'>
             <h1>Request Password Reset:</h1>
-            <form onSubmit={e => onSubmit(e)}>
+            <form onSubmit={onSubmit}>
                 <div className='form-group'>
                     <input
                         className='form-control'
                         type='email'
                         placeholder='Email'
-                        name='email'
                         value={email}
-                        onChange={e => onChange(e)}
+                        onChange={onChange}
                         required
                     />
                 </div>
@@ -45,4 +42,4 @@ const ResetPassword = ({ reset_password }) => {
     );
 };
 
-export default connect(null, { reset_password })(ResetPassword);
+export default ResetPassword;
