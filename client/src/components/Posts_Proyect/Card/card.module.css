@@ -1,11 +1,13 @@
 .containerForm {
   display: flex;
+  margin-top: 40px;
   flex-wrap: wrap;
   justify-content: center; /* Centra las cards horizontalmente */
 }
 
 .cardContainer {
   display: flex;
+  
   flex-direction: column;
   align-items: center;
   width: 300px;
