@@ -6,7 +6,7 @@ from .community import Community
 from users.models import UserAccount
 
 class UserComplement(models.Model):
-    user = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
+    id = models.OneToOneField(UserAccount, primary_key=True, on_delete=models.CASCADE)
     user_image = models.CharField(blank=True)
     birthday = models.DateField(blank=True)
     postulation = models.BooleanField(default=False)
@@ -21,7 +21,7 @@ class UserComplement(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.user.first_name
+        return self.id.first_name
 
 
 # user_image = CloudinaryField('image', folder="ImagePost")
