@@ -19,7 +19,7 @@ import DetailCommunity from "./views/DetailCommunity/detailCommunity";
 import FakeHome from "./views/FakeHome/fakeHome";
 import Login from './containers/Login';
 import Signup from './containers/Signup';
-import Activate from './containers/Activate';
+// import Activate from './containers/Activate';
 import ResetPassword from './containers/ResetPassword';
 import ResetPasswordConfirm from './containers/ResetPasswordConfirm';
 import Facebook from './containers/Facebook';
@@ -41,7 +41,7 @@ const App = () => {
         <Route path='/google' element={<Google />} />
         <Route path='/reset-password' element={<ResetPassword />} />
         <Route path='/password/reset/confirm/:uid/:token' element={<ResetPasswordConfirm />} />
-        <Route path='/activate/:uid/:token' element={<Activate />} />
+        {/* <Route path='/activate/:uid/:token' element={<Activate />} /> */}
 
         <Route path="/communities/:id" element={<DetailCommunity />} />
         {/*<Route path="/groups/:name" element={<DetailCommunity />} />*/}

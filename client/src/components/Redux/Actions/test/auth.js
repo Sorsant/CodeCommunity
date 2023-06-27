@@ -21,7 +21,7 @@ import {
     LOGOUT
 } from '../../action-types';
 
-export const load_user = () => async dispatch => {
+export const loadUser = () => async dispatch => {
     if (localStorage.getItem('access')) {
         const config = {
             headers: {
@@ -73,7 +73,7 @@ export const googleAuthenticate = (state, code) => async dispatch => {
                 payload: res.data
             });
 
-            dispatch(load_user());
+            dispatch(loadUser());
         } catch (err) {
             dispatch({
                 type: GOOGLE_AUTH_FAIL
@@ -105,7 +105,7 @@ export const facebookAuthenticate = (state, code) => async dispatch => {
                 payload: res.data
             });
 
-            dispatch(load_user());
+            dispatch(loadUser());
         } catch (err) {
             dispatch({
                 type: FACEBOOK_AUTH_FAIL
@@ -115,90 +115,79 @@ export const facebookAuthenticate = (state, code) => async dispatch => {
 };
 
 export const checkAuthenticated = () => async dispatch => {
-    if (localStorage.getItem('access')) {
-        const config = {
+    try {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/users/verify`, {
+            method: 'GET',
             headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        };
-
-        const body = JSON.stringify({ token: localStorage.getItem('access') });
-
-        try {
-            const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/jwt/verify/`, body, config)
-
-            if (res.data.code !== 'token_not_valid') {
-                dispatch({
-                    type: AUTHENTICATED_SUCCESS
-                });
-            } else {
-                dispatch({
-                    type: AUTHENTICATED_FAIL
-                });
-            }
-        } catch (err) {
-            dispatch({
-                type: AUTHENTICATED_FAIL
-            });
-        }
-
-    } else {
-        dispatch({
-            type: AUTHENTICATED_FAIL
+                Accept: 'application/json',
+            },
         });
+
+        const data = await res.json();
+
+        if (res.status === 200) {
+            dispatch({ type: AUTHENTICATED_SUCCESS, payload: data });
+            dispatch(loadUser());
+        } else {
+            dispatch({ type: AUTHENTICATED_FAIL, payload: data });
+        }
+    } catch (err) {
+        dispatch({ type: AUTHENTICATED_FAIL, payload: err.response.data });
     }
 };
 
-export const login = (email, password) => async dispatch => {
-    const config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    };
-
+export const login = ({ email, password }) => async dispatch => {
     const body = JSON.stringify({ email, password });
 
     try {
-        const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/jwt/create/`, body, config);
-
-        dispatch({
-            type: LOGIN_SUCCESS,
-            payload: res.data
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/users/login`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body,
         });
 
-        dispatch(load_user());
+        const data = await res.json();
+
+        if (res.status === 200) {
+            dispatch({ type: LOGIN_SUCCESS, payload: data });
+            dispatch(loadUser());
+        } else {
+            dispatch({ type: LOGIN_FAIL, payload: data });
+        }
     } catch (err) {
-        dispatch({
-            type: LOGIN_FAIL
-        })
+        dispatch({ type: LOGIN_FAIL, payload: err.response.data });
     }
 };
 
-export const signup = (first_name, last_name, email, password, re_password) => async dispatch => {
-    const config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    };
-
-    const body = JSON.stringify({ first_name, last_name, email, password, re_password });
+export const signup = ({ first_name, last_name, email, password }) => async dispatch => {
+    const body = JSON.stringify({ first_name, last_name, email, password });
 
     try {
-        const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/users/`, body, config);
-
-        dispatch({
-            type: SIGNUP_SUCCESS,
-            payload: res.data
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/users/register`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body,
         });
+
+        const data = await res.json();
+
+        if (res.status === 201) {
+            dispatch({ type: SIGNUP_SUCCESS, payload: data });
+        } else {
+            dispatch({ type: SIGNUP_FAIL, payload: data });
+        }
     } catch (err) {
-        dispatch({
-            type: SIGNUP_FAIL
-        })
+        dispatch({ type: SIGNUP_FAIL, payload: err.response.data });
     }
 };
 
-export const verify = (uid, token) => async dispatch => {
+export const activateAccount = (uid, token) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
@@ -216,11 +205,11 @@ export const verify = (uid, token) => async dispatch => {
     } catch (err) {
         dispatch({
             type: ACTIVATION_FAIL
-        })
+        });
     }
 };
 
-export const reset_password = (email) => async dispatch => {
+export const resetPassword = (email) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
@@ -242,7 +231,7 @@ export const reset_password = (email) => async dispatch => {
     }
 };
 
-export const reset_password_confirm = (uid, token, new_password, re_new_password) => async dispatch => {
+export const resetPasswordConfirm = (uid, token, new_password, re_new_password) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'

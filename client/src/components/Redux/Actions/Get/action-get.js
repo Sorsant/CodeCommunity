@@ -129,7 +129,7 @@ export const getNews = () => {
     }
 }
 export const getUser = () => {
-    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/users/1';
+    const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/users/';
     return async (dispatch) => {
         const { data } = await axios.get(endpoint);
         return dispatch({

@@ -13,7 +13,12 @@ const PostCard = ({ id }) => {
     return null;
   }
 
+  if (!Array.isArray(users)) {
+    return <div>No hay usuarios disponibles.</div>;
+  }
+
   const user = users.find((user) => user.id === post.user);
+  console.log(users);
 
   if (!user) {
     // No se encontró el usuario correspondiente a la publicación
