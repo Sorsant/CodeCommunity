@@ -2,11 +2,12 @@ import { useState } from 'react';
 import Layout from 'components/Layout';
 import { Navigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { register } from 'features/user';
+import { register } from '../Redux/Actions/userAction';
 
 const RegisterPage = () => {
 	const dispatch = useDispatch();
-	const { registered, loading } = useSelector(state => state.user);
+	const registered= useSelector(state => state.user.registered);
+	const loading = useSelector(state => state.user.loading)
 
 	const [formData, setFormData] = useState({
 		first_name: '',

@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { resetRegistered, login } from "features/user";
+import {login } from "../Redux/Actions/userAction";
+import { resetRegistered } from "Redux/Reducer/userReducer";
 import Layout from "components/Layout";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const { loading, isAuthenticated, registered } = useSelector(
-    (state) => state.user
-  );
+  const loading  = useSelector((state) => state.user.loading);
+  const isAuthenticated = useSelector((state => state.user.isAuthenticated))
+  const registered = useSelector((state => state.user.registered))
+  
 
   const [formData, setFormData] = useState({
     email: "",
