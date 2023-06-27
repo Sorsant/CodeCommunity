@@ -1,24 +1,24 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getHomePosts } from '../../components/Redux/Actions/Get/action-get';
+import { getHomePosts } from '../../components/Redux/Actions/ActionHome';
 import PosteoCards from '../../components/Posts_Proyect/Cards/Cards';
 import CommunityCard from '../../views/Community/communityCards';
 import NewsCard from '../news/newsCards';
 import styles from './home.module.css';
 import Filter from '../../components/Filter/Filter';
 import Posteohome from './PostHome/PostHome'
-import { getUser } from '../../components/Redux/Actions/Get/action-get';
-import { Getcategory } from "../../components/Redux/Actions/Get/action-get";
-import { fakeLoggin } from "../../components/Redux/Actions/Fake/fake";
+// import { getUser } from '../../components/Redux/Actions/Get/action-get';
+// import { Getcategory } from "../../components/Redux/Actions/Get/action-get";
+// import { fakeLoggin } from "../../components/Redux/Actions/Fake/fake";
 
 const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getHomePosts());
-    dispatch(fakeLoggin());
-    dispatch(getUser());
-    dispatch((Getcategory()))
+    // dispatch(fakeLoggin());
+    // dispatch(getUser());
+    // dispatch((Getcategory()))
   }, [dispatch]);
 
 
