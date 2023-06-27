@@ -18,13 +18,8 @@ import About from "./views/About/about";
 import Instructor from "./views/Instructor/instructor";
 import DetailCommunity from "./views/DetailCommunity/detailCommunity";
 import FakeHome from "./views/FakeHome/fakeHome";
-import Login from './containers/Login';
-import Signup from './containers/Signup';
-import Activate from './containers/Activate';
-import ResetPassword from './containers/ResetPassword';
-import ResetPasswordConfirm from './containers/ResetPasswordConfirm';
-import Facebook from './containers/Facebook';
-import Google from './containers/Google';
+
+
 axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 // import Home from './/Home';
 
@@ -42,7 +37,7 @@ const App = () => {
         <Route path="/communities" element={<CommunityForm />} />{" "}
         {/*Revisar estas rutas, aun no estan bien definidas*/}
         <Route path="/home" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        {/* <Route path="/login" element={} /> */}
         <Route path="/" element={<LandingPage />} />
         {/* <Route path="/register" element={<Register />} /> */}
         <Route path="/Q&A" element={<QandA />} />
