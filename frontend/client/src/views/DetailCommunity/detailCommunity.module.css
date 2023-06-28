@@ -1,0 +1,47 @@
+
+.container {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 1000px;
+    height: 200px;
+    background-color: antiquewhite;
+}
+
+.container1 {
+    width: 900px;
+    height: auto;
+    margin: auto;
+}
+
+.name {
+    font-size: xx-large;
+    text-align: center;
+    width: 300px;
+}
+
+.image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.language {
+    font-size: medium;
+    width: 100px;
+    text-align: center;
+}
+
+.description {
+    font-size: x-large;
+}
+
+.user{
+    font-size: small;
+}
+
+.button {
+    font-size: medium;
+    width: 100px;
+    text-align: center;
+}

@@ -1,0 +1,83 @@
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  padding: 20px;
+  width: 300px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+}
+
+.containerdiv {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.Title,
+.createDate,
+.Description,
+.Image,
+.Author,
+.Link,
+.Category {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* input[type="text"],
+  input[type="file"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  } */
+
+hr {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+label {
+  font-size: 15px;
+}
+
+.errorAuthor {
+  color: brown;
+  font-size: 15px;
+}
+
+.errorCategory {
+  color: brown;
+  font-size: 15px;
+}
+
+.errorLink {
+  color: brown;
+  font-size: 15px;
+}
+
+.errorImage {
+  color: brown;
+  font-size: 15px;
+}
+
+.errorDescription {
+  color: brown;
+  font-size: 15px;
+}
+
+.errorTitle {
+  color: brown;
+  font-size: 15px;
+}
+
+.errorcreateDate {
+  color: brown;
+  font-size: 15px;
+}

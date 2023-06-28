@@ -1,0 +1,39 @@
+.card {
+    position: relative;
+    display: flex;
+    border: 2px solid #000;
+    width: 20.5vw;
+    height: 8vw;
+    border-radius: 15px;
+    padding: 6px;
+    margin-top: 5px;
+    margin-left: 120px;
+}
+
+.container {
+    position: absolute;
+}
+
+.text {
+    margin-left: 6vw;
+    margin-top: -5.4vw;
+}
+
+.description {
+    margin-left: 6vw;
+    margin-top: 0vw;
+    font-size: 12px;
+}
+
+.image {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 90%;
+}
+
+.cards {
+    border: 2px;
+    width: 23vw;
+    height: 60vw;
+    margin-top: 1vh;
+}
