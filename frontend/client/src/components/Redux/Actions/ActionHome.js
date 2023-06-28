@@ -45,7 +45,7 @@ export const search = (name) => async (dispatch) => {
 
 export const addHomePosts = (post) => async (dispatch) => {
     const url = await axios.post("https://codecommunity-production.up.railway.app/codec/api/post/", post);
-    // Puedes realizar alguna acción adicional después de agregar el post si es necesario.
+  return url
 };
 
 
