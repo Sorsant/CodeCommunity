@@ -1,10 +1,9 @@
-import {createSlice} from'@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
-export const HomeSlice = createSlice({
-  name: 'Home',
+export const homeSlice = createSlice({
+  name: 'home',
   initialState: {
     posts: [],
-    addPost: [],
   },
   reducers: {
     getAllPosts: (state, action) => {
@@ -42,5 +41,14 @@ export const HomeSlice = createSlice({
     },
   },
 });
-export const {getAllPosts,filterAcendent,filterDesendent,filterTime,getPostId,getSearchPosts}=HomeSlice.actions
-export default HomeSlice.reducer
+
+export const {
+  getAllPosts,
+  filterAcendent,
+  filterDesendent,
+  filterTime,
+  getPostId,
+  getSearchPosts,
+} = homeSlice.actions;
+
+export default homeSlice.reducer;

@@ -3,7 +3,7 @@ import PosteoCard from "../Card/Card";
 import { useSelector } from "react-redux";
 
 const PosteoCards = () => {
-    const posteos = useSelector((state) => state.posts);
+    const posteos = useSelector((state) => state.home.posts);
 
     // Verificar si posteos es un array
     if (!Array.isArray(posteos)) {

@@ -6,8 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 // import { Getcategory } from "../Redux/Actions/Get/action-get";
 import { useNavigate } from "react-router-dom";
 
-
-
 const NewsPost = () => {
     const dispatch = useDispatch();
     const selectCategory = useSelector(state => state.category)
