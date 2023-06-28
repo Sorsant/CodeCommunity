@@ -39,17 +39,6 @@ BASE_APPS = [
     "django.contrib.staticfiles",
 ]
 
-# Jazzmin settings
-
-JAZZMIN_SETTINGS = {
-    "welcome_sign": "Welcome to CodeCommunity panel",
-}
-
-JAZZMIN_UI_TWEAKS = {
-    "theme": "darkly",
-    # "theme": "slate",
-}
-
 LOCAL_APPS = [
     "code_api",
     "users",
@@ -63,6 +52,19 @@ THIRD_APPS = [
 ]
 
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
+
+
+# Jazzmin settings
+
+JAZZMIN_SETTINGS = {
+    "welcome_sign": "Welcome to CodeCommunity panel",
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "darkly",
+    # "theme": "slate",
+}
+
 
 MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
