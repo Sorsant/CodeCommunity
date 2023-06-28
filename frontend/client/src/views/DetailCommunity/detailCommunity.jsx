@@ -9,7 +9,7 @@ import CommunityComments from "../CommunitiesInteractions/communityComments";
 const DetailCommunity = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
-    const languages = useSelector((state) => state.Community);
+    const languages = useSelector((state) => state.community.languages);
 
     const [community, setCommunity] = useState({});
 
