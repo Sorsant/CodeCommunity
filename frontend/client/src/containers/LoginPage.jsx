@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Navigate } from "react-router-dom";
-import {login } from "../components/Redux/user";
+import { Link, Navigate } from "react-router-dom";
+import { login } from "../components/Redux/user";
 import { resetRegistered } from "../components/Redux/user";
 import Layout from "../components/Layout";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const {loading ,registered ,isAuthenticated}= useSelector((state) => state.userdb);
-  // const isAuthenticated = useSelector((state => state.user.isAuthenticated))
-  // const registered = useSelector((state => state.user.registered))
-  
+  const { loading, registered, isAuthenticated } = useSelector(
+    (state) => state.userdb
+  );
 
   const [formData, setFormData] = useState({
     email: "",
@@ -29,15 +28,10 @@ const LoginPage = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
     dispatch(login({ email, password }));
   };
 
-	const passwordReset = (e) => {
-		return <Navigate to='/dashboard'/>
-	}
-
-  if (isAuthenticated) return <Navigate to="/home" />;
+  if (isAuthenticated) return <Navigate to="/dashboard" />;
 
   return (
     <Layout title="Auth Site | Login" content="Login page">
@@ -68,6 +62,14 @@ const LoginPage = () => {
             value={password}
             required
           />
+          <Link to={'/ResetPassword'}>
+            <button
+              className="btn btn-link mt-2"
+              type="button"
+            >
+              Forgot the password?
+            </button>
+          </Link>
         </div>
         {loading ? (
           <div className="spinner-border text-primary" role="status">
