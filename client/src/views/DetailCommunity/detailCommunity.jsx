@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getCommunity, getAllLanguages } from "../../components/Redux/Actions/Get/action-get";
+import { getCommunity, getAllLanguages } from "../../components/Redux/Actions/Community/ActionCommunity";
 import styles from "./detailCommunity.module.css";
 //import SmallUser from "../SmallUser/smallUser";
 import CommunityComments from "../CommunitiesInteractions/communityComments";
@@ -9,7 +9,7 @@ import CommunityComments from "../CommunitiesInteractions/communityComments";
 const DetailCommunity = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
-    const languages = useSelector((state) => state.languages);
+    const languages = useSelector((state) => state.Community.languages);
 
     const [community, setCommunity] = useState({});
 
@@ -42,16 +42,16 @@ const DetailCommunity = () => {
     return (
         <div>
             <div className={styles.container}>
-            <h1 className={styles.name}>{community.name}</h1>
-            <img src={community.image} alt={community.image} className={styles.image} />
-            {/*<smallUser className={styles.user}/>*/} 
-            <p className={styles.language}>{languageNames.join(", ")}</p>
-            <p className={styles.description}>{community.description}</p>
-            <button>
-            <Link to="/home">
-                <h1 className={styles.button}>Home</h1>
-            </Link>
-            </button>
+                <h1 className={styles.name}>{community.name}</h1>
+                <img src={community.image} alt={community.image} className={styles.image} />
+                {/*<smallUser className={styles.user}/>*/}
+                <p className={styles.language}>{languageNames.join(", ")}</p>
+                <p className={styles.description}>{community.description}</p>
+                <button>
+                    <Link to="/home">
+                        <h1 className={styles.button}>Home</h1>
+                    </Link>
+                </button>
             </div>
             <div className={styles.container1}>
                 <CommunityComments />

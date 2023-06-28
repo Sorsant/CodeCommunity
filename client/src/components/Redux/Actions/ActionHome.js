@@ -5,7 +5,8 @@ import {
     filterDesendent,
     filterTime,
     getPostId,
-    getSearchPosts
+    getSearchPosts,
+    loginSwitch
 } from '../Reducer/HomeReducer';
 
 export const getHomePosts = () => async (dispatch) => {
@@ -45,4 +46,14 @@ export const search = (name) => async (dispatch) => {
 export const addHomePosts = (post) => async (dispatch) => {
     const url = await axios.post("https://codecommunity-production.up.railway.app/codec/api/post/", post);
     // Puedes realizar alguna acción adicional después de agregar el post si es necesario.
+};
+
+
+export const fakeButton = () => (dispatch) => {
+      const data=false
+       dispatch(loginSwitch(data));   
+ };
+ export const fakeLogin = () => (dispatch) => {
+   const data=true
+    dispatch(loginSwitch(data));
 };

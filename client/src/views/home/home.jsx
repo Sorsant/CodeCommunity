@@ -31,7 +31,7 @@ const Home = () => {
       </div>
       <div className={styles.communityCard}>
         <h1 className={styles.title1}>Comunidades</h1>
-        <CommunityCard />
+        {/* <CommunityCard /> */}
       </div>
       <div className={styles.PosteoCard}>
         <PosteoCards />

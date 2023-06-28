@@ -1,5 +1,5 @@
 import styles from "./filter.module.css";
-import { filterAZ, filterZA, getHomePosts, filterPublications } from "../Redux/Actions/Get/action-get"
+import { filterAZ, filterZA, getHomePosts, filterPublications } from "../Redux/Actions/ActionHome"
 import { useDispatch } from "react-redux";
 
 const Filter = () => {

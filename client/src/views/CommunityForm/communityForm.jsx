@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import styles from "./communityForm.module.css";
 import { useState } from "react";
-import { addCommunity } from '../../components/Redux/Actions/Post/action-post';
-import { getAllLanguages } from "../../components/Redux/Actions/Get/action-get";
+import { addCommunity } from '../../components/Redux/Actions/Community/ActionCommunity';
+import { getAllLanguages } from "../../components/Redux/Actions/Community/ActionCommunity";
 import validate from "./validate";
 import { useDispatch, useSelector } from "react-redux";
 import CommunityCard from "../Community/communityCards";
 
 const CommunityForm = () => {
     const dispatch = useDispatch();
-    const languages = useSelector((state => state.languages))
+    const languages = useSelector((state => state.Community.languages))
 
     const [inputValues, setInputValues] = useState({
         name: "",

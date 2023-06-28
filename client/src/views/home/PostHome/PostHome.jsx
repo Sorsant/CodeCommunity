@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 
 const Posteohome = () => {
-  const loggin = useSelector((state) => state.loggin);
+  const login = useSelector((state) => state.home.login);
   const dispatch = useDispatch();
   const userExtra = useSelector((state) => state.userExtra);
 
@@ -48,7 +48,7 @@ const Posteohome = () => {
   const handleOnSubmit = (event) => {
     event.preventDefault();
 
-    if (!loggin) {
+    if (!login) {
       // Si el usuario no está logueado, muestra el componente de login
       window.location.href = `/login`;
       return;
@@ -76,7 +76,7 @@ const Posteohome = () => {
 
   return (
     <div className={styles.containerForm}>
-      {loggin ? (
+      {login ? (
         <form onSubmit={handleOnSubmit}>
           <label>Title</label>
           <input
@@ -121,7 +121,7 @@ const Posteohome = () => {
               !post.description ||
               !!errors.title ||
               !!errors.description ||
-              !loggin
+              !login
             }
             className={styles.button}
           >

@@ -1,26 +1,3 @@
-// reducers.ts
-import {
-  GET_ALL_POST, FILTER_AZ, FILTER_ZA, ADD_POST, FILTER_PUBLICATIONS, GET_ALL_LANGUAGES, POST_USER, SEARCH, GET_COMMUNITY, GET_ALL_COMMUNITIES, GET_CATEGORY, GET_NEWS, USERS, GETPOSTID, FAKE_BUTTON, GET_USER_EXTRA,
-  FAKE_LOGGIN, LOGIN_SUCCESS,
-  LOGIN_FAIL,
-  USER_LOADED_SUCCESS,
-  USER_LOADED_FAIL,
-  AUTHENTICATED_SUCCESS,
-  AUTHENTICATED_FAIL,
-  PASSWORD_RESET_SUCCESS,
-  PASSWORD_RESET_FAIL,
-  PASSWORD_RESET_CONFIRM_SUCCESS,
-  PASSWORD_RESET_CONFIRM_FAIL,
-  SIGNUP_SUCCESS,
-  SIGNUP_FAIL,
-  ACTIVATION_SUCCESS,
-  ACTIVATION_FAIL,
-  GOOGLE_AUTH_SUCCESS,
-  GOOGLE_AUTH_FAIL,
-  FACEBOOK_AUTH_SUCCESS,
-  FACEBOOK_AUTH_FAIL,
-  LOGOUT
-} from './action-types';
 
 const initialState = {
   posts: [],
@@ -30,7 +7,7 @@ const initialState = {
   category: [],
   news: [],
   users: [],
-  loggin: false,
+  login: false,
   userExtra: [],
   access: localStorage.getItem('access'),
   refresh: localStorage.getItem('refresh'),

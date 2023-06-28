@@ -1,5 +1,5 @@
 import styles from './search.module.css'
-import { search } from '../Redux/Actions/Get/action-get'
+import { search } from '../Redux/Actions/ActionHome'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 

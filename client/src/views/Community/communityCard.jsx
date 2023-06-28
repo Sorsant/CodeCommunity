@@ -4,9 +4,9 @@ import styles from "./communityCard.module.css";
 import { useSelector } from "react-redux";
 
 const CommunityCard = ({ id, name, description, language, image, created }) => {
-  const loggin = useSelector((state) => state.loggin);
+  const login = useSelector((state) => state.home.login);
   const handleMoreInfo = () => {
-    if (loggin) {
+    if (login) {
       // Si el usuario está logueado, redirige a `/detail/${id}`
       window.location.href = `/communities/${id}`;
     } else {

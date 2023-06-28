@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./communityCard.module.css";
-// import { getAllCommunities } from "../../components/Redux/Actions/Get/action-get";
-// import { getAllLanguages } from "../../components/Redux/Actions/Get/action-get";
+import { getAllCommunities } from "../../components/Redux/Actions/Community/ActionCommunity";
+import { getAllLanguages } from "../../components/Redux/Actions/Community/ActionCommunity";
 import CommunityCard from "../Community/communityCard";
 
 const CommunityCards = () => {
     const dispatch = useDispatch();
-    const communities = useSelector((state) => state.communities);
-    const languages = useSelector((state) => state.languages);
+    const communities = useSelector((state) => state.community.communities);
+    const languages = useSelector((state) => state.community.languages);
 
     useEffect(() => {
-        // dispatch(getAllCommunities());
-        // dispatch(getAllLanguages());
+        dispatch(getAllCommunities());
+        dispatch(getAllLanguages());
     }, [dispatch]);
 
     if (!Array.isArray(communities) || !Array.isArray(languages)) {
