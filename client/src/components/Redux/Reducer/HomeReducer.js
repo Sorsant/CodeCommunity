@@ -4,6 +4,7 @@ export const homeSlice = createSlice({
   name: 'home',
   initialState: {
     posts: [],
+    addPost: [],
   },
   reducers: {
     getAllPosts: (state, action) => {
@@ -39,6 +40,9 @@ export const homeSlice = createSlice({
     getSearchPosts: (state, action) => {
       state.posts = action.payload;
     },
+    addPosts: (state, action) => {
+      state.addPost = action.payload
+    }
   },
 });
 
@@ -49,6 +53,7 @@ export const {
   filterTime,
   getPostId,
   getSearchPosts,
+  addPosts
 } = homeSlice.actions;
 
 export default homeSlice.reducer;
