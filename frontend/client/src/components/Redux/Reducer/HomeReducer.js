@@ -46,6 +46,13 @@ export const homeSlice = createSlice({
     },
     addPosts: (state, action) => {
       state.addPost = action.payload
+    },
+    getUser: (state, action) => {
+      state.users = action.payload;
+    },
+
+    getUserExtra: (state, action) => {
+      state.userExtra = action.payload;
     }
 }});
 
@@ -57,7 +64,9 @@ export const {
   getPostId,
   getSearchPosts,
   loginSwitch,
-  addPosts
+  addPosts,
+  getUserExtra,
+  getUser
 } = homeSlice.actions;
 
 export default homeSlice.reducer;

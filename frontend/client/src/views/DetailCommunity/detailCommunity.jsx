@@ -3,13 +3,13 @@ import { useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCommunity, getAllLanguages } from "../../components/Redux/Actions/Community/ActionCommunity";
 import styles from "./detailCommunity.module.css";
-//import SmallUser from "../SmallUser/smallUser";
+import SmallUser from "../SmallUser/smallUser";
 import CommunityComments from "../CommunitiesInteractions/communityComments";
 
 const DetailCommunity = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
-    const languages = useSelector((state) => state.Community.languages);
+    const languages = useSelector((state) => state.Community);
 
     const [community, setCommunity] = useState({});
 

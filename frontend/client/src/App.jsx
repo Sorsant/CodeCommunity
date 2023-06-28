@@ -1,5 +1,7 @@
 import axios from "axios";
 import { Route, Routes, useLocation } from "react-router-dom";
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Home from "./views/home/home";
 import "./App.css";
 import React from "react";
@@ -10,36 +12,48 @@ import QandA from "./views/QAPage/QAPage";
 import Profile from "./views/profile/profile";
 import CommunityForm from "./views/CommunityForm/communityForm";
 import Edit from "./views/profile/edit";
-import PostDetail from "./views/detail/detail";
+// import PostDetail from "./views/detail/detail";
 import NewsPost from "./components/News Post/NewsPost";
 // import Books from "./views/Education/Books/books";
+import Books from './views/Education/Books/books'
 import Footer from "./views/Footer/footer";
 import About from "./views/About/about";
-import Instructor from "./views/Instructor/instructor";
+// import Instructor from "./views/Instructor/instructor";
 import DetailCommunity from "./views/DetailCommunity/detailCommunity";
 // import FakeHome from "./views/FakeHome/fakeHome";
 
-
+// import HomePage from './containers/HomePage';
+import DashboardPage from './containers/DashboardPage';
+import LoginPage from './containers/LoginPage';
+import RegisterPage from './containers/RegisterPage';
+import { checkAuth } from './components/Redux/user';
 axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 // import Home from './/Home';
-
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, [dispatch]);
+
   const location = useLocation();
   return (
     <div>
-      {location.pathname !== "/" && location.pathname !== "/login" ? <Nav /> : null}
+      {location.pathname !== "/" && location.pathname !== "/login" && location.pathname !== "/register" ? <Nav /> : null}
       <Routes>
+        <Route path='/home' element={<Home />} />
+        <Route path='/dashboard' element={<DashboardPage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} />
+
 
         <Route path="/communities/:id" element={<DetailCommunity />} />
         <Route path="/groups/:name" element={<DetailCommunity />} />
-        {/* <Route path="/education" element={<Books />} /> */}
-        {/*Revisar estas rutas, aun no estan bien definidas*/}
+        <Route path="/education" element={<Books />} />
+        {/* Revisar estas rutas, aun no estan bien definidas */}
         <Route path="/communities" element={<CommunityForm />} />{" "}
         {/*Revisar estas rutas, aun no estan bien definidas*/}
-        <Route path="/home" element={<Home />} />
-        {/* <Route path="/login" element={} /> */}
         <Route path="/" element={<LandingPage />} />
-        {/* <Route path="/register" element={<Register />} /> */}
         <Route path="/Q&A" element={<QandA />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/edit" element={<Edit />} />

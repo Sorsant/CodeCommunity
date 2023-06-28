@@ -2,7 +2,7 @@ import axios from "axios";
 import {
     getUser,
     getUserExtra
-} from '../../Reducer/UserReducer';
+} from '../../Reducer/HomeReducer';
 
 export const getUsers = () => async (dispatch) => {
     const endpoint = 'https://codecommunity-production.up.railway.app/codec/api/users/';
