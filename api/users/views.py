@@ -77,14 +77,12 @@ def reset_password_confirm(request, uidb64, token):
             return redirect('reset_password_confirm', uidb64=uidb64, token=token)
 
         data = {
+            'uid': uidb64,
+            'token': token,
             'new_password': new_password,
             're_new_password': re_new_password,
-            'uid': uidb64,
-            'token': token
         }
-
-        print(data)
-
+        
         response = requests.post(config('URL_BACK') + '/auth/users/reset_password_confirm/', json=data)
 
         if response.status_code == 204:
