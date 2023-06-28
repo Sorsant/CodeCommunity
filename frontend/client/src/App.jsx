@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import Home from "./views/home/home";
 import "./App.css";
 import React from "react";
@@ -12,21 +12,21 @@ import QandA from "./views/QAPage/QAPage";
 import Profile from "./views/profile/profile";
 import CommunityForm from "./views/CommunityForm/communityForm";
 import Edit from "./views/profile/edit";
-// import PostDetail from "./views/detail/detail";
+import PostDetail from "./views/detail/detail";
 import NewsPost from "./components/News Post/NewsPost";
 // import Books from "./views/Education/Books/books";
-import Books from './views/Education/Books/books'
+import Books from "./views/Education/Books/books";
 import Footer from "./views/Footer/footer";
 import About from "./views/About/about";
 // import Instructor from "./views/Instructor/instructor";
 import DetailCommunity from "./views/DetailCommunity/detailCommunity";
-// import FakeHome from "./views/FakeHome/fakeHome";
+import FakeHome from "./views/FakeHome/fakeHome";
 
 // import HomePage from './containers/HomePage';
-import DashboardPage from './containers/DashboardPage';
-import LoginPage from './containers/LoginPage';
-import RegisterPage from './containers/RegisterPage';
-import { checkAuth } from './components/Redux/user';
+import DashboardPage from "./containers/DashboardPage";
+import LoginPage from "./containers/LoginPage";
+import RegisterPage from "./containers/RegisterPage";
+import { checkAuth } from "./components/Redux/user";
 axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 // import Home from './/Home';
 const App = () => {
@@ -39,14 +39,16 @@ const App = () => {
   const location = useLocation();
   return (
     <div>
-      {location.pathname !== "/" && location.pathname !== "/login" && location.pathname !== "/register" ? <Nav /> : null}
+      {location.pathname !== "/" &&
+      location.pathname !== "/login" &&
+      location.pathname !== "/register" ? (
+        <Nav />
+      ) : null}
       <Routes>
-        <Route path='/home' element={<Home />} />
-        <Route path='/dashboard' element={<DashboardPage />} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/register' element={<RegisterPage />} />
-
-
+        <Route path="/home" element={<Home />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/communities/:id" element={<DetailCommunity />} />
         <Route path="/groups/:name" element={<DetailCommunity />} />
         <Route path="/education" element={<Books />} />
@@ -57,12 +59,11 @@ const App = () => {
         <Route path="/Q&A" element={<QandA />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/edit" element={<Edit />} />
-        {/* <Route path="/detail/:id" element={<PostDetail />} />{" "} */}
+        <Route path="/detail/:id" element={<PostDetail />} />{" "}
         <Route path="/newspost" element={<NewsPost />} />
         <Route path="/about" element={<About />} />
         {/* <Route path="/instructor" element={<Instructor />} /> */}
-        {/* <Route path="/fakeHome" element={<FakeHome />} /> */}
-
+        <Route path="/fakeHome" element={<FakeHome />} />
       </Routes>
       {location.pathname !== "/" ? <Footer /> : null}
     </div>

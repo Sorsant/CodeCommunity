@@ -9,34 +9,34 @@ import styles from "./fakeHome.module.css";
 import Filter from "../../components/Filter/Filter";
 // import Posteohome from "../home/PostHome/PostHome";
 // import { getUser } from '../../components/Redux/Actions/';
-import { Getcategory } from "../../components/Redux/Actions/News/actionNews";
+// import { Getcategory } from "../../components/Redux/Actions/News/actionNews";
 
 const FakeHome = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(getHomePosts());
-        dispatch(fakeButton());
-        // dispatch(getUser());
-        dispatch((Getcategory()))
-    }, [dispatch]);
+  useEffect(() => {
+    dispatch(getHomePosts());
+    dispatch(fakeButton());
+    // dispatch(getUser());
+    // dispatch(Getcategory());
+  }, [dispatch]);
 
-    return (
-        <div className={styles.Container}>
-            {/* <Posteohome /> */}
-            <div className={styles.filter}>
-                <Filter />
-            </div>
-            <div className={styles.communityCard}>
-                <CommunityCard />
-            </div>
-            <div className={styles.PosteoCard}>
-                <PosteoCards />
-            </div>
-            <div className={styles.NewsCard}>
-                <NewsCard />
-            </div>
-        </div>
-    );
+  return (
+    <div className={styles.Container}>
+      {/* <Posteohome /> */}
+      <div className={styles.filter}>
+        <Filter />
+      </div>
+      <div className={styles.communityCard}>
+        <CommunityCard />
+      </div>
+      <div className={styles.PosteoCard}>
+        <PosteoCards />
+      </div>
+      <div className={styles.NewsCard}>
+        <NewsCard />
+      </div>
+    </div>
+  );
 };
 export default FakeHome;
