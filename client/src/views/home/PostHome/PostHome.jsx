@@ -4,13 +4,13 @@ import styles from "./post.module.css";
 import { useDispatch } from "react-redux";
 import { addHomePosts } from "../../../components/Redux/Actions/ActionHome";
 import { useSelector } from "react-redux";
-// import { getUserExtra } from "../../../components/Redux/Actions/Get/action-get";
+import { getUserExtras } from "../../../components/Redux/Actions/User/actionUser";
 import { useEffect } from "react";
 
 const Posteohome = () => {
   const login = useSelector((state) => state.home.login);
   const dispatch = useDispatch();
-  const userExtra = useSelector((state) => state.userExtra);
+  const userExtra = useSelector((state) => state.user.userExtra);
 
   const [post, setPost] = useState({
     image: "",
@@ -26,7 +26,7 @@ const Posteohome = () => {
   });
 
   useEffect(() => {
-    // dispatch(getUserExtra());
+    dispatch(getUserExtras());
   }, [dispatch]);
 
   const handleOnChange = (event) => {
@@ -46,7 +46,6 @@ const Posteohome = () => {
   };
 
   const handleOnSubmit = (event) => {
-    event.preventDefault();
 
     if (!login) {
       // Si el usuario no está logueado, muestra el componente de login

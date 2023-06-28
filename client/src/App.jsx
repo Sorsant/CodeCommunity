@@ -17,7 +17,7 @@ import Footer from "./views/Footer/footer";
 import About from "./views/About/about";
 import Instructor from "./views/Instructor/instructor";
 import DetailCommunity from "./views/DetailCommunity/detailCommunity";
-import FakeHome from "./views/FakeHome/fakeHome";
+// import FakeHome from "./views/FakeHome/fakeHome";
 
 
 axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
