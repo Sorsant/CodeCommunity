@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
 import { Carousel } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { getNews } from "../../components/Redux/Actions/Get/action-get";
-import { Getcategory } from "../../components/Redux/Actions/Get/action-get";
+import { getNews } from "../../components/Redux/Actions/News/actionNews";
+// import { Getcategory } from "../../components/Redux/Actions/Get/action-get";
 import NewsCard from "./newsCard";
 
 const NewsCards = () => {
     const dispatch = useDispatch();
-    const news = useSelector((state) => state.news);
+    const news = useSelector((state) => state.news.news);
     const category = useSelector((state) => state.category)
 
     useEffect(() => {
         dispatch(getNews());
-        dispatch(Getcategory())
+        // dispatch(Getcategory())
     }, [dispatch]);
 
     if (!Array.isArray(news) || !Array.isArray(category)) {

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import validate from "./validate";
 import styles from "./NewsPost.module.css";
-import { addNews } from "../Redux/Actions/Post/action-post";
+// import { addNews } from "../Redux/Actions/Post/action-post";
 import { useDispatch, useSelector } from "react-redux";
-import { Getcategory } from "../Redux/Actions/Get/action-get";
+// import { Getcategory } from "../Redux/Actions/Get/action-get";
 import { useNavigate } from "react-router-dom";
 
 const NewsPost = () => {
@@ -12,7 +12,7 @@ const NewsPost = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        dispatch((Getcategory()))
+        // dispatch((Getcategory()))
     }, [dispatch])
 
     const getCurrentDate = () => {
@@ -57,7 +57,7 @@ const NewsPost = () => {
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
-        dispatch(addNews(postNews));
+        // dispatch(addNews(postNews));
         alert("Noticia creada");
         navigate("/home");
     };

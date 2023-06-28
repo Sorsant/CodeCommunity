@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import validate from "./validatePost";
 import styles from "./post.module.css";
 import { useDispatch } from "react-redux";
-import { addHomePosts } from "../../../components/Redux/Actions/Post/action-post";
+import { addHomePosts } from "../../../components/Redux/Actions/ActionHome";
 import { useSelector } from "react-redux";
-import { getUserExtra } from "../../../components/Redux/Actions/Get/action-get";
+// import { getUserExtra } from "../../../components/Redux/Actions/Get/action-get";
 import { useEffect } from "react";
 
 const Posteohome = () => {
@@ -26,7 +26,7 @@ const Posteohome = () => {
   });
 
   useEffect(() => {
-    dispatch(getUserExtra());
+    // dispatch(getUserExtra());
   }, [dispatch]);
 
   const handleOnChange = (event) => {
@@ -55,8 +55,8 @@ const Posteohome = () => {
     }
 
     const userNumber = Number(post.user);
-  const premiumUser = userExtra.find((user) => user.premium && user.user === userNumber);
-console.log(premiumUser)
+    const premiumUser = userExtra.find((user) => user.premium && user.user === userNumber);
+    console.log(premiumUser)
     if (premiumUser) {
       dispatch(addHomePosts(post));
       setPost({
@@ -114,7 +114,7 @@ console.log(premiumUser)
             type="text"
             name="user"
           />
-{console.log(post)}
+          {console.log(post)}
           <button
             disabled={
               !post.title ||
