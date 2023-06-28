@@ -1,4 +1,5 @@
 import requests
+from decouple import config
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from rest_framework.views import APIView
@@ -84,11 +85,11 @@ def reset_password_confirm(request, uidb64, token):
 
         print(data)
 
-        response = requests.post('http://localhost:8000/auth/users/reset_password_confirm/', json=data)
+        response = requests.post(config('URL_BACK') + '/auth/users/reset_password_confirm/', json=data)
 
         if response.status_code == 204:
             messages.success(request, '¡Contraseña restablecida con éxito!')
-            return redirect('http://localhost:5000/login')
+            return redirect(config('URL_FRONT') + '/login')
         else:
             messages.error(request, 'Error al restablecer la contraseña.')
 
