@@ -7,23 +7,25 @@ import CommunityCard from "../../views/Community/communityCards";
 import NewsCard from "../news/newsCards";
 import styles from "./fakeHome.module.css";
 import Filter from "../../components/Filter/Filter";
-// import Posteohome from "../home/PostHome/PostHome";
-// import { getUser } from '../../components/Redux/Actions/';
-// import { Getcategory } from "../../components/Redux/Actions/News/actionNews";
+import Posteohome from "../home/PostHome/PostHome";
+import { getUsers } from "../../components/Redux/Actions/User/actionUser";
+import { getUserExtras } from "../../components/Redux/Actions/User/actionUser";
+import { fakeLogin } from "../../components/Redux/Actions/ActionHome.js";
 
 const FakeHome = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getHomePosts());
+    dispatch(fakeLogin());
+    dispatch(getUsers());
+    dispatch(getUserExtras());
     dispatch(fakeButton());
-    // dispatch(getUser());
-    // dispatch(Getcategory());
   }, [dispatch]);
 
   return (
     <div className={styles.Container}>
-      {/* <Posteohome /> */}
+      <Posteohome />
       <div className={styles.filter}>
         <Filter />
       </div>

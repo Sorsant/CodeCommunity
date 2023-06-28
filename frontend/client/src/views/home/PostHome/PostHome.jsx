@@ -18,7 +18,7 @@ const Posteohome = () => {
     description: "",
     user: "",
   });
-
+  console.log(userExtra);
   const [errors, setErrors] = useState({
     image: "",
     title: "",
@@ -26,7 +26,7 @@ const Posteohome = () => {
   });
 
   useEffect(() => {
-    // dispatch(getUserExtras());
+    dispatch(getUserExtras());
   }, [dispatch]);
 
   const handleOnChange = (event) => {
@@ -51,11 +51,11 @@ const Posteohome = () => {
       window.location.href = `/login`;
       return;
     }
-
     const userNumber = Number(post.user);
     const premiumUser = userExtra.find(
-      (user) => user.premium && user.user === userNumber
+      (user) => user.id === userNumber && user.premium
     );
+
     console.log(premiumUser);
     if (premiumUser) {
       dispatch(addHomePosts(post));

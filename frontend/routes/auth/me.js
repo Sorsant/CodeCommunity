@@ -17,7 +17,6 @@ router.get('/api/users/me', async (req, res) => {
 		});
 
 		const data = await apiRes.json();
-		console.log(data);
 
 		return res.status(apiRes.status).json(data);
 	} catch (err) {
