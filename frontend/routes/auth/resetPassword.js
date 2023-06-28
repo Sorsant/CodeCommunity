@@ -11,6 +11,8 @@ router.post("/api/users/reset_password", async (req, res) => {
     email,
   });
 
+  console.log(body);
+
   try {
     const apiRes = await fetch(
       `${process.env.API_URL}/auth/users/reset_password/`,
@@ -24,7 +26,7 @@ router.post("/api/users/reset_password", async (req, res) => {
       }
     );
 
-    return res.status(200).json({ success: 'Verify your email' });
+    return res.status(apiRes.status).json({ success: 'Verify your email' });
   } catch (err) {
     return res.status(500).json({
       error: "Something went wrong when reseting password",
