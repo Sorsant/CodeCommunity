@@ -24,6 +24,7 @@ import DetailCommunity from "./views/DetailCommunity/detailCommunity";
 
 // import HomePage from './containers/HomePage';
 import DashboardPage from './containers/DashboardPage';
+import ResetPasswordPage from "./containers/ResetPasswordPage";
 import LoginPage from './containers/LoginPage';
 import RegisterPage from './containers/RegisterPage';
 import { checkAuth } from './components/Redux/user';
@@ -45,7 +46,7 @@ const App = () => {
         <Route path='/dashboard' element={<DashboardPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
-
+        <Route path="/ResetPassword" element={<ResetPasswordPage />} />
 
         <Route path="/communities/:id" element={<DetailCommunity />} />
         <Route path="/groups/:name" element={<DetailCommunity />} />
