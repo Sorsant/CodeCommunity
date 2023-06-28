@@ -20,7 +20,7 @@ import Footer from "./views/Footer/footer";
 import About from "./views/About/about";
 // import Instructor from "./views/Instructor/instructor";
 import DetailCommunity from "./views/DetailCommunity/detailCommunity";
-// import FakeHome from "./views/FakeHome/fakeHome";
+import FakeHome from "./views/FakeHome/fakeHome";
 
 // import HomePage from './containers/HomePage';
 import DashboardPage from './containers/DashboardPage';
@@ -62,7 +62,7 @@ const App = () => {
         <Route path="/newspost" element={<NewsPost />} />
         <Route path="/about" element={<About />} />
         {/* <Route path="/instructor" element={<Instructor />} /> */}
-        {/* <Route path="/fakeHome" element={<FakeHome />} /> */}
+        <Route path="/fakeHome" element={<FakeHome />} />
 
       </Routes>
       {location.pathname !== "/" ? <Footer /> : null}

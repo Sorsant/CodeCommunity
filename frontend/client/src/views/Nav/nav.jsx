@@ -5,7 +5,7 @@ import styles from "./nav.module.css";
 import { useSelector } from "react-redux";
 
 const Nav = () => {
-  const loggin = useSelector((state) => state.loggin);
+  const loggin = useSelector((state) => state.home.login);
 
   return (
     <div className={styles.containerNav}>

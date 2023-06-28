@@ -4,21 +4,18 @@ import { Link } from "react-router-dom";
 import styles from "./card.module.css";
 
 const PostCard = ({ id }) => {
-  const { login, users } = useSelector((state) => state.home.login);
+  const loggin = useSelector((state) => state.loggin);
+  const users = useSelector((state) => state.home.users);
   const post = useSelector((state) => state.home.posts.find((post) => post.id === id));
-
+  const userExtra = useSelector((state) => state.home.userExtra)
 
   if (!post) {
     // No se encontró la publicación correspondiente al ID proporcionado
     return null;
   }
 
-  if (!Array.isArray(users)) {
-    return <div>No hay usuarios disponibles.</div>;
-  }
-
   const user = users.find((user) => user.id === post.user);
-  console.log(users);
+  const userE = userExtra.find((user) => user.id === post.user);
 
   if (!user) {
     // No se encontró el usuario correspondiente a la publicación
@@ -26,7 +23,7 @@ const PostCard = ({ id }) => {
   }
 
   const handleMoreInfo = () => {
-    if (login) {
+    if (loggin) {
       // Si el usuario está logueado, redirige a `/detail/${id}`
       window.location.href = `/detail/${id}`;
     } else {
@@ -39,11 +36,11 @@ const PostCard = ({ id }) => {
     <div className={styles.containerForm}>
       <div className={styles.cardContainer} key={post.id}>
         <div className={styles.userContainer}>
-          <img src={user.user_image} alt={user.name} /> */
+          <img src={userE.user_image} alt={userE.name} />
           <h2>{user.first_name} {user.last_name}</h2>
-          {user.premium && user.postulation && (
+          {userE.premium && userE.postulation && (
             <p>
-              <Link to={`/instructor/${user.id}`}>
+              <Link to={`/instructor/${userE.id}`}>
                 <button> Puedes pagarle a este instructor</button>
               </Link>
             </p>
