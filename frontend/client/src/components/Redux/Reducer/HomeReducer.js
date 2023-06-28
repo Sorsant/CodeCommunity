@@ -6,6 +6,8 @@ export const homeSlice = createSlice({
     posts: [],
     login: false,
     addPost: [],
+    users: [],
+    userExtra: [],
   },
   reducers: {
     getAllPosts: (state, action) => {
