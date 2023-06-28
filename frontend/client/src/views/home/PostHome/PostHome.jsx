@@ -10,7 +10,7 @@ import { useEffect } from "react";
 const Posteohome = () => {
   const login = useSelector((state) => state.home.login);
   const dispatch = useDispatch();
-  // const userExtra = useSelector((state) => state.user.userExtra);
+  const userExtra = useSelector((state) => state.home.userExtra);
 
   const [post, setPost] = useState({
     image: "",
@@ -25,9 +25,7 @@ const Posteohome = () => {
     description: "",
   });
 
-  useEffect(() => {
-    // dispatch(getUserExtras());
-  }, [dispatch]);
+
 
   const handleOnChange = (event) => {
     const { name, value } = event.target;
@@ -46,7 +44,6 @@ const Posteohome = () => {
   };
 
   const handleOnSubmit = (event) => {
-
     if (!login) {
       // Si el usuario no está logueado, muestra el componente de login
       window.location.href = `/login`;
@@ -54,7 +51,7 @@ const Posteohome = () => {
     }
 
     const userNumber = Number(post.user);
-    const premiumUser = userExtra.find((user) => user.premium && user.user === userNumber);
+    const premiumUser = userExtra.find((user) => user.id === userNumber && user.premium);
     console.log(premiumUser)
     if (premiumUser) {
       dispatch(addHomePosts(post));
@@ -72,6 +69,10 @@ const Posteohome = () => {
       });
     }
   };
+
+  useEffect(() => {
+    dispatch(getUserExtras());
+  }, [dispatch]);
 
   return (
     <div className={styles.containerForm}>

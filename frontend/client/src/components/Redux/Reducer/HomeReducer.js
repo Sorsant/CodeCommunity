@@ -44,7 +44,7 @@ export const homeSlice = createSlice({
       state.posts = action.payload;
     },
     loginSwitch: (state, action) => {
-      state.login= action.payload;
+      state.login = action.payload;
     },
     addPosts: (state, action) => {
       state.addPost = action.payload
@@ -56,7 +56,8 @@ export const homeSlice = createSlice({
     getUserExtra: (state, action) => {
       state.userExtra = action.payload;
     }
-}});
+  }
+});
 
 export const {
   getAllPosts,
