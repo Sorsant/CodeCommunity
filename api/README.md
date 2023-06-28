@@ -34,6 +34,10 @@ En caso de que te aparezca un error _"la ejecución de scripts está deshabilita
    - API_KEY=386214687664726
    - API_SECRET=McovSyzAVo-BHNz1ajg8OCs8EUs
 
+   // URL API
+   - URL_BACK=https://codecommunity-production.up.railway.app
+   - URL_FRONT=http://localhost:3000
+
 ##
 
 -  **Search**
