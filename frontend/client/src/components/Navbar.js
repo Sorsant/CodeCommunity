@@ -10,7 +10,7 @@ const Navbar = () => {
 	const authLinks = (
 		<>
 			<li className='nav-item'>
-				<NavLink className='nav-link' to='/dashboard'>
+				<NavLink className='nav-link' to='/Fakehome'>
 					Dashboard
 				</NavLink>
 			</li>
@@ -41,7 +41,7 @@ const Navbar = () => {
 		<nav className='navbar navbar-expand-lg bg-light'>
 			<div className='container-fluid'>
 				<Link className='navbar-brand' to='/'>
-					Auth Site
+					Code Community
 				</Link>
 				<button
 					className='navbar-toggler'
@@ -57,7 +57,7 @@ const Navbar = () => {
 				<div className='collapse navbar-collapse' id='navbarNav'>
 					<ul className='navbar-nav'>
 						<li className='nav-item'>
-							<NavLink className='nav-link' to='/home'>
+							<NavLink className='nav-link' to='/Fakehome'>
 								Home
 							</NavLink>
 						</li>

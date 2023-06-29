@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+
 export const register = createAsyncThunk(
   "users/register",
   async ({ first_name, last_name, email, password, re_password }, thunkAPI) => {
@@ -26,6 +27,7 @@ export const register = createAsyncThunk(
       if (res.status === 201) {
         return data;
       } else {
+        alert(data)
         return thunkAPI.rejectWithValue(data);
       }
     } catch (err) {
@@ -80,6 +82,9 @@ export const login = createAsyncThunk(
 
         return data;
       } else {
+        alert(data.detail);
+       
+        
         return thunkAPI.rejectWithValue(data);
       }
     } catch (err) {
@@ -170,6 +175,7 @@ const initialState = {
   user: null,
   loading: false,
   registered: false,
+
 };
 
 const userSlice = createSlice({
