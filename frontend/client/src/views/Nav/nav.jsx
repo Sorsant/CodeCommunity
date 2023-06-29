@@ -8,14 +8,6 @@ import imagen from "./default.png";
 import { useState } from "react";
 
 
-
-
-
-
-
-
-
-
 const Nav = () => {
   const loggin = useSelector((state) => state.home.login);
   const user = useSelector((state) => state.userdb.user);
@@ -26,6 +18,7 @@ const Nav = () => {
 
   return (
     <div className={styles.containerNav}>
+
       <nav className="navbar navbar-dark bg-dark ">
         <SearchBar />
         <div className={styles.title}>
