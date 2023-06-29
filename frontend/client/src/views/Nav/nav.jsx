@@ -18,6 +18,7 @@ const Nav = () => {
 
   return (
     <div className={styles.containerNav}>
+
       <nav className="navbar navbar-dark bg-dark ">
         <SearchBar />
         <div className={styles.title}>
