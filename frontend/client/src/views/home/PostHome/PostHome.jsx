@@ -10,7 +10,7 @@ import { useEffect } from "react";
 const Posteohome = () => {
   const login = useSelector((state) => state.home.login);
   const dispatch = useDispatch();
-  // const userExtra = useSelector((state) => state.user.userExtra);
+  const userExtra = useSelector((state) => state.user.userExtra);
 
   const [post, setPost] = useState({
     image: "",
@@ -26,7 +26,7 @@ const Posteohome = () => {
   });
 
   useEffect(() => {
-    // dispatch(getUserExtras());
+    dispatch(getUserExtras());
   }, [dispatch]);
 
   const handleOnChange = (event) => {
