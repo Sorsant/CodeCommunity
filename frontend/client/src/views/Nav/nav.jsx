@@ -8,14 +8,6 @@ import imagen from "./default.png";
 import { useState } from "react";
 
 
-
-
-
-
-
-
-
-
 const Nav = () => {
   const loggin = useSelector((state) => state.home.login);
   const user = useSelector((state) => state.userdb.user);
@@ -63,7 +55,7 @@ const Nav = () => {
                 className={`offcanvas-title ${styles["title_toggle"]}`}
                 id="offcanvasDarkNavbarLabel"
               >
-                Access
+                Navegation
               </h5>
               <button
                 type="button"

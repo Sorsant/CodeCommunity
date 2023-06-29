@@ -6,7 +6,7 @@ export const getAllCommunities = () => async (dispatch) =>  { //Trae a todas las
    
         const { data } = await axios.get(endpoint);
         dispatch(allCommunitys(data));
-        console.log(data);
+        
 }
 export const getCommunity = (id) => async (dispatch) =>   { //Filtra las comunidades buscando la comunidad por el nombre de la misma
     const endpoint = `https://codecommunity-production.up.railway.app/codec/api/community/${id}`
