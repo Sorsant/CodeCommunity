@@ -6,8 +6,8 @@ import styles from "./card.module.css";
 const PostCard = ({ id }) => {
   const loggin = useSelector((state) => state.loggin);
   const users = useSelector((state) => state.home.users);
-  const userExtra = useSelector((state) => state.home.userExtra);
   const post = useSelector((state) => state.home.posts.find((post) => post.id === id));
+  const userExtra = useSelector((state) => state.home.userExtra)
 
   if (!post) {
     // No se encontró la publicación correspondiente al ID proporcionado
@@ -16,7 +16,6 @@ const PostCard = ({ id }) => {
 
   const user = users.find((user) => user.id === post.user);
   const userE = userExtra.find((user) => user.id === post.user);
-
 
   if (!user) {
     // No se encontró el usuario correspondiente a la publicación
@@ -32,7 +31,6 @@ const PostCard = ({ id }) => {
       window.location.href = `/login`;
     }
   };
-
 
   return (
     <div className={styles.containerForm}>

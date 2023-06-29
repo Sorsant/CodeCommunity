@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 
 const DashboardPage = () => {
-	const { isAuthenticated, user, loading } = useSelector(state => state.user);
+	const { isAuthenticated, user, loading } = useSelector(state => state.userdb);
 
 	if (!isAuthenticated && !loading && user === null)
 		return <Navigate to='/login' />;

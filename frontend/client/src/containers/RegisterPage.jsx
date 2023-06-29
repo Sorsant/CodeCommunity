@@ -7,7 +7,6 @@ import { register } from '../components/Redux/user';
 const RegisterPage = () => {
 	const dispatch = useDispatch();
 	const {registered,loading}= useSelector(state => state.userdb);
-	// const loading = useSelector(state => state.user.loading)
 
 	const [formData, setFormData] = useState({
 		first_name: '',
