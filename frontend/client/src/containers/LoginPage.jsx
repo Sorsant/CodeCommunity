@@ -32,13 +32,14 @@ const LoginPage = () => {
     dispatch(login({ email, password }));
     setTimeout(() => {
       return navigate("/home");
-    }, 1000);
+    }, 5000);
   };
-  // if (isAuthenticated) {
-  //   setTimeout(() => {
-  //     return navigate("/home");
-  //   }, 1000); // Retraso de 1000 milisegundos (1 segundo)
-  // }
+  if (!isAuthenticated) {
+    // dispatch(login({ email, password }));
+    // setTimeout(() => {
+    // navigate("/login");
+    // }, 1000);
+  }
 
   return (
     <Layout title="Auth Site | Login" content="Login page">
