@@ -19,7 +19,12 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (registered) dispatch(resetRegistered());
-  }, [dispatch, registered]);
+    if (isAuthenticated) {
+      // setTimeout(() => {
+      navigate("/home");
+      // }, 1000);
+    }
+  }, [dispatch, registered, isAuthenticated]);
 
   const { email, password } = formData;
 
@@ -30,16 +35,10 @@ const LoginPage = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(login({ email, password }));
-    setTimeout(() => {
-      return navigate("/home");
-    }, 5000);
-  };
-  if (!isAuthenticated) {
-    // dispatch(login({ email, password }));
     // setTimeout(() => {
-    // navigate("/login");
+    // return navigate("/home");
     // }, 1000);
-  }
+  };
 
   return (
     <Layout title="Auth Site | Login" content="Login page">
