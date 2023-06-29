@@ -2,11 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../../components/SearchBar/searchBar";
 import styles from "./nav.module.css";
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../components/Redux/user";
 const Nav = () => {
   const loggin = useSelector((state) => state.home.login);
-
+  const isAuthenticated = useSelector(state => state.userdb.isAuthenticated);
+  const dispatch = useDispatch();
   return (
     <div className={styles.containerNav}>
       <nav className="navbar navbar-dark bg-dark ">
@@ -36,7 +37,7 @@ const Nav = () => {
                 className={`offcanvas-title ${styles["title_toggle"]}`}
                 id="offcanvasDarkNavbarLabel"
               >
-                Code Community
+                Access
               </h5>
               <button
                 type="button"
@@ -48,31 +49,31 @@ const Nav = () => {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <div className={styles.info}>
-                  <li className="nav-item">
-                    <Link to="/Contact" className={styles.link}>
-                      <h1 className={styles.contact}>Contact</h1>
-                    </Link>
-                  </li>
 
-                  <li className="nav-item">
-                    <Link to="/register" className={styles.link}>
-                      <h1 className={styles.sign}>Sign in</h1>
-                    </Link>
-                  </li>
+                  {!isAuthenticated ?
+                    <div>
+                      <li className="nav-item">
+                        <Link to="/register" className={styles.link}>
+                          <h1 className={styles.sign}>Sign in</h1>
+                        </Link>
+                      </li>
 
-                  <li className="nav-item">
-                    <Link to="/login" className={styles.link}>
-                      <h1 className={styles.login}>Log in</h1>
-                    </Link>
-                  </li>
+                      <li className="nav-item">
+                        <Link to="/login" className={styles.link}>
+                          <h1 className={styles.login}>Login</h1>
+                        </Link>
+                      </li>
 
-                  <div className={styles.containerLogOut}>
-                    <li className="nav-item" >
-                      <Link to="/" className={styles.link} >
-                        <h1 className={styles.logOut}>Log out</h1>
-                      </Link>
-                    </li>
-                  </div>
+                    </div> :
+                    <div className={styles.containerLogOut}>
+                      <li className="nav-item" >
+                        <Link to="/" className={styles.link} >
+                          <h1 className={styles.logOut} href='#!' onClick={() => dispatch(logout())}>Log out</h1>
+                        </Link>
+                      </li>
+                    </div>}
+
+
 
                 </div>
                 {loggin ? (
@@ -101,15 +102,10 @@ const Nav = () => {
 
                       <li className="nav-item">
                         <Link to="/Q&A" className="dropdown-item">
-                          <h1>Q&A</h1>
+                          <h1>Question & Answer</h1>
                         </Link>
                       </li>
 
-                      <li className="nav-item">
-                        <Link to="/profile" className="dropdown-item">
-                          <h1>Profile</h1>
-                        </Link>
-                      </li>
                       <li className="nav-item">
                         <Link to="/instructor" className="dropdown-item" >
                           <h1>Instructor</h1>

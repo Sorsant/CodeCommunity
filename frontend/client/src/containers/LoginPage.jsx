@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "../components/Redux/user";
 import { resetRegistered } from "../components/Redux/user";
 import Layout from "../components/Layout";
-
+import About from "../views/About/about";
 const LoginPage = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { loading, registered, isAuthenticated } = useSelector(
     (state) => state.userdb
@@ -29,9 +30,15 @@ const LoginPage = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(login({ email, password }));
+    setTimeout(() => {
+      return navigate("/home");
+    }, 1000);
   };
-
-  if (isAuthenticated) return <Navigate to="/dashboard" />;
+  // if (isAuthenticated) {
+  //   setTimeout(() => {
+  //     return navigate("/home");
+  //   }, 1000); // Retraso de 1000 milisegundos (1 segundo)
+  // }
 
   return (
     <Layout title="Auth Site | Login" content="Login page">
