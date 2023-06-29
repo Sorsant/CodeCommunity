@@ -12,7 +12,7 @@ export const communitySlice = createSlice({
             state.communities = action.payload;
           
           },
-        getIdCommunity: (state, action) =>{
+          getIdCommunity: (state, action) =>{
             state.communities = action.payload;
         },
         getLanguages: (state, action) =>{

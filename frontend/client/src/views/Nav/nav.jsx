@@ -1,14 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate   } from "react-router-dom";
 import SearchBar from "../../components/SearchBar/searchBar";
 import styles from "./nav.module.css";
 import { useSelector } from "react-redux";
 
 const Nav = () => {
   const loggin = useSelector((state) => state.home.login);
+  const isAuthenticated =  useSelector((state) => state.userdb.isAuthenticated)
+
+
 
   return (
     <div className={styles.containerNav}>
+
       <nav className="navbar navbar-dark bg-dark ">
         <SearchBar />
         <div className={styles.title}>
@@ -73,7 +77,9 @@ const Nav = () => {
                       </Link>
                     </li>
                   </div>
-
+<div>
+  
+</div>
                 </div>
                 {loggin ? (
                   <li className="nav-item dropdown">

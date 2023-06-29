@@ -31,7 +31,7 @@ const LoginPage = () => {
     dispatch(login({ email, password }));
   };
 
-  if (isAuthenticated) return <Navigate to="/dashboard" />;
+  if (isAuthenticated) return <Navigate to="/home" />;
 
   return (
     <Layout title="Auth Site | Login" content="Login page">
