@@ -32,7 +32,7 @@ import { getUser } from "./components/Redux/user";
 import { getUserExtras } from "./components/Redux/Actions/User/actionUser";
 axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 // import Home from './/Home';
-axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
+
 const App = () => {
   const dispatch = useDispatch();
   const { isAuthenticated } = useSelector((state) => state.userdb
