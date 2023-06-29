@@ -29,8 +29,8 @@ import LoginPage from './containers/LoginPage';
 import RegisterPage from './containers/RegisterPage';
 import { checkAuth } from './components/Redux/user';
 
-axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 // import Home from './/Home';
+axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 const App = () => {
   const dispatch = useDispatch();
   const { isAuthenticated } = useSelector((state) => state.userdb
