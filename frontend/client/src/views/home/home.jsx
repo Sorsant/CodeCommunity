@@ -9,6 +9,7 @@ import Filter from '../../components/Filter/Filter';
 import Posteohome from './PostHome/PostHome'
 import { getUsers } from '../../components/Redux/Actions/User/actionUser';
 import { getUserExtras } from '../../components/Redux/Actions/User/actionUser';
+import { Getcategory } from "../../components/Redux/Actions/News/actionNews";
 import { fakeLogin } from "../../components/Redux/Actions/ActionHome.js";
 
 const Home = () => {

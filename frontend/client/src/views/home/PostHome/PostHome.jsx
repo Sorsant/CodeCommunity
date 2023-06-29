@@ -18,13 +18,12 @@ const Posteohome = () => {
     description: "",
     user: "",
   });
-
+  console.log(userExtra)
   const [errors, setErrors] = useState({
     image: "",
     title: "",
     description: "",
   });
-
 
 
   const handleOnChange = (event) => {
@@ -49,9 +48,9 @@ const Posteohome = () => {
       window.location.href = `/login`;
       return;
     }
-
     const userNumber = Number(post.user);
     const premiumUser = userExtra.find((user) => user.id === userNumber && user.premium);
+
     console.log(premiumUser)
     if (premiumUser) {
       dispatch(addHomePosts(post));
