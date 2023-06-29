@@ -22,10 +22,8 @@ const Home = () => {
     dispatch(getUserExtras())
   }, [dispatch]);
 
-
   return (
     <div className={styles.Container}>
-
       <Posteohome />
       <div className={styles.filter}>
         <Filter />

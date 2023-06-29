@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "../components/Redux/user";
+import FacebookLogin from '../containers/FacebookLogin'
 import { resetRegistered } from "../components/Redux/user";
 import Layout from "../components/Layout";
-
+import About from "../views/About/about";
 const LoginPage = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { loading, registered, isAuthenticated } = useSelector(
     (state) => state.userdb
@@ -29,9 +31,16 @@ const LoginPage = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(login({ email, password }));
+    setTimeout(() => {
+      return navigate("/home");
+    }, 5000);
   };
-
-  if (isAuthenticated) return <Navigate to="/dashboard" />;
+  if (!isAuthenticated) {
+    // dispatch(login({ email, password }));
+    // setTimeout(() => {
+    // navigate("/login");
+    // }, 1000);
+  }
 
   return (
     <Layout title="Auth Site | Login" content="Login page">
@@ -79,6 +88,7 @@ const LoginPage = () => {
           <button className="btn btn-primary mt-4">Login</button>
         )}
       </form>
+      <FacebookLogin />
     </Layout>
   );
 };
