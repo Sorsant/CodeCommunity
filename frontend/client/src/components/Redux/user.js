@@ -1,7 +1,7 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const register = createAsyncThunk(
-  'users/register',
+  "users/register",
   async ({ first_name, last_name, email, password, re_password }, thunkAPI) => {
     const body = JSON.stringify({
       first_name,
@@ -12,11 +12,11 @@ export const register = createAsyncThunk(
     });
 
     try {
-      const res = await fetch('/api/users/register', {
-        method: 'POST',
+      const res = await fetch("/api/users/register", {
+        method: "POST",
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
         body,
       });
@@ -34,31 +34,28 @@ export const register = createAsyncThunk(
   }
 );
 
-const getUser = createAsyncThunk(
-  'users/me',
-  async (_, thunkAPI) => {
-    try {
-      const res = await fetch('/api/users/me', {
-        headers: {
-          Accept: 'application/json',
-        },
-      });
+export const getUser = createAsyncThunk("users/me", async (_, thunkAPI) => {
+  try {
+    const res = await fetch("/api/users/me", {
+      headers: {
+        Accept: "application/json",
+      },
+    });
 
-      const data = await res.json();
-
-      if (res.status === 200) {
-        return data;
-      } else {
-        return thunkAPI.rejectWithValue(data);
-      }
-    } catch (err) {
-      return thunkAPI.rejectWithValue(err.response.data);
+    const data = await res.json();
+    localStorage.setItem("user", data);
+    if (res.status === 200) {
+      return data;
+    } else {
+      return thunkAPI.rejectWithValue(data);
     }
+  } catch (err) {
+    return thunkAPI.rejectWithValue(err.response.data);
   }
-);
+});
 
 export const login = createAsyncThunk(
-  'users/login',
+  "users/login",
   async ({ email, password }, thunkAPI) => {
     const body = JSON.stringify({
       email,
@@ -66,11 +63,11 @@ export const login = createAsyncThunk(
     });
 
     try {
-      const res = await fetch('/api/users/login', {
-        method: 'POST',
+      const res = await fetch("/api/users/login", {
+        method: "POST",
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
         body,
       });
@@ -92,12 +89,12 @@ export const login = createAsyncThunk(
 );
 
 export const checkAuth = createAsyncThunk(
-  'users/verify',
+  "users/verify",
   async (_, thunkAPI) => {
     try {
-      const res = await fetch('/api/users/verify', {
+      const res = await fetch("/api/users/verify", {
         headers: {
-          Accept: 'application/json',
+          Accept: "application/json",
         },
       });
 
@@ -119,43 +116,20 @@ export const checkAuth = createAsyncThunk(
 );
 
 export const resetPassword = createAsyncThunk(
-  'users/reset_password',
-  async ({email}, thunkAPI) => {
+  "users/reset_password",
+  async ({ email }, thunkAPI) => {
     const body = JSON.stringify({
       email,
     });
 
     try {
-      const res = await fetch('/api/users/reset_password', {
-        method: 'POST',
+      const res = await fetch("/api/users/reset_password", {
+        method: "POST",
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
-        body
-      });
-
-      const data = await res.json();
-
-      if (res.status === 200) {
-        return data;
-      } else {
-        return thunkAPI.rejectWithValue(data);
-      }
-    } catch (err) {
-      return thunkAPI.rejectWithValue(err.response.data);
-    }
-  }
-)
-
-export const logout = createAsyncThunk(
-  'users/logout',
-  async (_, thunkAPI) => {
-    try {
-      const res = await fetch('/api/users/logout', {
-        headers: {
-          Accept: 'application/json',
-        },
+        body,
       });
 
       const data = await res.json();
@@ -171,6 +145,26 @@ export const logout = createAsyncThunk(
   }
 );
 
+export const logout = createAsyncThunk("users/logout", async (_, thunkAPI) => {
+  try {
+    const res = await fetch("/api/users/logout", {
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    const data = await res.json();
+
+    if (res.status === 200) {
+      return data;
+    } else {
+      return thunkAPI.rejectWithValue(data);
+    }
+  } catch (err) {
+    return thunkAPI.rejectWithValue(err.response.data);
+  }
+});
+
 const initialState = {
   isAuthenticated: false,
   user: null,
@@ -179,73 +173,73 @@ const initialState = {
 };
 
 const userSlice = createSlice({
-  name: 'userdb',
+  name: "userdb",
   initialState,
   reducers: {
-    resetRegistered: state => {
+    resetRegistered: (state) => {
       state.registered = false;
     },
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(register.pending, state => {
+      .addCase(register.pending, (state) => {
         state.loading = true;
       })
-      .addCase(register.fulfilled, state => {
+      .addCase(register.fulfilled, (state) => {
         state.loading = false;
         state.registered = true;
       })
-      .addCase(register.rejected, state => {
+      .addCase(register.rejected, (state) => {
         state.loading = false;
       })
-      .addCase(login.pending, state => {
+      .addCase(login.pending, (state) => {
         state.loading = true;
       })
-      .addCase(login.fulfilled, state => {
+      .addCase(login.fulfilled, (state) => {
         state.loading = false;
         state.isAuthenticated = true;
       })
-      .addCase(login.rejected, state => {
+      .addCase(login.rejected, (state) => {
         state.loading = false;
       })
-      .addCase(getUser.pending, state => {
+      .addCase(getUser.pending, (state) => {
         state.loading = true;
       })
       .addCase(getUser.fulfilled, (state, action) => {
         state.loading = false;
         state.user = action.payload;
       })
-      .addCase(getUser.rejected, state => {
+      .addCase(getUser.rejected, (state) => {
         state.loading = false;
       })
-      .addCase(checkAuth.pending, state => {
+      .addCase(checkAuth.pending, (state) => {
         state.loading = true;
       })
-      .addCase(checkAuth.fulfilled, state => {
+      .addCase(checkAuth.fulfilled, (state) => {
         state.loading = false;
         state.isAuthenticated = true;
       })
-      .addCase(checkAuth.rejected, state => {
+      .addCase(checkAuth.rejected, (state) => {
         state.loading = false;
       })
-      .addCase(resetPassword.pending, state => {
-        state.loading = true
-      })
-      .addCase(resetPassword.fulfilled, state => {
-        state.loading = false
-      })
-      .addCase(resetPassword.rejected, state => {
-        state.loading = false
-      })
-      .addCase(logout.pending, state => {
+      .addCase(resetPassword.pending, (state) => {
         state.loading = true;
       })
-      .addCase(logout.fulfilled, state => {
+      .addCase(resetPassword.fulfilled, (state) => {
+        state.loading = false;
+      })
+      .addCase(resetPassword.rejected, (state) => {
+        state.loading = false;
+      })
+      .addCase(logout.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(logout.fulfilled, (state) => {
         state.loading = false;
         state.isAuthenticated = false;
         state.user = null;
       })
-      .addCase(logout.rejected, state => {
+      .addCase(logout.rejected, (state) => {
         state.loading = false;
       });
   },

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Home from "./views/home/home";
 import "./App.css";
 import React from "react";
@@ -15,27 +15,29 @@ import Edit from "./views/profile/edit";
 import PostDetail from "./views/detail/detail";
 import NewsPost from "./components/News Post/NewsPost";
 // import Books from "./views/Education/Books/books";
-import Books from './views/Education/Books/books'
+import Books from "./views/Education/Books/books";
 import Footer from "./views/Footer/footer";
 import About from "./views/About/about";
 import Instructor from "./views/Instructor/instructor";
 import DetailCommunity from "./views/DetailCommunity/detailCommunity";
 import FakeHome from "./views/FakeHome/fakeHome";
-
-
+import { getUsers, getUserExtras } from "./components/Redux/Actions/User/actionUser";
+// import HomePage from './containers/HomePage';
 import DashboardPage from './containers/DashboardPage';
 import ResetPasswordPage from "./containers/ResetPasswordPage";
 import LoginPage from './containers/LoginPage';
 import RegisterPage from './containers/RegisterPage';
 import { checkAuth } from './components/Redux/user';
-
 axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 // import Home from './/Home';
+
 const App = () => {
   const dispatch = useDispatch();
-
+  // const { isAuthenticated } = useSelector((state) => state.userdb)
   useEffect(() => {
     dispatch(checkAuth());
+    dispatch(getUsers());
+    dispatch(getUserExtras());
   }, [dispatch]);
 
   const location = useLocation();
@@ -59,14 +61,17 @@ const App = () => {
         <Route path="/Q&A" element={<QandA />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/edit" element={<Edit />} />
-        <Route path="/detail/:id" element={<PostDetail />} />{" "}
+        {/* <Route path="/detail/:id" element={<PostDetail />} />{" "} */}
         <Route path="/newspost" element={<NewsPost />} />
         <Route path="/about" element={<About />} />
-        <Route path="/instructor" element={<Instructor />} />
+        {/* <Route path="/instructor" element={<Instructor />} /> */}
         <Route path="/fakeHome" element={<FakeHome />} />
 
-      </Routes>
-      {location.pathname !== "/" ? <Footer /> : null}
+          {/* <Route path='*' element={<Error />} /> */}
+        </Routes>
+      
+
+      {location.pathname !== "/" && location.pathname !== "/login" && location.pathname !== "/register" && location.pathname !== "*" ? <Footer /> : null}
     </div>
   );
 };
