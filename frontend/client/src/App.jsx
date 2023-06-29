@@ -28,6 +28,8 @@ import ResetPasswordPage from "./containers/ResetPasswordPage";
 import LoginPage from "./containers/LoginPage";
 import RegisterPage from "./containers/RegisterPage";
 import { checkAuth } from "./components/Redux/user";
+import { getUser } from "./components/Redux/user";
+import { getUserExtras } from "./components/Redux/Actions/User/actionUser";
 axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 // import Home from './/Home';
 const App = () => {
@@ -35,6 +37,8 @@ const App = () => {
 
   useEffect(() => {
     dispatch(checkAuth());
+    dispatch(getUser());
+    dispatch(getUserExtras());
   }, [dispatch]);
 
   const location = useLocation();
