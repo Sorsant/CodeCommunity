@@ -18,14 +18,12 @@ export const getCommunity = (id) => async (dispatch) =>   { //Filtra las comunid
 
 
 export const getAllLanguages = () => async (dispatch) =>   { //Trae todos los lenguajes al selector para filtrar
-    return async (dispatch) => {
-        
             let url = 'https://codecommunity-production.up.railway.app/codec/api/language';
             let json = await axios.get(url);
            
             dispatch(getLanguages(json));
-    };
-};
+    }
+
 
 export const addCommunity = (community) => async (dispatch) =>   {
     return async function () {
