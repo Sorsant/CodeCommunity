@@ -1,23 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../../components/SearchBar/searchBar";
 import styles from "./nav.module.css";
 import { useSelector } from "react-redux";
+import imagen from "./default.png";
+import { useState } from "react";
 
 const Nav = () => {
   const loggin = useSelector((state) => state.home.login);
+  const user = useSelector((state) => state.userdb.user);
+  const extras = useSelector((state) => state.home.userExtra);
+  const extra = extras.find((users) => users.id === (user && user.id));
 
   return (
     <div className={styles.containerNav}>
       <nav className="navbar navbar-dark bg-dark ">
         <SearchBar />
         <div className={styles.title}>
-          <h1>Code</h1>
-          <h1>Community</h1>
+          {loggin ? (
+            <Link to="/home" className={styles.no_style}>
+              <h1>Code</h1>
+              <h1>Community</h1>
+            </Link>
+          ) : (
+            <div className={styles.title}>
+              <h1>Code</h1>
+              <h1>Community</h1>
+            </div>
+          )}
         </div>
         <div className="container-fluid">
           <button
-            className={`navbar-toggler ${styles['toggle']}`} type="button"
+            className={`navbar-toggler ${styles["toggle"]}`}
+            type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasDarkNavbar"
             aria-controls="offcanvasDarkNavbar"
@@ -45,7 +60,7 @@ const Nav = () => {
                 aria-label="Close"
               ></button>
             </div>
-            <div className="offcanvas-body">
+            <div className={"offcanvas-body" + styles.buttons}>
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <div className={styles.info}>
                   <li className="nav-item">
@@ -67,17 +82,37 @@ const Nav = () => {
                   </li>
 
                   <div className={styles.containerLogOut}>
-                    <li className="nav-item" >
-                      <Link to="/" className={styles.link} >
+                    <li className="nav-item">
+                      <Link to="/" className={styles.link}>
                         <h1 className={styles.logOut}>Log out</h1>
                       </Link>
                     </li>
                   </div>
-
                 </div>
                 {loggin ? (
                   <li className="nav-item dropdown">
-                    <a className={`nav-link dropdown-toggle ${styles['buttonSections']}`} href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ fontSize: '14px', fontWeight: 'bold', backgroundColor: 'white', width: '25%', padding: '7px', marginRight: '5px', marginTop: '5px', color: 'black', borderRadius: '10px', ':hover': { backgroundColor: '#23E871', color: 'white' } }}>
+                    <a
+                      className={`nav-link dropdown-toggle ${styles["buttonSections"]}`}
+                      href="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      style={{
+                        fontSize: "14px",
+                        fontWeight: "bold",
+                        backgroundColor: "white",
+                        width: "25%",
+                        padding: "7px",
+                        marginRight: "5px",
+                        marginTop: "5px",
+                        color: "black",
+                        borderRadius: "10px",
+                        ":hover": {
+                          backgroundColor: "#23E871",
+                          color: "white",
+                        },
+                      }}
+                    >
                       SECTIONS
                     </a>
                     <ul className="dropdown-menu dropdown-menu-dark">
@@ -106,12 +141,7 @@ const Nav = () => {
                       </li>
 
                       <li className="nav-item">
-                        <Link to="/profile" className="dropdown-item">
-                          <h1>Profile</h1>
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link to="/instructor" className="dropdown-item" >
+                        <Link to="/instructor" className="dropdown-item">
                           <h1>Instructor</h1>
                         </Link>
                       </li>
@@ -122,6 +152,46 @@ const Nav = () => {
                 )}
               </ul>
             </div>
+            {user ? (
+              <Link to="/profile" className={styles.no_style}>
+                <div className={styles.profile}>
+                  <div className={styles.profile_info}>
+                    <ul>
+                      <h2 className={styles.profile_name}>
+                        {user && user.first_name ? (
+                          user.first_name
+                        ) : (
+                          <p>loading...</p>
+                        )}{" "}
+                        {user && user.last_name ? (
+                          user.last_name
+                        ) : (
+                          <p>loading...</p>
+                        )}
+                      </h2>
+                      <li>JavaScript</li>
+                      <li>React</li>
+                      <li>PostgresSQL</li>
+                    </ul>
+                    <p className={styles.profile_description}>
+                      Si estas leyendo esto, sos un capo, sabelo
+                    </p>
+                  </div>
+                  <div className={styles.profile_picture}>
+                    <img
+                      src={
+                        extra && extra.user_image
+                          ? extra.user_image
+                          : { imagen }
+                      }
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </Link>
+            ) : (
+              <p>log in to see your profile!</p>
+            )}
           </div>
         </div>
       </nav>
