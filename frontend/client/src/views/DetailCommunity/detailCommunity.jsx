@@ -35,12 +35,15 @@ const DetailCommunity = () => {
 
   // const languageNames = getLanguageNames();
 
+
   return (
     <div>
       <div className={styles.container}>
         <h1 className={styles.name}>{community.name}</h1>
         <img src={community.image} alt={community.image} className={styles.image} />
+
         {/* <p className={styles.language}>{languageNames.join(", ")}</p> */}
+t
         <p className={styles.description}>{community.description}</p>
         <button>
           <Link to="/home">

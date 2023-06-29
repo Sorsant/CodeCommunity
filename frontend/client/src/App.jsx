@@ -18,9 +18,10 @@ import NewsPost from "./components/News Post/NewsPost";
 import Books from "./views/Education/Books/books";
 import Footer from "./views/Footer/footer";
 import About from "./views/About/about";
-// import Instructor from "./views/Instructor/instructor";
+import Instructor from "./views/Instructor/instructor";
 import DetailCommunity from "./views/DetailCommunity/detailCommunity";
 import FakeHome from "./views/FakeHome/fakeHome";
+
 
 // import HomePage from './containers/HomePage';
 import DashboardPage from "./containers/DashboardPage";
@@ -30,16 +31,19 @@ import RegisterPage from "./containers/RegisterPage";
 import { checkAuth } from "./components/Redux/user";
 import { getUser } from "./components/Redux/user";
 import { getUserExtras } from "./components/Redux/Actions/User/actionUser";
+
 axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 // import Home from './/Home';
 
 const App = () => {
   const dispatch = useDispatch();
+
   const { isAuthenticated } = useSelector((state) => state.userdb
   );
   useEffect(() => {
     dispatch(checkAuth());
     dispatch(getUser());
+
     dispatch(getUserExtras());
   }, [dispatch]);
 
@@ -47,6 +51,7 @@ const App = () => {
   return (
     <div>
       {location.pathname !== "/" && location.pathname !== "/login" && location.pathname !== "/register" ? <Nav /> : null}
+
       {isAuthenticated ?
         <Routes>
           <Route path='/home' element={<Home />} />
@@ -78,6 +83,7 @@ const App = () => {
           {/* <Route path='*' element={<Error />} /> */}
         </Routes>
       }
+
 
       {location.pathname !== "/" && location.pathname !== "/login" && location.pathname !== "/register" && location.pathname !== "*" ? <Footer /> : null}
     </div>
