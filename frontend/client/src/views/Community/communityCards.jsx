@@ -15,20 +15,20 @@ const CommunityCards = () => {
         dispatch(getAllLanguages());
     }, [dispatch]);
 
-    if (!Array.isArray(communities) || !Array.isArray(languages)) {
-        return <div>No hay comunidades disponibles.</div>;
-    }
+    // if (!Array.isArray(communities) | !Array.isArray(languages)) {
+    //     return <div>No hay comunidades disponibles.</div>;
+    // }
 
-    const findLanguageById = (languageId) => {
-        return languages.find((lang) => lang.id === languageId);
-    };
+    // const findLanguageById = (languageId) => {
+    //     return languages.find((lang) => lang.id === languageId);
+    // };
 
     return (
         <div className={styles.cards}>
             {communities.map((community) => {
                 const languageNames = community.language.map((languageId) => {
-                    const language = findLanguageById(languageId);
-                    return language ? language.name : "";
+                    // // const language = findLanguageById(languageId);
+                    // return language ? language.name : "";
                 });
 
                 return (

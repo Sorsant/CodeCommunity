@@ -8,6 +8,7 @@ export const homeSlice = createSlice({
     addPost: [],
     users: [],
     userExtra: [],
+    menssageD: "",
   },
   reducers: {
     getAllPosts: (state, action) => {
@@ -56,9 +57,6 @@ export const homeSlice = createSlice({
     getUserExtra: (state, action) => {
       state.userExtra = action.payload;
     },
-    instructorSwitch: (state, action) => {
-      state.instructor = action.payload;
-    },
   },
 });
 
@@ -73,7 +71,7 @@ export const {
   addPosts,
   getUserExtra,
   getUser,
-  instructorSwitch,
+  menssageData,
 } = homeSlice.actions;
 
 export default homeSlice.reducer;

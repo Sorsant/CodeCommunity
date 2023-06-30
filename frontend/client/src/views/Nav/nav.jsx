@@ -53,7 +53,7 @@ const Nav = () => {
                 className={`offcanvas-title ${styles["title_toggle"]}`}
                 id="offcanvasDarkNavbarLabel"
               >
-                Access
+                Navegation
               </h5>
               <button
                 type="button"

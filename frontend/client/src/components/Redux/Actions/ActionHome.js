@@ -7,7 +7,6 @@ import {
   getPostId,
   getSearchPosts,
   loginSwitch,
-  instructorSwitch,
 } from "../Reducer/HomeReducer";
 
 export const getHomePosts = () => async (dispatch) => {

@@ -12,7 +12,6 @@ export const getAllCommunities = () => async (dispatch) => {
 
   const { data } = await axios.get(endpoint);
   dispatch(allCommunitys(data));
-  console.log(data);
 };
 export const getCommunity = (id) => async (dispatch) => {
   //Filtra las comunidades buscando la comunidad por el nombre de la misma
@@ -24,13 +23,11 @@ export const getCommunity = (id) => async (dispatch) => {
 
 export const getAllLanguages = () => async (dispatch) => {
   //Trae todos los lenguajes al selector para filtrar
-  return async (dispatch) => {
-    let url =
-      "https://codecommunity-production.up.railway.app/codec/api/language";
-    let json = await axios.get(url);
+  let url =
+    "https://codecommunity-production.up.railway.app/codec/api/language";
+  let json = await axios.get(url);
 
-    dispatch(getLanguages(json));
-  };
+  dispatch(getLanguages(json));
 };
 
 export const addCommunity = (community) => async (dispatch) => {
