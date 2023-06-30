@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../components/Redux/user";
+import FacebookLogin from '../containers/FacebookLogin'
 import { resetRegistered } from "../components/Redux/user";
 import Layout from "../components/Layout";
 
@@ -79,6 +80,7 @@ const LoginPage = () => {
           <button className="btn btn-primary mt-4">Login</button>
         )}
       </form>
+      <FacebookLogin />
     </Layout>
   );
 };

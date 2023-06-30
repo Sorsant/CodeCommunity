@@ -56,8 +56,8 @@ export const homeSlice = createSlice({
 
     getUserExtra: (state, action) => {
       state.userExtra = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export const {

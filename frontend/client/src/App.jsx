@@ -41,7 +41,6 @@ const App = () => {
   useEffect(() => {
     dispatch(checkAuth());
     dispatch(getUser());
-
     dispatch(getUserExtras());
   }, [dispatch]);
 
@@ -68,7 +67,7 @@ const App = () => {
           <Route path="/Q&A" element={<QandA />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/edit" element={<Edit />} />
-          <Route path="/detail/:id" element={<PostDetail />} />{" "}
+          <Route path="/detail/:id" element={<PostDetail />} />
           <Route path="/newspost" element={<NewsPost />} />
           <Route path="/about" element={<About />} />
           {/* <Route path="/instructor" element={<Instructor />} /> */}

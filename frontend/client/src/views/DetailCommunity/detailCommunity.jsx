@@ -24,19 +24,19 @@ const DetailCommunity = () => {
   }, [dispatch, id]);
 
 
-  // const getLanguageNames = () => {
-  //   if (Array.isArray(community.language)) {
-  //     return community.language.map((languageId) => {
-  //       const language = languages.find((lang) => lang.id === languageId);
-  //       return language ? language.name : "";
-  //     });
-  //   } else {
-  //     const language = languages.find((lang) => lang.id === community.language);
-  //     return language ? [language.name] : [];
-  //   }
-  // };
+  const getLanguageNames = () => {
+    if (Array.isArray(community.language)) {
+      return community.language.map((languageId) => {
+        const language = languages.find((lang) => lang.id === languageId);
+        return language ? language.name : "";
+      });
+    } else {
+      const language = languages.find((lang) => lang.id === community.language);
+      return language ? [language.name] : [];
+    }
+  };
 
-  // const languageNames = getLanguageNames();
+  const languageNames = getLanguageNames();
 
 
   return (
@@ -44,10 +44,7 @@ const DetailCommunity = () => {
       <div className={styles.container}>
         <h1 className={styles.name}>{community.name}</h1>
         <img src={community.image} alt={community.image} className={styles.image} />
-
-
-        {/* <p className={styles.language}>{languageNames.join(", ")}</p> */}
-
+        <h1>{languageNames}</h1>
         <p className={styles.description}>{community.description}</p>
         <button>
           <Link to="/home">

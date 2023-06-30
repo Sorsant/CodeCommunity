@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./communityCard.module.css";
-import { getAllCommunities } from "../../components/Redux/Actions/Community/ActionCommunity";
-import { getAllLanguages } from "../../components/Redux/Actions/Community/ActionCommunity";
+import { getAllCommunities, getAllLanguages } from "../../components/Redux/Actions/Community/ActionCommunity";
 import CommunityCard from "../Community/communityCard";
 
 const CommunityCards = () => {
@@ -15,34 +14,28 @@ const CommunityCards = () => {
         dispatch(getAllLanguages());
     }, [dispatch]);
 
-    // if (!Array.isArray(communities) | !Array.isArray(languages)) {
-    //     return <div>No hay comunidades disponibles.</div>;
-    // }
-
-    // const findLanguageById = (languageId) => {
-    //     return languages.find((lang) => lang.id === languageId);
-    // };
-
     return (
         <div className={styles.cards}>
-            {communities.map((community) => {
-                const languageNames = community.language.map((languageId) => {
-                    // // const language = findLanguageById(languageId);
-                    // return language ? language.name : "";
-                });
+            {communities.length > 0 ? (
+                communities.map((community) => {
+                    const language = languages.find((lang) => String(lang.id) === String(community.language));
+                    const languageName = language ? language.name : "Unknown Language";
 
-                return (
-                    <div key={community.name} className={styles.div}>
-                        <CommunityCard
-                            id={community.id}
-                            name={community.name}
-                            description={community.description}
-                            language={languageNames}
-                            image={community.image}
-                        />
-                    </div>
-                );
-            })}
+                    return (
+                        <div key={community.id} className={styles.div}>
+                            <CommunityCard
+                                id={community.id}
+                                name={community.name}
+                                description={community.description}
+                                language={languageName}
+                                image={community.image}
+                            />
+                        </div>
+                    );
+                })
+            ) : (
+                <p>No hay comunidades disponibles</p>
+            )}
         </div>
     );
 };
