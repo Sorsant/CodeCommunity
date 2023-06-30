@@ -25,9 +25,6 @@ const Posteohome = () => {
     description: "",
   });
 
-  useEffect(() => {
-    dispatch(getUserExtras());
-  }, [dispatch]);
 
   const handleOnChange = (event) => {
     const { name, value } = event.target;
@@ -72,6 +69,10 @@ const Posteohome = () => {
       });
     }
   };
+
+  useEffect(() => {
+    dispatch(getUserExtras());
+  }, [dispatch]);
 
   return (
     <div className={styles.containerForm}>

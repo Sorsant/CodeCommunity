@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getCommunity, getAllLanguages } from "../../components/Redux/Actions/Community/ActionCommunity";
+import {
+  getCommunity,
+  getAllLanguages,
+} from "../../components/Redux/Actions/Community/ActionCommunity";
 import styles from "./detailCommunity.module.css";
 import SmallUser from "../SmallUser/smallUser";
 import CommunityComments from "../CommunitiesInteractions/communityComments";
@@ -10,44 +13,41 @@ const DetailCommunity = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  const languages = useSelector((state) => state.community.languages);
+  const languages = useSelector((state) => state.community.languages.data);
   const community = useSelector((state) => state.community.communities);
 
   useEffect(() => {
-    dispatch(getCommunity(id))
-
-      .catch((error) => {
-        window.alert("Community not found");
-      });
+    dispatch(getCommunity(id)).catch((error) => {
+      window.alert("Community not found");
+    });
 
     dispatch(getAllLanguages());
   }, [dispatch, id]);
 
+  const getLanguageNames = () => {
+    if (Array.isArray(community.language)) {
+      return community.language.map((languageId) => {
+        const language = languages.find((lang) => lang.id === languageId);
+        return language ? language.name : "";
+      });
+    } else {
+      const language = languages.find((lang) => lang.id === community.language);
+      return language ? [language.name] : [];
+    }
+  };
 
-  // const getLanguageNames = () => {
-  //   if (Array.isArray(community.language)) {
-  //     return community.language.map((languageId) => {
-  //       const language = languages.find((lang) => lang.id === languageId);
-  //       return language ? language.name : "";
-  //     });
-  //   } else {
-  //     const language = languages.find((lang) => lang.id === community.language);
-  //     return language ? [language.name] : [];
-  //   }
-  // };
-
-  // const languageNames = getLanguageNames();
-
+  const languageNames = getLanguageNames();
 
   return (
     <div>
       <div className={styles.container}>
         <h1 className={styles.name}>{community.name}</h1>
-        <img src={community.image} alt={community.image} className={styles.image} />
-
-
-        {/* <p className={styles.language}>{languageNames.join(", ")}</p> */}
-
+        <img
+          src={community.image}
+          alt={community.image}
+          className={styles.image}
+        />
+        <h1>{languageNames}</h1>
         <p className={styles.description}>{community.description}</p>
         <button>
           <Link to="/home">

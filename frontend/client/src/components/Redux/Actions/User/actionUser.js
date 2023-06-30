@@ -13,6 +13,7 @@ export const getUsers = () => async (dispatch) => {
 export const getUserId = (id) => async (dispatch) => {
     const endpoint = `https://codecommunity-production.up.railway.app/codec/api/users/${id}`;
     const { data } = await axios.get(endpoint);
+    console.log(data);
     dispatch(getUser(data));
 };
 

@@ -7,7 +7,6 @@ import CommunityCard from "../../views/Community/communityCards";
 import NewsCard from "../news/newsCards";
 import styles from "./fakeHome.module.css";
 import Filter from "../../components/Filter/Filter";
-
 import { getUsers } from "../../components/Redux/Actions/User/actionUser";
 import { getUserExtras } from "../../components/Redux/Actions/User/actionUser";
 import { fakeLogin } from "../../components/Redux/Actions/ActionHome.js";
