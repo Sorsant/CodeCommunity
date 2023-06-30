@@ -6,8 +6,10 @@ import styles from "./card.module.css";
 const PostCard = ({ id }) => {
   const loggin = useSelector((state) => state.home.login);
   const users = useSelector((state) => state.home.users);
-  const post = useSelector((state) => state.home.posts.find((post) => post.id === id));
-  const userExtra = useSelector((state) => state.home.userExtra)
+  const post = useSelector((state) =>
+    state.home.posts.find((post) => post.id === id)
+  );
+  const userExtra = useSelector((state) => state.home.userExtra);
 
   if (!post) {
     // No se encontró la publicación correspondiente al ID proporcionado
@@ -37,7 +39,9 @@ const PostCard = ({ id }) => {
       <div className={styles.cardContainer} key={post.id}>
         <div className={styles.userContainer}>
           <img src={userE.user_image} alt={userE.name} />
-          <h2>{user.first_name} {user.last_name}</h2>
+          <h2>
+            {user.first_name} {user.last_name}
+          </h2>
           {userE.premium && userE.postulation && (
             <p>
               <Link to={`/instructor/${userE.id}`}>
@@ -52,7 +56,11 @@ const PostCard = ({ id }) => {
           <h2>{post.description}</h2>
           <img src={post.image} alt={post.title} />
 
-          <Link to={`/detail/${id}`} onClick={handleMoreInfo} className={styles.linkDetail}>
+          <Link
+            to={`/detail/${id}`}
+            onClick={handleMoreInfo}
+            className={styles.linkDetail}
+          >
             <h2 className={styles.text4}>More Info</h2>
           </Link>
         </div>

@@ -72,3 +72,29 @@ export const uploadPost = (post) => async (dispatch) => {
   return url;
 };
 
+export const notInstructor = (id) => async (dispatch) => {
+  try {
+    const response = await axios.patch(
+      `https://codecommunity-production.up.railway.app/codec/api/user_extras/${id}/`,
+      {
+        postulation: false,
+      }
+    );
+    return response;
+  } catch (error) {
+    console.error("Error al cambiar la propiedad:", error);
+  }
+};
+export const Instructor = (id) => async (dispatch) => {
+  try {
+    const response = await axios.patch(
+      `https://codecommunity-production.up.railway.app/codec/api/user_extras/${id}/`,
+      {
+        postulation: true,
+      }
+    );
+    return response;
+  } catch (error) {
+    console.error("Error al cambiar la propiedad:", error);
+  }
+};
