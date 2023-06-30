@@ -56,7 +56,6 @@ const Posteohome = () => {
       (user) => user.id === userNumber && user.premium
     );
 
-
     if (premiumUser) {
       dispatch(addHomePosts(post));
       setPost({

@@ -7,7 +7,6 @@ import {
   getPostId,
   getSearchPosts,
   loginSwitch,
-  
 } from "../Reducer/HomeReducer";
 
 export const getHomePosts = () => async (dispatch) => {
@@ -62,4 +61,30 @@ export const fakeButton = () => (dispatch) => {
 export const fakeLogin = () => (dispatch) => {
   const data = true;
   dispatch(loginSwitch(data));
+};
+export const notInstructor = (id) => async (dispatch) => {
+  try {
+    const response = await axios.patch(
+      `https://codecommunity-production.up.railway.app/codec/api/user_extras/${id}/`,
+      {
+        postulation: false,
+      }
+    );
+    return response;
+  } catch (error) {
+    console.error("Error al cambiar la propiedad:", error);
+  }
+};
+export const Instructor = (id) => async (dispatch) => {
+  try {
+    const response = await axios.patch(
+      `https://codecommunity-production.up.railway.app/codec/api/user_extras/${id}/`,
+      {
+        postulation: true,
+      }
+    );
+    return response;
+  } catch (error) {
+    console.error("Error al cambiar la propiedad:", error);
+  }
 };
