@@ -18,7 +18,7 @@ const Posteohome = () => {
     description: "",
     user: "",
   });
-  console.log(userExtra);
+
   const [errors, setErrors] = useState({
     image: "",
     title: "",
@@ -53,7 +53,7 @@ const Posteohome = () => {
       (user) => user.id === userNumber && user.premium
     );
 
-    console.log(premiumUser);
+
     if (premiumUser) {
       dispatch(addHomePosts(post));
       setPost({
@@ -115,7 +115,7 @@ const Posteohome = () => {
             type="text"
             name="user"
           />
-          {console.log(post)}
+
           <button
             disabled={
               !post.title ||

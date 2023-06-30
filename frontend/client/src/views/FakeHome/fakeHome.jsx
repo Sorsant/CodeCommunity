@@ -2,12 +2,11 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getHomePosts } from "../../components/Redux/Actions/ActionHome";
 import { fakeButton } from "../../components/Redux/Actions/ActionHome";
-import PosteoCards from "../../components/Posts_Proyect/Cards/Cards";
+import PosteoCards from "../../components/Posts_Proyect/cardsFake/cards";
 import CommunityCard from "../../views/Community/communityCards";
 import NewsCard from "../news/newsCards";
 import styles from "./fakeHome.module.css";
 import Filter from "../../components/Filter/Filter";
-import Posteohome from "../home/PostHome/PostHome";
 import { getUsers } from "../../components/Redux/Actions/User/actionUser";
 import { getUserExtras } from "../../components/Redux/Actions/User/actionUser";
 import { fakeLogin } from "../../components/Redux/Actions/ActionHome.js";
@@ -25,7 +24,6 @@ const FakeHome = () => {
 
   return (
     <div className={styles.Container}>
-      <Posteohome />
       <div className={styles.filter}>
         <Filter />
       </div>

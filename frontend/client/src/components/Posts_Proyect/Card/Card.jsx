@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "./card.module.css";
 
 const PostCard = ({ id }) => {
-  const loggin = useSelector((state) => state.loggin);
+  const loggin = useSelector((state) => state.home.login);
   const users = useSelector((state) => state.home.users);
   const post = useSelector((state) => state.home.posts.find((post) => post.id === id));
   const userExtra = useSelector((state) => state.home.userExtra)

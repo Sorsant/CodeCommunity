@@ -7,6 +7,7 @@ import {
   getPostId,
   getSearchPosts,
   loginSwitch,
+
 } from "../Reducer/HomeReducer";
 
 export const getHomePosts = () => async (dispatch) => {
@@ -38,7 +39,9 @@ export const getPostIds = (id) => async (dispatch) => {
   const endpoint = `https://codecommunity-production.up.railway.app/codec/api/post/${id}`;
   const { data } = await axios.get(endpoint);
   dispatch(getPostId(data));
+  console.log(data);
 };
+
 
 export const search = (name) => async (dispatch) => {
   const endpoint = `https://codecommunity-production.up.railway.app/codec/api/post/?search=${name}`;
@@ -62,3 +65,10 @@ export const fakeLogin = () => (dispatch) => {
   const data = true;
   dispatch(loginSwitch(data));
 };
+
+export const uploadPost = (post) => async (dispatch) => {
+  const url = "https://codecommunity-production.up.railway.app/codec/api/post/";
+  await axios.put(url, post);
+  return url;
+};
+

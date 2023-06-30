@@ -21,11 +21,6 @@ const LandingPage = () => {
             <h1>Log in !</h1>
           </Link>
         </button>
-        <button className={styles.buttons}>
-          <Link className={styles.link} to="/home">
-            <h1>Home !</h1>
-          </Link>
-        </button>
       </div>
 
       <div className={styles.contenedor}>

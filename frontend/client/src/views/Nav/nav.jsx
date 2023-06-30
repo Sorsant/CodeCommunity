@@ -17,6 +17,7 @@ const Nav = () => {
 
   return (
     <div className={styles.containerNav}>
+
       <nav className="navbar navbar-dark bg-dark ">
         <SearchBar />
         <div className={styles.title}>
@@ -54,7 +55,7 @@ const Nav = () => {
                 className={`offcanvas-title ${styles["title_toggle"]}`}
                 id="offcanvasDarkNavbarLabel"
               >
-                Access
+                Navegation
               </h5>
               <button
                 type="button"

@@ -18,9 +18,10 @@ import NewsPost from "./components/News Post/NewsPost";
 import Books from "./views/Education/Books/books";
 import Footer from "./views/Footer/footer";
 import About from "./views/About/about";
-// import Instructor from "./views/Instructor/instructor";
+import Instructor from "./views/Instructor/instructor";
 import DetailCommunity from "./views/DetailCommunity/detailCommunity";
 import FakeHome from "./views/FakeHome/fakeHome";
+
 
 // import HomePage from './containers/HomePage';
 import DashboardPage from "./containers/DashboardPage";
@@ -30,11 +31,13 @@ import RegisterPage from "./containers/RegisterPage";
 import { checkAuth } from "./components/Redux/user";
 import { getUser } from "./components/Redux/user";
 import { getUserExtras } from "./components/Redux/Actions/User/actionUser";
+
 axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 // import Home from './/Home';
-axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
+
 const App = () => {
   const dispatch = useDispatch();
+
   const { isAuthenticated } = useSelector((state) => state.userdb
   );
   useEffect(() => {
@@ -47,11 +50,12 @@ const App = () => {
   return (
     <div>
       {location.pathname !== "/" && location.pathname !== "/login" && location.pathname !== "/register" ? <Nav /> : null}
+
       {isAuthenticated ?
         <Routes>
           <Route path='/home' element={<Home />} />
           <Route path='/dashboard' element={<DashboardPage />} />
-
+          <Route path='/login' element={<LoginPage />} />
           <Route path="/communities/:id" element={<DetailCommunity />} />
           <Route path="/groups/:name" element={<DetailCommunity />} />
           <Route path="/education" element={<Books />} />
@@ -61,7 +65,7 @@ const App = () => {
           <Route path="/Q&A" element={<QandA />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/edit" element={<Edit />} />
-          <Route path="/detail/:id" element={<PostDetail />} />{" "}
+          <Route path="/detail/:id" element={<PostDetail />} />
           <Route path="/newspost" element={<NewsPost />} />
           <Route path="/about" element={<About />} />
           {/* <Route path="/instructor" element={<Instructor />} /> */}
@@ -74,9 +78,11 @@ const App = () => {
           <Route path="/" element={<LandingPage />} /> &&
           <Route path='/register' element={<RegisterPage />} />
           <Route path="/ResetPassword" element={<ResetPasswordPage />} />
-          {/* <Route path='/*' element={<Error />} /> */}
+
+          {/* <Route path='*' element={<Error />} /> */}
         </Routes>
       }
+
 
       {location.pathname !== "/" && location.pathname !== "/login" && location.pathname !== "/register" && location.pathname !== "*" ? <Footer /> : null}
     </div>
