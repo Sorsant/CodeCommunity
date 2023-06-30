@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export const homeSlice = createSlice({
-  name: 'home',
+  name: "home",
   initialState: {
     posts: [],
     login: false,
@@ -21,14 +21,14 @@ export const homeSlice = createSlice({
     },
     filterTime: (state, action) => {
       const sortedPosts = [...state.posts];
-      if (action.payload === 'news') {
+      if (action.payload === "news") {
         sortedPosts.sort((a, b) => {
           const dateA = new Date(a.created);
           const dateB = new Date(b.created);
           return dateB - dateA;
         });
       }
-      if (action.payload === 'old') {
+      if (action.payload === "old") {
         sortedPosts.sort((a, b) => {
           const dateA = new Date(a.created);
           const dateB = new Date(b.created);
@@ -44,10 +44,10 @@ export const homeSlice = createSlice({
       state.posts = action.payload;
     },
     loginSwitch: (state, action) => {
-      state.login= action.payload;
+      state.login = action.payload;
     },
     addPosts: (state, action) => {
-      state.addPost = action.payload
+      state.addPost = action.payload;
     },
     getUser: (state, action) => {
       state.users = action.payload;
@@ -55,8 +55,12 @@ export const homeSlice = createSlice({
 
     getUserExtra: (state, action) => {
       state.userExtra = action.payload;
-    }
-}});
+    },
+    instructorSwitch: (state, action) => {
+      state.instructor = action.payload;
+    },
+  },
+});
 
 export const {
   getAllPosts,
@@ -68,7 +72,8 @@ export const {
   loginSwitch,
   addPosts,
   getUserExtra,
-  getUser
+  getUser,
+  instructorSwitch,
 } = homeSlice.actions;
 
 export default homeSlice.reducer;
