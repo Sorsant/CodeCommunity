@@ -8,7 +8,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('codec/', include('code_api.routes.principal_urls')),
     path('stripe/', include('code_api.routes.stripe_urls')),
-
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
     path('auth/', include('djoser.social.urls')),
