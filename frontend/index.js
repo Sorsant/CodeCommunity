@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session')
 const cookieParser = require('cookie-parser');
 
 const path = require('path');
@@ -11,8 +12,10 @@ const meRoute = require('./routes/auth/me');
 const registerRoute = require('./routes/auth/register');
 const verifyRoute = require('./routes/auth/verify');
 const resetPasswordRoute = require('./routes/auth/resetPassword');
+const googleRoute = require('./routes/auth/google');
 
 const app = express();
+
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -20,8 +23,14 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     next();
 });
+
 app.use(express.json());
 app.use(cookieParser());
+app.use(session({
+    secret: 'secret-key',
+    resave: false,
+    saveUninitialized: true
+  }));
 
 app.use(loginRoute);
 app.use(logoutRoute);
@@ -29,6 +38,7 @@ app.use(meRoute);
 app.use(registerRoute);
 app.use(verifyRoute);
 app.use(resetPasswordRoute);
+app.use(googleRoute);
 
 app.use(express.static('client/build'));
 app.get('*', (req, res) => {

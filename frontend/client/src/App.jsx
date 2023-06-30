@@ -23,11 +23,13 @@ import DetailCommunity from "./views/DetailCommunity/detailCommunity";
 // import FakeHome from "./views/FakeHome/fakeHome";
 
 // import HomePage from './containers/HomePage';
+import GoogleLogin from './containers/GoogleLogin'
 import DashboardPage from './containers/DashboardPage';
 import ResetPasswordPage from "./containers/ResetPasswordPage";
 import LoginPage from './containers/LoginPage';
 import RegisterPage from './containers/RegisterPage';
 import { checkAuth } from './components/Redux/user';
+
 axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 // import Home from './/Home';
 const App = () => {
@@ -45,6 +47,7 @@ const App = () => {
         <Route path='/home' element={<Home />} />
         <Route path='/dashboard' element={<DashboardPage />} />
         <Route path='/login' element={<LoginPage />} />
+        <Route path='/google' element={<GoogleLogin/> } />
         <Route path='/register' element={<RegisterPage />} />
         <Route path="/ResetPassword" element={<ResetPasswordPage />} />
 
