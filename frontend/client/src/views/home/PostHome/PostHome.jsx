@@ -4,13 +4,13 @@ import styles from "./post.module.css";
 import { useDispatch } from "react-redux";
 import { addHomePosts } from "../../../components/Redux/Actions/ActionHome";
 import { useSelector } from "react-redux";
-// import { getUserExtras } from "../../../components/Redux/Actions/User/actionUser";
+import { getUserExtras } from "../../../components/Redux/Actions/User/actionUser";
 import { useEffect } from "react";
 
 const Posteohome = () => {
   const login = useSelector((state) => state.home.login);
   const dispatch = useDispatch();
-  // const userExtra = useSelector((state) => state.user.userExtra);
+  const userExtra = useSelector((state) => state.home.userExtra);
 
   const [post, setPost] = useState({
     image: "",
@@ -25,9 +25,6 @@ const Posteohome = () => {
     description: "",
   });
 
-  useEffect(() => {
-    // dispatch(getUserExtras());
-  }, [dispatch]);
 
   const handleOnChange = (event) => {
     const { name, value } = event.target;
@@ -46,32 +43,36 @@ const Posteohome = () => {
   };
 
   const handleOnSubmit = (event) => {
-
     if (!login) {
       // Si el usuario no está logueado, muestra el componente de login
       window.location.href = `/login`;
       return;
     }
+    const userNumber = Number(post.user);
+    const premiumUser = userExtra.find(
+      (user) => user.id === userNumber && user.premium
+    );
 
-  //   const userNumber = Number(post.user);
-  //   const premiumUser = userExtra.find((user) => user.premium && user.user === userNumber);
-  //   console.log(premiumUser)
-  //   if (premiumUser) {
-  //     dispatch(addHomePosts(post));
-  //     setPost({
-  //       image: "",
-  //       title: "",
-  //       description: "",
-  //       user: "",
-  //     });
-  //   } else {
-  //     alert("You need to be a premium user to post.");
-  //     setPost({
-  //       ...post,
-  //       user: "",
-  //     });
-  //   }
+    if (premiumUser) {
+      dispatch(addHomePosts(post));
+      setPost({
+        image: "",
+        title: "",
+        description: "",
+        user: "",
+      });
+    } else {
+      alert("You need to be a premium user to post.");
+      setPost({
+        ...post,
+        user: "",
+      });
+    }
   };
+
+  useEffect(() => {
+    dispatch(getUserExtras());
+  }, [dispatch]);
 
   return (
     <div className={styles.containerForm}>
@@ -113,7 +114,7 @@ const Posteohome = () => {
             type="text"
             name="user"
           />
-          {console.log(post)}
+
           <button
             disabled={
               !post.title ||
