@@ -56,6 +56,42 @@ export const getUser = createAsyncThunk("users/me", async (_, thunkAPI) => {
   }
 });
 
+export const googleAuthenticate = createAsyncThunk(
+  'users/google',
+  async ({ state, code }, thunkAPI) => {
+      const body = JSON.stringify({
+        code,
+        state,
+      });
+      
+      try {
+        const res = await fetch('/api/users/google', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body,
+        });
+
+        const data = await res.json();
+        console.log(data);
+
+        if (res.status === 200) {
+          const { dispatch } = thunkAPI;
+          dispatch(getUser());
+
+          return data;
+        } else {
+          return thunkAPI.rejectWithValue(data);
+        }
+      } catch (err) {
+        return thunkAPI.rejectWithValue(err.response.data);
+      }
+
+    }
+)
+
 export const login = createAsyncThunk(
   "users/login",
   async ({ email, password }, thunkAPI) => {
@@ -254,17 +290,17 @@ const userSlice = createSlice({
       .addCase(login.rejected, (state) => {
         state.loading = false;
       })
-      .addCase(facebookLogin.pending, (state) => {
+      .addCase(googleAuthenticate.pending, state => {
         state.loading = true;
       })
-      .addCase(facebookLogin.fulfilled, (state) => {
+      .addCase(googleAuthenticate.fulfilled, state => {
         state.loading = false;
         state.isAuthenticated = true;
       })
-      .addCase(facebookLogin.rejected, (state) => {
+      .addCase(googleAuthenticate.rejected, state => {
         state.loading = false;
       })
-      .addCase(getUser.pending, (state) => {
+      .addCase(getUser.pending, state => {
         state.loading = true;
       })
       .addCase(getUser.fulfilled, (state, action) => {

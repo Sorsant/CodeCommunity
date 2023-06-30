@@ -5,6 +5,7 @@ import { login } from "../components/Redux/user";
 import FacebookLogin from '../containers/FacebookLogin'
 import { resetRegistered } from "../components/Redux/user";
 import Layout from "../components/Layout";
+import axios from "axios";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -30,6 +31,17 @@ const LoginPage = () => {
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const googleAuthSession = async () => {
+    const res = await axios.get('http://localhost:8000/auth/o/google-oauth2/?redirect_uri=http://localhost:3000/google', { withCredentials: true });
+    const authorizationUrl = res.data.authorization_url;
+
+    if (authorizationUrl) {
+      window.location.replace(authorizationUrl);
+    } else {
+      console.error('No se encontró la URL de autorización en la respuesta');
+    }
   };
 
   const onSubmit = (e) => {
@@ -79,6 +91,9 @@ const LoginPage = () => {
         ) : (
           <button className="btn btn-primary mt-4">Login</button>
         )}
+        <button onClick={googleAuthSession}>
+          Google
+        </button>
       </form>
       <FacebookLogin />
     </Layout>

@@ -22,18 +22,17 @@ import Instructor from "./views/Instructor/instructor";
 import DetailCommunity from "./views/DetailCommunity/detailCommunity";
 import FakeHome from "./views/FakeHome/fakeHome";
 
-// import HomePage from './containers/HomePage';
-import DashboardPage from "./containers/DashboardPage";
+import GoogleLogin from './containers/GoogleLogin'
+import DashboardPage from './containers/DashboardPage';
 import ResetPasswordPage from "./containers/ResetPasswordPage";
-import LoginPage from "./containers/LoginPage";
-import RegisterPage from "./containers/RegisterPage";
-import { checkAuth } from "./components/Redux/user";
+import LoginPage from './containers/LoginPage';
+import RegisterPage from './containers/RegisterPage';
+import { checkAuth } from './components/Redux/user';
 import { getUser } from "./components/Redux/user";
 import { getUserExtras } from "./components/Redux/Actions/User/actionUser";
 import { getAllLanguages } from "./components/Redux/Actions/Community/ActionCommunity";
 
 axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
-// import Home from './/Home';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -49,6 +48,15 @@ const App = () => {
   const location = useLocation();
   return (
     <div>
+      {location.pathname !== "/" && location.pathname !== "/login" && location.pathname !== "/register" ? <Nav /> : null}
+      <Routes>
+        <Route path='/home' element={<Home />} />
+        <Route path='/dashboard' element={<DashboardPage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/google' element={<GoogleLogin/> } />
+        <Route path='/register' element={<RegisterPage />} />
+        <Route path="/ResetPassword" element={<ResetPasswordPage />} />
+        </Routes>
       {location.pathname !== "/" &&
       location.pathname !== "/login" &&
       location.pathname !== "/register" ? (
