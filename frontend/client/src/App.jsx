@@ -30,6 +30,7 @@ import RegisterPage from "./containers/RegisterPage";
 import { checkAuth } from "./components/Redux/user";
 import { getUser } from "./components/Redux/user";
 import { getUserExtras } from "./components/Redux/Actions/User/actionUser";
+import { getAllLanguages } from "./components/Redux/Actions/Community/ActionCommunity";
 
 axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
 // import Home from './/Home';
@@ -41,7 +42,7 @@ const App = () => {
   useEffect(() => {
     dispatch(checkAuth());
     dispatch(getUser());
-
+    dispatch(getAllLanguages());
     dispatch(getUserExtras());
   }, [dispatch]);
 

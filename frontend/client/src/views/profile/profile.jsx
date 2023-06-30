@@ -13,8 +13,10 @@ const Profile = () => {
   const user = useSelector((state) => state.userdb.user);
   const extras = useSelector((state) => state.home.userExtra);
   const extra = extras.find((users) => users.id === (user && user.id));
+  const languages = useSelector((state) => state.community.languages.data);
   const dispatch = useDispatch();
 
+  console.log("languages:", languages); // Agregar este console.log
   const [instructorChecked, setInstructorChecked] = useState(
     extra?.postulation || false
   );
@@ -75,22 +77,36 @@ const Profile = () => {
             {user && user.first_name ? user.first_name : <p>loading...</p>}{" "}
             {user && user.last_name ? user.last_name : <p>loading...</p>}
           </h2>
-          <ul>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>PostgresSQL</li>
-          </ul>
-          <p className={style.profile_description}>
-            Si estas leyendo esto, sos un capo, sabelo
-          </p>
+          {extra.language.map((langu) => {
+            const languageId = langu.toString();
+            const language = Array.isArray(languages)
+              ? languages.find((lang) => lang.id === +languageId)
+              : null;
+            const languageName = language?.name || "Unknown Language";
+
+            console.log("languageId:", languageId);
+            console.log("language:", language);
+            console.log("languageName:", languageName);
+
+            return (
+              <div className={style.div}>
+                <ul>
+                  <li>language={languageName}</li>
+                </ul>
+              </div>
+            );
+          })}
         </div>
-        <div className={style.profile_picture}>
-          {extra && extra.user_image ? (
-            <img src={extra.user_image} alt="" />
-          ) : (
-            <img src={imagen} alt="" />
-          )}
-        </div>
+        <p className={style.profile_description}>
+          Si estás leyendo esto, sos un capo, sabelo
+        </p>
+      </div>
+      <div className={style.profile_picture}>
+        {extra && extra.user_image ? (
+          <img src={extra.user_image} alt="" />
+        ) : (
+          <img src={imagen} alt="" />
+        )}
       </div>
     </div>
   );
