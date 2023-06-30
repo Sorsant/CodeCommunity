@@ -163,7 +163,8 @@ SIMPLE_JWT = {
 AUTH_USER_MODEL = "users.UserAccount"
 
 white_list = [
-    'http://localhost:3000/google'
+    'http://localhost:3000/google',
+    'https://codecommunity-production.up.railway.app',
 ]
 
 
