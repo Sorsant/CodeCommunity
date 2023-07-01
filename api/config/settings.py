@@ -20,6 +20,7 @@ import cloudinary.api
 SECRET_KEY = config("SECRET_KEY")
 STRIPE_SECRET_KEY = config("STRIPE_SECRET_KEY")
 
+URL_BACK = config('URL_BACK')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -157,7 +158,6 @@ SIMPLE_JWT = {
 
 AUTH_USER_MODEL = "users.UserAccount"
 
-URL_BACK = config('URL_BACK')
 
 white_list = [
     URL_BACK + '/accounts/profile/',
@@ -198,11 +198,11 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = ['first_name', 'last_name']
 #     'fields': 'email, first_name, last_name'
 # }
 
-# CSRF_TRUSTED_ORIGINS = [
-#     URL_BACK,
-#     "http://localhost:3000",
-#     "http://localhost:5000",
-# ]
+CSRF_TRUSTED_ORIGINS = [
+    URL_BACK,
+    "http://localhost:3000",
+    "http://localhost:5000",
+]
 
 
 # Password validation
@@ -259,6 +259,7 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
+    URL_BACK,
 ]
 
 # Cloudinary-django integration

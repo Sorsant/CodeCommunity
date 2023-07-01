@@ -35,8 +35,6 @@ class RedirectSocial(View):
         code, state = str(request.GET['code']), str(request.GET['state'])
         json_obj = {'code': code, 'state': state}
         request.session["state"] = state
-        print(json_obj)
-        print(request.session.get('state'))
         
         url = f"{self.API_URL}/auth/o/google-oauth2/"
         data = urllib.parse.urlencode(json_obj).encode('utf-8')
@@ -46,7 +44,7 @@ class RedirectSocial(View):
         }
         
         response = requests.post(url, data=data, headers=headers)
-        print(response.text)
+
         if response.status_code == 201:
             json_res = json.loads(response.text)
             access_token = json_res['access']
