@@ -267,6 +267,10 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'https://codecommunity-production.up.railway.app',
 ]
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+    'https://codecommunity-production.up.railway.app',
+]
 
 # Cloudinary-django integration
 cloudinary.config(
