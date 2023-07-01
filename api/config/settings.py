@@ -25,7 +25,7 @@ URL_BACK = config('URL_BACK')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [URL_BACK]
+ALLOWED_HOSTS = ['localhost', 'codecommunity-production.up.railway.app']
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
