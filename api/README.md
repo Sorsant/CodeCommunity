@@ -35,7 +35,7 @@ En caso de que te aparezca un error _"la ejecución de scripts está deshabilita
    - API_SECRET=McovSyzAVo-BHNz1ajg8OCs8EUs
 
    // URL API
-   - URL_BACK=https://codecommunity-production.up.railway.app
+   - URL_BACK=http://localhost:8000
    - URL_FRONT=http://localhost:3000
 
 ##

@@ -26,11 +26,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SAMESITE = 'None'
-SESSION_COOKIE_SAMESITE = 'None'
-
 # Application definition
 
 BASE_APPS = [
@@ -75,16 +70,16 @@ JAZZMIN_UI_TWEAKS = {
 
 
 MIDDLEWARE = [
-    "whitenoise.middleware.WhiteNoiseMiddleware",
-    "django.middleware.security.SecurityMiddleware",
-    "corsheaders.middleware.CorsMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "social_django.middleware.SocialAuthExceptionMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware', 
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -162,9 +157,10 @@ SIMPLE_JWT = {
 
 AUTH_USER_MODEL = "users.UserAccount"
 
+URL_BACK = config('URL_BACK')
+
 white_list = [
-    'http://localhost:3000/google',
-    'https://codecommunity-production.up.railway.app',
+    URL_BACK + '/accounts/profile/',
 ]
 
 
@@ -192,7 +188,7 @@ DJOSER = {
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '568337488204-8ne1t810h1ajiuk7kp6jas89jpje2u47.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile', 'openid']
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile']
 SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = ['first_name', 'last_name']
 
 # SOCIAL_AUTH_FACEBOOK_KEY = '[YOUR FACEBOOK API KEY]'
@@ -202,13 +198,11 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = ['first_name', 'last_name']
 #     'fields': 'email, first_name, last_name'
 # }
 
-LOGIN_REDIRECT_URL = "http://localhost:3000/login"
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://codecommunity-production.up.railway.app",
-    "http://localhost:3000",
-    "http://localhost:5000",
-]
+# CSRF_TRUSTED_ORIGINS = [
+#     URL_BACK,
+#     "http://localhost:3000",
+#     "http://localhost:5000",
+# ]
 
 
 # Password validation
@@ -265,14 +259,10 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
-    'https://codecommunity-production.up.railway.app',
-]
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-    'https://codecommunity-production.up.railway.app',
 ]
 
 # Cloudinary-django integration
+
 cloudinary.config(
     cloud_name=config("CLOUD_NAME"),
     api_key=config("API_KEY"),
