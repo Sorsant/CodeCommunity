@@ -27,8 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'codecommunity-production.up.railway.app']
 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_SAMESITE = 'Lax'
 
