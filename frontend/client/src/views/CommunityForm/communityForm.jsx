@@ -6,10 +6,11 @@ import { getAllLanguages } from "../../components/Redux/Actions/Community/Action
 import validate from "./validate";
 import { useDispatch, useSelector } from "react-redux";
 import CommunityCard from "../Community/communityCards";
+import CloudinaryUploadWidget from "./CloudinaryWidget/CloudinaryUploadWidget";
 
 const CommunityForm = () => {
     const dispatch = useDispatch();
-    const languages = useSelector((state => state.Community.languages))
+    //const languages = useSelector((state => state.Community.languages))
 
     const [inputValues, setInputValues] = useState({
         name: "",
@@ -26,6 +27,14 @@ const CommunityForm = () => {
         image: ""
 
     });
+
+    const handleImageUrl = (secureUrl) => {
+
+        setInputValues({
+          ...inputValues,
+          image: secureUrl
+        });
+      };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -89,19 +98,13 @@ const CommunityForm = () => {
                     />
                     {errors.description && <span>{errors.description}</span>}
 
-                    <input
-                        onChange={handleChange}
-                        value={inputValues.image}
-                        className={styles.data}
-                        type="text"
-                        name="image"
-                        placeholder="Put an image"
-                    />
+                    <label>Image</label>
+                    <CloudinaryUploadWidget onImageUrl={handleImageUrl}/>
                     {errors.description && <span>{errors.description}</span>}
 
-                    <label htmlFor="languages">Languages:</label>
+                    {/* <label htmlFor="languages">Languages:</label> */}
 
-                    <select
+                    {/* <select
                         onChange={handleChangeOption}
                         name="language"
                         value={inputValues.language}
@@ -116,7 +119,7 @@ const CommunityForm = () => {
                                 {lan.name}
                             </option>
                         ))}
-                    </select>
+                    </select> */}
                     {errors.language && <span>{errors.language}</span>}
 
                     <button disabled={disabled}>Create</button>

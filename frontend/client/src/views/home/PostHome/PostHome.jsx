@@ -1,53 +1,67 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import validate from "./validatePost";
 import styles from "./post.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addHomePosts } from "../../../components/Redux/Actions/ActionHome";
-import { useSelector } from "react-redux";
 import { getUserExtras } from "../../../components/Redux/Actions/User/actionUser";
-import { useEffect } from "react";
+import CloudinaryUploadWidget from "./CloudinaryWidget/CloudinaryUploadWidget";
 
 const Posteohome = () => {
   const login = useSelector((state) => state.home.login);
   const dispatch = useDispatch();
   const userExtra = useSelector((state) => state.home.userExtra);
+  const userInfo = useSelector((state) => state.userdb.user);
 
   const [post, setPost] = useState({
     image: "",
     title: "",
     description: "",
-    user: "",
+    user: null
   });
 
   const [errors, setErrors] = useState({
     image: "",
     title: "",
-    description: "",
+    description: ""
   });
 
+
+  useEffect(() => {
+    localStorage.setItem("loggedInUserId", JSON.stringify(userInfo?.id));
+    setPost((prevPost) => ({
+      ...prevPost,
+      user: userInfo?.id
+    }));
+  }, [userInfo]);
 
   const handleOnChange = (event) => {
     const { name, value } = event.target;
 
-    setPost({
-      ...post,
-      [name]: value,
-    });
+    setPost((prevPost) => ({
+      ...prevPost,
+      [name]: value
+    }));
 
     const updatedErrors = validate({
       ...post,
-      [name]: value,
+      [name]: value
     });
 
     setErrors(updatedErrors);
   };
 
+  const handleImageUrl = (secureUrl) => {
+
+    setPost((prevPost) => ({
+      ...prevPost,
+      image: secureUrl
+    }));
+  };
+
   const handleOnSubmit = (event) => {
-    if (!login) {
-      // Si el usuario no está logueado, muestra el componente de login
-      window.location.href = `/login`;
-      return;
-    }
+
+    event.preventDefault();
+ 
     const userNumber = Number(post.user);
     const premiumUser = userExtra.find(
       (user) => user.id === userNumber && user.premium
@@ -59,14 +73,14 @@ const Posteohome = () => {
         image: "",
         title: "",
         description: "",
-        user: "",
+        user: post.user
       });
     } else {
       alert("You need to be a premium user to post.");
-      setPost({
-        ...post,
-        user: "",
-      });
+      setPost((prevPost) => ({
+        ...prevPost,
+        user: ""
+      }));
     }
   };
 
@@ -76,6 +90,7 @@ const Posteohome = () => {
 
   return (
     <div className={styles.containerForm}>
+      {console.log(post)}
       {login ? (
         <form onSubmit={handleOnSubmit}>
           <label>Title</label>
@@ -99,21 +114,7 @@ const Posteohome = () => {
           {errors.description && <span>{errors.description}</span>}
 
           <label>Image</label>
-          <input
-            onChange={handleOnChange}
-            value={post.image}
-            type="text"
-            name="image"
-          />
-          {errors.image && <span>{errors.image}</span>}
-
-          <label>user</label>
-          <input
-            onChange={handleOnChange}
-            value={post.user}
-            type="text"
-            name="user"
-          />
+          <CloudinaryUploadWidget onImageUrl={handleImageUrl}/>
 
           <button
             disabled={
@@ -129,7 +130,7 @@ const Posteohome = () => {
           </button>
         </form>
       ) : (
-        <p className={styles.advice}>login to post!</p>
+        <p className={styles.advice}>Login to post!</p>
       )}
     </div>
   );
