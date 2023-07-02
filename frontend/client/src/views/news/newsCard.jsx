@@ -14,7 +14,7 @@ const NewsCard = ({ Link, Category, Author, Image, Description, Title }) => {
     }
   };
   return (
-    <div className={`card ${styles.newsCard}`} style={{ height: "750px" }}>
+    <div className={`card ${styles.newsCard}`} style={{ height: "750px", backgroundColor: "#454545" }}>
       <img src={Image} className="card-img-top" alt="Image Not Found" />
       <div className="card-body">
         <h5 className={`card-title ${styles.title}`}>{Title}</h5>

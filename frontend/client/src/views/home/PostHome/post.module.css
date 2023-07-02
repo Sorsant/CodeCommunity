@@ -1,13 +1,13 @@
 .containerForm {
-  background-color: rgb(221, 212, 212);
+  background-color: #454545;
   position: absolute;
-  margin-left: 370px;
   padding: 10px;
   border-radius: 5px;
-  margin-top: -60px;
+  margin-top: 25px;
 }
 
 .containerForm label {
+  color: white;
   margin-right: 10px;
   margin-left: 10px;
   font-weight: bold;
@@ -15,7 +15,7 @@
 }
 
 .errors {
-  position: absolute;
+  position: relative;
   margin-top: 50px;
   margin-left: -190px;
   font-weight: bold;
@@ -30,7 +30,7 @@
   border: 2px #323232 solid;
   padding: 5px 15px;
   background-color: #e8e8e8;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 500;
 }
 
@@ -42,7 +42,8 @@
   z-index: 1;
   background: #e8e8e8;
   position: relative;
-  margin-left: 5px;
+  margin-left: 15px;
+  margin-top: 10px;
   font-weight: 1000;
   font-size: 15px;
   -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
@@ -69,7 +70,6 @@
 .button:hover {
   transform: translateY(-5px);
 }
-
 
 .linkButton {
   text-decoration: none;

@@ -95,7 +95,7 @@ const LoginPage = () => {
           Google
         </button>
       </form>
-      <FacebookLogin />
+      {/* <FacebookLogin /> */}
     </Layout>
   );
 };

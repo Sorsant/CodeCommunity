@@ -24,7 +24,9 @@ const Home = () => {
 
   return (
     <div className={styles.Container}>
-      <Posteohome />
+      <div className={styles.posteoDiv}>
+        <Posteohome />
+      </div>
       <div className={styles.filter}>
         <Filter />
       </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import PosteoCard from "../Card/Card";
 import { useSelector } from "react-redux";
+import styles from './cards.module.css'
 
 const PosteoCards = () => {
     const posteos = useSelector((state) => state.home.posts);
@@ -11,7 +12,7 @@ const PosteoCards = () => {
     }
 
     return (
-        <div>
+        <div className={styles.containerCards}>
             {posteos.map((post) => (
                 <div key={post.id}>
                     <PosteoCard

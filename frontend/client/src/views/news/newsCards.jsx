@@ -32,7 +32,7 @@ const NewsCards = () => {
                 });
 
                 return (
-                    <Carousel.Item key={news.id} >
+                    <Carousel.Item key={news.id}>
                         <NewsCard
                             Link={news.link}
                             Category={categoryNames}
