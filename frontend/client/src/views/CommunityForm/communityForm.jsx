@@ -9,7 +9,7 @@ import CommunityCard from "../Community/communityCards";
 
 const CommunityForm = () => {
     const dispatch = useDispatch();
-    const languages = useSelector((state => state.Community.languages))
+    const languages = useSelector((state => state.community.languages.data))
 
     const [inputValues, setInputValues] = useState({
         name: "",
@@ -29,8 +29,17 @@ const CommunityForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        alert("Community Created")
         setInputValues({ ...inputValues, created: new Date().toISOString() });
         dispatch(addCommunity(inputValues));
+        setInputValues({
+            name: "",
+            description: "",
+            image: "",
+            language: [],
+        
+        });
+        
     };
 
 

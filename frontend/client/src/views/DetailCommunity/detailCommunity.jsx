@@ -13,7 +13,7 @@ const DetailCommunity = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  const languages = useSelector((state) => state.community.languages.data);
+  // const languages = useSelector((state) => state.community.languages.data);
   const community = useSelector((state) => state.community.communities);
 
   useEffect(() => {
@@ -24,19 +24,19 @@ const DetailCommunity = () => {
     dispatch(getAllLanguages());
   }, [dispatch, id]);
 
-  const getLanguageNames = () => {
-    if (Array.isArray(community.language)) {
-      return community.language.map((languageId) => {
-        const language = languages.find((lang) => lang.id === languageId);
-        return language ? language.name : "";
-      });
-    } else {
-      const language = languages.find((lang) => lang.id === community.language);
-      return language ? [language.name] : [];
-    }
-  };
+  // const getLanguageNames = () => {
+  //   if (Array.isArray(community.language)) {
+  //     return community.language.map((languageId) => {
+  //       const language = languages.find((lang) => lang.id === languageId);
+  //       return language ? language.name : "";
+  //     });
+  //   } else {
+  //     const language = languages.find((lang) => lang.id === community.language);
+  //     return language ? [language.name] : [];
+  //   }
+  // };
 
-  const languageNames = getLanguageNames();
+  // const languageNames = getLanguageNames();
 
   return (
     <div>
@@ -47,7 +47,7 @@ const DetailCommunity = () => {
           alt={community.image}
           className={styles.image}
         />
-        <h1>{languageNames}</h1>
+        {/* <h1>{languageNames}</h1> */}
         <p className={styles.description}>{community.description}</p>
         <button>
           <Link to="/home">

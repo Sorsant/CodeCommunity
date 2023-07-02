@@ -21,6 +21,7 @@ import About from "./views/About/about";
 import Instructor from "./views/Instructor/instructor";
 import DetailCommunity from "./views/DetailCommunity/detailCommunity";
 import FakeHome from "./views/FakeHome/fakeHome";
+import PayInstructor from "./components/Pay Instructor/PayInstructor";
 
 import GoogleLogin from './containers/GoogleLogin'
 import DashboardPage from './containers/DashboardPage';
@@ -49,19 +50,7 @@ const App = () => {
   return (
     <div>
       {location.pathname !== "/" && location.pathname !== "/login" && location.pathname !== "/register" ? <Nav /> : null}
-      <Routes>
-        <Route path='/home' element={<Home />} />
-        <Route path='/dashboard' element={<DashboardPage />} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/google' element={<GoogleLogin/> } />
-        <Route path='/register' element={<RegisterPage />} />
-        <Route path="/ResetPassword" element={<ResetPasswordPage />} />
-        </Routes>
-      {location.pathname !== "/" &&
-      location.pathname !== "/login" &&
-      location.pathname !== "/register" ? (
-        <Nav />
-      ) : null}
+
 
       {isAuthenticated ? (
         <Routes>
@@ -80,11 +69,13 @@ const App = () => {
           <Route path="/detail/:id" element={<PostDetail />} />
           <Route path="/newspost" element={<NewsPost />} />
           <Route path="/about" element={<About />} />
-          {/* <Route path="/instructor" element={<Instructor />} /> */}
+          <Route path="/instructor" element={<Instructor />} />
+          <Route path="/postulacion/:id" element={<PayInstructor />} />
         </Routes>
       ) : (
         <Routes>
           <Route path="/login" element={<LoginPage />} /> &&
+          <Route path='/google' element={<GoogleLogin/> } /> &&
           <Route path="/fakeHome" element={<FakeHome />} /> &&
           <Route path="/" element={<LandingPage />} /> &&
           <Route path="/register" element={<RegisterPage />} />

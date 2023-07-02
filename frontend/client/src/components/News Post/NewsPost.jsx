@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 import validate from "./validate";
 import styles from "./NewsPost.module.css";
-// import { addNews } from "../Redux/Actions/Post/action-post";
+import { addNews } from "../Redux/Actions/News/actionNews";
 import { useDispatch, useSelector } from "react-redux";
-// import { Getcategory } from "../Redux/Actions/Get/action-get";
+import { getCategories } from "../Redux/Actions/News/actionNews";
 import { useNavigate } from "react-router-dom";
 
 const NewsPost = () => {
     const dispatch = useDispatch();
-    const selectCategory = useSelector(state => state.category)
+    const selectCategory = useSelector(state => state.news.category)
     const navigate = useNavigate();
 
     useEffect(() => {
-        // dispatch((Getcategory()))
+        dispatch((getCategories()))
     }, [dispatch])
 
     const getCurrentDate = () => {
@@ -27,7 +27,7 @@ const NewsPost = () => {
         author: "",
         description: "",
         image: "",
-        createDate: getCurrentDate(),
+        created: getCurrentDate()
     });
 
     const [errors, setErrors] = useState({
@@ -57,9 +57,16 @@ const NewsPost = () => {
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
-        // dispatch(addNews(postNews));
-        alert("Noticia creada");
-        navigate("/home");
+        dispatch(addNews(postNews));
+        alert("New created");
+        setPost({
+            link: "",
+            title: "",
+            category: [],
+            author: "",
+            description: "",
+            image: "",
+        })
     };
     const handleSelect = (event) => {
         setPost({ ...postNews, category: [...postNews.category, event.target.value] });
@@ -70,6 +77,7 @@ const NewsPost = () => {
 
     return (
         <div className={styles.form}>
+             {console.log({ postNews })}
             {console.log({ selectCategory })}
             <form onSubmit={handleOnSubmit} className={styles.container}>
                 <div className={styles.containerdiv}>
@@ -130,7 +138,7 @@ const NewsPost = () => {
                     <input
                         onChange={handleOnChange}
                         value={postNews.image}
-                        type="file"
+                        type=""
                         name="image"
                     />
                     <hr></hr>

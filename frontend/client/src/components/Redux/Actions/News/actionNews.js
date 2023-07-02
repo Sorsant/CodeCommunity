@@ -18,3 +18,7 @@ export const getCategories = () => async (dispatch) => {
     dispatch(getallCategory(data));
 }
 
+export const addNews = (postNews) => async () => {
+    const url = await axios.post('https://codecommunity-production.up.railway.app/codec/api/news/', postNews )
+       return url
+    }
