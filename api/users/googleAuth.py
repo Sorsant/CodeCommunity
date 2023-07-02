@@ -10,10 +10,10 @@ API_URL = config('URL_BACK')
 URL_FRONT = config('URL_FRONT')
 
 
-def loginGoogle(self, request):
+def loginGoogle(request):
     try:
-        response = requests.get(f"{self.API_URL}/auth/o/google-oauth2/", params={
-            "redirect_uri": f"{self.API_URL}/accounts/profile/",
+        response = requests.get(f"{API_URL}/auth/o/google-oauth2/", params={
+            "redirect_uri": f"{API_URL}/accounts/profile/",
         }, cookies=request.COOKIES)
 
         print(request.COOKIES)
@@ -28,12 +28,12 @@ def loginGoogle(self, request):
     return redirect("/")
     
 
-def redirectGoogle(self, request, *args, **kwargs):
+def redirectGoogle(request, *args, **kwargs):
     code, state = str(request.GET['code']), str(request.GET['state'])
     json_obj = {'code': code, 'state': state}
     request.session["state"] = state
     
-    url = f"{self.API_URL}/auth/o/google-oauth2/"
+    url = f"{API_URL}/auth/o/google-oauth2/"
     data = urllib.parse.urlencode(json_obj).encode('utf-8')
     headers = {
     'Content-Type': 'application/x-www-form-urlencoded',
@@ -47,7 +47,7 @@ def redirectGoogle(self, request, *args, **kwargs):
         access_token = json_res['access']
         refresh_token = json_res['refresh']
         
-        redirect_url = f'{self.URL_FRONT}/google?access={access_token}&refresh={refresh_token}'
+        redirect_url = f'{URL_FRONT}/google?access={access_token}&refresh={refresh_token}'
         
         return redirect(redirect_url)
     else:
