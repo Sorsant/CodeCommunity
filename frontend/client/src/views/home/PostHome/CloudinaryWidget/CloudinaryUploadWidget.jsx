@@ -47,10 +47,16 @@ const CloudinaryUploadWidget = ({ onImageUrl }) => {
       myWidget.open();
     };
 
-    document.getElementById("upload_widget").addEventListener("click", handleClick, false);
+    const uploadWidgetElement = document.getElementById("upload_widget");
+
+    if (uploadWidgetElement) {
+      uploadWidgetElement.addEventListener("click", handleClick, false);
+    }
 
     return () => {
-      document.getElementById("upload_widget").removeEventListener("click", handleClick, false);
+      if (uploadWidgetElement) {
+        uploadWidgetElement.removeEventListener("click", handleClick, false);
+      }
     };
   }, []);
 
