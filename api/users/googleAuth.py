@@ -15,6 +15,8 @@ def loginGoogle(request):
             "redirect_uri": f"{API_URL}/accounts/profile/",
         }, cookies=request.COOKIES)
         
+        print('Hice la peticion')
+        
         authorization_url = response.json().get("authorization_url")
         if authorization_url:
             return redirect(authorization_url)
