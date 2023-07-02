@@ -21,6 +21,7 @@ SECRET_KEY = config("SECRET_KEY")
 STRIPE_SECRET_KEY = config("STRIPE_SECRET_KEY")
 
 URL_BACK = config('URL_BACK')
+URL_FRONT = config('URL_FRONT')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -162,6 +163,7 @@ AUTH_USER_MODEL = "users.UserAccount"
 
 
 white_list = [
+    URL_FRONT + '/google',
     URL_BACK + '/accounts/profile/',
 ]
 
@@ -190,7 +192,7 @@ DJOSER = {
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '568337488204-8ne1t810h1ajiuk7kp6jas89jpje2u47.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile']
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile', 'openid']
 SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = ['first_name', 'last_name']
 
 # SOCIAL_AUTH_FACEBOOK_KEY = '[YOUR FACEBOOK API KEY]'
@@ -202,8 +204,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = ['first_name', 'last_name']
 
 CSRF_TRUSTED_ORIGINS = [
     URL_BACK,
-    "http://localhost:3000",
-    "http://localhost:5000",
+    URL_FRONT,
 ]
 
 
@@ -255,12 +256,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # CORS
 
-SITE_URL = "http://localhost:3000"
+SITE_URL = URL_FRONT
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
+    URL_FRONT,
     URL_BACK,
 ]
 
