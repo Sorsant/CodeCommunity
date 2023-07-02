@@ -8,21 +8,20 @@ import requests
 API_URL = config('URL_BACK')
 URL_FRONT = config('URL_FRONT')
 
-def loginGoogle(request, *args, **kwargs):
-    try:
+def loginGoogle(request):
+    # try:
         response = requests.get(f"{API_URL}/auth/o/google-oauth2/", params={
             "redirect_uri": f"{API_URL}/accounts/profile/",
         }, cookies=request.COOKIES)
         
         authorization_url = response.json().get("authorization_url")
         if authorization_url:
-            # return redirect(authorization_url)
-            return HttpResponse(authorization_url)
+            return redirect(authorization_url)
         else:
             HttpResponse("No se encontró la URL de autorización en la respuesta")
-    except requests.RequestException as error:
-        HttpResponse(f"Error al realizar la solicitud: {error}")
-    return redirect("/")
+    # except requests.RequestException as error:
+    #     HttpResponse(f"Error al realizar la solicitud: {error}")
+    # return redirect("/")
     
 
 def redirectGoogle(request, *args, **kwargs):
