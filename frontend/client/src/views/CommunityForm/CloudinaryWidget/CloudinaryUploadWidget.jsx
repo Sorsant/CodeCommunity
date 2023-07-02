@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import styles from "../CloudinaryWidget/image.module.css";
 
 const CloudinaryUploadWidget = ({ onImageUrl }) => {
 
@@ -57,7 +58,7 @@ const CloudinaryUploadWidget = ({ onImageUrl }) => {
         <button id="upload_widget" className="cloudinary-button">
             Upload 
         </button>
-        <img id="uploadedimage" src="" /> 
+        <img id="uploadedimage" alt=" " className={styles.image}/> 
     </div>
   );
 };
