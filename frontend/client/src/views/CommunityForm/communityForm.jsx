@@ -6,6 +6,7 @@ import { getAllLanguages } from "../../components/Redux/Actions/Community/Action
 import validate from "./validate";
 import { useDispatch, useSelector } from "react-redux";
 import CommunityCard from "../Community/communityCards";
+import CloudinaryUploadWidget from "./CloudinaryWidget/CloudinaryUploadWidget";
 
 const CommunityForm = () => {
     const dispatch = useDispatch();
@@ -29,19 +30,25 @@ const CommunityForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert("Community Created")
+        alert("Created Community")
         setInputValues({ ...inputValues, created: new Date().toISOString() });
         dispatch(addCommunity(inputValues));
         setInputValues({
             name: "",
             description: "",
-            image: "",
             language: [],
-        
-        });
+            image: ""
+        })
         
     };
 
+    const handleImageUrl = (secureUrl) => {
+
+        setInputValues({
+        ...inputValues,
+        image: secureUrl
+        });
+    };
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -98,15 +105,6 @@ const CommunityForm = () => {
                     />
                     {errors.description && <span>{errors.description}</span>}
 
-                    <input
-                        onChange={handleChange}
-                        value={inputValues.image}
-                        className={styles.data}
-                        type="text"
-                        name="image"
-                        placeholder="Put an image"
-                    />
-                    {errors.description && <span>{errors.description}</span>}
 
                     <label htmlFor="languages">Languages:</label>
 
@@ -127,6 +125,9 @@ const CommunityForm = () => {
                         ))}
                     </select>
                     {errors.language && <span>{errors.language}</span>}
+
+                    <label className={styles}>Image</label>
+                    <CloudinaryUploadWidget onImageUrl={handleImageUrl}/>
 
                     <button disabled={disabled}>Create</button>
                 </form>

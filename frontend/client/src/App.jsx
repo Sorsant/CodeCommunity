@@ -21,9 +21,7 @@ import About from "./views/About/about";
 import Instructor from "./views/Instructor/instructor";
 import DetailCommunity from "./views/DetailCommunity/detailCommunity";
 import FakeHome from "./views/FakeHome/fakeHome";
-import PayInstructor from "./components/Pay Instructor/PayInstructor";
-
-import GoogleLogin from './containers/GoogleLogin'
+import GoogleLogin from './containers/GoogleLogin';
 import DashboardPage from './containers/DashboardPage';
 import ResetPasswordPage from "./containers/ResetPasswordPage";
 import LoginPage from './containers/LoginPage';
@@ -70,7 +68,7 @@ const App = () => {
           <Route path="/newspost" element={<NewsPost />} />
           <Route path="/about" element={<About />} />
           <Route path="/instructor" element={<Instructor />} />
-          <Route path="/postulacion/:id" element={<PayInstructor />} />
+      
         </Routes>
       ) : (
         <Routes>

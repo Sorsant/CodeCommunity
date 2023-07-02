@@ -4,6 +4,7 @@ import styles from "./post.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addHomePosts } from "../../../components/Redux/Actions/ActionHome";
 import { getUserExtras } from "../../../components/Redux/Actions/User/actionUser";
+import CloudinaryUploadWidget from "./CloudinaryWidget/CloudinaryUploadWidget";
 
 const Posteohome = () => {
   const login = useSelector((state) => state.home.login);
@@ -47,6 +48,13 @@ const Posteohome = () => {
     });
 
     setErrors(updatedErrors);
+  };
+
+  const handleImageUrl = (secureUrl) => {
+    setPost((prevPost) => ({
+      ...prevPost,
+      image: secureUrl
+    }));
   };
 
   const handleOnSubmit = (event) => {
@@ -103,13 +111,7 @@ const Posteohome = () => {
           {errors.description && <span>{errors.description}</span>}
 
           <label>Image</label>
-          <input
-            onChange={handleOnChange}
-            value={post.image}
-            type="text"
-            name="image"
-          />
-          {errors.image && <span>{errors.image}</span>}
+          <CloudinaryUploadWidget onImageUrl={handleImageUrl}/>
 
           <button
             disabled={

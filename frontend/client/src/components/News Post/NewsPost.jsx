@@ -4,12 +4,12 @@ import styles from "./NewsPost.module.css";
 import { addNews } from "../Redux/Actions/News/actionNews";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../Redux/Actions/News/actionNews";
-import { useNavigate } from "react-router-dom";
+
 
 const NewsPost = () => {
     const dispatch = useDispatch();
     const selectCategory = useSelector(state => state.news.category)
-    const navigate = useNavigate();
+   
 
     useEffect(() => {
         dispatch((getCategories()))
@@ -94,17 +94,6 @@ const NewsPost = () => {
                     {errors.title && (
                         <span className={styles.errorTitle}>{errors.title}</span>
                     )}
-
-                    {/* <label className={styles.createDate}>Date</label>
-                        <input
-                            onChange={handleOnChange}
-                            value={postNews.createDate}
-                            type="text"
-                            name="createDate"
-                            placeholder=""
-                        />
-                        <hr></hr>
-                        {errors.createDate && <span className={styles.errorCreateDate}>{errors.createDate}</span>} */}
 
                     <label className={styles.Description}>Description</label>
                     <input
