@@ -7,6 +7,7 @@ import {
   getPostId,
   getSearchPosts,
   loginSwitch,
+  getPostComments
 
 } from "../Reducer/HomeReducer";
 
@@ -24,6 +25,12 @@ export const filterAZ = () => async (dispatch) => {
   dispatch(filterAcendent(data));
 };
 
+
+export const getComments = () => async (dispatch) => {
+   const endpoint = "https://codecommunity-production.up.railway.app/codec/api/comments/";
+   const { data } = await axios.get(endpoint);
+   dispatch(getPostComments(data));
+};
 export const filterZA = () => async (dispatch) => {
   const endpoint =
     "https://codecommunity-production.up.railway.app/codec/api/post/?ordering=-title";

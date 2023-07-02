@@ -10,7 +10,7 @@ import CloudinaryUploadWidget from "./CloudinaryWidget/CloudinaryUploadWidget";
 
 const CommunityForm = () => {
     const dispatch = useDispatch();
-    //const languages = useSelector((state => state.Community.languages))
+    const languages = useSelector((state => state.community.languages.data))
 
     const [inputValues, setInputValues] = useState({
         name: "",
@@ -28,20 +28,27 @@ const CommunityForm = () => {
 
     });
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        alert("Created Community")
+        setInputValues({ ...inputValues, created: new Date().toISOString() });
+        dispatch(addCommunity(inputValues));
+        setInputValues({
+            name: "",
+            description: "",
+            language: [],
+            image: ""
+        })
+        
+    };
+
     const handleImageUrl = (secureUrl) => {
 
         setInputValues({
-          ...inputValues,
-          image: secureUrl
+        ...inputValues,
+        image: secureUrl
         });
-      };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        setInputValues({ ...inputValues, created: new Date().toISOString() });
-        dispatch(addCommunity(inputValues));
     };
-
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -98,13 +105,10 @@ const CommunityForm = () => {
                     />
                     {errors.description && <span>{errors.description}</span>}
 
-                    <label>Image</label>
-                    <CloudinaryUploadWidget onImageUrl={handleImageUrl}/>
-                    {errors.description && <span>{errors.description}</span>}
 
-                    {/* <label htmlFor="languages">Languages:</label> */}
+                    <label htmlFor="languages">Languages:</label>
 
-                    {/* <select
+                    <select
                         onChange={handleChangeOption}
                         name="language"
                         value={inputValues.language}
@@ -119,8 +123,11 @@ const CommunityForm = () => {
                                 {lan.name}
                             </option>
                         ))}
-                    </select> */}
+                    </select>
                     {errors.language && <span>{errors.language}</span>}
+
+                    <label className={styles}>Image</label>
+                    <CloudinaryUploadWidget onImageUrl={handleImageUrl}/>
 
                     <button disabled={disabled}>Create</button>
                 </form>

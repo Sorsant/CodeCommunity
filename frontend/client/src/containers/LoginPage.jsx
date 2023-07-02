@@ -94,6 +94,7 @@ const LoginPage = () => {
           Google
         </button>
       </form>
+      
     </Layout>
   );
 };

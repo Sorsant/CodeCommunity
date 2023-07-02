@@ -51,7 +51,6 @@ const Posteohome = () => {
   };
 
   const handleImageUrl = (secureUrl) => {
-
     setPost((prevPost) => ({
       ...prevPost,
       image: secureUrl
@@ -59,8 +58,6 @@ const Posteohome = () => {
   };
 
   const handleOnSubmit = (event) => {
-
-    event.preventDefault();
  
     const userNumber = Number(post.user);
     const premiumUser = userExtra.find(
