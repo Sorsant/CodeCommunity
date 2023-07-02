@@ -1,5 +1,4 @@
 from django.shortcuts import redirect
-from django.views import View
 from django.http import HttpResponse
 from decouple import config
 import urllib.parse
@@ -17,11 +16,12 @@ def loginGoogle(request, *args, **kwargs):
         
         authorization_url = response.json().get("authorization_url")
         if authorization_url:
-            return redirect(authorization_url)
+            # return redirect(authorization_url)
+            return HttpResponse(authorization_url)
         else:
-            print("No se encontró la URL de autorización en la respuesta")
+            HttpResponse("No se encontró la URL de autorización en la respuesta")
     except requests.RequestException as error:
-        print(f"Error al realizar la solicitud: {error}")
+        HttpResponse(f"Error al realizar la solicitud: {error}")
     return redirect("/")
     
 
