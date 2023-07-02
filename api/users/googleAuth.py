@@ -9,14 +9,11 @@ import requests
 API_URL = config('URL_BACK')
 URL_FRONT = config('URL_FRONT')
 
-
-def loginGoogle(request):
+def loginGoogle(request, *args, **kwargs):
     try:
         response = requests.get(f"{API_URL}/auth/o/google-oauth2/", params={
             "redirect_uri": f"{API_URL}/accounts/profile/",
         }, cookies=request.COOKIES)
-
-        print(request.COOKIES)
         
         authorization_url = response.json().get("authorization_url")
         if authorization_url:
@@ -29,18 +26,24 @@ def loginGoogle(request):
     
 
 def redirectGoogle(request, *args, **kwargs):
-    code, state = str(request.GET['code']), str(request.GET['state'])
+    code = request.GET.get('code')
+    state = request.GET.get('state')
+
+    if not code or not state:
+        return HttpResponse('Error: Código de autorización o estado faltante en la consulta GET.')
+
     json_obj = {'code': code, 'state': state}
-    request.session["state"] = state
-    
+
     url = f"{API_URL}/auth/o/google-oauth2/"
     data = urllib.parse.urlencode(json_obj).encode('utf-8')
     headers = {
-    'Content-Type': 'application/x-www-form-urlencoded',
-    'Cookie': '; '.join([f'{key}={value}' for key, value in request.COOKIES.items()]),
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Cookie': '; '.join([f'{key}={value}' for key, value in request.COOKIES.items()]),
     }
+    print(headers)
     
     response = requests.post(url, data=data, headers=headers)
+    print(response.text)
 
     if response.status_code == 201:
         json_res = json.loads(response.text)

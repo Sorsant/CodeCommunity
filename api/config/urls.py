@@ -12,7 +12,7 @@ urlpatterns = [
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
     path('auth/', include('djoser.social.urls')),
-    path('google/', loginGoogle, name='google'),
+    path('accounts/google/', loginGoogle, name='google'),
     path('accounts/profile/', redirectGoogle, name='accounts_profile'),
     path('activate/<str:uidb64>/<str:token>/', activate_account, name='activate'),
     path('password/reset/confirm/<str:uidb64>/<str:token>/', reset_password_confirm, name='reset_password_confirm'),

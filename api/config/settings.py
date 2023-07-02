@@ -25,10 +25,9 @@ URL_BACK = config('URL_BACK')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'codecommunity-production.up.railway.app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'codecommunity-production.up.railway.app']
 
-SESSION_COOKIE_HTTPONLY = True
-CSRF_COOKIE_SAMESITE = 'Lax'
+SESSION_COOKIE_SAMESITE = None
 
 # Application definition
 
