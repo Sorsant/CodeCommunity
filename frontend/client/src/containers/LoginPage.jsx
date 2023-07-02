@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../components/Redux/user";
-import FacebookLogin from '../containers/FacebookLogin'
 import { resetRegistered } from "../components/Redux/user";
+import { API_URL, FRONT_URL } from "../config";
 import Layout from "../components/Layout";
-import axios from "axios";
+import axios from 'axios'
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -34,14 +34,26 @@ const LoginPage = () => {
   };
 
   const googleAuthSession = async () => {
-    const res = await axios.get('http://localhost:8000/auth/o/google-oauth2/?redirect_uri=http://localhost:3000/google', { withCredentials: true });
-    const authorizationUrl = res.data.authorization_url;
+      try {
+        const url = `${API_URL}/auth/o/google-oauth2/?redirect_uri=${FRONT_URL}/google`;
+        const response = await axios.get(url, {withCredentials: true});
 
-    if (authorizationUrl) {
-      window.location.replace(authorizationUrl);
-    } else {
-      console.error('No se encontró la URL de autorización en la respuesta');
-    }
+        const auth_url = response.data.authorization_url;
+        window.location.replace(auth_url);
+
+        // const setCookieHeader = response.headers['set-cookie'];
+        // if (setCookieHeader) {
+        //   const sessionIdCookie = setCookieHeader.find((cookie) =>
+        //     cookie.includes('sessionid=')
+        //   );
+        //   if (sessionIdCookie) {
+        //     const sessionId = sessionIdCookie.split(';')[0].split('=')[1];
+        //     console.log('sessionid:', sessionId);
+        //   }
+        // }
+      } catch (err) {
+          console.error(err.message);
+      }
   };
 
   const onSubmit = (e) => {
@@ -95,7 +107,6 @@ const LoginPage = () => {
           Google
         </button>
       </form>
-      <FacebookLogin />
     </Layout>
   );
 };

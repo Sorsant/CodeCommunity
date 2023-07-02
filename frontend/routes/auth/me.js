@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/api/users/me', async (req, res) => {
 	const { access } = req.cookies;
-	console.log(access)
+
 	try {
 		const apiRes = await fetch(`${process.env.API_URL}/auth/users/me/`, {
 			method: 'GET',

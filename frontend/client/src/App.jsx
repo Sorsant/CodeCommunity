@@ -49,19 +49,6 @@ const App = () => {
   return (
     <div>
       {location.pathname !== "/" && location.pathname !== "/login" && location.pathname !== "/register" ? <Nav /> : null}
-      <Routes>
-        <Route path='/home' element={<Home />} />
-        <Route path='/dashboard' element={<DashboardPage />} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/google' element={<GoogleLogin/> } />
-        <Route path='/register' element={<RegisterPage />} />
-        <Route path="/ResetPassword" element={<ResetPasswordPage />} />
-        </Routes>
-      {location.pathname !== "/" &&
-      location.pathname !== "/login" &&
-      location.pathname !== "/register" ? (
-        <Nav />
-      ) : null}
 
       {isAuthenticated ? (
         <Routes>
@@ -85,6 +72,7 @@ const App = () => {
       ) : (
         <Routes>
           <Route path="/login" element={<LoginPage />} /> &&
+          <Route path='/google' element={<GoogleLogin/> } /> &&
           <Route path="/fakeHome" element={<FakeHome />} /> &&
           <Route path="/" element={<LandingPage />} /> &&
           <Route path="/register" element={<RegisterPage />} />

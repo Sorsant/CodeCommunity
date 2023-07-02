@@ -129,50 +129,6 @@ export const login = createAsyncThunk(
   }
 );
 
-
-export const facebookLogin = createAsyncThunk(
-  "users/facebookAuthenticate",
-  async ({ state, code }, thunkAPI) => {
-    const config = {
-      redirect_uri: "https://localhost:3000/home",
-      scope: "email",
-    };
-
-    const body = {
-      config,
-      body: {
-        state,
-        code,
-      },
-    };
-
-    try {
-      const res = await fetch("/api/users/facebook-authenticate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body),
-      });
-
-      const data = await res.json();
-
-      if (res.status === 200) {
-        const { dispatch } = thunkAPI;
-        dispatch(getUser());
-
-        return data;
-      } else {
-        return thunkAPI.rejectWithValue(data);
-      }
-    } catch (err) {
-      return thunkAPI.rejectWithValue(err.response.data);
-    }
-  }
-);
-
-
-
 export const checkAuth = createAsyncThunk(
   "users/verify",
   async (_, thunkAPI) => {

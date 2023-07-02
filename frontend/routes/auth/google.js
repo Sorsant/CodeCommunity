@@ -9,26 +9,24 @@ const router = express.Router();
 
 router.post('/api/users/google', async (req, res) => {
   const { code, state } = req.body;
-  const { sessionid } = req.cookies;
-
-  req.session.state = state
 
   try {
     const formData = qs.stringify({ state, code, });
-    
-    const config = {
-      headers: {
-        Accept: '*/*',
-        credentials: "same-origin",
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Cookie': 'sessionid=' + encodeURIComponent(sessionid),
-      },
-      method: 'POST',
-      body: formData
-    };
 
-    const apiRes = await fetch('http://localhost:8000/auth/o/google-oauth2/', config);
+    const config = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: formData,
+      credentials: 'include',
+    };
+    console.log(config);
+    const apiRes = await fetch(`${process.env.API_URL}/auth/o/google-oauth2/`, config);
+
     const data = await apiRes.json();
+
+    console.log(data);
 
     if (apiRes.status === 201) {
       res.setHeader('Set-Cookie', [
