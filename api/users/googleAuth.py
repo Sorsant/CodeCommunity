@@ -11,19 +11,22 @@ URL_FRONT = config('URL_FRONT')
 def loginGoogle(request):
     print('entre en la funcion')
     try:
-        response = requests.get(f"{API_URL}/auth/o/google-oauth2/", params={
-            "redirect_uri": f"{API_URL}/accounts/profile/",
-        }, cookies=request.COOKIES)
+        url = f"{API_URL}/auth/o/google-oauth2/?redirect_uri={API_URL}/accounts/profile/"
+        print(url)
+        headers = {
+        'Content-Type': 'application/json',
+        'Cookie': '; '.join([f'{key}={value}' for key, value in request.COOKIES.items()]),
+        }
         
-        print('Hice la peticion')
+        response = requests.request("GET", url, headers=headers)
         
         authorization_url = response.json().get("authorization_url")
         if authorization_url:
             return redirect(authorization_url)
         else:
-            HttpResponse("No se encontró la URL de autorización en la respuesta")
+            print("No se encontró la URL de autorización en la respuesta")
     except requests.RequestException as error:
-        HttpResponse(f"Error al realizar la solicitud: {error}")
+        print(f"Error al realizar la solicitud: {error}")
     return redirect("/")
     
 
