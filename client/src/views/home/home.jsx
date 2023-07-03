@@ -26,19 +26,20 @@ const Home = () => {
 
   return (
     <div className={styles.Container}>
-      <Posteohome />
+      <div className={styles.posteoDiv}>
+        <Posteohome />
+      </div>
       <div className={styles.filter}>
         <Filter />
       </div>
       <div className={styles.communityCard}>
-        <h1 className={styles.title1}>Comunidades</h1>
+        <h1 className={styles.title1}>Communities</h1>
         <CommunityCard />
       </div>
       <div className={styles.PosteoCard}>
         <PosteoCards />
       </div>
       <div className={styles.NewsCard}>
-        <h1 className={styles.title2}>Noticias</h1>
         <NewsCard />
       </div>
     </div>

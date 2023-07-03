@@ -35,37 +35,32 @@ const PostCard = ({ id }) => {
   };
 
   return (
-    <div className={styles.containerForm}>
-      <div className={styles.cardContainer} key={post.id}>
-        <div className={styles.userContainer}>
-          <img src={userE.user_image} alt={userE.name} />
-          <h2>
-            {user.first_name} {user.last_name}
-          </h2>
-          {userE.premium && userE.postulation && (
-            <p>
-              <Link to={`/instructor/${userE.id}`}>
-                <button> Puedes pagarle a este instructor</button>
-              </Link>
-            </p>
-          )}
-        </div>
-
-        <div className={styles.postContainer}>
-          <h2>{post.title}</h2>
-          <h2>{post.description}</h2>
+    <Link
+      to={`/detail/${id}`}
+      onClick={handleMoreInfo}
+      className={styles.linkDetail}
+    >
+      <div className={styles.card}>
+        <div className={styles.card_image}>
           <img src={post.image} alt={post.title} />
-
-          <Link
-            to={`/detail/${id}`}
-            onClick={handleMoreInfo}
-            className={styles.linkDetail}
-          >
-            <h2 className={styles.text4}>More Info</h2>
-          </Link>
         </div>
+        <h2 className={styles.title}>{post.title}</h2>
+        <p className={styles.card_body}>
+          {post.description}
+        </p>
+        <p className={styles.footer}>
+          Created by
+          <span className={styles.by_name}>
+            {userE.premium && userE.postulation && (
+              <Link to={`/instructor/${userE.id}`} className={styles.linkInstructor}>
+                {user.first_name} {user.last_name}
+              </Link>
+            )}
+            <img src={userE.user_image} alt={userE.name} className={styles.imgUser} />
+          </span>
+        </p>
       </div>
-    </div>
+    </Link>
   );
 };
 

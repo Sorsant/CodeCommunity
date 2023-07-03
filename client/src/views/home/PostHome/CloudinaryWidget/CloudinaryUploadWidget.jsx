@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styles from "../CloudinaryWidget/image.module.css";
+import styles from "../CloudinaryWidget/cloudinary.module.css";
 
 const CloudinaryUploadWidget = ({ onImageUrl }) => {
 
@@ -62,10 +62,10 @@ const CloudinaryUploadWidget = ({ onImageUrl }) => {
 
   return (
     <div>
-        <button id="upload_widget" className="cloudinary-button">
-            Upload 
-        </button>
-        <img id="uploadedimage" alt=" " className={styles.image}/>
+      <button id="upload_widget" className={styles.buttonDownload}>
+        Upload Image
+      </button>
+      {/* <img id="uploadedimage" alt=" " className={styles.image} /> */}
     </div>
   );
 };

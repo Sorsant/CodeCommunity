@@ -16,14 +16,14 @@ const CommunityCards = () => {
     dispatch(getAllCommunities());
     dispatch(getAllLanguages());
   }, [dispatch]);
-
   return (
     <div className={styles.cards}>
       {communities.length > 0 ? (
         communities.map((community) => {
-          const language = languages.find(
+          const language = languages && languages.find(
             (lang) => String(lang.id) === String(community.language)
           );
+
           const languageName = language ? language.name : "Unknown Language";
 
           return (
@@ -39,7 +39,7 @@ const CommunityCards = () => {
           );
         })
       ) : (
-        <p>No hay comunidades disponibles</p>
+        <p>Cargando Comunidades...</p>
       )}
     </div>
   );

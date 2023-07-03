@@ -1,10 +1,13 @@
-
 .container {
-    display: flex;
+    background-color: #808080;
+}
+
+.subContainer {
     align-items: center;
     margin: auto;
     width: 1000px;
     height: 200px;
+    margin-bottom: 50px;
     background-color: antiquewhite;
 }
 
@@ -26,22 +29,48 @@
     border-radius: 50%;
 }
 
-.language {
-    font-size: medium;
-    width: 100px;
-    text-align: center;
-}
-
 .description {
     font-size: x-large;
 }
 
-.user{
+.user {
     font-size: small;
 }
 
 .button {
-    font-size: medium;
+    position: absolute;
+    margin-left: 1050px;
+    margin-top: -200px;
+    display: flex;
+    height: 3em;
     width: 100px;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee4b;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    font-size: 15px;
+    background: #ffffff;
+}
+
+.button>svg {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+    transition: all 0.4s ease-in;
+}
+
+.button:hover>svg {
+    font-size: 1.2em;
+    transform: translateX(-5px);
+}
+
+.button:hover {
+    box-shadow: -1px 8px 8px -2px rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: -1px 8px 8px -2px rgba(255, 255, 255, 0.5);
+    -moz-box-shadow: -1px 8px 8px -2px rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
 }
