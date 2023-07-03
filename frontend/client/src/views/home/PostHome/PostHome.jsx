@@ -4,6 +4,7 @@ import styles from "./post.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addHomePosts } from "../../../components/Redux/Actions/ActionHome";
 import { getUserExtras } from "../../../components/Redux/Actions/User/actionUser";
+import CloudinaryUploadWidget from "./CloudinaryWidget/CloudinaryUploadWidget";
 
 const Posteohome = () => {
   const login = useSelector((state) => state.home.login);
@@ -49,6 +50,13 @@ const Posteohome = () => {
     setErrors(updatedErrors);
   };
 
+  const handleImageUrl = (secureUrl) => {
+    setPost((prevPost) => ({
+      ...prevPost,
+      image: secureUrl
+    }));
+  };
+
   const handleOnSubmit = (event) => {
 
     const userNumber = Number(post.user);
@@ -83,6 +91,7 @@ const Posteohome = () => {
       {login ? (
         <form onSubmit={handleOnSubmit}>
           <label>Title</label>
+          <br />
           <input
             onChange={handleOnChange}
             value={post.title}
@@ -91,25 +100,25 @@ const Posteohome = () => {
             placeholder="Your title"
           />
           {errors.title && <span>{errors.title}</span>}
-
+          <br />
           <label>Description</label>
-          <input
+          <br />
+          <textarea
             onChange={handleOnChange}
             value={post.description}
             type="text"
             name="description"
-            placeholder=""
+            placeholder="Your description"
+            className={styles.inputDescription}
           />
           {errors.description && <span>{errors.description}</span>}
-
-          <label>Image</label>
-          <input
-            onChange={handleOnChange}
-            value={post.image}
-            type="text"
-            name="image"
-          />
-          {errors.image && <span>{errors.image}</span>}
+          <br />
+          <br />
+          <br />
+          <div className={styles.cloudinary}>
+            <br />
+            <CloudinaryUploadWidget onImageUrl={handleImageUrl} />
+          </div>
 
           <button
             disabled={
@@ -119,7 +128,7 @@ const Posteohome = () => {
               !!errors.description ||
               !login
             }
-            className={styles.button}
+            className={`bg-success ${styles["button"]}`}
           >
             Post
           </button>

@@ -14,23 +14,51 @@ const NewsCard = ({ Link, Category, Author, Image, Description, Title }) => {
     }
   };
   return (
-    <div className={`card ${styles.newsCard}`} style={{ height: "750px", backgroundColor: "#454545" }}>
-      <img src={Image} className="card-img-top" alt="Image Not Found" />
-      <div className="card-body">
-        <h5 className={`card-title ${styles.title}`}>{Title}</h5>
-        <p className={`card-text ${styles.description}`}>{Description}</p>
-        <a href={Link} target="_blank" rel="noopener noreferrer" className={`btn btn-primary ${styles.ReadMore}`} style={{ fontSize: "17px" }}>
-          Read more
-        </a>
-        <p className={`card-text ${styles.Category}`}>
-          <small className="text-muted">Category: {Category}</small>
-        </p>
-        <p className={`card-text ${styles.Author}`}>
-          <small className="text-muted">Author: {Author}</small>
-        </p>
+    <div className={styles.container}>
+      <h1 className={styles.noticeTitle}>Notices</h1>
+      <div className={styles.card}>
+        <div className={styles.card_header}>
+          <img src={Image} alt={Image} />
+        </div>
+        <div className={styles.card_body}>
+          <span className={styles.tag}>{Category}</span>
+          <h4>
+            {Title}
+          </h4>
+          <p>
+            {Description}
+          </p>
+          <div className={styles.user}>
+            <div className={styles.user_info}>
+              Author: {Author}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
 export default NewsCard;
+
+{/* <div className="container">
+  <div className="card">
+    <div className="card-header">
+      <img src={Image} alt={Image} />
+    </div>
+    <div className="card-body">
+      <span className="tag tag-teal">{Category}</span>
+      <h4>
+        {Title}
+      </h4>
+      <p>
+        {Description}
+      </p>
+      <div className="user">
+        <div className="user-info">
+          Author: {Author}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  */}

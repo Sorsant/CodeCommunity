@@ -6,7 +6,7 @@ import {
   // getAllLanguages,
 } from "../../components/Redux/Actions/Community/ActionCommunity";
 import styles from "./detailCommunity.module.css";
-import SmallUser from "../SmallUser/smallUser";
+//import SmallUser from "../SmallUser/smallUser";
 import CommunityComments from "../CommunitiesInteractions/communityComments";
 
 const DetailCommunity = () => {

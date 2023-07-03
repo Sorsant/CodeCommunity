@@ -8,11 +8,11 @@ import NewsCard from "./newsCard";
 const NewsCards = () => {
     const dispatch = useDispatch();
     const news = useSelector((state) => state.news.news);
-    const category = useSelector((state) => state.news.category)
+    const category = useSelector((state) => state.news.category);
 
     useEffect(() => {
         dispatch(getNews());
-        dispatch(getCategories())
+        dispatch(getCategories());
     }, [dispatch]);
 
     if (!Array.isArray(news) || !Array.isArray(category)) {
@@ -24,7 +24,7 @@ const NewsCards = () => {
     };
 
     return (
-        <Carousel fade interval={3000} controls={false}>
+        <Carousel fade interval={3000} controls={false} nextIcon={null} prevIcon={null} indicators={false}>
             {news.map((news) => {
                 const categoryNames = news.category.map((categoryId) => {
                     const category = findCategoryById(categoryId);
@@ -49,4 +49,3 @@ const NewsCards = () => {
 };
 
 export default NewsCards;
-

@@ -15,7 +15,6 @@ const CommunityCard = ({ id, name, description, language, image }) => {
     }
   };
   return (
-
     <div className={styles.container}>
       <h2 className={styles.titleCom}>{name}</h2>
       <button className={styles.buttonModal} type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">

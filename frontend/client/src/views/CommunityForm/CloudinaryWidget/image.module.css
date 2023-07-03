@@ -1,0 +1,19 @@
+.image {
+  width: 70px;
+}
+
+.cloudinaryButton {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #212121;
+  background: #e8e8e8;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  cursor: pointer;
+}
+
+.cloudinaryButton:hover {
+  transform: translateY(-2px);
+}

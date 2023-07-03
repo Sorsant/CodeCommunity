@@ -31,15 +31,10 @@ export const getAllLanguages = () => async (dispatch) => {
 };
 
 export const addCommunity = (community) => async (dispatch) => {
-  return async function () {
     const url = await axios.post(
       "https://codecommunity-production.up.railway.app/codec/api/community/",
       community
     );
-    const endpoint =
-      "https://codecommunity-production.up.railway.app/codec/api/community/";
+    console.log("entre al post de comunidad")
+    }
 
-    const { data } = await axios.get(endpoint);
-    dispatch(allCommunitys(data));
-  };
-};
