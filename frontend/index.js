@@ -1,5 +1,4 @@
 const express = require('express');
-const session = require('express-session')
 const cookieParser = require('cookie-parser');
 
 const path = require('path');
@@ -26,11 +25,6 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(session({
-    secret: 'secret-key',
-    resave: false,
-    saveUninitialized: true
-  }));
 
 app.use(loginRoute);
 app.use(logoutRoute);

@@ -1,5 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import querystring from 'querystring';
+import Cookies from 'js-cookie';
+import axios from 'axios';
 
+const API_URL = process.env.REACT_APP_API_URL;
 
 export const register = createAsyncThunk(
   "users/register",
@@ -13,21 +17,19 @@ export const register = createAsyncThunk(
     });
 
     try {
-      const res = await fetch("/api/users/register", {
-        method: "POST",
+      const response = await axios.post(`${API_URL}/auth/users/`, body, {
         headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
-        body,
       });
 
-      const data = await res.json();
+      const data = response.data;
 
-      if (res.status === 201) {
+      if (response.status === 201) {
         return data;
       } else {
-        alert(data)
+        alert(data);
         return thunkAPI.rejectWithValue(data);
       }
     } catch (err) {
@@ -37,16 +39,19 @@ export const register = createAsyncThunk(
 );
 
 export const getUser = createAsyncThunk("users/me", async (_, thunkAPI) => {
+  const access = Cookies.get('access')
+
   try {
-    const res = await fetch("/api/users/me", {
+    const response = await axios.get(`${API_URL}/auth/users/me/`, {
       headers: {
-        Accept: "application/json",
+        Accept: 'application/json',
+        Authorization: `JWT ${access}`,
       },
     });
 
-    const data = await res.json();
-    localStorage.setItem("user", data);
-    if (res.status === 200) {
+    const data = response.data;
+
+    if (response.status === 200) {
       return data;
     } else {
       return thunkAPI.rejectWithValue(data);
@@ -59,38 +64,51 @@ export const getUser = createAsyncThunk("users/me", async (_, thunkAPI) => {
 export const googleAuthenticate = createAsyncThunk(
   'users/google',
   async ({ state, code }, thunkAPI) => {
-      const body = JSON.stringify({
-        code,
-        state,
-      });
-      
-      try {
-        const res = await fetch('/api/users/google', {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
+    try {
+      const json_obj = {
+        state: state,
+        code: code
+      };
+      const formData = querystring.stringify(json_obj);
+      const config = {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body,
-        });
-
-        const data = await res.json();
-        console.log(data);
-
-        if (res.status === 200) {
-          const { dispatch } = thunkAPI;
-          dispatch(getUser());
-
-          return data;
-        } else {
-          return thunkAPI.rejectWithValue(data);
-        }
-      } catch (err) {
-        return thunkAPI.rejectWithValue(err.response.data);
       }
 
+      const response = await axios.post(`${API_URL}/auth/o/google-oauth2/`, formData, config);
+
+      const data = response.data;
+      console.log(response);
+
+      if (response.status === 201) {
+        Cookies.set('access', data.access, {
+          expires: 5,
+          path: '/',
+          sameSite: 'strict',
+        });
+        localStorage.setItem('access', data.access)
+
+        Cookies.set('refresh', data.refresh, {
+          expires: 8,
+          path: '/',
+          sameSite: 'strict',
+        });
+        localStorage.setItem('refresh', data.refresh)
+
+        const { dispatch } = thunkAPI;
+        dispatch(getUser());
+
+        return data;
+      } else {
+        return thunkAPI.rejectWithValue(data);
+      }
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.response.data);
     }
-)
+
+  }
+);
 
 export const login = createAsyncThunk(
   "users/login",
@@ -101,26 +119,37 @@ export const login = createAsyncThunk(
     });
 
     try {
-      const res = await fetch("/api/users/login", {
-        method: "POST",
+      const response = await axios.post(`${API_URL}/auth/jwt/create/`, body, {
         headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
-        body,
       });
 
-      const data = await res.json();
+      const data = response.data;
 
-      if (res.status === 200) {
+      if (response.status === 200) {
+        Cookies.set('access', data.access, {
+          expires: 5,
+          path: '/',
+          sameSite: 'strict',
+        });
+        localStorage.setItem('access', data.access)
+
+        Cookies.set('refresh', data.refresh, {
+          expires: 8,
+          path: '/',
+          sameSite: 'strict',
+        });
+        localStorage.setItem('refresh', data.refresh)
+
         const { dispatch } = thunkAPI;
         dispatch(getUser());
 
         return data;
       } else {
         alert(data.detail);
-       
-        
+
         return thunkAPI.rejectWithValue(data);
       }
     } catch (err) {
@@ -132,16 +161,24 @@ export const login = createAsyncThunk(
 export const checkAuth = createAsyncThunk(
   "users/verify",
   async (_, thunkAPI) => {
+    const access = Cookies.get('access')
+
+    const body = JSON.stringify({
+      token: access,
+    });
+
     try {
-      const res = await fetch("/api/users/verify", {
+      const response = await axios.post(`${API_URL}/auth/jwt/verify/`, body, {
         headers: {
-          Accept: "application/json",
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
       });
 
-      const data = await res.json();
 
-      if (res.status === 200) {
+      const data = response.data;
+
+      if (response.status === 200) {
         const { dispatch } = thunkAPI;
 
         dispatch(getUser());
@@ -164,22 +201,15 @@ export const resetPassword = createAsyncThunk(
     });
 
     try {
-      const res = await fetch("/api/users/reset_password", {
-        method: "POST",
+      const response = await axios.post(`${API_URL}/auth/users/reset_password/`, body, {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body,
       });
 
-      const data = await res.json();
-
-      if (res.status === 200) {
-        return data;
-      } else {
-        return thunkAPI.rejectWithValue(data);
-      }
+      const data = response.data;
+      return data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.response.data);
     }
@@ -188,32 +218,20 @@ export const resetPassword = createAsyncThunk(
 
 export const logout = createAsyncThunk("users/logout", async (_, thunkAPI) => {
   try {
-    const res = await fetch("/api/users/logout", {
-      headers: {
-        Accept: "application/json",
-      },
-    });
-
-    const data = await res.json();
-
-    if (res.status === 200) {
-      return data;
-    } else {
-      return thunkAPI.rejectWithValue(data);
-    }
+    Cookies.remove('access');
+    Cookies.remove('refresh');
+    localStorage.removeItem('access');
+    localStorage.removeItem('refresh');
   } catch (err) {
     return thunkAPI.rejectWithValue(err.response.data);
   }
 });
-
-
 
 const initialState = {
   isAuthenticated: false,
   user: null,
   loading: false,
   registered: false,
-
 };
 
 const userSlice = createSlice({

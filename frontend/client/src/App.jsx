@@ -32,7 +32,7 @@ import { getUser } from "./components/Redux/user";
 import { getUserExtras } from "./components/Redux/Actions/User/actionUser";
 import { getAllLanguages } from "./components/Redux/Actions/Community/ActionCommunity";
 
-axios.defaults.baseURL = "https://codecommunity-production.up.railway.app/";
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 const App = () => {
   const dispatch = useDispatch();

@@ -35,22 +35,10 @@ const LoginPage = () => {
 
   const googleAuthSession = async () => {
       try {
-        const url = `${API_URL}/auth/o/google-oauth2/?redirect_uri=${FRONT_URL}/google`;
-        const response = await axios.get(url, {withCredentials: true});
+        const response = await axios.get(`${API_URL}/auth/o/google-oauth2/?redirect_uri=${FRONT_URL}/google`);
 
         const auth_url = response.data.authorization_url;
         window.location.replace(auth_url);
-
-        // const setCookieHeader = response.headers['set-cookie'];
-        // if (setCookieHeader) {
-        //   const sessionIdCookie = setCookieHeader.find((cookie) =>
-        //     cookie.includes('sessionid=')
-        //   );
-        //   if (sessionIdCookie) {
-        //     const sessionId = sessionIdCookie.split(';')[0].split('=')[1];
-        //     console.log('sessionid:', sessionId);
-        //   }
-        // }
       } catch (err) {
           console.error(err.message);
       }
