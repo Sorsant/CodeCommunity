@@ -144,7 +144,6 @@ REST_FRAMEWORK = {
 
 AUTHENTICATION_BACKENDS = (
     "social_core.backends.google.GoogleOAuth2",
-    # "social_core.backends.facebook.FacebookOAuth2",
     "django.contrib.auth.backends.ModelBackend",
 )
 
@@ -192,13 +191,6 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '568337488204-8ne1t810h1ajiuk7kp6jas89jpje2u47.a
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile', 'openid']
 SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = ['first_name', 'last_name']
-
-# SOCIAL_AUTH_FACEBOOK_KEY = '[YOUR FACEBOOK API KEY]'
-# SOCIAL_AUTH_FACEBOOK_SECRET = '[YOUR FACEBOOK API SECRET]'
-# SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
-# SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
-#     'fields': 'email, first_name, last_name'
-# }
 
 CSRF_TRUSTED_ORIGINS = [
     URL_BACK,
