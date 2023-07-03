@@ -8,6 +8,7 @@ import React from "react";
 import LandingPage from "./views/landing/landing";
 import Nav from "./views/Nav/nav";
 import QandA from "./views/QAPage/QAPage";
+import Comments from "./views/CommunitiesInteractions/Comments";
 // import Register from "./views/Register/register";
 import Profile from "./views/profile/profile";
 import CommunityForm from "./views/CommunityForm/communityForm";
@@ -62,6 +63,7 @@ const App = () => {
           <Route path="/communities" element={<CommunityForm />} />
           {/*Revisar estas rutas, aun no estan bien definidas*/}
           <Route path="/Q&A" element={<QandA />} />
+          <Route path="/comments" element={<Comments currentUserId="1" />} />
           <Route path="/profile" element={<Profile />} />
           {/* <Route path="/edit" element={<Edit />} /> */}
           <Route path="/detail/:id" element={<PostDetail />} />
