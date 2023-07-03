@@ -5,23 +5,43 @@ from .models.question import Question
 from .models.language import Language
 from .models.news import News
 from .models.community import Community
-from .models.user import User
 from .models.community import Community
-from .models.admin import Admin
 from .models.post import Post
-from .models.likes import Likes
 from .models.comments import Comments
 from .models.category import Category
+from .models.user_comp import UserComplement
 
 # Register your models here.
-admin.site.register(Question)
-admin.site.register(Answer)
 admin.site.register(Language)
-admin.site.register(User)
-admin.site.register(Community)
-admin.site.register(News)
-admin.site.register(Admin)
-admin.site.register(Post)
-admin.site.register(Likes)
-admin.site.register(Comments)
 admin.site.register(Category)
+
+@admin.register(Answer)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('question', 'user', 'created')
+
+@admin.register(Comments)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('post', 'user', 'created')
+
+@admin.register(Community)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('name', 'created')
+
+@admin.register(News)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'created')
+
+@admin.register(Post)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('title', 'user', 'created', 'get_likes_count')
+    def get_likes_count(self, obj):
+        return obj.likes.count()
+    get_likes_count.short_description = 'Likes'
+
+@admin.register(Question)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('title', 'user', 'created')
+
+@admin.register(UserComplement)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('id', 'postulation', 'premium', 'created')
