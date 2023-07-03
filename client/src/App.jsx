@@ -1,4 +1,3 @@
-import axios from "axios";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -30,8 +29,6 @@ import { checkAuth } from './components/Redux/user';
 import { getUser } from "./components/Redux/user";
 import { getUserExtras } from "./components/Redux/Actions/User/actionUser";
 import { getAllLanguages } from "./components/Redux/Actions/Community/ActionCommunity";
-
-axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 const App = () => {
   const dispatch = useDispatch();

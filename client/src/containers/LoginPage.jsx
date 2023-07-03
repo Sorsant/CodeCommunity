@@ -89,7 +89,7 @@ const LoginPage = () => {
             <span className="visually-hidden">Loading...</span>
           </div>
         ) : (
-          <button className="btn btn-primary mt-4">Login</button>
+          <button className="btn btn-primary mt-4" >Login</button>
         )}
         <button onClick={googleAuthSession}>
           Google

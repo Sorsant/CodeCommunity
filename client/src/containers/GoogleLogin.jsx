@@ -27,7 +27,7 @@ const Google = () => {
           <p className='lead'>This is an incredible authentication system with production-level features!</p>
           <hr className='my-4' />
           <p>Click the Log In button</p>
-          <Link className='btn btn-primary btn-lg' to='/login' role='button'>Login</Link>
+          <Link className='btn btn-primary btn-lg' to='/home' role='button'>Login</Link>
         </div>
       </div>
   );
