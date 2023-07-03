@@ -17,11 +17,11 @@ admin.site.register(Category)
 
 @admin.register(Answer)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('question', 'user', 'created')
+    list_display = ('question', 'user', 'created', 'is_delete')
 
 @admin.register(Comments)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('post', 'user', 'created')
+    list_display = ('post', 'user', 'created', 'is_delete')
 
 @admin.register(Community)
 class BookAdmin(admin.ModelAdmin):
@@ -33,15 +33,15 @@ class BookAdmin(admin.ModelAdmin):
 
 @admin.register(Post)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'user', 'created', 'get_likes_count')
+    list_display = ('title', 'user', 'created', 'get_likes_count', 'is_delete')
     def get_likes_count(self, obj):
         return obj.likes.count()
     get_likes_count.short_description = 'Likes'
 
 @admin.register(Question)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'user', 'created')
+    list_display = ('title', 'user', 'created', 'is_delete')
 
 @admin.register(UserComplement)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('id', 'postulation', 'premium', 'created')
+    list_display = ('id', 'postulation', 'premium', 'created', 'is_delete')
