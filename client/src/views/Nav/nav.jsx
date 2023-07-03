@@ -16,7 +16,7 @@ const Nav = () => {
 
   return (
     <div className={styles.containerNav}>
-      <nav className="navbar navbar-dark bg-dark ">
+      <nav className={`navbar ${styles.navbar}`}>
         <SearchBar />
         <div className={styles.title}>
           {loggin ? (
@@ -33,7 +33,7 @@ const Nav = () => {
         </div>
         <div className="container-fluid">
           <button
-            className={`navbar-toggler ${styles["toggle"]}`}
+            className={`navbar-toggler bg-light ${styles["toggle"]}`}
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasDarkNavbar"
@@ -43,7 +43,7 @@ const Nav = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            className="offcanvas offcanvas-end text-bg-dark"
+            className={`offcanvas offcanvas-end ${styles["menu_toggle"]}`}
             tabIndex={-1}
             id="offcanvasDarkNavbar"
             aria-labelledby="offcanvasDarkNavbarLabel"

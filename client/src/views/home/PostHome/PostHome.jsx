@@ -58,7 +58,7 @@ const Posteohome = () => {
   };
 
   const handleOnSubmit = (event) => {
- 
+
     const userNumber = Number(post.user);
     const premiumUser = userExtra.find(
       (user) => user.id === userNumber && user.premium
@@ -91,6 +91,7 @@ const Posteohome = () => {
       {login ? (
         <form onSubmit={handleOnSubmit}>
           <label>Title</label>
+          <br />
           <input
             onChange={handleOnChange}
             value={post.title}
@@ -99,19 +100,25 @@ const Posteohome = () => {
             placeholder="Your title"
           />
           {errors.title && <span>{errors.title}</span>}
-
+          <br />
           <label>Description</label>
-          <input
+          <br />
+          <textarea
             onChange={handleOnChange}
             value={post.description}
             type="text"
             name="description"
-            placeholder=""
+            placeholder="Your description"
+            className={styles.inputDescription}
           />
           {errors.description && <span>{errors.description}</span>}
-
-          <label>Image</label>
-          <CloudinaryUploadWidget onImageUrl={handleImageUrl}/>
+          <br />
+          <br />
+          <br />
+          <div className={styles.cloudinary}>
+            <br />
+            <CloudinaryUploadWidget onImageUrl={handleImageUrl} />
+          </div>
 
           <button
             disabled={
@@ -121,7 +128,7 @@ const Posteohome = () => {
               !!errors.description ||
               !login
             }
-            className={styles.button}
+            className={`bg-success ${styles["button"]}`}
           >
             Post
           </button>
