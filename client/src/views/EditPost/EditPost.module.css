@@ -1,0 +1,50 @@
+/* Estilos para el formulario de edición */
+.edit-post-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .edit-post-form label {
+    margin-bottom: 0.5rem;
+  }
+  
+  .edit-post-form input,
+  .edit-post-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .edit-post-form button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .edit-post-form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .edit-post-form span {
+    color: red;
+    margin-top: 0.5rem;
+  }
+  .boton{
+    width: 200px;
+    margin-top: 300px;
+  }
+  .cloudinaryButton {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #212121;
+    background: #e8e8e8;
+    font-size: 12px;
+    font-weight: 500;
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms;
+    cursor: pointer;
+  }

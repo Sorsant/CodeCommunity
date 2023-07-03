@@ -29,7 +29,7 @@ import RegisterPage from "./containers/RegisterPage";
 import { checkAuth } from "./components/Redux/user";
 import { getUser } from "./components/Redux/user";
 import { getUserExtras } from "./components/Redux/Actions/User/actionUser";
-
+import EditPost from "./views/EditPost/EditPost";
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 const App = () => {
@@ -68,7 +68,7 @@ const App = () => {
           <Route path="/newspost" element={<NewsPost />} />
           <Route path="/about" element={<About />} />
           <Route path="/instructor" element={<Instructor />} />
-
+          <Route path="/editpost" element={<EditPost />} />
         </Routes>
         :
         <Routes>

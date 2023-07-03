@@ -16,7 +16,11 @@
   margin-bottom: 80px;
   margin-right: 60px;
 }
-
+.boton{
+  width: 200px;
+  height: 50px;
+  z-index: 9999;
+}
 .card:hover {
   translate: 0 -10px;
   filter: drop-shadow(-3px 12px 20px #635e53);

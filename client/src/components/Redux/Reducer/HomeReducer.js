@@ -73,8 +73,17 @@ export const homeSlice = createSlice({
         state.userExtra = []
       },
       allLikesPost: (state, action) => {
-        state.likes = action.payload
+        const { postId, userId } = action.payload; 
+        console.log(postId, "reducer");
+        console.log(userId, "reducer");
+      
+        const post = state.posts.find((post) => post.id === postId);
+        if (post) {
+          post.likes.push(userId);
+        }
       },
+      
+    
   }
 });
 

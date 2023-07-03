@@ -105,3 +105,8 @@ export const Instructor = (id) => async (dispatch) => {
     console.error("Error al cambiar la propiedad:", error);
   }
 };
+
+// export const putHomePosts = (post) => async (dispatch) => {
+//   const response = await axios.put("https://codecommunity-production.up.railway.app/codec/api/post/", post)
+//   return response;
+// }

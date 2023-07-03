@@ -29,23 +29,32 @@ export const resetPostData = () => async (dispatch) => {
     dispatch(resetUser());
     dispatch(resetUserExtra());
 }
-export const likePost = () => async (dispatch) => {
-    const url = await axios.get(
-      "https://codecommunity-production.up.railway.app/codec/api/post/");
-      dispatch(allLikesPost(url));
+export const likePost = (url) => async (dispatch) => {
+    dispatch(allLikesPost(url));
   }
+  export const addlikePost = (postId, userId, posts) => async (dispatch, getState) => {
+    const loggedInUserId = localStorage.getItem("loggedInUserId");
+    
+    // Comprueba si el usuario está logeado y tiene un ID válido
+    if (loggedInUserId) {
+      dispatch(allLikesPost({ postId, userId })); // Pasa el objeto con postId y userId como payload
+    
+      // Actualizar los likes en el post correspondiente
+      const post = posts.find((post) => post.id === postId);
+      if (post) {
+        post.likes.push(userId);
+      }
+      
+      console.log(postId, userId, "entre a addlike");
+      
+      // Obtener el estado actual de los posts
+      const currentState = getState().home.posts;
+      
+      // Actualizar los datos de likes en el localStorage
+      localStorage.setItem('likesData', JSON.stringify(currentState));
+    }
+  };
   
-  export const addlikePost = (post) => async (dispatch) => {
-    const url = await axios.post(
-      "https://codecommunity-production.up.railway.app/codec/api/post/",
-      post
-    );
-    return url;
-  }
+
   export const unlikePost = (id) => async (dispatch) => {
-    const url = await axios.delete(
-      `https://codecommunity-production.up.railway.app/codec/api/post/${id}`,
-      id
-    );
-    return url;
   }
