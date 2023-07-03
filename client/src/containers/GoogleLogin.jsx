@@ -16,7 +16,7 @@ const Google = () => {
     console.log('Code: ' + code);
 
     if (state && code) {
-        dispatch(googleAuthenticate({state, code}));
+      dispatch(googleAuthenticate({ state, code }));
     }
   }, [location, dispatch]);
 

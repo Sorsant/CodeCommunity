@@ -34,14 +34,14 @@ const LoginPage = () => {
   };
 
   const googleAuthSession = async () => {
-      try {
-        const response = await axios.get(`${API_URL}/auth/o/google-oauth2/?redirect_uri=${FRONT_URL}/google`);
+    try {
+      const response = await axios.get(`${API_URL}/auth/o/google-oauth2/?redirect_uri=${FRONT_URL}/google`);
 
-        const auth_url = response.data.authorization_url;
-        window.location.replace(auth_url);
-      } catch (err) {
-          console.error(err.message);
-      }
+      const auth_url = response.data.authorization_url;
+      window.location.replace(auth_url);
+    } catch (err) {
+      console.error(err.message);
+    }
   };
 
   const onSubmit = (e) => {
