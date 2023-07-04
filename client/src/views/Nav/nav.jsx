@@ -25,10 +25,10 @@ const Nav = () => {
               <h1>Community</h1>
             </Link>
           ) : (
-            <div className={styles.title}>
+            <Link to="/home" className={styles.no_style}>
               <h1>Code</h1>
               <h1>Community</h1>
-            </div>
+            </Link>
           )}
         </div>
         <div className="container-fluid">
