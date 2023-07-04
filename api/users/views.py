@@ -14,6 +14,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_decode
 
 from .models import UserAccount
+from code_api.models.user_comp import UserComplement
 
 User = get_user_model()
 
@@ -28,7 +29,6 @@ class UserView(viewsets.ModelViewSet):
 class RegisterView(APIView):
   def post(self, request):
     data = request.data
-
     serializer = UserCreateSerializer(data=data)
 
     if not serializer.is_valid():
