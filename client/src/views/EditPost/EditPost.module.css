@@ -1,0 +1,63 @@
+/* EditPost.css */
+
+.edit-post-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.edit-post-form label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.edit-post-form input[type="text"],
+.edit-post-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.edit-post-form textarea {
+  height: 150px;
+}
+
+.edit-post-form span {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.uploadWidgetContainer {
+  display: flex;
+  align-items: flex-start; /* Modificado */
+  margin-bottom: 20px;
+}
+
+.uploadWidgetContainer label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.uploadWidgetContainer img {
+  width: 200px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.submitButton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #0069d9;
+}
+
+.cancelButton {
+  margin-top: 10px;
+}
