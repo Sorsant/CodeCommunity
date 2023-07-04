@@ -43,8 +43,9 @@ import FAQ from "./dashboard/scenes/faq/index";
 import Geography from "./dashboard/scenes/geography/index";
 import "../src/dashboard/indexDash.css";
 import NewScenes from "./dashboard/scenes/newScenes";
-
-axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+import { API_URL } from "./config";
+axios.defaults.baseURL = API_URL;
+axios.defaults.withCredentials = true;
 
 const App = () => {
   const dispatch = useDispatch();
@@ -74,7 +75,20 @@ const App = () => {
   const location = useLocation();
   return (
     <div className={styles.containerApp}>
-      {location.pathname !== "/" && location.pathname !== "/login" && location.pathname !== "/register" ? <Nav /> : null}
+      {location.pathname !== "/" &&
+        location.pathname !== "/login" &&
+        location.pathname !== "/register" &&
+        location.pathname !== "/admin" &&
+        location.pathname !== "/team" &&
+        location.pathname !== "/postscenes" &&
+        location.pathname !== "/invoices" &&
+        location.pathname !== "/newscenes" &&
+        location.pathname !== "/from" &&
+        location.pathname !== "/bar" &&
+        location.pathname !== "/pie" &&
+        location.pathname !== "/line" &&
+        location.pathname !== "/faq" &&
+        location.pathname !== "/geography" ? <Nav /> : null}
 
       {isAuthenticated ?
         <Routes>
@@ -93,6 +107,8 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/instructor" element={<Instructor />} />
         </Routes>
+
+
         :
         <Routes>
           <Route path="/login" element={<LoginPage />} />
@@ -101,6 +117,7 @@ const App = () => {
           <Route path="/" element={<LandingPage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route path="/ResetPassword" element={<ResetPasswordPage />} />
+
           {(location.pathname === "/admin" ||
             location.pathname === "/team" ||
             location.pathname === "/postscenes" ||
@@ -136,7 +153,21 @@ const App = () => {
         </Routes>
       }
 
-      {location.pathname !== "/" && location.pathname !== "/login" && location.pathname !== "/register" && location.pathname !== "*" ? <Footer /> : null}
+      {location.pathname !== "/" &&
+        location.pathname !== "/login" &&
+        location.pathname !== "/register" &&
+        location.pathname !== "*" &&
+        location.pathname !== "/admin" &&
+        location.pathname !== "/team" &&
+        location.pathname !== "/postscenes" &&
+        location.pathname !== "/invoices" &&
+        location.pathname !== "/newscenes" &&
+        location.pathname !== "/from" &&
+        location.pathname !== "/bar" &&
+        location.pathname !== "/pie" &&
+        location.pathname !== "/line" &&
+        location.pathname !== "/faq" &&
+        location.pathname !== "/geography" ? <Footer /> : null}
     </div>
   );
 };

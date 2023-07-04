@@ -17,8 +17,8 @@ const Profile = () => {
   const dispatch = useDispatch();
 
   const handleImageUrl = (secureUrl) => {
-
-    dispatch(ImgEdit(user?.id, secureUrl))
+    const id = user?.id
+    dispatch(ImgEdit(id, secureUrl))
 
   };
 
