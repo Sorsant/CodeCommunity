@@ -191,6 +191,8 @@ const Nav = () => {
                     )}
                   </div>
                 </div>
+
+
               </Link>
             ) : (
               <p>log in to see your profile!</p>

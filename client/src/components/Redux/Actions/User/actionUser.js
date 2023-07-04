@@ -22,3 +22,16 @@ export const getUserExtras = () => async (dispatch) => {
     const { data } = await axios.get(endpoint);
     dispatch(getUserExtra(data));
 };
+export const putUserExtras = (id,InfoUserExtra) => async (dispatch) => {
+    console.log(InfoUserExtra);
+    const endpoint = `https://codecommunity-production.up.railway.app/codec/api/user_extras/${id}/`;
+    const { data } = await axios.patch(endpoint,InfoUserExtra);
+   
+};
+
+export const editUser = (id,putUser) => async (dispatch) => {
+    console.log(putUser);
+    const endpoint = `https://codecommunity-production.up.railway.app/codec/api/users/${id}/`;
+    const { data } = await axios.patch(endpoint,putUser);
+   
+};
