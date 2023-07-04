@@ -78,6 +78,20 @@ const App = () => {
     "*",
   ];
 
+  const dashboardPaths = [
+    "/admin",
+    "/team",
+    "/postscenes",
+    "/invoices",
+    "/newscenes",
+    "/form",
+    "/bar",
+    "/pie",
+    "/line",
+    "/faq",
+    "/geography"
+  ]
+
   return (
     <div className={styles.containerApp}>
       {!excludedPaths.includes(location.pathname) && <Nav />}
@@ -110,7 +124,7 @@ const App = () => {
         )}
       </Routes>
 
-      {admin && (
+      {dashboardPaths.includes(location.pathname) && admin && (
         <>
           <ColorModeContext.Provider value={colorMode}>
             <ThemeProvider theme={theme}>
