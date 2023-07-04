@@ -44,8 +44,6 @@ import Geography from "./dashboard/scenes/geography/index";
 import "../src/dashboard/indexDash.css";
 import NewScenes from "./dashboard/scenes/newScenes";
 
-axios.defaults.baseURL = process.env.REACT_APP_API_URL;
-
 const App = () => {
   const dispatch = useDispatch();
 
