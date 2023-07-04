@@ -43,9 +43,11 @@ import FAQ from "./dashboard/scenes/faq/index";
 import Geography from "./dashboard/scenes/geography/index";
 import "../src/dashboard/indexDash.css";
 import NewScenes from "./dashboard/scenes/newScenes";
+
 import { API_URL } from "./config";
 axios.defaults.baseURL = API_URL;
 axios.defaults.withCredentials = true;
+
 
 const App = () => {
   const dispatch = useDispatch();
@@ -153,6 +155,7 @@ const App = () => {
         </Routes>
       }
 
+
       {location.pathname !== "/" &&
         location.pathname !== "/login" &&
         location.pathname !== "/register" &&
@@ -168,7 +171,7 @@ const App = () => {
         location.pathname !== "/line" &&
         location.pathname !== "/faq" &&
         location.pathname !== "/geography" ? <Footer /> : null}
-    </div>
+
   );
 };
 

@@ -107,10 +107,12 @@ export const Instructor = (id) => async (dispatch) => {
 };
 
 export const ImgEdit = (id,secureUrl) => async (dispatch) => {
+
   console.log(secureUrl)
   try {
     const response = await axios.patch(
       `${API_URL}/codec/api/user_extras/${id}/`,
+
       {
         user_image:secureUrl,
       }

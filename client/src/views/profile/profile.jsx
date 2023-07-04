@@ -17,6 +17,7 @@ const Profile = () => {
   const dispatch = useDispatch();
 
   const handleImageUrl = (secureUrl) => {
+
     const id = user?.id
     dispatch(ImgEdit(id, secureUrl))
 
@@ -27,6 +28,7 @@ const Profile = () => {
     localStorage.setItem("loggedInUserId", JSON.stringify(user?.id));
 
   }, [user]);
+
 
 
 
