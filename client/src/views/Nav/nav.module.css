@@ -229,6 +229,7 @@ div.containerNav button.navbar-toggler {
 
 .profile {
   display: flex;
+  flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
   margin: 20px 45px;
@@ -324,4 +325,14 @@ div.containerNav button.navbar-toggler {
 .no_style {
   color: inherit;
   text-decoration: none;
+}
+.premiumLabel {
+  background-color: rgb(74, 218, 117);
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 5px;
+}
+.premiumLabel p {
+  font-size: 2em;
 }
