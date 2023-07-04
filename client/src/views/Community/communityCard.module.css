@@ -1,11 +1,29 @@
+.cards {
+    border: 2px;
+    width: 12vw;
+    height: 31vw;
+    margin-top: 1vh;
+    margin-left: 180px;
+    background-color: #1e2122;
+    border-radius: 10px;
+}
+
+.container {
+    width: 100%;
+    background-color: #1e2122;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
 .titleCom {
     text-shadow: -2px -1px 11px #504b36;
-    align-items: center;
+    text-align: center;
     color: white;
-    width: 60%;
+    width: 100%;
     padding: 5px;
     /* margin-left: -12px; */
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 .buttonModal {
@@ -16,10 +34,10 @@
 }
 
 .subContainer {
-    margin-left: -20px;
-    margin-top: 10px;
-    width: 200px;
-    height: 154px;
+    margin-left: 30px;
+    margin-top: 7px;
+    width: 150px;
+    height: 120px;
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -56,15 +74,15 @@
 }
 
 .containerImg {
-    width: 200px;
-    height: 154px;
+    width: 150px;
+    height: 120px;
     object-fit: cover;
 }
 
 .containerImg img {
     /* object-fit: cover; */
-    width: 200px;
-    height: 154px;
+    width: 150px;
+    height: 120px;
 }
 
 .text {
@@ -100,11 +118,4 @@
     width: 5vw;
     height: 5vw;
     border-radius: 90%;
-}
-
-.cards {
-    border: 2px;
-    width: 23vw;
-    height: 60vw;
-    margin-top: 1vh;
 }

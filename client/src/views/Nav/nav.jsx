@@ -20,7 +20,7 @@ const Nav = () => {
         <SearchBar />
         <div className={styles.title}>
           {loggin ? (
-            <Link to="/home" className={styles.no_style}>
+            <Link to="/home" className={styles.titleNav}>
               <h1>Code</h1>
               <h1>Community</h1>
             </Link>
@@ -159,11 +159,16 @@ const Nav = () => {
               </ul>
             </div>
             {user ? (
-              <Link to="/profile" className={styles.no_style}>
-                <div className={styles.profile}>
-                  <div className={styles.profile_info}>
-                    <ul>
-                      <h2 className={styles.profile_name}>
+              <Link to="/profile" className={styles.profileLink}>
+                <div className={styles.card}>
+                  <div className={styles.profileImage}>
+                    {extra && extra.user_image ? (
+                      <img src={extra.user_image} alt="" />
+                    ) : (
+                      <img src={imagen} alt="" />
+                    )}
+                    <div className={styles.textContainer}>
+                      <h2 className={styles.name}>
                         {user && user.first_name ? (
                           user.first_name
                         ) : (
@@ -175,20 +180,12 @@ const Nav = () => {
                           <p>loading...</p>
                         )}
                       </h2>
-                      <li>JavaScript</li>
-                      <li>React</li>
-                      <li>PostgresSQL</li>
-                    </ul>
-                    <p className={styles.profile_description}>
-                      Si estas leyendo esto, sos un capo, sabelo
-                    </p>
-                  </div>
-                  <div className={styles.profile_picture}>
-                    {extra && extra.user_image ? (
-                      <img src={extra.user_image} alt="" />
-                    ) : (
-                      <img src={imagen} alt="" />
-                    )}
+                      <ul className={styles.profile}>
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>PostgresSQL</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </Link>

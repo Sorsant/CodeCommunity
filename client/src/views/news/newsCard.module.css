@@ -2,17 +2,16 @@
 
 .container {
   display: flex;
-  margin-top: 370px;
   width: 440px;
   height: 635px;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  /* border: 1px solid gray; */
 }
 
 .noticeTitle {
   font-weight: bold;
   color: rgb(74, 218, 117);
+  margin-bottom: 10px;
 }
 
 .card {

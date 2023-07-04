@@ -11,8 +11,8 @@
   margin-bottom: 20px;
   margin-left: -510px;
   border: 1px solid #8f8787;
-  z-index: 9999
-    /* transition: 0.5s; */
+
+  /* transition: 0.5s; */
 }
 
 .containerForm label {

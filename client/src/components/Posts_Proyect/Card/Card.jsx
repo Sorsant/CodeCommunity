@@ -51,11 +51,11 @@ const PostCard = ({ id }) => {
         <p className={styles.footer}>
           Created by
           <span className={styles.by_name}>
-            {userE.premium && userE.postulation && (
-              <Link to={`/instructor/${userE.id}`} className={styles.linkInstructor}>
-                {user.first_name} {user.last_name}
-              </Link>
-            )}
+            {/* {userE.premium && userE.postulation && (
+              <Link to={`/instructor/${userE.id}`} className={styles.linkInstructor}> */}
+            {user.first_name} {user.last_name}
+            {/* </Link>
+            )} */}
             <img src={userE.user_image} alt={userE.name} className={styles.imgUser} />
           </span>
         </p>

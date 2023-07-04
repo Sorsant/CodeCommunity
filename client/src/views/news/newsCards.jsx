@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getNews } from "../../components/Redux/Actions/News/actionNews";
 import { getCategories } from "../../components/Redux/Actions/News/actionNews";
 import NewsCard from "./newsCard";
+import "./newsCards.module.css";
 
 const NewsCards = () => {
     const dispatch = useDispatch();
@@ -24,27 +25,29 @@ const NewsCards = () => {
     };
 
     return (
-        <Carousel fade interval={3000} controls={false} nextIcon={null} prevIcon={null} indicators={false}>
-            {news.map((news) => {
-                const categoryNames = news.category.map((categoryId) => {
-                    const category = findCategoryById(categoryId);
-                    return category ? category.name : "";
-                });
+        <Carousel fade interval={3000} controls={false} nextIcon={null} prevIcon={null} indicators={false} style={{ height: "500px", marginTop: "-120px" }} >
+            {
+                news.map((news) => {
+                    const categoryNames = news.category.map((categoryId) => {
+                        const category = findCategoryById(categoryId);
+                        return category ? category.name : "";
+                    });
 
-                return (
-                    <Carousel.Item key={news.id}>
-                        <NewsCard
-                            Link={news.link}
-                            Category={categoryNames}
-                            Author={news.author}
-                            Image={news.image}
-                            Description={news.description}
-                            Title={news.title}
-                        />
-                    </Carousel.Item>
-                );
-            })}
-        </Carousel>
+                    return (
+                        <Carousel.Item key={news.id} style={{ height: "1500px" }} >
+                            <NewsCard
+                                Link={news.link}
+                                Category={categoryNames}
+                                Author={news.author}
+                                Image={news.image}
+                                Description={news.description}
+                                Title={news.title}
+                            />
+                        </Carousel.Item>
+                    );
+                })
+            }
+        </Carousel >
     );
 };
 
