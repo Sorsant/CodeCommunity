@@ -17,7 +17,7 @@ const CommunityCard = ({ id, name, description, language, image }) => {
   return (
     <div className={styles.container}>
       <h2 className={styles.titleCom}>{name}</h2>
-      <button className={styles.buttonModal} type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button className={styles.buttonModal} >
         <div className={styles.subContainer}>
           <div className={styles.containerImg}>
             <img src={image} alt={image} />
@@ -28,7 +28,7 @@ const CommunityCard = ({ id, name, description, language, image }) => {
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">{name}</h1>
+              {/* <h1 class="modal-title fs-5" id="exampleModalLabel">{name}</h1> */}
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

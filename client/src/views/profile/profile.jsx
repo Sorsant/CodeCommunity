@@ -3,9 +3,7 @@ import imagen from "./default.png";
 import { Link } from "react-router-dom";
 import { ProductDisplay } from "../../components/Payment/payment";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  ImgEdit
-} from "../../components/Redux/Actions/ActionHome";
+import { ImgEdit } from "../../components/Redux/Actions/ActionHome";
 import CloudinaryUploadWidget from "./CloudinaryWidget/cloudinary";
 import { useState, useEffect } from "react";
 import ModalForm from "./FromEdit/ModalEdit";
@@ -17,20 +15,13 @@ const Profile = () => {
   const dispatch = useDispatch();
 
   const handleImageUrl = (secureUrl) => {
-
-    const id = user?.id
-    dispatch(ImgEdit(id, secureUrl))
-
+    const id = user?.id;
+    dispatch(ImgEdit(id, secureUrl));
   };
-
 
   useEffect(() => {
     localStorage.setItem("loggedInUserId", JSON.stringify(user?.id));
-
-  }, [user]);
-
-
-
+  }, [user, extra]);
 
   return (
     <div>
@@ -38,8 +29,7 @@ const Profile = () => {
         <div className={style.containerTitle}>
           <h1 className={style.title}>Profile</h1>
         </div>
-        <div className={style.containerButton}>
-        </div>
+        <div className={style.containerButton}></div>
         {extra && extra.premium ? (
           <div>
             <h1>Premium</h1>
@@ -66,16 +56,14 @@ const Profile = () => {
                 : null;
               const languageName = language?.name || "Unknown Language";
 
-
               return (
                 <div className={style.div}>
                   <ul>
-                    <li>language={languageName}</li>
+                    <li>{languageName}</li>
                   </ul>
                 </div>
               );
             })}
-
         </div>
         <div className={style.profile_picture}>
           <CloudinaryUploadWidget onImageUrl={handleImageUrl} />

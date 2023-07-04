@@ -13,6 +13,7 @@ const Nav = () => {
   const extra = extras.find((users) => users.id === (user && user.id));
   const isAuthenticated = useSelector((state) => state.userdb.isAuthenticated);
   const dispatch = useDispatch();
+  const languages = useSelector((state) => state.community.languages.data);
 
   return (
     <div className={styles.containerNav}>
@@ -48,18 +49,47 @@ const Nav = () => {
             id="offcanvasDarkNavbar"
             aria-labelledby="offcanvasDarkNavbarLabel"
           >
-            <div className="offcanvas-header">
-              <h5
-                className={`offcanvas-title ${styles["title_toggle"]}`}
-                id="offcanvasDarkNavbarLabel"
-              >
-                Navegation
-              </h5>
+            <div className={`offcanvas-header ${styles["header"]}`}>
+              {user ? (
+                <Link to="/profile" className={styles.profileLink}>
+                  <div className={styles.card}>
+                    <div className={styles.profileImage}>
+                      {extra && extra.user_image ? (
+                        <img src={extra.user_image} alt="" />
+                      ) : (
+                        <img src={imagen} alt="" />
+                      )}
+                      <div className={styles.textContainer}>
+                        <h2 className={styles.name}>
+                          {user && user.first_name ? (
+                            user.first_name
+                          ) : (
+                            <p>loading...</p>
+                          )}{" "}
+                          {user && user.last_name ? (
+                            user.last_name
+                          ) : (
+                            <p>loading...</p>
+                          )}
+                        </h2>
+                      </div>
+                    </div>
+                    {/* {extra && extra.premium !== undefined ? (
+                      <div className={styles.premiumLabel}>
+                        <p>PREMIUM</p>
+                      </div>
+                    ) : null} */}
+                  </div>
+                </Link>
+              ) : (
+                <p>log in to see your profile!</p>
+              )}
               <button
                 type="button"
-                className="btn-close btn-close-white"
+                className="btn-close btn-close-dark bg-dark mb-5"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
+
               ></button>
             </div>
             <div className={"offcanvas-body" + styles.buttons}>
@@ -89,6 +119,11 @@ const Nav = () => {
                             onClick={() => dispatch(logout())}
                           >
                             Log out
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                              style={{ width: "50px", height: "30px" }}>
+                              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3-9h-2V7h-2v4H9l3 3 3-3z" />
+                            </svg>
+
                           </h1>
                         </Link>
                       </li>
@@ -96,104 +131,120 @@ const Nav = () => {
                   )}
                 </div>
                 {loggin ? (
-                  <li className="nav-item dropdown">
-                    <a
-                      className={`nav-link dropdown-toggle ${styles["buttonSections"]}`}
-                      href="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                      style={{
-                        fontSize: "14px",
-                        fontWeight: "bold",
-                        backgroundColor: "white",
-                        width: "25%",
-                        padding: "7px",
-                        marginRight: "5px",
-                        marginTop: "5px",
-                        color: "black",
-                        borderRadius: "10px",
-                        ":hover": {
-                          backgroundColor: "#23E871",
-                          color: "white",
-                        },
-                      }}
-                    >
-                      SECTIONS
-                    </a>
-                    <ul className="dropdown-menu dropdown-menu-dark">
-                      <li className="nav-item">
-                        <Link to="/home" className="dropdown-item">
-                          <h1>Home</h1>
-                        </Link>
-                      </li>
+                  <ul className="list-unstyled mt-5">
+                    <li className="nav-item">
+                      <Link
+                        to="/home"
+                        className={styles.sectionLink}
+                      >
 
-                      <li className="nav-item">
-                        <Link to="/news" className="dropdown-item">
-                          <h1>Notices</h1>
-                        </Link>
-                      </li>
+                        <lord-icon
+                          src="https://cdn.lordicon.com/osuxyevn.json"
+                          trigger="hover"
+                          colors="primary:#FFFFFF"
+                          style={{ width: "35px", height: "35px" }}>
+                        </lord-icon>
+                        <span className={styles.button_text}>Home</span>
 
-                      <li className="nav-item">
-                        <Link to="/communities" className="dropdown-item">
-                          <h1>Community</h1>
-                        </Link>
-                      </li>
+                      </Link>
+                    </li>
 
-                      <li className="nav-item">
-                        <Link to="/Q&A" className="dropdown-item">
-                          <h1>Question & Answer</h1>
-                        </Link>
-                      </li>
+                    <li className="nav-item">
+                      <Link
+                        to="/news"
+                        className={styles.sectionLink}
+                      >
 
-                      <li className="nav-item">
-                        <Link to="/instructor" className="dropdown-item">
-                          <h1>Instructor</h1>
+                        <lord-icon
+                          src="https://cdn.lordicon.com/isugonwi.json"
+                          trigger="hover"
+                          colors="primary:#FFFFFF"
+                          style={{ width: "35px", height: "35px" }}>
+                        </lord-icon>
+                        <span className={styles.button_text}>Notices</span>
+
+                      </Link>
+                    </li>
+
+                    <li className="nav-item">
+                      <Link
+                        to="/communities"
+                        className={styles.sectionLink}
+                      >
+
+                        <lord-icon
+                          src="https://cdn.lordicon.com/bhfjfgqz.json"
+                          trigger="hover"
+                          colors="primary:#FFFFFF"
+                          style={{ width: "35px", height: "35px" }}>
+                        </lord-icon>
+                        <span className={styles.button_text}>Communities</span>
+
+                      </Link>
+                    </li>
+
+                    <li className="nav-item">
+                      <Link
+                        to="/Q&A"
+                        className={styles.sectionLink}
+                      >
+
+                        <lord-icon
+                          src="https://cdn.lordicon.com/amascaoj.json"
+                          trigger="hover"
+                          colors="primary:#FFFFFF"
+                          style={{ width: "35px", height: "35px" }}>
+                        </lord-icon>
+                        <span className={styles.button_text}>Question & Answer</span>
+
+                      </Link>
+                    </li>
+
+                    <li className="nav-item">
+
+                      <Link
+                        to="/instructor"
+                        className={styles.sectionLink}
+                      >
+
+                        <lord-icon
+                          src="https://cdn.lordicon.com/wluyqhxh.json"
+                          trigger="hover"
+                          colors="primary:#FFFFFF"
+                          style={{ width: "35px", height: "35px" }}>
+                        </lord-icon>
+                        <span className={styles.button_text}>Instructor</span>
+
+                      </Link>
+
+                    </li>
+
+                    <li>
+                      {extra && extra.premium !== undefined ? (
+                        <Link
+                          to="/education"
+                          className={styles.sectionLink}
+                        >
+
+                          <lord-icon
+                            src="https://cdn.lordicon.com/kipaqhoz.json"
+                            trigger="hover"
+                            colors="primary:#FFFFFF"
+                            style={{ width: "35px", height: "35px" }}>
+                          </lord-icon>
+                          <span className={styles.button_text}>Students</span>
+
                         </Link>
-                      </li>
-                    </ul>
-                  </li>
+                      ) : null}
+                    </li>
+
+                  </ul>
                 ) : (
                   <p className={styles.log}>Go to log!</p>
                 )}
               </ul>
             </div>
-            {user ? (
-              <Link to="/profile" className={styles.profileLink}>
-                <div className={styles.card}>
-                  <div className={styles.profileImage}>
-                    {extra && extra.user_image ? (
-                      <img src={extra.user_image} alt="" />
-                    ) : (
-                      <img src={imagen} alt="" />
-                    )}
-                    <div className={styles.textContainer}>
-                      <h2 className={styles.name}>
-                        {user && user.first_name ? (
-                          user.first_name
-                        ) : (
-                          <p>loading...</p>
-                        )}{" "}
-                        {user && user.last_name ? (
-                          user.last_name
-                        ) : (
-                          <p>loading...</p>
-                        )}
-                      </h2>
-                      <ul className={styles.profile}>
-                        <li>JavaScript</li>
-                        <li>React</li>
-                        <li>PostgresSQL</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
 
-
-              </Link>
-            ) : (
-              <p>log in to see your profile!</p>
-            )}
           </div>
         </div>
       </nav>

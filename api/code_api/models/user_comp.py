@@ -27,8 +27,8 @@ class UserComplement(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.id.first_name
-    
+        return self.id.user.first_name
+
 @receiver(post_save, sender=UserAccount)
 def update_post_on_user_account_save(sender, instance, **kwargs):
     UserComplement.objects.filter(id=instance).update(is_delete=instance.is_delete)

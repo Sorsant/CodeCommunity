@@ -40,8 +40,8 @@
 
 .logOut {
   margin-right: 5px;
-  padding: 10px 20px;
-  border: 1px solid black;
+  padding: 5px 10px;
+  border: 1px solid white;
   border-radius: 15px;
   color: #212121;
   z-index: 1;
@@ -80,7 +80,7 @@
 
 .containerLogOut {
   position: absolute;
-  margin-top: 820px;
+  margin-top: 790px;
   margin-left: 5px;
 }
 
@@ -119,8 +119,6 @@ div.containerNav button.navbar-toggler {
 .menu_toggle {
   background-color: #444242 !important;
 }
-
-
 
 .contact::before {
   background-color: #cac2c2;
@@ -226,64 +224,84 @@ div.containerNav button.navbar-toggler {
   width: 100%;
 }
 
-/* .buttonSections {
-    font-size: 15px;
-    font-weight: bold;
-    background-color: rgb(43, 189, 99);
-    width: 25%;
-    padding: 7px;
-    margin: 5px;
-    color: #212121;
-    border-radius: 10px;
-} */
+.sectionLink {
+  text-decoration: none;
+  display: flex;
+  width: 450px;
+  padding: 4px;
+  color: white;
+}
+
+.sectionLink:hover {
+  background-color: #2c2f30;
+}
+
+.buttonSections {
+  width: 150px;
+  padding: 4px;
+  display: flex;
+  border-radius: 10px;
+  border: rgb(85, 175, 85);
+  margin-bottom: 5px;
+  background-color: #1a7930;
+  color: white;
+  transition: 0.5s;
+  margin-left: 5px;
+}
+
+.buttonSections:hover {
+  /* filter: drop-shadow(0px 0px 7px #929995); */
+
+  background-color: rgb(20, 158, 20);
+}
+
+.button_text {
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.header {
+  display: flex;
+  /* align-items: center; */
+  background-color: #3f854e;
+  height: 90px;
+
+}
 
 .profileLink {
-  width: 50%;
+
   text-decoration: none;
-  margin-left: 65px;
-  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .card {
-  width: 290px;
-  height: 380px;
-  background: rgb(48, 46, 46);
+
+  width: 90px;
+  height: 20px;
   border-radius: 12px;
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.123);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  transition-duration: .5s;
 }
 
 .profileImage {
-  background: linear-gradient(to right, rgb(54, 54, 54), rgb(32, 32, 32));
-  margin-top: 20px;
-  width: 170px;
-  height: 170px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.329);
 }
 
 .profileImage img {
-  width: 170px;
-  height: 170px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
 }
 
 .textContainer {
-  width: 100%;
-  text-align: left;
-  padding: 20px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-direction: row;
   font-size: 20px;
 }
 
 .name {
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 600;
   color: white;
   letter-spacing: 0.5px;
@@ -295,8 +313,15 @@ div.containerNav button.navbar-toggler {
   letter-spacing: 0.2px;
 }
 
-.card:hover {
-  background-color: rgb(43, 43, 43);
-  transition-duration: .5s;
-  filter: drop-shadow(0px 0px 7px #a8d6aa);
+.premiumLabel {
+  background-color: rgb(218, 180, 74);
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.premiumLabel p {
+  font-size: 12px;
 }
