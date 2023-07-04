@@ -27,7 +27,7 @@ URL_FRONT = config('URL_FRONT')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['codecommunity-31wr.onrender.com', 'localhost', '127.0.0.1']
 
 # Application definition
 

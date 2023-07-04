@@ -14,27 +14,23 @@ En caso de que te aparezca un error _"la ejecución de scripts está deshabilita
 
 -  Crea un archivo `.env` y vas a agregar los siguientes datos:
 
-   // Database
-   - DB_NAME=codecommunity
-   - DB_USER=postgres
-   - DB_PASSWORD=06082001
-   - DB_HOST=localhost
-   - DB_PORT=5432
+   #Database
+   - DB_URL=postgres://codecommunity_user:f7O2NTBMYnOsDYc9BbjvmeKVk60vSIlH@dpg-cihkp859aq012ev27hag-a.oregon-postgres.render.com/codecommunity
 
-   // Secret keys
+   #Secret keys
    - SECRET_KEY=django-insecure-s*aeyf73twr_tzl40xgl7^((3wvnzauv7mnm3bps+av7h)tapo
    - STRIPE_SECRET_KEY=sk_test_51NL9TyB0138Dzwzeb6TwTUR5RZHD9emoo9aZ761jRWVbz3nZldZOX00vP7NzjuaprUheMkwUN1PTFF1B9OtKVO2o00xd9S3jTp
 
-   // Info
+   #Info
    - EMAIL=codecommunity0@gmail.com
    - PASSWORD_EMAIL=kahfacuzxajdfiby
 
-   // Cloudinary
+   #Cloudinary
    - CLOUD_NAME=duaao22ya
    - API_KEY=386214687664726
    - API_SECRET=McovSyzAVo-BHNz1ajg8OCs8EUs
 
-   // URL API
+   #URL API
    - URL_BACK=http://localhost:8000
    - URL_FRONT=http://localhost:3000
 
