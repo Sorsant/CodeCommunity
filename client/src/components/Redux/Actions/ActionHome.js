@@ -105,3 +105,17 @@ export const Instructor = (id) => async (dispatch) => {
     console.error("Error al cambiar la propiedad:", error);
   }
 };
+
+export const ImgEdit = (id,secureUrl) => async (dispatch) => {
+  try {
+    const response = await axios.patch(
+      `https://codecommunity-production.up.railway.app/codec/api/user_extras/${id}/`,
+      {
+        user_image:secureUrl,
+      }
+    );
+    return response;
+  } catch (error) {
+    console.error("Error al cambiar la propiedad:", error);
+  }
+};

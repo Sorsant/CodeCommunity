@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import { ProductDisplay } from "../../components/Payment/payment";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  Instructor,
-  notInstructor,
+  ImgEdit
 } from "../../components/Redux/Actions/ActionHome";
+import CloudinaryUploadWidget from "./CloudinaryWidget/cloudinary";
 import { useState, useEffect } from "react";
-
+import ModalForm from "./FromEdit/ModalEdit";
 const Profile = () => {
   const user = useSelector((state) => state.userdb.user);
   const extras = useSelector((state) => state.home.userExtra);
@@ -16,33 +16,19 @@ const Profile = () => {
   const languages = useSelector((state) => state.community.languages.data);
   const dispatch = useDispatch();
 
-  console.log("languages:", languages); // Agregar este console.log
-  const [instructorChecked, setInstructorChecked] = useState(
-    extra?.postulation || false
-  );
+  const handleImageUrl = (secureUrl) => {
+
+    dispatch(ImgEdit(user?.id, secureUrl))
+
+  };
+
 
   useEffect(() => {
-    setInstructorChecked(extra?.postulation || false);
-  }, [extra]);
+    localStorage.setItem("loggedInUserId", JSON.stringify(user?.id));
 
-  const handleCheckboxChange = () => {
-    setInstructorChecked(!instructorChecked);
-  };
+  }, [user]);
 
-  const handleButtonClick = () => {
-    try {
-      if (instructorChecked) {
-        dispatch(Instructor(extra.id));
-      } else {
-        dispatch(notInstructor(extra.id));
-      }
-      console.log("Propiedad cambiada exitosamente");
-      // Recargar la página para refrescar los datos
-      window.location.reload();
-    } catch (error) {
-      console.error("Error al cambiar la propiedad:", error);
-    }
-  };
+
 
   return (
     <div>
@@ -51,24 +37,16 @@ const Profile = () => {
           <h1 className={style.title}>Profile</h1>
         </div>
         <div className={style.containerButton}>
-          <Link to="/edit">
-            <button className={style.edit}>Edit</button>
-          </Link>
         </div>
         {extra && extra.premium ? (
           <div>
-            <label htmlFor="instructorCheckbox">Instructor</label>
-            <input
-              type="checkbox"
-              id="instructorCheckbox"
-              checked={instructorChecked}
-              onChange={handleCheckboxChange}
-            />
-            <button onClick={handleButtonClick}>Guardar</button>
+            <h1>Premium</h1>
           </div>
         ) : (
           <ProductDisplay />
         )}
+
+        <ModalForm />
       </header>
 
       <div className={style.profile}>
@@ -77,36 +55,34 @@ const Profile = () => {
             {user && user.first_name ? user.first_name : <p>loading...</p>}{" "}
             {user && user.last_name ? user.last_name : <p>loading...</p>}
           </h2>
-          {extra.language.map((langu) => {
-            const languageId = langu.toString();
-            const language = Array.isArray(languages)
-              ? languages.find((lang) => lang.id === +languageId)
-              : null;
-            const languageName = language?.name || "Unknown Language";
+          {extra &&
+            extra.language &&
+            extra.language.map((langu) => {
+              const languageId = langu.toString();
+              const language = Array.isArray(languages)
+                ? languages.find((lang) => lang.id === +languageId)
+                : null;
+              const languageName = language?.name || "Unknown Language";
 
-            console.log("languageId:", languageId);
-            console.log("language:", language);
-            console.log("languageName:", languageName);
 
-            return (
-              <div className={style.div}>
-                <ul>
-                  <li>language={languageName}</li>
-                </ul>
-              </div>
-            );
-          })}
+              return (
+                <div className={style.div}>
+                  <ul>
+                    <li>language={languageName}</li>
+                  </ul>
+                </div>
+              );
+            })}
+
         </div>
-        <p className={style.profile_description}>
-          Si estás leyendo esto, sos un capo, sabelo
-        </p>
-      </div>
-      <div className={style.profile_picture}>
-        {extra && extra.user_image ? (
-          <img src={extra.user_image} alt="" />
-        ) : (
-          <img src={imagen} alt="" />
-        )}
+        <div className={style.profile_picture}>
+          <CloudinaryUploadWidget onImageUrl={handleImageUrl} />
+          {extra && extra.user_image ? (
+            <img src={extra.user_image} alt="" />
+          ) : (
+            <img src={imagen} alt="" />
+          )}
+        </div>
       </div>
     </div>
   );
