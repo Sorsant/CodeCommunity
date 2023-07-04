@@ -5,7 +5,6 @@ from .community import Community
 from users.models import UserAccount
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.contrib.auth import get_user_model
 
 class UserComplement(models.Model):
     id = models.OneToOneField(UserAccount, primary_key=True, on_delete=models.CASCADE)

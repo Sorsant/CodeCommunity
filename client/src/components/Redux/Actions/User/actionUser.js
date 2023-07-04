@@ -13,12 +13,11 @@ export const getUsers = () => async (dispatch) => {
 export const getUserId = (id) => async (dispatch) => {
     const endpoint = `${API_URL}/codec/api/users/${id}`;
     const { data } = await axios.get(endpoint);
-    console.log(data);
     dispatch(getUser(data));
 };
 
 export const getUserExtras = () => async (dispatch) => {
-    const endpoint = `${API_URL}/codec/api/user_extras`;
+    const endpoint = `${API_URL}/codec/api/user_extras/`;
     const { data } = await axios.get(endpoint);
     dispatch(getUserExtra(data));
 };
