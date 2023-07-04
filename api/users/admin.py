@@ -5,4 +5,4 @@ from .models import UserAccount
 
 @admin.register(UserAccount)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('id', 'email', 'last_login', 'is_active', 'is_staff', 'is_delete')
+    list_display = ('id', 'email', 'last_login', 'is_superuser', 'is_staff', 'is_active', 'is_delete')
