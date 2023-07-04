@@ -25,7 +25,7 @@ URL_BACK = config('URL_BACK')
 URL_FRONT = config('URL_FRONT')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
