@@ -32,7 +32,7 @@ const Posteohome = () => {
       ...prevPost,
       user: userInfo?.id
     }));
-  }, [userInfo]);
+  }, [userInfo, userExtra]);
 
   const handleOnChange = (event) => {
     const { name, value } = event.target;

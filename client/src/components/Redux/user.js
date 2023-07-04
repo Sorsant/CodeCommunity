@@ -2,7 +2,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import querystring from 'querystring';
 import Cookies from 'js-cookie';
 import axios from 'axios';
-import { API_URL } from "../../config/index";
 
 export const register = createAsyncThunk(
   "users/register",
@@ -217,16 +216,44 @@ export const logout = createAsyncThunk("users/logout", async (_, thunkAPI) => {
     Cookies.remove('refresh');
     localStorage.removeItem('access');
     localStorage.removeItem('refresh');
+    localStorage.removeItem('loggedInUserId');
+    localStorage.removeItem('admin');
   } catch (err) {
     return thunkAPI.rejectWithValue(err.response.data);
   }
 });
+
+export const isAdmin = createAsyncThunk("users/admin", async (_, thunkAPI) => {
+  const id = localStorage.getItem('loggedInUserId')
+
+  try {
+    const response = await axios.get(`/codec/api/users/${id}/`, {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    });
+
+    const data = response.data
+
+    if (data.is_superuser === true){
+      localStorage.setItem("admin", data.is_superuser)
+      return data;
+    } else {
+      return thunkAPI.rejectWithValue(data);
+    }
+  } catch (err) {
+    return thunkAPI.rejectWithValue(err.response.data);
+  }
+});
+
 
 const initialState = {
   isAuthenticated: false,
   user: null,
   loading: false,
   registered: false,
+  admin: false
 };
 
 const userSlice = createSlice({
@@ -308,7 +335,10 @@ const userSlice = createSlice({
       })
       .addCase(logout.rejected, (state) => {
         state.loading = false;
-      });
+      })
+      .addCase(isAdmin.fulfilled, (state) => {
+        state.admin = true;
+      })
   },
 });
 

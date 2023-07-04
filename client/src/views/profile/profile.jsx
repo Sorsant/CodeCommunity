@@ -21,7 +21,7 @@ const Profile = () => {
 
   useEffect(() => {
     localStorage.setItem("loggedInUserId", JSON.stringify(user?.id));
-  }, [user]);
+  }, [user, extra]);
 
   return (
     <div>
