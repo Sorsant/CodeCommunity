@@ -13,6 +13,7 @@ const Nav = () => {
   const extra = extras.find((users) => users.id === (user && user.id));
   const isAuthenticated = useSelector((state) => state.userdb.isAuthenticated);
   const dispatch = useDispatch();
+  const languages = useSelector((state) => state.community.languages.data);
 
   return (
     <div className={styles.containerNav}>
@@ -175,9 +176,24 @@ const Nav = () => {
                           <p>loading...</p>
                         )}
                       </h2>
-                      <li>JavaScript</li>
-                      <li>React</li>
-                      <li>PostgresSQL</li>
+                      {extra &&
+                        extra.language &&
+                        extra.language.map((langu) => {
+                          const languageId = langu.toString();
+                          const language = Array.isArray(languages)
+                            ? languages.find((lang) => lang.id === +languageId)
+                            : null;
+                          const languageName =
+                            language?.name || "Unknown Language";
+
+                          return (
+                            <div className={styles.div}>
+                              <ul>
+                                <li>{languageName}</li>
+                              </ul>
+                            </div>
+                          );
+                        })}
                     </ul>
                     <p className={styles.profile_description}>
                       Si estas leyendo esto, sos un capo, sabelo
@@ -190,9 +206,12 @@ const Nav = () => {
                       <img src={imagen} alt="" />
                     )}
                   </div>
+                  {extra && extra.premium !== undefined ? (
+                    <div className={styles.premiumLabel}>
+                      <p>PREMIUM</p>
+                    </div>
+                  ) : null}
                 </div>
-
-
               </Link>
             ) : (
               <p>log in to see your profile!</p>
