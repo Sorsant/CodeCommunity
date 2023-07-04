@@ -10,9 +10,6 @@ import store from "./components/Redux/store";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import { API_URL } from "./config";
-axios.defaults.baseURL = API_URL;
-axios.defaults.withCredentials = true;
 
 ReactDOM.render(
   <Provider store={store}>
