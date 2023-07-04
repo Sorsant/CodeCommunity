@@ -75,7 +75,7 @@ export const googleAuthenticate = createAsyncThunk('users/google',
         withCredentials: true,
       }
 
-      const response = await axios.post(`/auth/o/google-oauth2/`, formData, config);
+      const response = await axios.post(`https://codecommunity-31wr.onrender.com/auth/o/google-oauth2/`, formData, config);
 
       const data = response.data;
 

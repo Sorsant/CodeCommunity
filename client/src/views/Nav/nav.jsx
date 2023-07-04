@@ -25,7 +25,7 @@ const Nav = () => {
               <h1>Community</h1>
             </Link>
           ) : (
-            <Link to="/home" className={styles.no_style}>
+            <Link to="/home" className={styles.titleNav}>
               <h1>Code</h1>
               <h1>Community</h1>
             </Link>

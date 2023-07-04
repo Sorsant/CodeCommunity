@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Route, Routes, useLocation, useRoutes } from "react-router-dom";
+import { Route, Routes, useLocation, useRoutes, useNavigate } from "react-router-dom";
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from "react";
@@ -43,16 +43,14 @@ import FAQ from "./dashboard/scenes/faq/index";
 import Geography from "./dashboard/scenes/geography/index";
 import "../src/dashboard/indexDash.css";
 import NewScenes from "./dashboard/scenes/newScenes";
-
 import { API_URL } from "./config";
 axios.defaults.baseURL = API_URL;
 axios.defaults.withCredentials = true;
 
-
 const App = () => {
   const dispatch = useDispatch();
-
-  const { isAuthenticated, isAdmin } = useSelector((state) => state.userdb
+  const navigate = useNavigate();
+  const { isAuthenticated, } = useSelector((state) => state.userdb
   );
   useEffect(() => {
     dispatch(checkAuth());
@@ -62,19 +60,20 @@ const App = () => {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true)
   // const dashboardRoutes = useRoutes([
-  //   { path: "/admin", element: isAdmin ? <Dashboard /> : <Navigate to="/" replace /> },
-  //   { path: "/team", element: isAdmin ? <Team /> : <Navigate to="/" replace /> },
-  //   { path: "/postscenes", element: isAdmin ? <PostScenes /> : <Navigate to="/" replace /> },
-  //   { path: "/invoices", element: isAdmin ? <Invoices /> : <Navigate to="/" replace /> },
-  //   { path: "/newscenes", element: isAdmin ? <NewScenes /> : <Navigate to="/" replace /> },
-  //   { path: "/form", element: isAdmin ? <Form /> : <Navigate to="/" replace /> },
-  //   { path: "/bar", element: isAdmin ? <Bar /> : <Navigate to="/" replace /> },
-  //   { path: "/pie", element: isAdmin ? <Pie /> : <Navigate to="/" replace /> },
-  //   { path: "/line", element: isAdmin ? <Line /> : <Navigate to="/" replace /> },
-  //   { path: "/faq", element: isAdmin ? <FAQ /> : <Navigate to="/" replace /> },
-  //   { path: "/geography", element: isAdmin ? <Geography /> : <Navigate to="/" replace /> },
+  //   { path: "/admin", element: isAdmin ? <Dashboard /> : navigate("/") },
+  //   { path: "/team", element: isAdmin ? <Team /> : navigate("/") },
+  //   { path: "/postscenes", element: isAdmin ? <PostScenes /> : navigate("/") },
+  //   { path: "/invoices", element: isAdmin ? <Invoices /> : navigate("/") },
+  //   { path: "/newscenes", element: isAdmin ? <NewScenes /> : navigate("/") },
+  //   { path: "/form", element: isAdmin ? <Form /> : navigate("/") },
+  //   { path: "/bar", element: isAdmin ? <Bar /> : navigate("/") },
+  //   { path: "/pie", element: isAdmin ? <Pie /> : navigate("/") },
+  //   { path: "/line", element: isAdmin ? <Line /> : navigate("/") },
+  //   { path: "/faq", element: isAdmin ? <FAQ /> : navigate("/") },
+  //   { path: "/geography", element: isAdmin ? <Geography /> : navigate("/") },
   // ])
   const location = useLocation();
+  const isAdmin = true;
   return (
     <div className={styles.containerApp}>
       {location.pathname !== "/" &&
@@ -155,7 +154,6 @@ const App = () => {
         </Routes>
       }
 
-
       {location.pathname !== "/" &&
         location.pathname !== "/login" &&
         location.pathname !== "/register" &&
@@ -171,7 +169,7 @@ const App = () => {
         location.pathname !== "/line" &&
         location.pathname !== "/faq" &&
         location.pathname !== "/geography" ? <Footer /> : null}
-
+    </div>
   );
 };
 
