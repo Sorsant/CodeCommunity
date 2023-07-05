@@ -48,11 +48,7 @@ const Invoices = () => {
       headerName: "Language",
       flex: 1,
     },
-    {
-      field: "is_delete",
-      headerName: "Is Delete",
-      flex: 1,
-    },
+    
     {
       field: "delete",
       headerName: "Delete",

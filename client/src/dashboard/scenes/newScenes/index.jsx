@@ -60,11 +60,7 @@ const NewScenes = () => {
       headerName: "link",
       flex: 1,
     },
-    {
-      field: "is_delete",
-      headerName: "Is Delete",
-      flex: 1,
-    },
+    
     {
       field: "delete",
       headerName: "Delete",
