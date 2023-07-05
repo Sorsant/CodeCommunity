@@ -4,7 +4,7 @@ import { getHomePosts } from "../../components/Redux/Actions/ActionHome";
 import { fakeButton } from "../../components/Redux/Actions/ActionHome";
 import PosteoCardsFake from "../../components/Posts_Proyect/cardsFake/cards";
 import CommunityCard from "../../views/Community/communityCards";
-import NewsCardFake from "../news/newsFake/newsCardFake";
+import NewsCardsFake from "../news/newsFake/newsCardsFake";
 import styles from "./fakeHome.module.css";
 import { getUsers } from "../../components/Redux/Actions/User/actionUser";
 import { getUserExtras } from "../../components/Redux/Actions/User/actionUser";
@@ -30,7 +30,7 @@ const FakeHome = () => {
         <PosteoCardsFake />
       </div>
       <div className={styles.NewsCard}>
-        <NewsCardFake />
+        <NewsCardsFake />
       </div>
     </div>
   );
