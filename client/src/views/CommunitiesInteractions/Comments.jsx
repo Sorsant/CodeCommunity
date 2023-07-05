@@ -36,7 +36,7 @@ const Comments = ({ currentUserId }) => {
          setBackendComments([comment, ...filteredComments]);
          setActiveComment(null);
       } catch (error) {
-         console.log(response.data);
+         // console.log(response.data);
       }
    };
 
@@ -64,16 +64,16 @@ const Comments = ({ currentUserId }) => {
    // };
 
    useEffect(() => {
-      const fetchComments = async () => {
-         try {
-            const data = getComments();
-            setBackendComments(data);
-         } catch (error) {
-            console.log(response.data);
-         }
-      };
-
-      fetchComments();
+      // const fetchComments = async () => {
+      //    try {
+      //       const data = getComments();
+      //       setBackendComments(data);
+      //    } catch (error) {
+      //       console.log(response.data);
+      //    }
+      // };
+      getComments();
+      // fetchComments();
    }, []);
 
 

@@ -26,9 +26,10 @@ export const filterAZ = () => async (dispatch) => {
 };
 
 export const getComments = () => async (dispatch) => {
-   const endpoint = `${API_URL}/codec/api/comments/`;
+   const endpoint = `${API_URL}/codec/api/comments/${id}`;
    const { data } = await axios.get(endpoint);
-   dispatch(getPostComments(data));
+   console.log(data)
+   dispatch(getAllComments(data));
 };
 export const filterZA = () => async (dispatch) => {
    const endpoint = `${API_URL}/codec/api/post/?ordering=-title`;
@@ -50,7 +51,7 @@ export const getPostIds = (id) => async (dispatch) => {
    const endpoint = `${API_URL}/codec/api/post/${id}`;
    const { data } = await axios.get(endpoint);
    dispatch(getPostId(data));
-   console.log(data);
+
 };
 
 export const filterLessLikes = () => async (dispatch) => {
@@ -115,7 +116,7 @@ export const Instructor = (id) => async (dispatch) => {
 };
 
 export const ImgEdit = (id, secureUrl) => async (dispatch) => {
-   console.log(secureUrl);
+
    try {
       const response = await axios.patch(
          `${API_URL}/codec/api/user_extras/${id}/`,
