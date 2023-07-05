@@ -11,8 +11,7 @@ import GeographyChart from "../../componentsDash/GeographyChart";
 import BarChart from "../../componentsDash/BarChart";
 import StatBox from "../../componentsDash/StatBox";
 import ProgressCircle from "../../componentsDash/ProgressCircle";
-import PeopleRoundedIcon from '@mui/icons-material/PeopleRounded';
-
+import PeopleRoundedIcon from "@mui/icons-material/PeopleRounded";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -271,7 +270,7 @@ const Dashboard = () => {
             fontWeight="600"
             sx={{ marginBottom: "15px" }}
           >
-             Traffic
+            Traffic
           </Typography>
           <Box height="200px">
             <GeographyChart isDashboard={true} />

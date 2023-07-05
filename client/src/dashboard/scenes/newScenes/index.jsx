@@ -5,6 +5,7 @@ import Header from "../../componentsDash/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import DeleteIcon from '@mui/icons-material/Delete';
+import { API_URL } from "../../../config";
 
 const NewScenes = () => {
   const theme = useTheme();
@@ -60,6 +61,11 @@ const NewScenes = () => {
       flex: 1,
     },
     {
+      field: "is_delete",
+      headerName: "Is Delete",
+      flex: 1,
+    },
+    {
       field: "delete",
       headerName: "Delete",
       flex: 1,
@@ -69,11 +75,11 @@ const NewScenes = () => {
           const confirmDelete = window.confirm("Are you sure you want to delete this New?");
           
           if (confirmDelete) {
-            axios.delete(`http://127.0.0.1:8000/codec/api/news/${params.row.id}`)
+            axios.delete(`${API_URL}/codec/api/news/${params.row.id}/` , { is_delete: true})
               .then((response) => {
-                // Aquí puedes realizar alguna acción después de eliminar al usuario
                 console.log("News deleted successfully");
-                
+                setNewsData(response.data)
+                window.location.reload();
               })
               .catch((error) => {
                 console.error("Error deleting News:", error);
@@ -91,7 +97,7 @@ const NewScenes = () => {
   ];
 
   useEffect(() =>{
-    axios.get("http://127.0.0.1:8000/codec/api/news/")
+    axios.get(`${API_URL}/codec/api/news/`)
     .then(response => {
       setNewsData(response.data);
     })

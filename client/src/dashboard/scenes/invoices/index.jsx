@@ -5,6 +5,7 @@ import Header from "../../componentsDash/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import DeleteIcon from '@mui/icons-material/Delete';
+import { API_URL } from "../../../config";
 
 const Invoices = () => {
   const theme = useTheme();
@@ -48,6 +49,11 @@ const Invoices = () => {
       flex: 1,
     },
     {
+      field: "is_delete",
+      headerName: "Is Delete",
+      flex: 1,
+    },
+    {
       field: "delete",
       headerName: "Delete",
       flex: 1,
@@ -57,12 +63,12 @@ const Invoices = () => {
           const confirmDelete = window.confirm("Are you sure you want to delete this community?");
           
           if (confirmDelete) {
-            axios.delete(`http://127.0.0.1:8000/codec/api/community/${params.row.id}`)
-              .then((response) => {
-                // Aquí puedes realizar alguna acción después de eliminar al usuario
+            axios
+            .patch(`${API_URL}/codec/api/community/${params.row.id}/`, { is_delete: true})
+            .then((response) => {
                 console.log("User deleted successfully");
-                // const updatedUserData = userData.filter(user => user.id !== params.row.id);
-                // setUserData(updatedUserData);
+                setCommunityData(response.data);
+                window.location.reload();
               })
               .catch((error) => {
                 console.error("Error deleting community:", error);
@@ -80,7 +86,7 @@ const Invoices = () => {
   ];
 
   useEffect(() =>{
-    axios.get("http://127.0.0.1:8000/codec/api/community/")
+    axios.get(`${API_URL}/codec/api/community/`)
     .then(response => {
       setCommunityData(response.data);
     })
