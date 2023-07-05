@@ -60,7 +60,9 @@ export const homeSlice = createSlice({
       },
 
       getAllComments: (state, action) => {
-         state.comments = action.payload;
+         if (Array.isArray(action.payload)) {
+            state.comments = action.payload;
+         }
       },
    },
 });

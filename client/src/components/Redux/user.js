@@ -16,7 +16,7 @@ export const register = createAsyncThunk(
     });
 
     try {
-      const response = await axios.post(`${API_URL}/auth/users/`, body, {
+      const response = await axios.post(`/auth/users/`, body, {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ export const getUser = createAsyncThunk("users/me", async (_, thunkAPI) => {
   const access = Cookies.get('access') || localStorage.getItem('access');
 
   try {
-    const response = await axios.get(`${API_URL}/auth/users/me/`, {
+    const response = await axios.get(`/auth/users/me/`, {
       headers: {
         Accept: 'application/json',
         Authorization: `JWT ${access}`,
@@ -75,7 +75,7 @@ export const googleAuthenticate = createAsyncThunk('users/google',
         withCredentials: true,
       }
 
-      const response = await axios.post(`${API_URL}/auth/o/google-oauth2/`, formData, config);
+      const response = await axios.post(`/auth/o/google-oauth2/`, formData, config);
 
       const data = response.data;
 
@@ -117,7 +117,7 @@ export const login = createAsyncThunk(
     });
 
     try {
-      const response = await axios.post(`${API_URL}/auth/jwt/create/`, body, {
+      const response = await axios.post(`/auth/jwt/create/`, body, {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
@@ -164,7 +164,7 @@ export const checkAuth = createAsyncThunk("users/verify", async (_, thunkAPI) =>
   });
 
   try {
-    const response = await axios.post(`${API_URL}/auth/jwt/verify/`, body, {
+    const response = await axios.post(`/auth/jwt/verify/`, body, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -196,7 +196,7 @@ export const resetPassword = createAsyncThunk(
     });
 
     try {
-      const response = await axios.post(`${API_URL}/auth/users/reset_password/`, body, {
+      const response = await axios.post(`/auth/users/reset_password/`, body, {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
