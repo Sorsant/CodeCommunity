@@ -10,7 +10,6 @@ import Home from "./views/home/home";
 import LandingPage from "./views/landing/landing";
 import Nav from "./views/Nav/nav";
 import Openai from "./views/Q&A/Openai";
-import Comments from "./views/CommunitiesInteractions/Comments"
 import Profile from "./views/profile/profile";
 import CommunityForm from "./views/CommunityForm/communityForm";
 import PostDetail from "./views/detail/detail";
@@ -42,6 +41,8 @@ import Geography from "./dashboard/scenes/geography/index";
 import "../src/dashboard/indexDash.css";
 import NewScenes from "./dashboard/scenes/newScenes";
 import Error404 from "./views/Error/Error404";
+import QueryString from "query-string";
+import { pay } from "./components/Redux/Actions/User/actionUser";
 
 axios.defaults.baseURL = API_URL;
 axios.defaults.withCredentials = true;
@@ -53,13 +54,26 @@ const App = () => {
   const [isSidebar, setIsSidebar] = useState(true);
   const location = useLocation();
   const admin = localStorage.getItem("admin");
+  const id = localStorage.getItem("id");
 
+  const values = QueryString.parse(location.search);
   useEffect(() => {
     dispatch(checkAuth());
     dispatch(getUser());
     dispatch(getUserExtras());
     dispatch(isAdmin());
-  }, [dispatch]);
+
+    if (values.success === "true") {
+      dispatch(pay(id));
+      console.log("Order placed! You will receive an email confirmation.");
+    }
+
+    if (values.canceled) {
+      console.log(
+        "Order canceled -- continue to shop around and checkout when you're ready."
+      );
+    }
+  }, [dispatch, id, location.search]);
 
   const excludedPaths = [
     "/",
@@ -92,16 +106,17 @@ const App = () => {
     "/pie",
     "/line",
     "/faq",
-    "/geography"
-  ]
+    "/geography",
+  ];
 
   return (
     <div className={styles.containerApp}>
       {!excludedPaths.includes(location.pathname) && <Nav />}
 
       <Routes>
-        <Route path="/google" element={<GoogleLogin />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/google" element={<GoogleLogin />} />
         <Route path="*" element={<Error404 />} />
         {isAuthenticated ? (
           <>
@@ -111,7 +126,6 @@ const App = () => {
             <Route path="/education" element={<Books />} />
             <Route path="/communities" element={<CommunityForm />} />
             <Route path="/Q&A" element={<Openai />} />
-            <Route path="/comments/:id" element={<Comments currentUserId="1" />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/detail/:id" element={<PostDetail />} />
             <Route path="/newspost" element={<NewsPost />} />
@@ -121,45 +135,46 @@ const App = () => {
         ) : (
           <>
             <Route path="/fakeHome" element={<FakeHome />} />
-            <Route path="/" element={<LandingPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/ResetPassword" element={<ResetPasswordPage />} />
           </>
         )}
-      </Routes>
+      </Routes >
 
-      {dashboardPaths.includes(location.pathname) && admin && (
-        <>
-          <ColorModeContext.Provider value={colorMode}>
-            <ThemeProvider theme={theme}>
-              <CssBaseline />
-              <div className="app">
-                <Sidebar isSidebar={isSidebar} />
-                <main className="content">
-                  <TopBar setIsSidebar={setIsSidebar} />
-                  <Routes>
-                    <Route path="/admin" element={<Dashboard />} />
-                    <Route path="/team" element={<Team />} />
-                    <Route path="/postscenes" element={<PostScenes />} />
-                    <Route path="/invoices" element={<Invoices />} />
-                    <Route path="/newscenes" element={<NewScenes />} />
-                    <Route path="/form" element={<Form />} />
-                    <Route path="/bar" element={<Bar />} />
-                    <Route path="/pie" element={<Pie />} />
-                    <Route path="/line" element={<Line />} />
-                    <Route path="/faq" element={<FAQ />} />
-                    <Route path="/geography" element={<Geography />} />
-                  </Routes>
-                </main>
-              </div>
-            </ThemeProvider>
-          </ColorModeContext.Provider>
-        </>
-      )}
+      {
+        dashboardPaths.includes(location.pathname) && admin && (
+          <>
+            <ColorModeContext.Provider value={colorMode}>
+              <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <div className="app">
+                  <Sidebar isSidebar={isSidebar} />
+                  <main className="content">
+                    <TopBar setIsSidebar={setIsSidebar} />
+                    <Routes>
+                      <Route path="/admin" element={<Dashboard />} />
+                      <Route path="/team" element={<Team />} />
+                      <Route path="/postscenes" element={<PostScenes />} />
+                      <Route path="/invoices" element={<Invoices />} />
+                      <Route path="/newscenes" element={<NewScenes />} />
+                      <Route path="/form" element={<Form />} />
+                      <Route path="/bar" element={<Bar />} />
+                      <Route path="/pie" element={<Pie />} />
+                      <Route path="/line" element={<Line />} />
+                      <Route path="/faq" element={<FAQ />} />
+                      <Route path="/geography" element={<Geography />} />
+                    </Routes>
+                  </main>
+                </div>
+              </ThemeProvider>
+            </ColorModeContext.Provider>
+          </>
+        )
+      }
 
       {!excludedPaths.includes(location.pathname) && <Footer />}
-    </div>
+    </div >
   );
-}
+};
 
 export default App;

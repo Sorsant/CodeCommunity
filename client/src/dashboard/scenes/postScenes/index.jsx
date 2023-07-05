@@ -5,7 +5,8 @@ import Header from "../../componentsDash/Header";
 import { useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
+import { API_URL } from "../../../config";
 
 const PostScenes = () => {
   const theme = useTheme();
@@ -18,12 +19,12 @@ const PostScenes = () => {
       description: "",
       image: "",
       likes: 0,
-      created: ""
-    }
+      created: "",
+    },
   ]);
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5 },
-    
+
     {
       field: "title",
       headerName: "Title",
@@ -59,21 +60,27 @@ const PostScenes = () => {
       cellClassName: "name-column--cell",
     },
     {
+      field: "is_delete",
+      headerName: "Is Delete",
+      flex: 1,
+    },
+    {
       field: "delete",
       headerName: "Delete",
       flex: 1,
       renderCell: (params) => {
         const handleDelete = () => {
-          
-          const confirmDelete = window.confirm("Are you sure you want to delete this post?");
-          
+          const confirmDelete = window.confirm(
+            "Are you sure you want to delete this post?"
+          );
+
           if (confirmDelete) {
-            axios.delete(`http://127.0.0.1:8000/codec/api/post/${params.row.id}`)
+            axios
+              .patch(`${API_URL}/codec/api/post/${params.row.id}/`, { is_delete: true})
               .then((response) => {
-                // Aquí puedes realizar alguna acción después de eliminar al usuario
                 console.log("User deleted successfully");
-                // const updatedUserData = userData.filter(user => user.id !== params.row.id);
-                // setUserData(updatedUserData);
+                setPostData(response.data);
+                window.location.reload();
               })
               .catch((error) => {
                 console.error("Error deleting user:", error);
@@ -81,31 +88,27 @@ const PostScenes = () => {
           }
         };
 
-        return (
-          <DeleteIcon onClick={handleDelete}>delete</DeleteIcon>
-        )
+        return <DeleteIcon onClick={handleDelete}>delete</DeleteIcon>;
       },
     },
-    
   ];
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/codec/api/post/")
-    .then(response => {
-      setPostData(response.data);
-    }).catch(error => {
-      console.error('Error post data:', error);
-    });
+    axios
+      .get( `${API_URL}/codec/api/post/`)
+      .then((response) => {
+        setPostData(response.data);
+      })
+      .catch((error) => {
+        console.error("Error post data:", error);
+      });
   }, [setPostData]);
   console.log(postData);
 
   return (
     <Box m="20px">
-      <Header
-        title="Post Users"
-        subtitle="List of user posts"
-      />
-      
+      <Header title="Post Users" subtitle="List of user posts" />
+
       <Box
         m="40px 0 0 0"
         height="75vh"

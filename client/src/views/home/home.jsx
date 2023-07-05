@@ -9,7 +9,6 @@ import Filter from '../../components/Filter/Filter';
 import Posteohome from './PostHome/PostHome'
 import { getUsers } from '../../components/Redux/Actions/User/actionUser';
 import { getUserExtras } from '../../components/Redux/Actions/User/actionUser';
-import { getComments } from '../../components/Redux/Actions/ActionHome';
 import { fakeLogin } from "../../components/Redux/Actions/ActionHome.js";
 
 const Home = () => {
@@ -19,7 +18,6 @@ const Home = () => {
     dispatch(getHomePosts());
     dispatch(fakeLogin());
     dispatch(getUsers());
-    dispatch(getComments());
     dispatch(getUserExtras())
   }, [dispatch]);
 
