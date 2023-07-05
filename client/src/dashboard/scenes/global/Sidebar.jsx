@@ -150,14 +150,14 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Communitys from Code Community"
+              title="Communitys"
               to="/invoices"
               icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="News from Code Community"
+              title="News Code Community"
               to="/newscenes"
               icon={<NewspaperOutlinedIcon />}
               selected={selected}
