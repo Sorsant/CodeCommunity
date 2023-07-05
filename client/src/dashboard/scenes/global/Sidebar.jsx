@@ -4,6 +4,7 @@ import "react-pro-sidebar/dist/css/styles.css";
 import { Box, IconButton, Typography, useTheme } from '@mui/material';
 import { Link } from "react-router-dom";
 import { tokens } from "../../../theme";
+import { useSelector } from "react-redux"
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PeopleOutlinedIcon from '@mui/icons-material/PeopleOutlined';
 import ContactsOutlinedIcon from '@mui/icons-material/ContactsOutlined';
@@ -16,11 +17,13 @@ import PieChartOutlineOutlinedIcon from '@mui/icons-material/PieChartOutlined';
 import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
-import imageLauti from '../../../assets/imgProfileLauti.jpg';
+
 import NewspaperOutlinedIcon from '@mui/icons-material/NewspaperOutlined';
 
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
+
+
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
@@ -43,7 +46,9 @@ const Sidebar = () => {
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
-
+  const user = useSelector((state) => state.userdb.user);
+  const extras = useSelector((state) => state.home.userExtra);
+  const extra = extras.find((users) => users.id === (user && user.id));
   return (
     <Box
       sx={{
@@ -99,7 +104,7 @@ const Sidebar = () => {
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={imageLauti}
+                  src={extra?.user_image}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
@@ -110,10 +115,10 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  MAURO
+                  {user?.first_name}
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
-                  VP Fancy Admin
+                  Admin
                 </Typography>
               </Box>
             </Box>
@@ -123,6 +128,13 @@ const Sidebar = () => {
             <Item
               title="Dashboard"
               to="/admin"
+              icon={<HomeOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Home"
+              to="/home"
               icon={<HomeOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}

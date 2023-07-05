@@ -49,7 +49,7 @@ const PostDetail = () => {
   };
   const handleDelet = () => {
     dispatch(deletPostid(id));
-    navigate("/home")
+    navigate("/home");
   };
 
   useEffect(() => {
@@ -71,23 +71,35 @@ const PostDetail = () => {
             src="https://cdn.lordicon.com/kfzfxczd.json"
             trigger="boomerang"
             colors="primary:#000000"
-            style={{ width: "35px", height: "35px" }}>
-          </lord-icon>
+            style={{ width: "35px", height: "35px" }}
+          ></lord-icon>
         </button>
       )}
 
-
-      <h1>User: {user && user.first_name} {user && user.last_name}</h1>
+      <h1>
+        User: {user && user.first_name} {user && user.last_name}
+      </h1>
       <h1>Email: {user && user.email}</h1>
 
       <div className={style.post_card}>
         <div className={style.avatar}></div>
-        <div className={style.info}> <h1>{user && user.first_name} {user && user.last_name}</h1>
-          <h1>{user && user.email}</h1></div>
+        <div className={style.info}>
+          {" "}
+          <h1>
+            {user && user.first_name} {user && user.last_name}
+          </h1>
+          <h1>{user && user.email}</h1>
+        </div>
         <hr />
         <h1 className={style.title}>{post && post.title}</h1>
         <hr />
-        <div className={style.image_preview}><img src={post && post.image} alt={post && post.image} className={style.image} /></div>
+        <div className={style.image_preview}>
+          <img
+            src={post && post.image}
+            alt={post && post.image}
+            className={style.image}
+          />
+        </div>
         <h3 className={style.description}>{post && post.description}</h3>
       </div>
 
@@ -109,12 +121,3 @@ const PostDetail = () => {
 };
 
 export default PostDetail;
-
-// {/* <div class="post-card">
-//   <div class="avatar"></div>
-//   <div class="info"> <h1>User: {user && user.first_name} {user && user.last_name}</h1>
-//       <h1>Email: {user && user.email}</h1></div>
-//   <h1 class="title">{post && post.title}</h1>
-//   <p class="description">{post && post.description}</p>
-//   <div class="image-preview"><img src={post && post.image} alt={post && post.image} className={style.image} /></div>
-// </div> */}

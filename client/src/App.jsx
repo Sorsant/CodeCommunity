@@ -73,7 +73,7 @@ const App = () => {
         "Order canceled -- continue to shop around and checkout when you're ready."
       );
     }
-  }, [dispatch, id, location.search]);
+  }, [dispatch, id, location.search, values.canceled, values.success]);
 
   const excludedPaths = [
     "/",
@@ -172,8 +172,10 @@ const App = () => {
         )
       }
 
-      {!excludedPaths.includes(location.pathname) && <Footer />}
-    </div >
+      <footer>
+        {!excludedPaths.includes(location.pathname) && <Footer />}
+      </footer>
+    </div>
   );
 };
 

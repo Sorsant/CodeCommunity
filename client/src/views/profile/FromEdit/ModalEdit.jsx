@@ -19,7 +19,7 @@ const ModalForm = () => {
   const [instructorChecked, setInstructorChecked] = useState(extra?.postulation === true);
   const [InfoUserExtra, setInfoUserExtra] = useState({
     id: "",
-    user_image: extras?.user_image,
+    user_image: extra?.user_image,
     birthday: "" || extras?.birthday,
     language: extras?.language,
     postulation: instructorChecked || extras?.postulation,

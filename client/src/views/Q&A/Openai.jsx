@@ -42,6 +42,7 @@ const OpenAIChat = () => {
                 <div>
                     <h3>Respuesta:</h3>
                     <p>{outputText}</p>
+
                 </div>
             )}
         </div>
