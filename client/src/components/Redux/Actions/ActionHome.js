@@ -28,15 +28,9 @@ export const filterAZ = () => async (dispatch) => {
 };
 
 export const getComments = () => async (dispatch) => {
-<<<<<<< HEAD
-   const endpoint = `${API_URL}/codec/api/comments/`;
-   const { data } = await axios.get(endpoint);
-   dispatch(getAllComments(data));
-=======
   const endpoint = `${API_URL}/codec/api/comments/`;
   const { data } = await axios.get(endpoint);
   dispatch(getAllComments(data));
->>>>>>> 4e2105aa191800d237483a6b28696e161ec2695f
 };
 export const filterZA = () => async (dispatch) => {
   const endpoint = `${API_URL}/codec/api/post/?ordering=-title`;
