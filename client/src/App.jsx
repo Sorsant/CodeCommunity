@@ -10,6 +10,7 @@ import Home from "./views/home/home";
 import LandingPage from "./views/landing/landing";
 import Nav from "./views/Nav/nav";
 import QandA from "./views/QAPage/QAPage";
+import Comments from "./views/CommunitiesInteractions/Comments"
 import Profile from "./views/profile/profile";
 import CommunityForm from "./views/CommunityForm/communityForm";
 import PostDetail from "./views/detail/detail";
@@ -110,6 +111,7 @@ const App = () => {
             <Route path="/education" element={<Books />} />
             <Route path="/communities" element={<CommunityForm />} />
             <Route path="/Q&A" element={<QandA />} />
+            <Route path="/comments/:id" element={<Comments currentUserId="1" />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/detail/:id" element={<PostDetail />} />
             <Route path="/newspost" element={<NewsPost />} />
@@ -158,6 +160,6 @@ const App = () => {
       {!excludedPaths.includes(location.pathname) && <Footer />}
     </div>
   );
-};
+}
 
 export default App;
