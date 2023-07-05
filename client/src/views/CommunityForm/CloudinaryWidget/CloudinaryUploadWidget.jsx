@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import styles from "../CloudinaryWidget/image.module.css";
 
 const CloudinaryUploadWidget = ({ onImageUrl }) => {
-
   useEffect(() => {
     const cloudName = "duaao22ya"; // reemplaza con tu propio cloud name
     const uploadPreset = "imageposteos"; // reemplaza con tu propio upload preset
@@ -20,7 +19,7 @@ const CloudinaryUploadWidget = ({ onImageUrl }) => {
         // cropping: true, // agregar un paso de recorte
         // showAdvancedOptions: true,  // agregar opciones avanzadas (public_id y etiqueta)
         // sources: [ "local", "url"], // restringir las fuentes de carga a URL y archivos locales
-        multiple: false,  // restringir la carga a un solo archivo
+        multiple: false, // restringir la carga a un solo archivo
         folder: "imageCommunity", // cargar archivos en la carpeta especificada
         tags: ["communities", "community"], // agregar las etiquetas dadas a los archivos cargados
         // context: {alt: "user_uploaded"}, // agregar los datos de contexto dados a los archivos cargados
@@ -33,11 +32,12 @@ const CloudinaryUploadWidget = ({ onImageUrl }) => {
         if (!error && result && result.event === "success") {
           const secureUrl = result.info.secure_url;
           onImageUrl(secureUrl);
-          //console.log("¡Listo! Aquí está la información de la imagen: ", result.info);
           const uploadedImage = document.getElementById("uploadedimage");
           if (uploadedImage) {
             uploadedImage.setAttribute("src", result.info.secure_url);
           }
+        } else if (error) {
+          console.error("Error uploading image:", error);
         }
       }
     );
@@ -61,10 +61,10 @@ const CloudinaryUploadWidget = ({ onImageUrl }) => {
 
   return (
     <div>
-        <button id="upload_widget" className="cloudinary-button">
-            Upload 
-        </button>
-        <img id="uploadedimage" alt=" " className={styles.image}/> 
+      <button id="upload_widget" className="cloudinary-button">
+        Upload
+      </button>
+      <img id="uploadedimage" alt=" " className={styles.image} />
     </div>
   );
 };

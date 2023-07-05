@@ -4,7 +4,7 @@
 .card {
   padding: 20px;
   width: 360px;
-  height: 550px;
+  height: 535px;
   border: 1px solid #5e503f;
   border-radius: 20px;
   background: #22303a;
@@ -27,7 +27,7 @@
   font-size: 20px;
   font-weight: 600;
   color: #FFFFFF;
-  margin: 15px 0 0 10px;
+  margin: 15px 0 0 5px;
   font-family: 'Play', sans-serif;
   transition: 0.5s;
 }
@@ -38,9 +38,16 @@
 
 .linkInstructor {
   text-decoration: none;
-  color: #636363;
+  color: rgb(155, 146, 146);
 }
-
+.likes{
+  color: white;
+  font-size: 15px;
+}
+.boton{
+  width: 50px;
+  height: 20px;
+}
 .card_image {
   background-color: #c9c9c9;
   border-radius: 15px;
@@ -67,17 +74,17 @@
 
 .footer {
   position: absolute;
-  margin-left: -5px;
+  margin-left: 5px;
   margin-top: 5px;
   font-size: 13px;
-  color: #636363;
+  color: rgb(228, 220, 220);
 }
 
 .by_name {
   font-weight: 700;
   margin-left: 5px;
+  color: rgb(155, 146, 146);
 }
-
 
 .imgUser {
   width: 35px;
