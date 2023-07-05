@@ -4,7 +4,7 @@ import { getUsers, getUserExtras } from "../../components/Redux/Actions/User/act
 import { getAllLanguages } from '../../components/Redux/Actions/Community/ActionCommunity';
 import styles from "./Instructor.module.css";
 import { Link } from 'react-router-dom';
-
+import ModalRange from './ModalRange'
 const Instructor = () => {
   const users = useSelector(state => state.home.users);
   const userExtras = useSelector(state => state.home.userExtra);
@@ -84,6 +84,7 @@ const Instructor = () => {
                   >
                     <span >Puedes contactar a este instructor</span>
                   </button>
+                  <ModalRange />
                 </div>
               </div>
             );

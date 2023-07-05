@@ -60,7 +60,7 @@ const Profile = () => {
                 </div>
               );
             })}
-        </div >
+        </div>
         <div className={style.profile_picture}>
           <CloudinaryUploadWidget onImageUrl={handleImageUrl} />
           {extra && extra.user_image ? (
@@ -69,8 +69,8 @@ const Profile = () => {
             <img src={imagen} alt="" />
           )}
         </div>
-      </div >
-    </div >
+      </div>
+    </div>
   );
 };
 

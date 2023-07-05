@@ -244,10 +244,11 @@ const Nav = () => {
                 )}
               </ul>
             </div>
-          </div >
-        </div >
-      </nav >
-    </div >
+
+          </div>
+        </div>
+      </nav>
+    </div>
   );
 };
 

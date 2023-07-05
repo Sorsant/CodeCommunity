@@ -54,15 +54,32 @@ export const homeSlice = createSlice({
       getUser: (state, action) => {
          state.users = action.payload;
       },
-
       getUserExtra: (state, action) => {
          state.userExtra = action.payload;
       },
-
       getAllComments: (state, action) => {
          if (Array.isArray(action.payload)) {
             state.comments = action.payload;
          }
+      },
+      allLikesPost: (state, action) => {
+         const { postId, userId } = action.payload;
+         console.log(postId, "reducer");
+         console.log(userId, "reducer");
+
+         const post = state.posts.find((post) => post.id === postId);
+         if (post) {
+            post.likes.push(userId);
+         }
+      },
+      resetUser: (state, action) => {
+         state.users = [];
+      },
+      resetUserExtra: (state, action) => {
+         state.userExtra = [];
+      },
+      filterlikes: (state, action) => {
+         state.posts = action.payload.data;
       },
    },
 });
@@ -79,7 +96,11 @@ export const {
    getUserExtra,
    getUser,
    menssageData,
+   allLikesPost,
+   resetUserExtra,
+   resetUser,
    getAllComments,
+   filterlikes,
 } = homeSlice.actions;
 
 export default homeSlice.reducer;
