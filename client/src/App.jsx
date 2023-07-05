@@ -9,7 +9,7 @@ import { API_URL } from "./config";
 import Home from "./views/home/home";
 import LandingPage from "./views/landing/landing";
 import Nav from "./views/Nav/nav";
-import QandA from "./views/QAPage/QAPage";
+import Openai from "./views/Q&A/Openai";
 import Comments from "./views/CommunitiesInteractions/Comments"
 import Profile from "./views/profile/profile";
 import CommunityForm from "./views/CommunityForm/communityForm";
@@ -110,7 +110,7 @@ const App = () => {
             <Route path="/groups/:name" element={<DetailCommunity />} />
             <Route path="/education" element={<Books />} />
             <Route path="/communities" element={<CommunityForm />} />
-            <Route path="/Q&A" element={<QandA />} />
+            <Route path="/Q&A" element={<Openai />} />
             <Route path="/comments/:id" element={<Comments currentUserId="1" />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/detail/:id" element={<PostDetail />} />

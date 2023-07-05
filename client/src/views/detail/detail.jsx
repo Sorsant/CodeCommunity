@@ -51,19 +51,30 @@ const PostDetail = () => {
     dispatch(deletPostid(id));
     navigate("/home")
   };
- 
+
+  useEffect(() => {
+    const loadDisqusScript = () => {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://codecommunity-com.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+
+    loadDisqusScript();
+  }, []);
+
   return (
     <div className={style.postDetailContainer}>
-  {isCurrentUserCreator && (
-  <button onClick={handleDelet} className={style.deleteButton} >
-   <lord-icon
-    src="https://cdn.lordicon.com/kfzfxczd.json"
-    trigger="boomerang"
-    colors="primary:#000000"
-    style={{ width: "35px", height: "35px" }}>
-</lord-icon>
-  </button>
-)}
+      {isCurrentUserCreator && (
+        <button onClick={handleDelet} className={style.deleteButton} >
+          <lord-icon
+            src="https://cdn.lordicon.com/kfzfxczd.json"
+            trigger="boomerang"
+            colors="primary:#000000"
+            style={{ width: "35px", height: "35px" }}>
+          </lord-icon>
+        </button>
+      )}
 
 
       <h1>User: {user && user.first_name} {user && user.last_name}</h1>
@@ -92,6 +103,7 @@ const PostDetail = () => {
           <button onClick={handleCancelEdit}>Cancel</button>
         </div>
       )}
+      <div id="disqus_thread"></div>
     </div>
   );
 };

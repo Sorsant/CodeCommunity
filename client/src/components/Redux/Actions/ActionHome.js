@@ -25,11 +25,22 @@ export const filterAZ = () => async (dispatch) => {
    dispatch(filterAcendent(data));
 };
 
-export const getComments = () => async (dispatch) => {
+export const getComments = (num) => async (dispatch) => {
    const endpoint = `${API_URL}/codec/api/comments/`;
    const { data } = await axios.get(endpoint);
-   dispatch(getPostComments(data));
+   const filter = data.map((el) => {
+      return { id: el.id, description: el.description, user: el.user, post: el.post };
+   });
+   const filteredComments = filter.filter((comment) => comment.post === +num);
+   dispatch(getAllComments(filteredComments));
 };
+
+export const postComments = (payload) => async (dispatch) => {
+   const endpoint = `${API_URL}/codec/api/comments/`;
+   const { data } = await axios.post(endpoint, payload);
+   dispatch(getAllComments(data));
+};
+
 export const filterZA = () => async (dispatch) => {
    const endpoint = `${API_URL}/codec/api/post/?ordering=-title`;
    const { data } = await axios.get(endpoint);
@@ -40,17 +51,11 @@ export const filterPublications = (payload) => async (dispatch) => {
    dispatch(filterTime(payload));
 };
 
-export const postComments = (payload) => async (dispatch) => {
-   const endpoint = `${API_URL}/codec/api/comments/`;
-   const { data } = await axios.post(endpoint, payload);
-   dispatch(getAllComments(data));
-};
-
 export const getPostIds = (id) => async (dispatch) => {
    const endpoint = `${API_URL}/codec/api/post/${id}`;
    const { data } = await axios.get(endpoint);
    dispatch(getPostId(data));
-   console.log(data);
+   // console.log(data);
 };
 
 export const filterLessLikes = () => async (dispatch) => {

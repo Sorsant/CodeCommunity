@@ -58,9 +58,7 @@ export const homeSlice = createSlice({
          state.userExtra = action.payload;
       },
       getAllComments: (state, action) => {
-         if (Array.isArray(action.payload)) {
-            state.comments = action.payload;
-         }
+         state.comments = action.payload;
       },
       allLikesPost: (state, action) => {
          const { postId, userId } = action.payload;
