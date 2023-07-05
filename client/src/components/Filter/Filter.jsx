@@ -1,7 +1,7 @@
 import styles from "./filter.module.css";
 import { filterAZ, filterZA, getHomePosts, filterPublications } from "../Redux/Actions/ActionHome"
 import { useDispatch, useSelector } from "react-redux";
-
+import { filterAllLikes, filterLessLikes } from "../Redux/Actions/ActionHome";
 const Filter = () => {
   const dispatch = useDispatch();
 
@@ -31,9 +31,23 @@ const Filter = () => {
       dispatch(filterPublications(value));
     }
   };
+
+  const handleLikes = (event) =>{
+    const { value } = event.target;
+
+    if (value === "All") {
+      dispatch(filterAllLikes(value));
+    }
+
+    if (value === "less") {
+      dispatch(filterLessLikes(value));
+    }
+  };
+
+  
   return (
     <div className={styles.container}>
-      <select className={styles.selectUno}>
+      <select className={styles.selectUno} onChange={handleLikes}>
         <option value={'DEFAULT'} disabled>Outstanding</option>
         <option value="All">More like</option>
         <option value="less">Less like</option>

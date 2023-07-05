@@ -7,39 +7,45 @@ import {
   getPostId,
   getSearchPosts,
   loginSwitch,
-  getPostComments
-
+  getAllComments,
+  filterlikes,
 } from "../Reducer/HomeReducer";
 import { API_URL } from "../../../config";
-export const getHomePosts = () => async (dispatch) => {
-  const endpoint =
-    `${API_URL}/codec/api/post/`;
-  const { data } = await axios.get(endpoint);
-  dispatch(getAllPosts(data));
-};
 
+export const getHomePosts = () => async (dispatch) => {
+  const endpoint = `${API_URL}/codec/api/post/`;
+  const { data } = await axios.get(endpoint);
+  const filteredData = data.filter((item) => !item.is_delete);
+  const sortedData = filteredData.sort(
+    (a, b) => new Date(b.created) - new Date(a.created)
+  );
+  dispatch(getAllPosts(sortedData)); // Despachar los posts ordenados
+};
 export const filterAZ = () => async (dispatch) => {
-  const endpoint =
-    `${API_URL}/codec/api/post/?ordering=title`;
+  const endpoint = `${API_URL}/codec/api/post/?ordering=title`;
   const { data } = await axios.get(endpoint);
   dispatch(filterAcendent(data));
 };
 
-
 export const getComments = () => async (dispatch) => {
-   const endpoint = `${API_URL}/codec/api/comments/`;
-   const { data } = await axios.get(endpoint);
-   dispatch(getPostComments(data));
+  const endpoint = `${API_URL}/codec/api/comments/`;
+  const { data } = await axios.get(endpoint);
+  dispatch(getAllComments(data));
 };
 export const filterZA = () => async (dispatch) => {
-  const endpoint =
-    `${API_URL}/codec/api/post/?ordering=-title`;
+  const endpoint = `${API_URL}/codec/api/post/?ordering=-title`;
   const { data } = await axios.get(endpoint);
   dispatch(filterDesendent(data));
 };
 
 export const filterPublications = (payload) => async (dispatch) => {
   dispatch(filterTime(payload));
+};
+
+export const postComments = (payload) => async (dispatch) => {
+  const endpoint = `${API_URL}/codec/api/comments/`;
+  const { data } = await axios.post(endpoint, payload);
+  dispatch(getAllComments(data));
 };
 
 export const getPostIds = (id) => async (dispatch) => {
@@ -49,6 +55,19 @@ export const getPostIds = (id) => async (dispatch) => {
   console.log(data);
 };
 
+export const filterLessLikes = () => async (dispatch) => {
+  const endpoint = `${API_URL}/codec/api/post/?ordering=-likes`;
+  const response = await axios.get(endpoint);
+  const data = response.data;
+  dispatch(filterlikes(data));
+};
+
+export const filterAllLikes = () => async (dispatch) => {
+  const endpoint = `${API_URL}/codec/api/post/?ordering=likes`;
+  const response = await axios.get(endpoint);
+  const data = response.data;
+  dispatch(filterlikes(data));
+};
 
 export const search = (name) => async (dispatch) => {
   const endpoint = `${API_URL}/codec/api/post/?search=${name}`;
@@ -57,10 +76,7 @@ export const search = (name) => async (dispatch) => {
 };
 
 export const addHomePosts = (post) => async (dispatch) => {
-  const url = await axios.post(
-    `${API_URL}/codec/api/post/`,
-    post
-  );
+  const url = await axios.post(`${API_URL}/codec/api/post/`, post);
   return url;
 };
 
@@ -106,19 +122,23 @@ export const Instructor = (id) => async (dispatch) => {
   }
 };
 
-export const ImgEdit = (id,secureUrl) => async (dispatch) => {
-
-  console.log(secureUrl)
+export const ImgEdit = (id, secureUrl) => async (dispatch) => {
+  console.log(secureUrl);
   try {
     const response = await axios.patch(
       `${API_URL}/codec/api/user_extras/${id}/`,
 
       {
-        user_image:secureUrl,
+        user_image: secureUrl,
       }
     );
     return response;
   } catch (error) {
     console.error("Error al cambiar la propiedad:", error);
   }
+};
+export const deletPostid = (id) => async (dispatch) => {
+  const response = await axios.patch(`${API_URL}/codec/api/post/${id}/`, {
+    is_delete: true,
+  });
 };
