@@ -7,24 +7,26 @@ import {
   getPostId,
   getSearchPosts,
   loginSwitch,
-  getPostComments
+  getPostComments,
+  filterlikes
 
 } from "../Reducer/HomeReducer";
 import { API_URL } from "../../../config";
-export const getHomePosts = () => async (dispatch) => {
-  const endpoint =
-    `${API_URL}/codec/api/post/`;
-  const { data } = await axios.get(endpoint);
-  dispatch(getAllPosts(data));
-};
 
+export const getHomePosts = () => async (dispatch) => {
+  const endpoint =`${API_URL}/codec/api/post/`;
+  const { data } = await axios.get(endpoint);
+  const filteredData = data.filter(item => !item.is_delete);
+  const sortedData = filteredData.sort((a, b) => new Date(b.created) - new Date(a.created));
+  dispatch(getAllPosts(sortedData)); // Despachar los posts ordenados
+
+};
 export const filterAZ = () => async (dispatch) => {
   const endpoint =
     `${API_URL}/codec/api/post/?ordering=title`;
   const { data } = await axios.get(endpoint);
   dispatch(filterAcendent(data));
 };
-
 
 export const getComments = () => async (dispatch) => {
    const endpoint = `${API_URL}/codec/api/comments/`;
@@ -49,6 +51,20 @@ export const getPostIds = (id) => async (dispatch) => {
   console.log(data);
 };
 
+
+export const filterLessLikes = () => async (dispatch) => {
+  const endpoint = `${API_URL}/codec/api/post/?ordering=-likes`;
+  const response = await axios.get(endpoint);
+  const data = response.data;
+  dispatch(filterlikes(data));
+};
+
+export const filterAllLikes = () => async (dispatch) => {
+  const endpoint = `${API_URL}/codec/api/post/?ordering=likes`;
+  const response = await axios.get(endpoint);
+  const data = response.data;
+  dispatch(filterlikes(data));
+};
 
 export const search = (name) => async (dispatch) => {
   const endpoint = `${API_URL}/codec/api/post/?search=${name}`;
@@ -122,3 +138,11 @@ export const ImgEdit = (id,secureUrl) => async (dispatch) => {
     console.error("Error al cambiar la propiedad:", error);
   }
 };
+export const deletPostid = (id) => async (dispatch) => {
+  const response = await axios.patch(
+    `${API_URL}/codec/api/post/${id}/`,
+      {
+          is_delete:true,
+      }
+    );
+}
