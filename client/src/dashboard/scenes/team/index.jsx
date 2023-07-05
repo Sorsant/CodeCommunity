@@ -1,10 +1,11 @@
 import { Box, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../../theme";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
 import Header from "../../componentsDash/Header";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { API_URL } from "../../../config";
 
 const Team = () => {
   const theme = useTheme();
@@ -12,75 +13,63 @@ const Team = () => {
   const [userData, setUserData] = useState([
     {
       id: 0,
-      user_image: "",
-      birthday: "",
-      language: "",
-      premium: false,
-      postulation: false,
-      created: ""
-    }
+      first_name: "",
+      last_name: "",
+      email: "",
+      is_superuser: false,
+      is_delete: false,
+    },
   ]);
 
   const columns = [
     { field: "id", headerName: "ID" },
     {
-      field: "user_image",
-      headerName: "Image",
+      field: "first_name",
+      headerName: "Name",
       flex: 1,
       cellClassName: "name-column--cell",
     },
     {
-      field: "birthday",
-      headerName: "Birthday",
+      field: "last_name",
+      headerName: "Last Name",
       type: "text",
       headerAlign: "left",
       align: "left",
     },
     {
-      field: "created",
-      headerName: "Created",
+      field: "email",
+      headerName: "Email",
       flex: 1,
     },
     {
-      field: "language",
-      headerName: "Language",
+      field: "is_superuser",
+      headerName: "Admin",
       flex: 1,
     },
     {
-      field: "premium",
-      headerName: "Premium",
-      type: "boolean",
-      headerAlign: "left",
-      align: "left",
+      field: "is_delete",
+      headerName: "Is Delete",
+      flex: 1,
     },
+
     {
-      field: "postulation",
-      headerName: "Postulation",
-      type: "boolean",
-      headerAlign: "left",
-      align: "left",
-    },
-    {
-      field: "delete",
+      field: "Delete",
       headerName: "Delete",
       flex: 1,
       renderCell: (params) => {
-        const handleDelete =  () => {
-          
-          const confirmDelete = window.confirm("Are you sure you want to delete this user?");
-          
-          if (confirmDelete) {
-            axios.delete(`http://127.0.0.1:8000/codec/api/user_extras/${params.row.id}`)
+        const handleDelete = () => {
+          const confirmDelete = window.confirm(
+            "Are you sure you want to delete this user?"
+          );
 
-              .then(() => {
-                axios.get("http://127.0.0.1:8000/codec/api/user_extras/")
-                
-                console.log("User deleted successfully");
-                
+          if (confirmDelete) {
+            axios
+              .patch(`${API_URL}/codec/api/users/${params.row.id}/`, {
+                is_delete: true,
               })
-              .then(response => {
-                
+              .then((response) => {
                 setUserData(response.data);
+                window.location.reload();
               })
               .catch((error) => {
                 console.error("Error deleting user:", error);
@@ -88,21 +77,20 @@ const Team = () => {
           }
         };
 
-        return (
-          <DeleteIcon onClick={handleDelete}>delete</DeleteIcon>
-        )
+        return <DeleteIcon onClick={handleDelete}>delete</DeleteIcon>;
       },
     },
   ];
 
-
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/codec/api/user_extras/")
-    .then(response => {
-      setUserData(response.data);
-    }).catch(error => {
-      console.error('Error fetching users data:', error);
-    });
+    axios
+      .get(`${API_URL}/codec/api/users/`)
+      .then((response) => {
+        setUserData(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching users data:", error);
+      });
   }, []);
   console.log(userData);
 
@@ -138,8 +126,7 @@ const Team = () => {
           },
         }}
       >
-        <DataGrid rows={userData} columns={columns} checkboxSelection  />
-        
+        <DataGrid rows={userData} columns={columns} checkboxSelection />
       </Box>
     </Box>
   );
