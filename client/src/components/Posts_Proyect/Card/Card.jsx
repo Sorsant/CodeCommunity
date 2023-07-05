@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "./card.module.css";
 import { addlikePost, unlikePost } from "../../Redux/Actions/User/actionUser";
+import { getHomePosts } from "../../Redux/Actions/ActionHome";
 
 const PostCard = ({ id }) => {
   const loggin = useSelector((state) => state.home.login);
@@ -14,12 +15,21 @@ const PostCard = ({ id }) => {
   const userExtra = useSelector((state) => state.home.userExtra);
   const dispatch = useDispatch();
 
-  const [posteo, setPosteo] = useState({  likes: [userInfo?.id]});
+  const [likedByCurrentUser, setLikedByCurrentUser] = useState(false);
+  const [posts, setPosts] = useState(); 
+  useEffect(() => {
+    dispatch(getHomePosts());
+  }, [dispatch]);
 
   useEffect(() => {
     const loggedInUserId = userInfo?.id;
     localStorage.setItem("loggedInUserId", JSON.stringify(loggedInUserId));
   }, [userInfo?.id]);
+
+  useEffect(() => {
+    // Verificar si el usuario actual ha dado like en el post
+    setLikedByCurrentUser(post.likes.includes(userInfo?.id));
+  }, [post.likes, userInfo?.id]);
 
   if (!post) {
     // No se encontró la publicación correspondiente al ID proporcionado
@@ -34,49 +44,47 @@ const PostCard = ({ id }) => {
     return null;
   }
 
-  const likedByCurrentUser = post.likes.includes(userInfo?.id);
-
   const handleLike = async () => {
     const loggedInUserId = JSON.parse(localStorage.getItem("loggedInUserId"));
     if (loggedInUserId) {
       if (likedByCurrentUser) {
-        dispatch(unlikePost(id));
+        const updatedLikes = post.likes.filter((user) => user !== loggedInUserId);
+        await dispatch(unlikePost(id, updatedLikes));
       } else {
-        const response = await dispatch(addlikePost(id, posteo.likes));
-        const updatedLikes = response.data.likes; // Obtener el nuevo array de likes desde la respuesta de la API
-        setPosteo({ likes: updatedLikes }); // Actualizar el estado local con el nuevo array de likes
+        const updatedLikes = [...post.likes, loggedInUserId];
+        await dispatch(addlikePost(id, updatedLikes));
       }
+      
+      await dispatch(getHomePosts()); // Despachar la acción getHomePosts después de actualizar los likes
     }
   };
   
-console.log(posteo, "w")
+
   return (
     <div className={styles.card}>
-      <>
-        <Link to={`/detail/${id}`} className={styles.linkDetail}>
-          <div className={styles.card_image}>
-            <img src={post.image} alt={post.title} />
-          </div>
-          <h2 className={styles.title}>{post.title}</h2>
-        </Link>
-        <p className={styles.card_body}>{post.description}</p>
-        <p className={styles.likes}>Likes: {post.likes.length}</p>
+      <Link to={`/detail/${id}`} className={styles.linkDetail}>
+        <div className={styles.card_image}>
+          <img src={post.image} alt={post.title} />
+        </div>
+        <h2 className={styles.title}>{post.title}</h2>
+      </Link>
+      <p className={styles.card_body}>{post.description}</p>
+      <p className={styles.likes}>Likes: {post.likes.length}</p>
 
-      <button className={styles.boton} onClick={() => handleLike(id)}>
-  {likedByCurrentUser ? "Unlike" : "Like"}
-</button>
+      <button className={styles.boton} onClick={handleLike}>
+        {likedByCurrentUser ? "Unlike" : "Like"}
+      </button>
 
-        <p className={styles.footer}>
-          Created by
-          <span className={styles.by_name}>
-            <img
-              src={userE?.user_image}
-              alt={userE?.name}
-              className={styles.imgUser}
-            />
-          </span>
-        </p>
-      </>
+      <p className={styles.footer}>
+        Created by
+        <span className={styles.by_name}>
+          <img
+            src={userE?.user_image}
+            alt={userE?.name}
+            className={styles.imgUser}
+          />
+        </span>
+      </p>
     </div>
   );
 };

@@ -2,11 +2,10 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getHomePosts } from "../../components/Redux/Actions/ActionHome";
 import { fakeButton } from "../../components/Redux/Actions/ActionHome";
-import PosteoCards from "../../components/Posts_Proyect/cardsFake/cards";
+import PosteoCardsFake from "../../components/Posts_Proyect/cardsFake/cards";
 import CommunityCard from "../../views/Community/communityCards";
-import NewsCard from "../news/newsCards";
+import NewsCardFake from "../news/newsFake/newsCardFake";
 import styles from "./fakeHome.module.css";
-import Filter from "../../components/Filter/Filter";
 import { getUsers } from "../../components/Redux/Actions/User/actionUser";
 import { getUserExtras } from "../../components/Redux/Actions/User/actionUser";
 import { fakeLogin } from "../../components/Redux/Actions/ActionHome.js";
@@ -24,17 +23,14 @@ const FakeHome = () => {
 
   return (
     <div className={styles.Container}>
-      <div className={styles.filter}>
-        <Filter />
-      </div>
       <div className={styles.communityCard}>
         <CommunityCard />
       </div>
       <div className={styles.PosteoCard}>
-        <PosteoCards />
+        <PosteoCardsFake />
       </div>
       <div className={styles.NewsCard}>
-        <NewsCard />
+        <NewsCardFake />
       </div>
     </div>
   );

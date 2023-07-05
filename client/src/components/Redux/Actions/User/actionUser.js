@@ -38,10 +38,11 @@ console.log(putUser);
 };
 
 export const addlikePost = (id, posts) => async (dispatch) => {
+    console.log("soy el id" , id,  "DEl post")
+    console.log("soy el like del posteo:" , posts,  "DEl post")
     try {
         const response = await axios.patch(
-          `${API_URL}/codec/api/user_extras/${id}/`,
-    
+          `${API_URL}/codec/api/post/${id}/`,
           {
             likes:posts,
           }
@@ -52,8 +53,20 @@ export const addlikePost = (id, posts) => async (dispatch) => {
       }
 }
 
-  export const unlikePost = (id) => async (dispatch) => {
-  }
+export const unlikePost = (postId, updatedLikes) => async (dispatch) => {
+    try {
+      const response = await axios.patch(
+        `${API_URL}/codec/api/post/${postId}/`,
+        {
+          likes: updatedLikes,
+        }
+      );
+      return response;
+    } catch (error) {
+      console.error("Error al cambiar la propiedad:", error);
+    }
+  };
+  
   export const resetPostData = () => async (dispatch) => {
     dispatch(resetUser());
     dispatch(resetUserExtra());

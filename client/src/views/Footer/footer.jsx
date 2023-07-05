@@ -46,10 +46,7 @@ const Footer = () => {
               <div className="col-md-6 item text">
                 <h3>CodeCommunity</h3>
                 <p>
-                  Praesent sed lobortis mi. Suspendisse vel placerat ligula.
-                  Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam
-                  quis tristique lectus. Aliquam in arcu eget velit pulvinar
-                  dictum vel in justo.
+                  Welcome to Code Community, a comprehensive platform that offers a diverse range of sections to cater to your coding needs. Explore our Home section for project showcases, where you can share and discover exciting programming endeavors. Engage in our Q&A corner to find answers to your coding questions or contribute your expertise to help others. Join our vibrant communities to connect with like-minded individuals, exchange ideas, and collaborate on coding challenges. Stay updated with the latest programming news and trends through our News section. Start your programming journey with us and unlock endless possibilities!
                 </p>
               </div>
               <div className="col item social">

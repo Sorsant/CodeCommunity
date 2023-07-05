@@ -1,77 +1,94 @@
+.container h1 {
+  width: 100%;
+}
+
+.container {
+  background-color: #1A1A1B;
+}
+
 .card {
-  width: 35em;
-  min-height: 400px;
-  background-color:#2c2c2c;
-  clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
-  border-bottom-left-radius: 20px;
-  border-top-right-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  padding: 2em;
-  box-sizing: border-box;
-  border: 1px solid white;
+  --main-color: #000;
+  --submain-color: #78858F;
+  --bg-color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  position: relative;
+  width: 500px;
+  height: 384px;
+  display: inline-block;
+  align-items: center;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.925);
+  margin: 40px;
+  transition: 0.5s;
 }
 
-.card span {
-  text-align: center;
-  display: block;
-  font-size: 1.3em;
-  margin: 1em 0;
-  color: white;
+.card:hover {
+  transform: translateY(-5px);
+  filter: drop-shadow(-3px 12px 20px #635e53);
 }
 
-.card .info {
-  font-weight: 400;
-  color: white;
-  display: block;
-  text-align: justify;
-  font-size: 1.2em;
-  margin: 0 1em;
+.card_img {
+  height: 192px;
+  width: 100%;
 }
 
-.card .img {
-  width: 6.8em;
-  height: 6.8em;
-  
-  border-radius: 10px;
-  margin: 1em auto;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.card_img svg {
+  height: 100%;
+  border-radius: 20px 20px 0 0;
 }
 
-.card .share {
-  margin-top: 1em;
+.card_avatar {
+  position: absolute;
+  width: 114px;
+  height: 114px;
+  background: var(--bg-color);
+  border-radius: 100%;
   display: flex;
   justify-content: center;
-  gap: 1em;
+  align-items: center;
+  top: calc(50% - 57px);
+  left: calc(20% - 57px);
 }
 
-.card a {
-  color: white;
-  transition: .4s ease-in-out;
+.img {
+  width: 814px;
+  height: 114px;
+  border-radius: 100%;
+
 }
 
-.card .button {
-  padding: 0.8em 1.7em;
-  display: block;
-  margin-top: 80px;
-  border-radius: 25px;
+.card_title {
+  margin-top: 60px;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--main-color);
+}
+
+.card_subtitle {
+  display: flex;
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--submain-color);
+}
+
+.info {
+  margin-left: 5px;
+}
+
+.button {
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 13px;
+  margin-bottom: 5px;
+  margin-top: 5px;
   border: none;
-  font-size: 8px;
+  font-weight: bold;
+  transition: 0.5s;
   color: white;
-  background: black;
-  transition: .4s ease-in-out;
+  background-color: rgb(68, 151, 88);
 }
 
-.card .button:hover {
-  background-color: #666666;
-  color: white;
-  cursor: pointer;
-}
-.cardHr{
-  color: white;
-}
-.cardContainer {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1em;
+.button:hover {
+  transform: translateY(-5px);
 }
