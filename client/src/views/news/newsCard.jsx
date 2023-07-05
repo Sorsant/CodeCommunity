@@ -21,18 +21,15 @@ const NewsCard = ({ Link, Category, Author, Image, Description, Title }) => {
           <img src={Image} alt={Image} />
         </div>
         <div className={styles.card_body}>
-          <span className={styles.tag}>{Category}</span>
-          <h4>
-            {Title}
-          </h4>
-          <p>
-            {Description}
-          </p>
+          <a className={styles.tag} href={Link}>
+            <span className={styles.tag}>{Category}</span>
+          </a>
+          <h4>{Title}</h4>
+          <p>{Description}</p>
           <div className={styles.user}>
-            <div className={styles.user_info}>
-              Author: {Author}
-            </div>
+            <div className={styles.user_info}>Author: {Author}</div>
           </div>
+          <div>{Link}</div>
         </div>
       </div>
     </div>
@@ -40,25 +37,3 @@ const NewsCard = ({ Link, Category, Author, Image, Description, Title }) => {
 };
 
 export default NewsCard;
-
-{/* <div className="container">
-  <div className="card">
-    <div className="card-header">
-      <img src={Image} alt={Image} />
-    </div>
-    <div className="card-body">
-      <span className="tag tag-teal">{Category}</span>
-      <h4>
-        {Title}
-      </h4>
-      <p>
-        {Description}
-      </p>
-      <div className="user">
-        <div className="user-info">
-          Author: {Author}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>  */}
