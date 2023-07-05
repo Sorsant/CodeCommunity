@@ -115,8 +115,9 @@ const App = () => {
       {!excludedPaths.includes(location.pathname) && <Nav />}
 
       <Routes>
-        <Route path="/google" element={<GoogleLogin />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/google" element={<GoogleLogin />} />
         <Route path="*" element={<Error404 />} />
         {isAuthenticated ? (
           <>
@@ -139,7 +140,6 @@ const App = () => {
         ) : (
           <>
             <Route path="/fakeHome" element={<FakeHome />} />
-            <Route path="/" element={<LandingPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/ResetPassword" element={<ResetPasswordPage />} />
           </>
