@@ -2,7 +2,7 @@
   background:  rgb(33, 37, 41);
 }
 
-section {
+.section-land {
   display: flex;
   align-items: center;
   justify-content: center;
