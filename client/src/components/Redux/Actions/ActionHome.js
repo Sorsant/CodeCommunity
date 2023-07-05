@@ -73,8 +73,8 @@ export const fakeLogin = () => (dispatch) => {
   dispatch(loginSwitch(data));
 };
 
-export const uploadPost = (post) => async (dispatch) => {
-  const url =`${API_URL}/codec/api/post/`;
+export const uploadPost = (post, id) => async (dispatch) => {
+  const url = `${API_URL}/codec/api/post/${id}/`;
   await axios.put(url, post);
   return url;
 };
