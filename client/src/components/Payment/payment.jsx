@@ -1,5 +1,5 @@
 import React from "react";
-import { API_URL } from "../../config/index";
+import { FRONT_URL } from "../../config/index";
 import styles from "./payment.module.css";
 // import { GET_USER_EXTRA } from "../Redux/action-types";
 
@@ -10,7 +10,7 @@ const ProductDisplay = () => (
         <h5>$5.00</h5>
       </div>
     </div>
-    <form action={`${API_URL}/stripe/create-checkout-session`} method="POST">
+    <form action={`${FRONT_URL}/stripe/create-checkout-session`} method="POST">
       <button type="submit" className={styles.button}>
         PREMIUM
       </button>
