@@ -9,8 +9,7 @@ import { API_URL } from "./config";
 import Home from "./views/home/home";
 import LandingPage from "./views/landing/landing";
 import Nav from "./views/Nav/nav";
-import QandA from "./views/QAPage/QAPage";
-import Comments from "./views/CommunitiesInteractions/Comments";
+import Openai from "./views/Q&A/Openai";
 import Profile from "./views/profile/profile";
 import CommunityForm from "./views/CommunityForm/communityForm";
 import PostDetail from "./views/detail/detail";
@@ -126,11 +125,7 @@ const App = () => {
             <Route path="/groups/:name" element={<DetailCommunity />} />
             <Route path="/education" element={<Books />} />
             <Route path="/communities" element={<CommunityForm />} />
-            <Route path="/Q&A" element={<QandA />} />
-            <Route
-              path="/comments/:id"
-              element={<Comments currentUserId="1" />}
-            />
+            <Route path="/Q&A" element={<Openai />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/detail/:id" element={<PostDetail />} />
             <Route path="/newspost" element={<NewsPost />} />
@@ -144,39 +139,41 @@ const App = () => {
             <Route path="/ResetPassword" element={<ResetPasswordPage />} />
           </>
         )}
-      </Routes>
+      </Routes >
 
-      {dashboardPaths.includes(location.pathname) && admin && (
-        <>
-          <ColorModeContext.Provider value={colorMode}>
-            <ThemeProvider theme={theme}>
-              <CssBaseline />
-              <div className="app">
-                <Sidebar isSidebar={isSidebar} />
-                <main className="content">
-                  <TopBar setIsSidebar={setIsSidebar} />
-                  <Routes>
-                    <Route path="/admin" element={<Dashboard />} />
-                    <Route path="/team" element={<Team />} />
-                    <Route path="/postscenes" element={<PostScenes />} />
-                    <Route path="/invoices" element={<Invoices />} />
-                    <Route path="/newscenes" element={<NewScenes />} />
-                    <Route path="/form" element={<Form />} />
-                    <Route path="/bar" element={<Bar />} />
-                    <Route path="/pie" element={<Pie />} />
-                    <Route path="/line" element={<Line />} />
-                    <Route path="/faq" element={<FAQ />} />
-                    <Route path="/geography" element={<Geography />} />
-                  </Routes>
-                </main>
-              </div>
-            </ThemeProvider>
-          </ColorModeContext.Provider>
-        </>
-      )}
+      {
+        dashboardPaths.includes(location.pathname) && admin && (
+          <>
+            <ColorModeContext.Provider value={colorMode}>
+              <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <div className="app">
+                  <Sidebar isSidebar={isSidebar} />
+                  <main className="content">
+                    <TopBar setIsSidebar={setIsSidebar} />
+                    <Routes>
+                      <Route path="/admin" element={<Dashboard />} />
+                      <Route path="/team" element={<Team />} />
+                      <Route path="/postscenes" element={<PostScenes />} />
+                      <Route path="/invoices" element={<Invoices />} />
+                      <Route path="/newscenes" element={<NewScenes />} />
+                      <Route path="/form" element={<Form />} />
+                      <Route path="/bar" element={<Bar />} />
+                      <Route path="/pie" element={<Pie />} />
+                      <Route path="/line" element={<Line />} />
+                      <Route path="/faq" element={<FAQ />} />
+                      <Route path="/geography" element={<Geography />} />
+                    </Routes>
+                  </main>
+                </div>
+              </ThemeProvider>
+            </ColorModeContext.Provider>
+          </>
+        )
+      }
 
       {!excludedPaths.includes(location.pathname) && <Footer />}
-    </div>
+    </div >
   );
 };
 
