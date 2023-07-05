@@ -1,5 +1,4 @@
-# Import Stripe
-
+import requests
 from django.conf import settings
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -10,7 +9,7 @@ import stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 class StripeCheckoutView(APIView):
-    def post(self, request):
+    def get(self, request):
         try:
             checkout_session = stripe.checkout.Session.create(
                 line_items=[
@@ -22,14 +21,14 @@ class StripeCheckoutView(APIView):
                 ],
                 payment_method_types= ['card'],
                 mode='payment',
-                success_url=settings.SITE_URL + '/?success=true&session_id={CHECKOUT_SESSION_ID}',
-                cancel_url=settings.SITE_URL + '/?canceled=true',
+                success_url=settings.SITE_URL + '/profile/?success=true&session_id={CHECKOUT_SESSION_ID}',
+                cancel_url=settings.SITE_URL + '/profile/?canceled=true',
             )
-            
-            return redirect(checkout_session.url)
+
+            # Retorna la respuesta como JSON
+            return Response(checkout_session)
         except:
             return Response(
-        {'error': f'Something went wrong when creating stripe checkout session'},
-        status=status.HTTP_500_INTERNAL_SERVER_ERROR
-    )
-
+                {'error': 'Something went wrong when creating stripe checkout session'},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )

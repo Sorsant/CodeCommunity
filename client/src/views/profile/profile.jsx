@@ -13,7 +13,7 @@ const Profile = () => {
   const languages = useSelector((state) => state.community.languages.data);
   const dispatch = useDispatch();
   const id = localStorage.getItem("id")
-  
+
   const handleImageUrl = (secureUrl) => {
 
     dispatch(ImgEdit(id, secureUrl));
