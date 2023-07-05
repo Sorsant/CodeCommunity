@@ -1,27 +1,23 @@
 import style from "./profile.module.css";
 import imagen from "./default.png";
-import { Link } from "react-router-dom";
 import { ProductDisplay } from "../../components/Payment/payment";
 import { useDispatch, useSelector } from "react-redux";
 import { ImgEdit } from "../../components/Redux/Actions/ActionHome";
 import CloudinaryUploadWidget from "./CloudinaryWidget/cloudinary";
-import { useState, useEffect } from "react";
 import ModalForm from "./FromEdit/ModalEdit";
+
 const Profile = () => {
   const user = useSelector((state) => state.userdb.user);
   const extras = useSelector((state) => state.home.userExtra);
   const extra = extras.find((users) => users.id === (user && user.id));
   const languages = useSelector((state) => state.community.languages.data);
   const dispatch = useDispatch();
-
+  const id = localStorage.getItem("id")
+  
   const handleImageUrl = (secureUrl) => {
-    const id = user?.id;
+
     dispatch(ImgEdit(id, secureUrl));
   };
-
-  useEffect(() => {
-    localStorage.setItem("loggedInUserId", JSON.stringify(user?.id));
-  }, [user, extra]);
 
   return (
     <div>

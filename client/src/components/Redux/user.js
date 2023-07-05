@@ -25,6 +25,8 @@ export const register = createAsyncThunk(
       const data = response.data;
 
       if (response.status === 201) {
+        const res  = await axios.post('/codec/api/user_extras/', {id: data.id})
+        console.log(res);
         return data;
       } else {
         alert(data);
@@ -50,6 +52,7 @@ export const getUser = createAsyncThunk("users/me", async (_, thunkAPI) => {
     const data = response.data;
 
     if (response.status === 200) {
+      localStorage.setItem("id", data.id)
       return data;
     } else {
       return thunkAPI.rejectWithValue(data);
@@ -145,8 +148,7 @@ export const login = createAsyncThunk(
 
         return data;
       } else {
-        alert(data.detail);
-
+        
         return thunkAPI.rejectWithValue(data);
       }
     } catch (err) {
@@ -253,7 +255,8 @@ const initialState = {
   user: null,
   loading: false,
   registered: false,
-  admin: false
+  admin: false,
+  errors: []
 };
 
 const userSlice = createSlice({
@@ -273,8 +276,9 @@ const userSlice = createSlice({
         state.loading = false;
         state.registered = true;
       })
-      .addCase(register.rejected, (state) => {
+      .addCase(register.rejected, (state, action) => {
         state.loading = false;
+        state.errors = action.payload
       })
       .addCase(login.pending, (state) => {
         state.loading = true;
@@ -283,8 +287,9 @@ const userSlice = createSlice({
         state.loading = false;
         state.isAuthenticated = true;
       })
-      .addCase(login.rejected, (state) => {
+      .addCase(login.rejected, (state, action) => {
         state.loading = false;
+        state.errors = action.payload
       })
       .addCase(googleAuthenticate.pending, state => {
         state.loading = true;
@@ -293,8 +298,9 @@ const userSlice = createSlice({
         state.loading = false;
         state.isAuthenticated = true;
       })
-      .addCase(googleAuthenticate.rejected, state => {
+      .addCase(googleAuthenticate.rejected, (state, action) => {
         state.loading = false;
+        state.errors = action.payload
       })
       .addCase(getUser.pending, state => {
         state.loading = true;
@@ -322,8 +328,9 @@ const userSlice = createSlice({
       .addCase(resetPassword.fulfilled, (state) => {
         state.loading = false;
       })
-      .addCase(resetPassword.rejected, (state) => {
+      .addCase(resetPassword.rejected, (state, action) => {
         state.loading = false;
+        state.errors = action.payload
       })
       .addCase(logout.pending, (state) => {
         state.loading = true;
@@ -333,8 +340,9 @@ const userSlice = createSlice({
         state.isAuthenticated = false;
         state.user = null;
       })
-      .addCase(logout.rejected, (state) => {
+      .addCase(logout.rejected, (state, action) => {
         state.loading = false;
+        state.errors = action.payload
       })
       .addCase(isAdmin.fulfilled, (state) => {
         state.admin = true;

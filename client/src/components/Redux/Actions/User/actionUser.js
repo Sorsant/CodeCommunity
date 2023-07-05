@@ -24,17 +24,18 @@ export const getUserExtras = () => async (dispatch) => {
     const { data } = await axios.get(endpoint);
     dispatch(getUserExtra(data));
 };
-export const putUserExtras = (id,InfoUserExtra) => async (dispatch) => {
+
+export const putUserExtras = (id, InfoUserExtra) => async () => {
     console.log(InfoUserExtra);
     const endpoint = `${API_URL}/codec/api/user_extras/${id}/`;
-    const { data } = await axios.patch(endpoint,InfoUserExtra);
+    await axios.patch(endpoint,InfoUserExtra);
    
 };
 
 export const editUser = (id,putUser) => async (dispatch) => {
 console.log(putUser);
     const endpoint = `${API_URL}/codec/api/users/${id}/`;
-    const { data } = await axios.patch(endpoint,putUser);
+    await axios.patch(endpoint,putUser);
 };
 
 export const addlikePost = (id, posts) => async (dispatch) => {

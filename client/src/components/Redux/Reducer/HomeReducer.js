@@ -54,11 +54,9 @@ export const homeSlice = createSlice({
     getUser: (state, action) => {
       state.users = action.payload;
     },
-
     getUserExtra: (state, action) => {
       state.userExtra = action.payload;
     },
-    
     getPostComments: (state, action) => {
       state.comments = action.payload;
       },
