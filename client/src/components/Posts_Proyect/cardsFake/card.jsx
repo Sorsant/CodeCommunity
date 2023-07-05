@@ -1,45 +1,53 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import styles from "./card.module.css";
+import styles from "./cardFake.module.css";
 
-const PostCard = ({ id }) => {
+const PostCardFake = ({ id }) => {
+    const loggin = useSelector((state) => state.home.login);
     const users = useSelector((state) => state.home.users);
-    const post = useSelector((state) => state.home.posts.find((post) => post.id === id));
-    const userExtra = useSelector((state) => state.home.userExtra.find((user) => user.id === post.user));
+    const post = useSelector((state) =>
+        state.home.posts.find((post) => post.id === id)
+    );
+    const userExtra = useSelector((state) => state.home.userExtra);
+
+    if (!post) {
+        // No se encontró la publicación correspondiente al ID proporcionado
+        return null;
+    }
+
     const user = users.find((user) => user.id === post.user);
+    const userE = userExtra.find((user) => user.id === post.user);
+
+    if (!user) {
+        // No se encontró el usuario correspondiente a la publicación
+        return null;
+    }
+
+
 
     return (
-        <div className={styles.containerForm}>
-            <div className={styles.cardContainer} key={post.id}>
-                <div className={styles.userContainer}>
-                    {userExtra && (
-                        <img src={userExtra.user_image} alt={userExtra.name} />
-                    )}
-                    {user && (
-                        <h2>{user.first_name} {user.last_name}</h2>
-                    )}
-                    {userExtra && userExtra.premium && userExtra.postulation && (
-                        <p>
-                            <Link to={`/login`}>
-                                <button> Puedes pagarle a este instructor</button>
-                            </Link>
-                        </p>
-                    )}
-                </div>
-
-                <div className={styles.postContainer}>
-                    <h2>{post.title}</h2>
-                    <h2>{post.description}</h2>
+        <Link
+            to="/login"
+            className={styles.linkDetail}
+        >
+            <div className={styles.card}>
+                <div className={styles.card_image}>
                     <img src={post.image} alt={post.title} />
-
-                    <Link to={`/login`} className={styles.linkDetail}>
-                        <h2 className={styles.text4}>More Info</h2>
-                    </Link>
                 </div>
+                <h2 className={styles.title}>{post.title}</h2>
+                <p className={styles.card_body}>
+                    {post.description}
+                </p>
+                <p className={styles.footer}>
+                    Created by
+                    <span className={styles.by_name}>
+                        {user.first_name} {user.last_name}
+                    </span>
+                </p>
             </div>
-        </div>
+        </Link>
     );
 };
 
-export default PostCard;
+export default PostCardFake;

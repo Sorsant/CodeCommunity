@@ -118,6 +118,7 @@ const Posteohome = () => {
           <div className={styles.cloudinary}>
             <br />
             <CloudinaryUploadWidget onImageUrl={handleImageUrl} />
+
           </div>
 
           <button

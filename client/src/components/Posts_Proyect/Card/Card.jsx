@@ -56,36 +56,37 @@ const PostCard = ({ id }) => {
   return (
     <div className={styles.card}>
       {console.log()}
-        <>
-          <Link
-            to={`/detail/${id}`}
-            onClick={handleMoreInfo}
-            className={styles.linkDetail}
-          >
-            <div className={styles.card_image}>
-              <img src={post.image} alt={post.title} />
-            </div>
-            <h2 className={styles.title}>{post.title}</h2>
-          </Link>
-          <p className={styles.card_body}>{post.description}</p>
-          <p className={styles.likes}>Likes: {post.likes.length}</p>
+      <>
+        <Link
+          to={`/detail/${id}`}
+          onClick={handleMoreInfo}
+          className={styles.linkDetail}
+        >
+          <div className={styles.card_image}>
+            <img src={post.image} alt={post.title} />
+          </div>
+          <h2 className={styles.title}>{post.title}</h2>
+        </Link>
+        <p className={styles.card_body}>{post.description}</p>
+        <p className={styles.likes}>Likes: {post.likes.length}</p>
 
-          {loggin && (
-            <button className={styles.boton} onClick={handleLike}>
-              {likedByCurrentUser ? "Unlike" : "Like"}
-            </button>
-          )}
-          <p className={styles.footer}>
-            Created by
-            <span className={styles.by_name}>
-              <img
-                src={userE.user_image}
-                alt={userE.name}
-                className={styles.imgUser}
-              />
-            </span>
-          </p>
-        </>
+        {loggin && (
+          <button className={styles.boton} onClick={handleLike}>
+            {likedByCurrentUser ? "Unlike" : "Like"}
+          </button>
+        )}
+        <p className={styles.footer}>
+          Created by
+          <span className={styles.by_name}>
+            {user.first_name} {user.last_name}
+            <img
+              src={userE.user_image}
+              alt={userE.name}
+              className={styles.imgUser}
+            />
+          </span>
+        </p>
+      </>
     </div>
   );
 };
