@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "./card.module.css";
 import { addlikePost, unlikePost } from "../../Redux/Actions/User/actionUser";
-import { useState } from "react";
 
 const PostCard = ({ id }) => {
   const loggin = useSelector((state) => state.home.login);

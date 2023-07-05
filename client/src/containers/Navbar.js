@@ -1,25 +1,9 @@
-import { Link, NavLink } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../components/Redux/user";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.userdb.isAuthenticated);
-
-  const authLinks = (
-    <>
-      <li className="nav-item">
-        <NavLink className="nav-link" to="/Fakehome">
-          Dashboard
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <button className="btn nav-link" onClick={() => dispatch(logout())}>
-          Logout
-        </button>
-      </li>
-    </>
-  );
+  const navigate = useNavigate();
 
   const guestLinks = (
     <>
@@ -61,7 +45,7 @@ const Navbar = () => {
                 <h4>Home</h4>
               </NavLink>
             </li>
-            {isAuthenticated ? authLinks : guestLinks}
+            {isAuthenticated ? navigate('/home') : guestLinks}
           </ul>
         </div>
       </div>
