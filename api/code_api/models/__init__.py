@@ -7,3 +7,4 @@ from .post import Post
 from .comments import Comments
 from .news import News
 from .category import Category
+from .reviews import Reviews

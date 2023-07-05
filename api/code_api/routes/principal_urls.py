@@ -10,6 +10,7 @@ from . import (
     post_urls,
     comments_urls,
     category_urls,
+    reviews_urls,
 )
 
 urlpatterns = [
@@ -23,4 +24,5 @@ urlpatterns = [
     path("api/", include(post_urls)),
     path("api/", include(comments_urls)),
     path("api/", include(category_urls)),
+    path("api/", include(reviews_urls)),
 ]

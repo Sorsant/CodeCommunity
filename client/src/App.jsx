@@ -74,7 +74,7 @@ const App = () => {
         "Order canceled -- continue to shop around and checkout when you're ready."
       );
     }
-  }, [dispatch, id, location.search]);
+  }, [dispatch, id, location.search, values.canceled, values.success]);
 
   const excludedPaths = [
     "/",
@@ -115,8 +115,9 @@ const App = () => {
       {!excludedPaths.includes(location.pathname) && <Nav />}
 
       <Routes>
-        <Route path="/google" element={<GoogleLogin />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/google" element={<GoogleLogin />} />
         <Route path="*" element={<Error404 />} />
         {isAuthenticated ? (
           <>
@@ -139,7 +140,6 @@ const App = () => {
         ) : (
           <>
             <Route path="/fakeHome" element={<FakeHome />} />
-            <Route path="/" element={<LandingPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/ResetPassword" element={<ResetPasswordPage />} />
           </>
@@ -175,7 +175,9 @@ const App = () => {
         </>
       )}
 
-      {!excludedPaths.includes(location.pathname) && <Footer />}
+      <footer>
+        {!excludedPaths.includes(location.pathname) && <Footer />}
+      </footer>
     </div>
   );
 };

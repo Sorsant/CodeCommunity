@@ -38,7 +38,7 @@ const Profile = () => {
         "Order canceled -- continue to shop around and checkout when you're ready."
       );
     }
-  }, []);
+  }, [dispatch, extra?.id, location.search]);
   useEffect(() => {
     localStorage.setItem("loggedInUserId", JSON.stringify(user?.id));
   }, [user, extra]);
