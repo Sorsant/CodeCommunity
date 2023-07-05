@@ -4,7 +4,6 @@ import styles from "./payment.module.css";
 // import { GET_USER_EXTRA } from "../Redux/action-types";
 
 const ProductDisplay = () => (
-
   <section className={styles.container}>
     <div className={styles.product}>
       <div className={styles.description}>
@@ -19,10 +18,4 @@ const ProductDisplay = () => (
   </section>
 );
 
-const Message = ({ message }) => (
-  <section>
-    <p>{message}</p>
-  </section>
-);
-
-export { ProductDisplay, Message };
+export { ProductDisplay };

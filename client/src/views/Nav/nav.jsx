@@ -151,20 +151,22 @@ const Nav = () => {
 
 
                     <li className="nav-item">
-                      <Link
-                        to="/communities"
-                        className={styles.sectionLink}
-                      >
+                      {extra && extra.premium !== undefined ? (
+                        <Link
+                          to="/communities"
+                          className={styles.sectionLink}
+                        >
 
-                        <lord-icon
-                          src="https://cdn.lordicon.com/bhfjfgqz.json"
-                          trigger="hover"
-                          colors="primary:#FFFFFF"
-                          style={{ width: "35px", height: "35px" }}>
-                        </lord-icon>
-                        <span className={styles.button_text}>Communities</span>
+                          <lord-icon
+                            src="https://cdn.lordicon.com/bhfjfgqz.json"
+                            trigger="hover"
+                            colors="primary:#FFFFFF"
+                            style={{ width: "35px", height: "35px" }}>
+                          </lord-icon>
+                          <span className={styles.button_text}>Communities</span>
 
-                      </Link>
+                        </Link>
+                      ) : null}
                     </li>
 
                     <li className="nav-item">

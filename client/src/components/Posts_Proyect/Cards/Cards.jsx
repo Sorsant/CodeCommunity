@@ -5,6 +5,15 @@ import styles from './cards.module.css'
 
 const PosteoCards = () => {
     const posteos = useSelector((state) => state.home.posts);
+    const login = useSelector((state) => state.home.login);
+
+    const handleMoreInfo = (id) => {
+        if (login) {
+            window.location.href = `/comments/${id}`;
+        } else {
+            window.location.href = '/login';
+        }
+    };
 
     // Verificar si posteos es un array
     if (!Array.isArray(posteos)) {
@@ -22,6 +31,12 @@ const PosteoCards = () => {
                         image={post.image}
                         created={post.created}
                     />
+                    <button
+                        className={styles.button}
+                        onClick={() => handleMoreInfo(post.id)}
+                    >
+                        <span>Comments</span>
+                    </button>
                 </div>
             ))}
         </div>

@@ -88,15 +88,12 @@ const EditPost = ({ postId }) => {
         [name]: value,
       }));
     }
-
     const updatedErrors = validate({
       ...post,
       [name]: value,
     });
-
     setErrors(updatedErrors);
   };
-
   const handleOnSubmit = (event) => {
     event.preventDefault();
     dispatch(uploadPost(post, postId.id));
@@ -134,7 +131,6 @@ const EditPost = ({ postId }) => {
         <div className={styles.uploadWidgetContainer}>
           <label>Image</label>
           <br />
-
           <br />
           {post.image && <img src={post.image} alt="Post" />}
           <br />
@@ -146,6 +142,7 @@ const EditPost = ({ postId }) => {
         <button className={` btn btn-success fs-4 ${styles["submitButton"]}`} type="submit">
           Edit Post
         </button>
+
       </form>
     </div>
   );
