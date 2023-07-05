@@ -6,7 +6,7 @@ import { getUserId } from "../../components/Redux/Actions/User/actionUser";
 import { resetPostData } from "../../components/Redux/Actions/User/actionUser";
 import style from "./detail.module.css";
 import EditPost from "../EditPost/EditPost";
-
+import { deletPostid } from "../../components/Redux/Actions/ActionHome";
 const PostDetail = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -47,9 +47,25 @@ const PostDetail = () => {
   const handleCancelEdit = () => {
     setShowEditForm(false);
   };
-
+  const handleDelet = () => {
+    dispatch(deletPostid(id));
+    navigate("/home")
+  };
+ 
   return (
     <div className={style.postDetailContainer}>
+  {isCurrentUserCreator && (
+  <button onClick={handleDelet} className={style.deleteButton} >
+   <lord-icon
+    src="https://cdn.lordicon.com/kfzfxczd.json"
+    trigger="boomerang"
+    colors="primary:#000000"
+    style={{ width: "35px", height: "35px" }}>
+</lord-icon>
+  </button>
+)}
+
+
       <h1>User: {user && user.first_name} {user && user.last_name}</h1>
       <h1>Email: {user && user.email}</h1>
 
@@ -62,7 +78,6 @@ const PostDetail = () => {
       {isCurrentUserCreator && !showEditForm && (
         <button onClick={handleEditClick}>Edit</button>
       )}
-
       {showEditForm && (
         <div>
           <EditPost postId={postId} />

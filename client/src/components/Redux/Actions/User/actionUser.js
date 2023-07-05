@@ -26,35 +26,32 @@ export const getUserExtras = () => async (dispatch) => {
 };
 export const putUserExtras = (id,InfoUserExtra) => async (dispatch) => {
     console.log(InfoUserExtra);
-
     const endpoint = `${API_URL}/codec/api/user_extras/${id}/`;
-
     const { data } = await axios.patch(endpoint,InfoUserExtra);
    
 };
 
 export const editUser = (id,putUser) => async (dispatch) => {
-    console.log(putUser);
-
+console.log(putUser);
     const endpoint = `${API_URL}/codec/api/users/${id}/`;
-
     const { data } = await axios.patch(endpoint,putUser);
-   
 };
-export const addlikePost = (postId, userId, posts) => async (dispatch, getState) => {
-    const loggedInUserId = localStorage.getItem("loggedInUserId");
-    if (loggedInUserId) {
-      dispatch(allLikesPost({ postId, userId })); 
-      const post = posts.find((post) => post.id === postId);
-      if (post) {
-        post.likes.push(userId);
+
+export const addlikePost = (id, posts) => async (dispatch) => {
+    try {
+        const response = await axios.patch(
+          `${API_URL}/codec/api/user_extras/${id}/`,
+    
+          {
+            likes:posts,
+          }
+        );
+        return response;
+      } catch (error) {
+        console.error("Error al cambiar la propiedad:", error);
       }
-      console.log(postId, userId, "entre a addlike");
-      const currentState = getState().home.posts;
-      localStorage.setItem('likesData', JSON.stringify(currentState));
-    }
-  };
-  
+}
+
   export const unlikePost = (id) => async (dispatch) => {
   }
   export const resetPostData = () => async (dispatch) => {

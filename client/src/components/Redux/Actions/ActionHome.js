@@ -11,11 +11,12 @@ import {
 
 } from "../Reducer/HomeReducer";
 import { API_URL } from "../../../config";
+
 export const getHomePosts = () => async (dispatch) => {
-  const endpoint =
-    `${API_URL}/codec/api/post/`;
+  const endpoint =`${API_URL}/codec/api/post/`;
   const { data } = await axios.get(endpoint);
-  dispatch(getAllPosts(data));
+  const filteredData = data.filter(item => !item.is_delete);
+  dispatch(getAllPosts(filteredData));
 };
 
 export const filterAZ = () => async (dispatch) => {
@@ -24,7 +25,6 @@ export const filterAZ = () => async (dispatch) => {
   const { data } = await axios.get(endpoint);
   dispatch(filterAcendent(data));
 };
-
 
 export const getComments = () => async (dispatch) => {
    const endpoint = `${API_URL}/codec/api/comments/`;
@@ -122,3 +122,11 @@ export const ImgEdit = (id,secureUrl) => async (dispatch) => {
     console.error("Error al cambiar la propiedad:", error);
   }
 };
+export const deletPostid = (id) => async (dispatch) => {
+  const response = await axios.patch(
+    `${API_URL}/codec/api/post/${id}/`,
+      {
+          is_delete:true,
+      }
+    );
+}

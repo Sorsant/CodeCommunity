@@ -11,6 +11,19 @@
 .image{
   width: 350px;
 }
+.deleteButton {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.deleteButton lord-icon {
+  margin-right: 5px;
+}
+
 .postDescription {
   color: #666;
   font-size: 16px;
