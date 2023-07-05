@@ -1,7 +1,7 @@
 .footerWrapper {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0;
+  min-height: 0vh;
 }
 
 .footer_dark {
@@ -11,9 +11,7 @@
 }
 
 .stickyFooter {
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  margin-top: auto;
 }
 
 .footer_dark h3 {
@@ -42,7 +40,7 @@
 }
 
 @media (max-width: 767px) {
-  .footer-dark .item:not(.social) {
+  .footer_dark .item:not(.social) {
     text-align: center;
     padding-bottom: 20px;
   }
@@ -68,7 +66,7 @@
 }
 
 @media (max-width: 991px) {
-  .footer-dark .item.social {
+  .footer_dark .item.social {
     text-align: center;
     margin-top: 20px;
   }

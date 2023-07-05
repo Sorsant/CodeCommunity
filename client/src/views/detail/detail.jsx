@@ -59,20 +59,21 @@ const PostDetail = () => {
         <h1 className={style.title}>{post && post.title}</h1>
         <hr />
         <div className={style.image_preview}><img src={post && post.image} alt={post && post.image} className={style.image} /></div>
+        <hr />
         <h3 className={style.description}>{post && post.description}</h3>
       </div>
 
-      <button onClick={handleGoBack}>Back</button>
+      <button className={`btn btn-success fs-3 ${style["back"]}`} onClick={handleGoBack}>Back</button>
 
       {/* Botón "Edit" solo para el creador del post */}
       {isCurrentUserCreator && !showEditForm && (
-        <button onClick={handleEditClick}>Edit</button>
+        <button className={`btn btn-secondary fs-4 ${style["edit"]}`} onClick={handleEditClick}>Edit</button>
       )}
 
       {showEditForm && (
         <div>
           <EditPost postId={postId} />
-          <button onClick={handleCancelEdit}>Cancel</button>
+          <button className={`btn btn-danger fs-4 ${style["cancel"]}`} onClick={handleCancelEdit}>Cancel</button>
         </div>
       )}
     </div>
@@ -80,12 +81,3 @@ const PostDetail = () => {
 };
 
 export default PostDetail;
-
-// {/* <div class="post-card">
-//   <div class="avatar"></div>
-//   <div class="info"> <h1>User: {user && user.first_name} {user && user.last_name}</h1>
-//       <h1>Email: {user && user.email}</h1></div>
-//   <h1 class="title">{post && post.title}</h1>
-//   <p class="description">{post && post.description}</p>
-//   <div class="image-preview"><img src={post && post.image} alt={post && post.image} className={style.image} /></div>
-// </div> */}

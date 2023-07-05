@@ -149,22 +149,6 @@ const Nav = () => {
                       </Link>
                     </li>
 
-                    <li className="nav-item">
-                      <Link
-                        to="/news"
-                        className={styles.sectionLink}
-                      >
-
-                        <lord-icon
-                          src="https://cdn.lordicon.com/isugonwi.json"
-                          trigger="hover"
-                          colors="primary:#FFFFFF"
-                          style={{ width: "35px", height: "35px" }}>
-                        </lord-icon>
-                        <span className={styles.button_text}>Notices</span>
-
-                      </Link>
-                    </li>
 
                     <li className="nav-item">
                       <Link
