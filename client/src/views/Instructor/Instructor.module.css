@@ -1,7 +1,7 @@
 .card {
   width: 35em;
   min-height: 400px;
-  background-color:#2c2c2c;
+  background-color: #2c2c2c;
   clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
   border-bottom-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -32,7 +32,7 @@
 .card .img {
   width: 6.8em;
   height: 6.8em;
-  
+
   border-radius: 10px;
   margin: 1em auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -67,9 +67,11 @@
   color: white;
   cursor: pointer;
 }
-.cardHr{
+
+.cardHr {
   color: white;
 }
+
 .cardContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

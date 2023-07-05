@@ -4,7 +4,7 @@ import { getUsers, getUserExtras } from "../../components/Redux/Actions/User/act
 import { getAllLanguages } from '../../components/Redux/Actions/Community/ActionCommunity';
 import styles from "./Instructor.module.css";
 import { Link } from 'react-router-dom';
-
+import ModalRange from './ModalRange'
 const Instructor = () => {
   const users = useSelector(state => state.home.users);
   const userExtras = useSelector(state => state.home.userExtra);
@@ -48,13 +48,14 @@ const Instructor = () => {
             });
 
             return (
-           
-                <div className={`${styles.userContainer} userContainer`}>
-                    <div className={styles.card}>
+
+              <div className={`${styles.userContainer} userContainer`}>
+                <div className={styles.card}>
                   <div className={`${styles.img} img`}>
+                    <ModalRange />
                     <img src={extraUser.user_image} alt={user.first_name} className={styles.img} />
                   </div>
-                  
+
                   <h2 className={styles.info}>{user.first_name} {user.last_name}</h2>
                   <h1 className={`${styles.info} info`}>About Me</h1>
                   <hr className={styles.cardHr} />
@@ -66,19 +67,18 @@ const Instructor = () => {
                       ))}
                     </div>
                   )}
-                  
-                
-                <div className={`${styles} share`}>
-                  <button
-                    onClick={() => handleButton(user.email)}
-                    className={`${styles.button} largeText`}
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
-                  >
-                    <span >Puedes contactar a este instructor</span>
-                  </button>
+
+                  <div className={`${styles} share`}>
+                    <button
+                      onClick={() => handleButton(user.email)}
+                      className={`${styles.button} largeText`}
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                    >
+                      <span >Puedes contactar a este instructor</span>
+                    </button>
+                  </div>
                 </div>
-              </div>
               </div>
             );
           }
