@@ -217,26 +217,48 @@ const Nav = () => {
 
                       </Link>
 
+                      <li className="nav-item">
+                        {localStorage.getItem("admin") !== undefined ?
+
+                          (<Link
+                            to="/admin"
+                            className={styles.sectionLink}
+                          >
+
+                            <lord-icon
+                              src="https://cdn.lordicon.com/icxqolmx.json"
+                              trigger="hover"
+                              colors="primary:#FFFFFF"
+                              style={{ width: "35px", height: "35px" }}>
+                            </lord-icon>
+                            <span className={styles.button_text}>Admin</span>
+
+                          </Link>) : null
+
+                        }
+
+                      </li>
+                      <li>
+                        {extra && extra.premium !== undefined ? (
+                          <Link
+                            to="/education"
+                            className={styles.sectionLink}
+                          >
+
+                            <lord-icon
+                              src="https://cdn.lordicon.com/kipaqhoz.json"
+                              trigger="hover"
+                              colors="primary:#FFFFFF"
+                              style={{ width: "35px", height: "35px" }}>
+                            </lord-icon>
+                            <span className={styles.button_text}>Students</span>
+
+                          </Link>
+
+                        ) : null}
+                      </li>
                     </li>
 
-                    <li>
-                      {extra && extra.premium !== undefined ? (
-                        <Link
-                          to="/education"
-                          className={styles.sectionLink}
-                        >
-
-                          <lord-icon
-                            src="https://cdn.lordicon.com/kipaqhoz.json"
-                            trigger="hover"
-                            colors="primary:#FFFFFF"
-                            style={{ width: "35px", height: "35px" }}>
-                          </lord-icon>
-                          <span className={styles.button_text}>Students</span>
-
-                        </Link>
-                      ) : null}
-                    </li>
 
                   </ul>
                 ) : (
