@@ -1,0 +1,17 @@
+.container {
+    position: absolute;
+    margin-left: 190px;
+    margin-top: -120px;
+    padding: 50px;
+
+}
+
+.container select {
+    margin-right: 10px;
+    font-size: 20px;
+    padding: 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    background-color: #454545;
+}

@@ -1,0 +1,121 @@
+.cards {
+    border: 2px;
+    width: 12vw;
+    height: 30vw;
+    margin-top: 1vh;
+    margin-left: 180px;
+    /* background-color: #1e2122; */
+    border-radius: 10px;
+}
+
+.container {
+    width: 100%;
+    background-color: #1e2122;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.titleCom {
+    text-shadow: -2px -1px 11px #504b36;
+    text-align: center;
+    color: white;
+    width: 100%;
+    padding: 5px;
+    /* margin-left: -12px; */
+    /* border-radius: 10px; */
+}
+
+.buttonModal {
+    position: relative;
+    border: none;
+    margin: 10px;
+    width: 0%;
+}
+
+.subContainer {
+    margin-left: 30px;
+    margin-top: 7px;
+    width: 150px;
+    height: 120px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+    transition: 0.5s;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.subContainer:hover {
+    transform: translateY(-20px);
+    filter: drop-shadow(-3px 12px 20px #745313);
+}
+
+.subContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: skewX(45deg) translateX(268px);
+    transition: 0.5s ease;
+}
+
+.subContainer:hover::before {
+    transform: skewX(45deg) translateX(-150px);
+}
+
+.containerImg {
+    width: 150px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.containerImg img {
+    /* object-fit: cover; */
+    width: 150px;
+    height: 120px;
+}
+
+.text {
+    color: white;
+    margin-left: 6vw;
+    margin-top: -5.4vw;
+}
+
+.description {
+    margin-left: 6vw;
+    margin-right: 55px;
+    margin-top: 0vw;
+    font-size: 13px;
+    background-color: #545454;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.language {
+    margin-left: 6vw;
+    margin-top: 0vw;
+    font-size: 13px;
+    /* background-color: #545454; */
+    color: white;
+}
+
+.container span {
+    color: yellow;
+}
+
+.image {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 90%;
+}

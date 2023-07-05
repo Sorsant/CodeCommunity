@@ -1,0 +1,30 @@
+.landing {
+  background:  rgb(33, 37, 41);
+}
+
+.section-land {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('./hexagon-svgrepo-com.svg');
+  background-size: 100px 100px;
+  opacity: 0.9;
+  height: 100vh;
+  width: 100%;
+}
+
+.btn-landing {
+  background-color: #212529;
+  border: none;
+  padding: 24px 20px;
+  border-radius: 20px;
+  font-size: 44px;
+  transition: 0.3s ease-out;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.6);
+}
+
+.btn-landing:hover {
+  cursor: pointer;
+  color: rgb(20, 158, 20);
+}

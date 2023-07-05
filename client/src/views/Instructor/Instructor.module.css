@@ -1,0 +1,94 @@
+.container h1 {
+  width: 100%;
+}
+
+.container {
+  background-color: #1A1A1B;
+}
+
+.card {
+  --main-color: #000;
+  --submain-color: #78858F;
+  --bg-color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  position: relative;
+  width: 500px;
+  height: 384px;
+  display: inline-block;
+  align-items: center;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.925);
+  margin: 40px;
+  transition: 0.5s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  filter: drop-shadow(-3px 12px 20px #635e53);
+}
+
+.card_img {
+  height: 192px;
+  width: 100%;
+}
+
+.card_img svg {
+  height: 100%;
+  border-radius: 20px 20px 0 0;
+}
+
+.card_avatar {
+  position: absolute;
+  width: 114px;
+  height: 114px;
+  background: var(--bg-color);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: calc(50% - 57px);
+  left: calc(20% - 57px);
+}
+
+.img {
+  width: 814px;
+  height: 114px;
+  border-radius: 100%;
+
+}
+
+.card_title {
+  margin-top: 60px;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--main-color);
+}
+
+.card_subtitle {
+  display: flex;
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--submain-color);
+}
+
+.info {
+  margin-left: 5px;
+}
+
+.button {
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 13px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border: none;
+  font-weight: bold;
+  transition: 0.5s;
+  color: white;
+  background-color: rgb(68, 151, 88);
+}
+
+.button:hover {
+  transform: translateY(-5px);
+}

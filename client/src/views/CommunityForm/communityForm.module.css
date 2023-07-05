@@ -1,0 +1,42 @@
+.container {
+  /* position: absolute; */
+  display: flex;
+  border: 2px solid #000;
+  margin-left: 15vw;
+  width: 20vw;
+  height: 60%;
+  border-radius: 10px;
+  padding: 12px;
+  margin-left: 40vw;
+  margin-top: 20px;
+  margin-bottom: 108px;
+}
+
+.form {
+  display: flex;
+  font-size: large;
+  text-align: center;
+  flex-direction: column;
+}
+
+.data {
+  border: 1px solid #ccc;
+  font-size: large;
+  border-radius: 2px;
+  padding: 30px 30px;
+  margin: 10px 4px;
+}
+
+.communityCardContainer {
+  display: flex;
+  /* Establece el contenedor como un flex container */
+  flex-wrap: wrap;
+  /* Permite que las tarjetas se envuelvan en caso de falta de espacio */
+  justify-content: flex-start;
+  /* Alinea las tarjetas al inicio del contenedor horizontalmente */
+  gap: 10px;
+  /* Espacio entre las tarjetas */
+}
+.image {
+  padding: 20px;
+}

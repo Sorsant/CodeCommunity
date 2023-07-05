@@ -1,0 +1,27 @@
+.divContainer {
+    /* background-color: rgba(68, 68, 68, 0.349); */
+    position: absolute;
+    margin-left: 650px;
+    margin-top: -50px;
+    padding: 35px;
+}
+
+.search {
+    position: absolute;
+    margin-top: -23px;
+    width: 480px;
+    height: 150px;
+    font-size: 15px;
+}
+
+.divContainer button {
+    margin-left: 490px;
+    margin-top: -55px;
+    height: 30px;
+    font-size: 14px;
+}
+
+.divContainer input {
+    height: 30px;
+    font-size: 15px;
+}

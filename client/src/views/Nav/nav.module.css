@@ -1,0 +1,327 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+
+.navbar {
+  background-color: #080c0e !important;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title h1 {
+  color: white;
+  font-family: "Orbitron", sans-serif;
+  margin-left: 10px;
+}
+
+.titleNav {
+  text-decoration: none;
+}
+
+.title_toggle {
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+.toggle {
+  margin-left: auto;
+  margin-top: -70px;
+  width: 50px;
+  height: 50px;
+}
+
+.title {
+  color: white;
+  margin-right: 900px;
+}
+
+.containerNav {
+  display: flex;
+}
+
+.logOut {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: 1px solid white;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 16px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+}
+
+.logOut::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #b61e13;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+}
+
+.logOut:hover {
+  color: #e8e8e8;
+}
+
+.logOut:hover::before {
+  width: 100%;
+}
+
+.containerLogOut {
+  position: absolute;
+  margin-top: 790px;
+  margin-left: 5px;
+}
+
+div.containerNav button.navbar-toggler {
+  margin-left: auto;
+  width: 150px;
+  height: 250px;
+}
+
+.info {
+  display: flex;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.contact {
+  margin-right: 5px;
+  padding: 10px 20px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 16px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+}
+
+.menu_toggle {
+  background-color: #444242 !important;
+}
+
+.contact::before {
+  background-color: #cac2c2;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #13b6a8;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+}
+
+.contact:hover {
+  color: #e8e8e8;
+}
+
+.contact:hover::before {
+  width: 100%;
+}
+
+.sign {
+  margin-right: 10px;
+  padding: 10px 20px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 16px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+}
+
+.sign::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #13b6a8;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+}
+
+.sign:hover {
+  color: #e8e8e8;
+}
+
+.sign:hover::before {
+  width: 100%;
+}
+
+.login {
+  margin-right: 5px;
+  padding: 10px 12px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 16px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+}
+
+.login::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #13b6a8;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+}
+
+.login:hover {
+  color: #e8e8e8;
+}
+
+.login:hover::before {
+  width: 100%;
+}
+
+.sectionLink {
+  text-decoration: none;
+  display: flex;
+  width: 450px;
+  padding: 4px;
+  color: white;
+}
+
+.sectionLink:hover {
+  background-color: #2c2f30;
+}
+
+.buttonSections {
+  width: 150px;
+  padding: 4px;
+  display: flex;
+  border-radius: 10px;
+  border: rgb(85, 175, 85);
+  margin-bottom: 5px;
+  background-color: #1a7930;
+  color: white;
+  transition: 0.5s;
+  margin-left: 5px;
+}
+
+.buttonSections:hover {
+  /* filter: drop-shadow(0px 0px 7px #929995); */
+
+  background-color: rgb(20, 158, 20);
+}
+
+.button_text {
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.header {
+  display: flex;
+  /* align-items: center; */
+  background-color: #3f854e;
+  height: 100px;
+
+}
+
+.profileLink {
+
+  text-decoration: none;
+  margin-bottom: 50px;
+}
+
+.card {
+
+  width: 90px;
+  height: 20px;
+  border-radius: 12px;
+}
+
+.profileImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.profileImage img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.profile {
+  font-size: 0.84em;
+  color: rgb(194, 194, 194);
+  letter-spacing: 0.2px;
+}
+
+.premiumLabel {
+  background-color: rgb(218, 180, 74);
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.premiumLabel p {
+  font-size: 12px;
+}

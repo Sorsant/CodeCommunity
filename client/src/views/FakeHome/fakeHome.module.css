@@ -1,0 +1,45 @@
+.Container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 10px;
+  background-color: #1A1A1B;
+}
+
+.title1 {
+  width: 35%;
+  padding: 5px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: rgb(74, 218, 117);
+  margin: 10px;
+}
+
+.PosteoCard {
+  flex: 1 0 45%;
+  margin-top: 100px;
+}
+
+.filter {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 10px;
+}
+
+.communityCard {
+  flex: 0 0 25%;
+  margin: 10px;
+}
+
+.NewsCard {
+  flex: 1 0 25%;
+  font-size: 8px;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.posteoDiv {
+  flex: 1 0 50%;
+  margin: 10px;
+}

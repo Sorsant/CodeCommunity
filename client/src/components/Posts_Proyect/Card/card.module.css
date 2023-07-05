@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap');
+
+.card {
+  padding: 20px;
+  width: 360px;
+  height: 535px;
+  border: 1px solid #5e503f;
+  border-radius: 20px;
+  background: #22303a;
+  /* box-shadow: 5px 5px 6px #dadada,
+    -5px -5px 6px #f6f6f6; */
+  transition: 0.4s;
+  margin-top: -50px;
+  display: inline-block;
+  margin-bottom: 80px;
+  margin-right: 60px;
+}
+
+.card:hover {
+  translate: 0 -10px;
+  filter: drop-shadow(-3px 12px 20px #635e53);
+  border: 1px solid #c6ac8f;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 15px 0 0 5px;
+  font-family: 'Play', sans-serif;
+  transition: 0.5s;
+}
+
+.linkDetail {
+  text-decoration: none;
+}
+
+.linkInstructor {
+  text-decoration: none;
+  color: rgb(155, 146, 146);
+}
+.likes{
+  color: white;
+  font-size: 15px;
+}
+.boton{
+  width: 50px;
+  height: 20px;
+}
+.card_image {
+  background-color: #c9c9c9;
+  border-radius: 15px;
+  box-shadow: inset 8px 8px 10px #c3c3c3,
+    inset -8px -8px 10px #cfcfcf;
+}
+
+.card_image img {
+  width: 320px;
+  height: 240px;
+  border-radius: 15px;
+}
+
+.card_body {
+  /* margin: 13px 0 0 10px; */
+  margin-top: 5px;
+  color: white;
+  font-family: 'Play', sans-serif;
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 10px;
+  /* background-color: #5e503f; */
+}
+
+.footer {
+  position: absolute;
+  margin-left: 5px;
+  margin-top: 5px;
+  font-size: 13px;
+  color: rgb(228, 220, 220);
+}
+
+.by_name {
+  font-weight: 700;
+  margin-left: 5px;
+  color: rgb(155, 146, 146);
+}
+
+.imgUser {
+  width: 35px;
+  border-radius: 10px;
+  margin-left: 5px;
+}

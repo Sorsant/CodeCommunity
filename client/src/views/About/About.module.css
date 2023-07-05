@@ -1,0 +1,33 @@
+.ConteinerDiv {
+    background-color: darkgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:row;
+    height: 100vh;
+    padding: 20px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .ConteinerDiv2{
+    display: flex;
+    background-color:#333333 ;
+    align-items: center;
+    height: 50%;
+    width: 80%;
+    border: 1px solid black;
+  }
+  .ConteinerTitle .application{
+    margin-right: 5px;
+    color:gold
+  }
+  .ConteinerTitle {
+    color: white;
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
