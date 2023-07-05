@@ -1,15 +1,23 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "./card.module.css";
+import { addlikePost, unlikePost } from "../../Redux/Actions/User/actionUser";
+import { useState } from "react";
 
 const PostCard = ({ id }) => {
   const loggin = useSelector((state) => state.home.login);
   const users = useSelector((state) => state.home.users);
-  const post = useSelector((state) =>
-    state.home.posts.find((post) => post.id === id)
-  );
+  const post = useSelector((state) => state.home.posts.find((post) => post.id === id));
+  const userInfo = useSelector((state) => state.userdb.user);
   const userExtra = useSelector((state) => state.home.userExtra);
+  const posts = useSelector((state) => state.home.posts);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const loggedInUserId = userInfo?.id;
+    localStorage.setItem("loggedInUserId", JSON.stringify(loggedInUserId));
+  }, [userInfo?.id]);
 
   if (!post) {
     // No se encontró la publicación correspondiente al ID proporcionado
@@ -33,34 +41,53 @@ const PostCard = ({ id }) => {
       window.location.href = `/login`;
     }
   };
+  const likedByCurrentUser = post.likes.includes(userInfo?.id);
 
+  const handleLike = () => {
+    const loggedInUserId = JSON.parse(localStorage.getItem("loggedInUserId"));
+    if (loggedInUserId) {
+      if (likedByCurrentUser) {
+        dispatch(unlikePost(id));
+      } else {
+        dispatch(addlikePost(id, loggedInUserId, posts));
+      }
+    }
+  };
   return (
-    <Link
-      to={`/detail/${id}`}
-      onClick={handleMoreInfo}
-      className={styles.linkDetail}
-    >
-      <div className={styles.card}>
-        <div className={styles.card_image}>
-          <img src={post.image} alt={post.title} />
-        </div>
-        <h2 className={styles.title}>{post.title}</h2>
-        <p className={styles.card_body}>
-          {post.description}
-        </p>
+    <div className={styles.card}>
+      {console.log()}
+      <>
+        <Link
+          to={`/detail/${id}`}
+          onClick={handleMoreInfo}
+          className={styles.linkDetail}
+        >
+          <div className={styles.card_image}>
+            <img src={post.image} alt={post.title} />
+          </div>
+          <h2 className={styles.title}>{post.title}</h2>
+        </Link>
+        <p className={styles.card_body}>{post.description}</p>
+        <p className={styles.likes}>Likes: {post.likes.length}</p>
+
+        {loggin && (
+          <button className={styles.boton} onClick={handleLike}>
+            {likedByCurrentUser ? "Unlike" : "Like"}
+          </button>
+        )}
         <p className={styles.footer}>
           Created by
           <span className={styles.by_name}>
-            {userE.premium && userE.postulation && (
-              <Link to={`/instructor/${userE.id}`} className={styles.linkInstructor}>
-                {user.first_name} {user.last_name}
-              </Link>
-            )}
-            <img src={userE.user_image} alt={userE.name} className={styles.imgUser} />
+            {user.first_name} {user.last_name}
+            <img
+              src={userE.user_image}
+              alt={userE.name}
+              className={styles.imgUser}
+            />
           </span>
         </p>
-      </div>
-    </Link>
+      </>
+    </div>
   );
 };
 

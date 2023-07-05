@@ -22,7 +22,7 @@ const CloudinaryUploadWidget = ({ onImageUrl }) => {
         // sources: [ "local", "url"], // restringir las fuentes de carga a URL y archivos locales
         multiple: false,  // restringir la carga a un solo archivo
         folder: "ImagePost", // cargar archivos en la carpeta especificada
-        tags: ["posts", "home", "post"], // agregar las etiquetas dadas a los archivos cargados
+        tags: ["posts edit", "edit post", "post edit"], // agregar las etiquetas dadas a los archivos cargados
         // context: {alt: "user_uploaded"}, // agregar los datos de contexto dados a los archivos cargados
         //clientAllowedFormats: ["images"], // restringir la carga solo a archivos de imagen
         // maxImageFileSize: 2000000,  // restringir el tamaño del archivo a menos de 2 MB
@@ -64,8 +64,8 @@ const CloudinaryUploadWidget = ({ onImageUrl }) => {
     <div>
       <button id="upload_widget" className={styles.buttonDownload}>
         Upload Image
-        <img id="uploadedimage" alt=" " className={styles.image} />
       </button>
+      {/* <img id="uploadedimage" alt=" " className={styles.image} /> */}
     </div>
   );
 };

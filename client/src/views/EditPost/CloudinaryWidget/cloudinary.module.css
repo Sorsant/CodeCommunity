@@ -1,7 +1,5 @@
 .image {
-    border-radius: 10px;
     width: 70px;
-    margin-left: 5px;
 }
 
 .buttonDownload {
@@ -13,14 +11,14 @@
     font-family: sans-serif;
     text-decoration: none;
     font-size: 0.9em;
-    text-align: center;
+    /* text-align: center; */
     text-indent: 15px;
     border: none;
     border-radius: 2em;
     font-weight: bold;
     font-size: 13px;
-    margin-left: -620px;
-
+    /* margin-top: 50px; */
+    /* margin-left: -620px; */
 }
 
 .buttonDownload:hover {
