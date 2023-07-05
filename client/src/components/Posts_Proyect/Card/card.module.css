@@ -40,7 +40,14 @@
   text-decoration: none;
   color: rgb(155, 146, 146);
 }
-
+.likes{
+  color: white;
+  font-size: 15px;
+}
+.boton{
+  width: 50px;
+  height: 20px;
+}
 .card_image {
   background-color: #c9c9c9;
   border-radius: 15px;

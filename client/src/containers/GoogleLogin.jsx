@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { googleAuthenticate } from '../components/Redux/user';
+import React, { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { googleAuthenticate } from "../components/Redux/user";
+import Layout from "./Layout";
 
 const Google = () => {
   const dispatch = useDispatch();
@@ -9,11 +10,8 @@ const Google = () => {
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
-    const code = searchParams.get('code');
-    const state = searchParams.get('state');
-
-    console.log('State: ' + state);
-    console.log('Code: ' + code);
+    const code = searchParams.get("code");
+    const state = searchParams.get("state");
 
     if (state && code) {
       dispatch(googleAuthenticate({ state, code }));
@@ -21,16 +19,22 @@ const Google = () => {
   }, [location, dispatch]);
 
   return (
-      <div className='container'>
-        <div className='jumbotron mt-5'>
-          <h1 className='display-4'>Welcome to Auth System!</h1>
-          <p className='lead'>This is an incredible authentication system with production-level features!</p>
-          <hr className='my-4' />
-          <p>Click the Log In button</p>
-          <Link className='btn btn-primary btn-lg' to='/home' role='button'>Login</Link>
+    <Layout>
+      <div className="container">
+        <div className="jumbotron bg-dark text-light mt-5">
+          <h1 className="display-4">Welcome to the Secure Portal!</h1>
+          <p className="lead">
+            <h5>You have successfully authenticated with your Google account.</h5>
+          </p>
+          <hr className="my-4" />
+          <p>Click the button below to access the home page.</p>
+          <Link className="btn btn-primary mt-2 rounded-pill fw-bold fs-5 p-2 px-4" to="/home" role="button">
+            Go to home page
+          </Link>
         </div>
       </div>
-  );
+    </Layout>
+  );  
 };
 
 export default Google;

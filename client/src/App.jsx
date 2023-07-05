@@ -21,9 +21,8 @@ import Instructor from "./views/Instructor/instructor";
 import DetailCommunity from "./views/DetailCommunity/detailCommunity";
 import FakeHome from "./views/FakeHome/fakeHome";
 import GoogleLogin from "./containers/GoogleLogin";
-import DashboardPage from "./containers/DashboardPage";
 import ResetPasswordPage from "./containers/ResetPasswordPage";
-import LoginPage from "./containers/LoginPage";
+import LoginPage from "./containers/Login/LoginPage";
 import RegisterPage from "./containers/RegisterPage";
 import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
@@ -41,6 +40,8 @@ import FAQ from "./dashboard/scenes/faq/index";
 import Geography from "./dashboard/scenes/geography/index";
 import "../src/dashboard/indexDash.css";
 import NewScenes from "./dashboard/scenes/newScenes";
+import Error404 from "./views/Error/Error404";
+
 axios.defaults.baseURL = API_URL;
 axios.defaults.withCredentials = true;
 
@@ -63,6 +64,8 @@ const App = () => {
     "/",
     "/login",
     "/register",
+    "/ResetPassword",
+    "/google",
     "/admin",
     "/team",
     "/postscenes",
@@ -98,10 +101,10 @@ const App = () => {
       <Routes>
         <Route path="/google" element={<GoogleLogin />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="*" element={<Error404 />} />
         {isAuthenticated ? (
           <>
             <Route path="/home" element={<Home />} />
-            <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/communities/:id" element={<DetailCommunity />} />
             <Route path="/groups/:name" element={<DetailCommunity />} />
             <Route path="/education" element={<Books />} />

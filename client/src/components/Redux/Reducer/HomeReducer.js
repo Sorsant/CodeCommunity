@@ -60,8 +60,24 @@ export const homeSlice = createSlice({
     },
     
     getPostComments: (state, action) => {
-         state.comments = action.payload;
+      state.comments = action.payload;
       },
+      allLikesPost: (state, action) => {
+        const { postId, userId } = action.payload; 
+        console.log(postId, "reducer");
+        console.log(userId, "reducer");
+      
+        const post = state.posts.find((post) => post.id === postId);
+        if (post) {
+          post.likes.push(userId);
+        }
+      },  
+      resetUser: (state, action) => {
+        state.users = []
+      },
+      resetUserExtra: (state, action) => {
+        state.userExtra = []
+      },  
   }
 });
 
@@ -77,6 +93,9 @@ export const {
   getUserExtra,
   getUser,
   menssageData,
+  allLikesPost,
+  resetUserExtra,
+  resetUser,
   getPostComments,
 } = homeSlice.actions;
 
