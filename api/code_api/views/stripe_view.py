@@ -22,8 +22,8 @@ class StripeCheckoutView(APIView):
                 ],
                 payment_method_types= ['card'],
                 mode='payment',
-                success_url=settings.SITE_URL + '/?success=true&session_id={CHECKOUT_SESSION_ID}',
-                cancel_url=settings.SITE_URL + '/?canceled=true',
+                success_url=settings.SITE_URL + '/profile/?success=true&session_id={CHECKOUT_SESSION_ID}',
+                cancel_url=settings.SITE_URL + '/profile/?canceled=true',
             )
             
             return redirect(checkout_session.url)
