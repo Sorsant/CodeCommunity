@@ -15,7 +15,7 @@
 }
 
 .container1 {
-    margin-top: 300px;
+    margin-top: 200px;
     margin-left: 650px;
     width: 800px;
     height: auto;
@@ -35,7 +35,7 @@
 .image {
     position: absolute;
     width: 260px;
-    height: 210px;
+    height: 200px;
     border-top-left-radius: 10%;
     border-bottom-left-radius: 10%;
     margin-top: -110px;
@@ -47,13 +47,14 @@
     position: absolute;
     display: flex;
     justify-content: center;
-    width: 1000px;
+    width: 500px;
     margin-top: 20px;
     font-size: x-large;
     background-color: #ffffff;
-    height: 200px;
+    height: 100px;
     border-radius: 10px;
     top: 200px;
+    left: 800px;
 }
 
 .user {
@@ -62,21 +63,21 @@
 
 .button {
     position: absolute;
-    margin-left: 900px;
-    margin-top: -275px;
     display: flex;
     height: 3em;
     width: 100px;
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    border-radius: 3px;
+    border-radius: 10px;
     letter-spacing: 1px;
     transition: all 0.2s linear;
     cursor: pointer;
     border: none;
     font-size: 15px;
     background: #0f0f0f;
+    left: 1465px;
+    top: 158px;
 }
 
 .button>svg {

@@ -109,7 +109,7 @@ const App = () => {
 
   return (
     <div className={styles.containerApp}>
-      {!excludedPaths.includes(location.pathname) && <Nav />}
+      {!excludedPaths.includes(location.pathname) && <Nav admin={admin} />}
 
       <Routes>
         <Route path="/" element={<LandingPage />} />

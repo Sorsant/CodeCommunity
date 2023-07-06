@@ -3,17 +3,17 @@ import { useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getCommunity,
-  // getAllLanguages,
+
 } from "../../components/Redux/Actions/Community/ActionCommunity";
 import styles from "./detailCommunity.module.css";
-//import SmallUser from "../SmallUser/smallUser";
+
 import CommunityComments from "../CommunitiesInteractions/communityComments";
 
 const DetailCommunity = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  // const languages = useSelector((state) => state.community.languages.data);
+
   const community = useSelector((state) => state.community.communities);
 
 
@@ -22,23 +22,8 @@ const DetailCommunity = () => {
       window.alert("Community not found");
     });
 
-    // dispatch(getAllLanguages());
+
   }, [dispatch, id]);
-
-  // const getLanguageNames = () => {
-  //   if (community && Array.isArray(community.languages)) {
-  //     return community.language.map((languageId) => {
-  //       const language = languages && languages.find((lang) => String(lang.id) === languageId);
-  //       return language ? language.name : "";
-  //     });
-  //   } else {
-  //     const language = languages && languages.find((lang) => lang.id === community.language);
-  //     return language ? language.name : "Unknown Language";
-  //   }
-  // };
-
-
-  // const languageNames = getLanguageNames();
 
   return (
     <div className={styles.container}>

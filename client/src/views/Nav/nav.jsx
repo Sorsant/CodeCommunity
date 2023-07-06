@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../components/Redux/user";
 import imagen from "./default.png";
 
-const Nav = () => {
+const Nav = ({ admin }) => {
   const loggin = useSelector((state) => state.home.login);
   const user = useSelector((state) => state.userdb.user);
   const extras = useSelector((state) => state.home.userExtra);
@@ -14,12 +14,7 @@ const Nav = () => {
   const isAuthenticated = useSelector((state) => state.userdb.isAuthenticated);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   const checkAdmin = isAdmin(); // Llama a la función isAdmin()
-  //   dispatch(checkAdmin); // Actualiza el estado con el resultado de isAdmin()
-  // }, []);
 
-  // const admin = useSelector((state) => state.userdb.isAdmin);
 
 
   return (
@@ -193,8 +188,7 @@ const Nav = () => {
                         <span className={styles.button_text}>Instructor</span>
                       </Link>
 
-                      {/* <li className="nav-item">
-                        {console.log("admin:", admin)}
+                      <li className="nav-item">
                         {admin ? (
                           <Link to="/admin" className={styles.sectionLink}>
                             <lord-icon
@@ -206,7 +200,7 @@ const Nav = () => {
                             <span className={styles.button_text}>Admin</span>
                           </Link>
                         ) : null}
-                      </li> */}
+                      </li>
 
                       <li>
                         {extra && extra.premium !== false ? (
