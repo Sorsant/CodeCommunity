@@ -39,7 +39,7 @@ const CommunityCards = () => {
           );
         })
       ) : (
-        <p>Cargando Comunidades...</p>
+        <p>Loading Communities...</p>
       )}
     </div>
   );

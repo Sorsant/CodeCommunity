@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getUsers, getUserExtras, getReviews } from "../../components/Redux/Actions/User/actionUser";
+import { getUsers, getUserExtras, getReviews, getReviews_user } from "../../components/Redux/Actions/User/actionUser";
 import { getAllLanguages } from '../../components/Redux/Actions/Community/ActionCommunity';
 import styles from "./Instructor.module.css";
 import { Link } from 'react-router-dom';
@@ -12,6 +12,7 @@ const Instructor = () => {
   const user = useSelector(state => state.userdb.user);
   const userExtras = useSelector(state => state.home.userExtra);
   const getreview = useSelector(state => state.home.review);
+  const getreview_user = useSelector(state => state.home.review_user);
   const languages = useSelector(state => state.community.languages.data);
   const dispatch = useDispatch();
   const [myid, setMyID] = useState({ id: 0 });
@@ -20,6 +21,7 @@ const Instructor = () => {
     dispatch(getUsers());
     dispatch(getUserExtras());
     dispatch(getAllLanguages());
+    dispatch(getReviews_user());
     dispatch(getReviews())
     setMyID((myid) => ({
       id: user?.id,
@@ -27,16 +29,12 @@ const Instructor = () => {
   }, [dispatch]);
 console.log(myid , "myid")
   const [recipient, setRecipient] = useState('');
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState('El instructor se estará contactando con usted');
 
   const handleButton = (email) => {
     setRecipient(email);
   };
-
-  const handleMessageChange = (event) => {
-    setMessage(event.target.value);
-  };
-
+;
   const handleSend = () => {
     console.log("Recipient:", recipient);
     console.log("Message:", message);
@@ -47,13 +45,13 @@ console.log(myid , "myid")
     let totalRating = 0;
   
     for (let i = 0; i < totalReviews; i++) {
-      totalRating += reviews[i];
+      totalRating += reviews[i].review;
     }
   
     const averageRating = totalRating / totalReviews;
   
     const stars = [];
-    const cantidad = parseInt(averageRating);
+    const cantidad = Math.floor(averageRating);
   
     for (let i = 1; i <= 5; i++) {
       if (i <= cantidad) {
@@ -67,11 +65,14 @@ console.log(myid , "myid")
   };
   return (
     <div className={styles.container}>
-      <h1>Perfiles de Instructores</h1>
+      <h1>Instructor Profiles</h1>
       <div className={styles.cardContainer}>
         {users.map((user) => {
           const extraUser = userExtras?.find((item) => item.id === user.id);
           const userReviews = getreview.filter((review) => review.id === user.id);
+          const userReviewIDs = userReviews.map((review) => review.id);
+          const userComments = getreview_user.filter((review) => userReviewIDs.includes(review.reviews_id));
+
           if (extraUser && extraUser?.premium && extraUser.postulation) {
             return (
               <div className={styles.card}>
@@ -89,26 +90,29 @@ console.log(myid , "myid")
                     </text>
                   </svg>
                 </div>
-                <div className={styles.card_avatar}>
-                  <img src={extraUser.user_image} alt={user.first_name} className={styles.img} />
-                </div>
-                <div className={styles.card_title}>
-                  {user.first_name} {user.last_name}
-                </div>
-              
-              {userReviews.length > 0 && (
-              <div className={styles.card_reviews}>
-              <h2>Revisiones:</h2>
-              {userReviews.map((review, index) => (
-              <div key={index}>
-              <p>Rating: {renderStars(review.review)}</p>
-              <p>Comentarios:</p>
-              {review.comments.map((comment, commentIndex) => (
-              <p key={commentIndex}>{comment}</p>
-              ))}
-            </div>
-            ))}
-            </div>
+              <div className={styles.card_avatar}>
+            <img src={extraUser.user_image} alt={user.first_name} className={styles.img} />
+          </div>
+        <div className={styles.card_title}>
+        {user.first_name} {user.last_name}
+      </div>
+      {userReviews.length > 0 && (
+  <div className={styles.card_reviews}>
+    <h2>Revisiones:</h2>
+    {userReviews.map((review, index) => {
+      const userComments = getreview.filter((comment) => userReviewIDs.includes(comment.id));
+
+      return (
+        <div key={index}>
+          <p>Rating: {renderStars([review])}</p>
+          <p>Comentarios:</p>
+          {userComments.map((comment, commentIndex) => (
+            <p key={commentIndex}>{comment.comment}</p>
+          ))}
+        </div>
+      );
+    })}
+  </div>
 )}
 
 
@@ -131,21 +135,21 @@ console.log(myid , "myid")
 
       {/* Modal */}
       <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog">
+        <div className="modal-dialog modal-lg">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Enviar mensaje</h5>
+              <h5 className="modal-title" id="exampleModalLabel">Contact</h5>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
               <div className="mb-3">
-                <label htmlFor="recipient" className="form-label">Destinatario:</label>
+                <label htmlFor="recipient" className="form-label">Receiver:</label>
                 <input type="text" className="form-control" id="recipient" value={recipient} readOnly />
               </div>
               <div className="mb-3">
-                <label htmlFor="message" className="form-label">Mensaje:</label>
-                <textarea className="form-control" id="message" rows="4" value={message} onChange={handleMessageChange}></textarea>
-              </div>
+  <label htmlFor="message" className="form-label">Message:</label>
+  <textarea className="form-control" id="message" rows="4" value={message} readOnly></textarea>
+</div>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

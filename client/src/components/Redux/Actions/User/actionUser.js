@@ -5,7 +5,8 @@ import {
   resetUser,
   resetUserExtra,
   allLikesPost,
-  getReview
+  getReview, 
+  getReview_user,
 } from "../../Reducer/HomeReducer";
 
 import { API_URL } from "../../../../config";
@@ -90,8 +91,14 @@ export const reviewPost = (id,post) => async () => {
 };
 
 export const getReviews = () => async (dispatch) => {
-  const endpoint = `${API_URL}/codec/api/reviews`;
+  const endpoint = `${API_URL}/codec/api/review/`;
   const {data }= await axios.get(endpoint);
   console.log(data);
-  dispatch(getReview(data));
+  dispatch(getReview(data, "review"));
+};
+export const getReviews_user = () => async (dispatch) => {
+  const endpoint = `${API_URL}/codec/api/reviews_user/`;
+  const {data }= await axios.get(endpoint);
+  console.log(data);
+  dispatch(getReview_user(data ,"review_data"));
 };

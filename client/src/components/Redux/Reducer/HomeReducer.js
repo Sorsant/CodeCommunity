@@ -11,7 +11,9 @@ export const homeSlice = createSlice({
       userExtra: [],
       menssageD: "",
       comments: [],
-      review:[]
+      review:[],
+      review_user: [],
+
    },
    reducers: {
       getAllPosts: (state, action) => {
@@ -19,27 +21,7 @@ export const homeSlice = createSlice({
          state.posts = action.payload;
       },
       filterAcendent: (state, action) => {
-         const sortedPosts = [...state.posts];
-         sortedPosts.sort((a, b) => {
-            if (action.payload === 'Newest') {
-            if (a.nombre > b.nombre) {
-               return 1;
-            } else if (a.nombre < b.nombre) {
-               return -1;
-            }
-            return 0;
-   
-            } else if (action.payload === 'Older') {
-            if (a.nombre > b.nombre) {
-               return -1;
-            } else if (a.nombre < b.nombre) {
-               return 1;
-            }
-            return 0;
-            }
-            return 0;
-          });
-          state.posts = sortedPosts
+         state.posts = action.payload;
       },
       filterDesendent: (state, action) => {
          state.posts = action.payload;
@@ -98,12 +80,22 @@ export const homeSlice = createSlice({
          state.userExtra = [];
       },
       filterlikes: (state, action) => {
-         state.posts = action.payload;
+         const sortedPosts = [...state.posts];
+         if (action.payload === "less") {
+         sortedPosts.sort((a, b) => a.likes.length - b.likes.length);
+         }
+         if (action.payload === "All") {
+         sortedPosts.sort((a, b) => b.likes.length - a.likes.length);
+         }
+         state.posts = sortedPosts;
       },
       getReview:(state, action) => {
          state.review = action.payload
+      },
+      getReview_user:(state, action) => {
+         state.review_user = action.payload
       }
-
+      
    },
 });
 
@@ -123,7 +115,8 @@ export const {
    resetUserExtra,
    resetUser,
    filterlikes,
-   getReview
+   getReview,
+   getReview_user,
 } = homeSlice.actions;
 
 export default homeSlice.reducer;

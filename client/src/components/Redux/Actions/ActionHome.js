@@ -18,11 +18,10 @@ export const getHomePosts = () => async (dispatch) => {
   //  const sortedData = filteredData.sort((a, b) => new Date(b.created) - new Date(a.created));
    dispatch(getAllPosts(filteredData)); // Despachar los posts ordenados
 };
-export const filterAZ = () => async (dispatch) => {
-   const endpoint = `${API_URL}/codec/api/post/?ordering=title`;
-   const { data } = await axios.get(endpoint);
+export const filterAZ = (data) => async (dispatch) => {
+   console.log(data , "filter")
    dispatch(filterAcendent(data));
-};
+ };
 
 export const filterZA = () => async (dispatch) => {
    const endpoint = `${API_URL}/codec/api/post/?ordering=-title`;
@@ -38,20 +37,6 @@ export const getPostIds = (id) => async (dispatch) => {
    const endpoint = `${API_URL}/codec/api/post/${id}`;
    const { data } = await axios.get(endpoint);
    dispatch(getPostId(data));
-};
-
-export const filterLessLikes = () => async (dispatch) => {
-   const endpoint = `${API_URL}/codec/api/post/?ordering=-likes`;
-   const response = await axios.get(endpoint);
-   const data = response.data;
-   dispatch(filterlikes(data));
-};
-
-export const filterAllLikes = () => async (dispatch) => {
-   const endpoint = `${API_URL}/codec/api/post/?ordering=likes`;
-   const response = await axios.get(endpoint);
-   const data = response.data;
-   dispatch(filterlikes(data));
 };
 
 export const search = (name) => async (dispatch) => {
@@ -121,3 +106,14 @@ export const deletPostid = (id) => async (dispatch) => {
       is_delete: true,
    });
 };
+export const filterLessLikes = (data) => (dispatch) => {
+   // Despacha la acción correspondiente después de filtrar
+   console.log(data, "less")
+   dispatch(filterlikes(data));
+ };
+ 
+ 
+ export const filterAllLikes = (data) => (dispatch) => {
+   console.log(data, "more")
+   dispatch(filterlikes(data));
+ };

@@ -17,7 +17,7 @@ const NewsCards = () => {
   }, [dispatch]);
 
   if (!Array.isArray(news) || !Array.isArray(category)) {
-    return <div>No hay noticias disponibles.</div>;
+    return <div>No news available.</div>;
   }
 
   const findCategoryById = (categoryId) => {
