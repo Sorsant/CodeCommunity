@@ -9,7 +9,7 @@ const PostCard = ({ id }) => {
   const loggin = useSelector((state) => state.home.login);
   const users = useSelector((state) => state.home.users);
   const post = useSelector((state) =>
-    state.home.posts?.find((post) => post.id === id)
+    state.home.posts.find((post) => post.id === id)
   );
   const userInfo = useSelector((state) => state.userdb.user);
   const userExtra = useSelector((state) => state.home.userExtra);
@@ -48,7 +48,7 @@ const PostCard = ({ id }) => {
     const loggedInUserId = JSON.parse(localStorage.getItem("loggedInUserId"));
     if (loggedInUserId) {
       if (likedByCurrentUser) {
-        const updatedLikes = post?.likes.filter((user) => user !== loggedInUserId);
+        const updatedLikes = post.likes.filter((user) => user !== loggedInUserId);
         await dispatch(unlikePost(id, updatedLikes));
       } else {
         const updatedLikes = [...post.likes, loggedInUserId];
@@ -64,7 +64,7 @@ const PostCard = ({ id }) => {
     <div className={styles.card}>
       <Link to={`/detail/${id}`} className={styles.linkDetail}>
         <div className={styles.card_image}>
-          <img src={post?.image} alt={post?.title} />
+          <img src={post.image} alt={post?.title} />
         </div>
         <h2 className={styles.title}>{post?.title}</h2>
       </Link>
