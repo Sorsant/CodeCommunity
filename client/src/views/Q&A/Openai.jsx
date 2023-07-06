@@ -36,11 +36,11 @@ const OpenAIChat = () => {
         <div>
             <form onSubmit={handleSubmit}>
                 <input type="text" value={inputText} onChange={handleInputChange} />
-                <button type="submit">Enviar</button>
+                <button type="submit">Send</button>
             </form>
             {outputText && (
                 <div>
-                    <h3>Respuesta:</h3>
+                    <h3>Answer:</h3>
                     <p>{outputText}</p>
 
                 </div>
