@@ -21,8 +21,8 @@ def update_reviews_on_user_account_save(sender, instance, **kwargs):
 
 class Review(models.Model):
     reviews_id = models.ForeignKey(Reviews, on_delete=models.CASCADE);
-    review = models.IntegerField();
-    comment = models.CharField();
+    review = models.IntegerField(blank=True);
+    comment = models.CharField(blank=True);
     is_delete = models.BooleanField(default=False);
   
     @property
