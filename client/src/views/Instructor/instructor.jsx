@@ -1,20 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getUsers, getUserExtras } from "../../components/Redux/Actions/User/actionUser";
+import { getUsers, getUserExtras, getReviews } from "../../components/Redux/Actions/User/actionUser";
 import { getAllLanguages } from '../../components/Redux/Actions/Community/ActionCommunity';
 import styles from "./Instructor.module.css";
 import { Link } from 'react-router-dom';
 import ModalRange from './ModalRange'
+
+
 const Instructor = () => {
   const users = useSelector(state => state.home.users);
+  const user = useSelector(state => state.userdb.user);
   const userExtras = useSelector(state => state.home.userExtra);
+  const getreview = useSelector(state => state.home.review);
   const languages = useSelector(state => state.community.languages.data);
   const dispatch = useDispatch();
-
+  const [myid, setMyID] = useState({ id: 0 });
+  console.log(user);
   useEffect(() => {
     dispatch(getUsers());
     dispatch(getUserExtras());
     dispatch(getAllLanguages());
+    // dispatch(getReviews())
+    setMyID((myid) => ({
+      id: user?.id,
+    }));
   }, [dispatch]);
 
   const [recipient, setRecipient] = useState('');
@@ -39,9 +48,8 @@ const Instructor = () => {
       <h1>Perfiles de Instructores</h1>
       <div className={styles.cardContainer}>
         {users.map((user) => {
-          const extraUser = userExtras.find((item) => item.id === user.id);
-
-          if (extraUser && extraUser.premium && extraUser.postulation) {
+          const extraUser = userExtras?.find((item) => item.id === user.id);
+          if (extraUser && extraUser?.premium && extraUser.postulation) {
             const languageNames = extraUser.language.map(languageId => {
               const language = languages.find(lang => lang.id === languageId);
               return language ? language.name : '';
@@ -82,9 +90,10 @@ const Instructor = () => {
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal"
                   >
+
                     <span >Puedes contactar a este instructor</span>
                   </button>
-                  <ModalRange />
+                  <ModalRange myid={myid} />
                 </div>
               </div>
             );

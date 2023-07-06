@@ -233,9 +233,9 @@ const Nav = () => {
                             </lord-icon>
                             <span className={styles.button_text}>Admin</span>
 
-                          </Link>) : null
+                          </Link>)
 
-                        }
+                          : null}
 
                       </li>
                       <li>
