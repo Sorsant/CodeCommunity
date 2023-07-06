@@ -87,7 +87,6 @@ const Posteohome = () => {
 
   return (
     <div className={styles.containerForm}>
-      {console.log(post)}
       {login ? (
         <form onSubmit={handleOnSubmit}>
           <label>Title</label>

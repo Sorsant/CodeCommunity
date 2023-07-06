@@ -20,6 +20,7 @@ import cloudinary.api
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config("SECRET_KEY")
 STRIPE_SECRET_KEY = config("STRIPE_SECRET_KEY")
+GPT_SECRET_KEY = config("GPT_SECRET_KEY")
 
 URL_BACK = config('URL_BACK')
 URL_FRONT = config('URL_FRONT')
