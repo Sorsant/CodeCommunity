@@ -34,6 +34,8 @@
   margin-right: 900px;
 }
 
+
+
 .containerNav {
   display: flex;
 }
@@ -283,15 +285,17 @@ div.containerNav button.navbar-toggler {
 }
 
 .profileImage {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
 }
 
 .profileImage img {
-  width: 50px;
-  height: 50px;
+  position: absolute;
+  width: 70px;
+  height: 60px;
   border-radius: 50%;
+  box-shadow: 5px 5px 14px 3px #000;
 }
 
 .textContainer {
@@ -301,10 +305,17 @@ div.containerNav button.navbar-toggler {
 }
 
 .name {
-  font-size: 14px;
+  position: absolute;
+  font-size: 23px;
   font-weight: 600;
   color: white;
   letter-spacing: 0.5px;
+  margin-top: 35px;
+  margin-left: 85px;
+}
+
+.name:hover {
+  color: #000;
 }
 
 .profile {

@@ -83,6 +83,13 @@ const App = () => {
     "/line",
     "/faq",
     "/geography",
+    "/communities/1",
+    "/communities/2",
+    "/communities/3",
+    "/communities/4",
+    "/communities/5",
+    "/communities/6",
+    "/communities/6",
     "*",
   ];
 
@@ -102,7 +109,7 @@ const App = () => {
 
   return (
     <div className={styles.containerApp}>
-      {!excludedPaths.includes(location.pathname) && <Nav />}
+      {!excludedPaths.includes(location.pathname) && <Nav admin={admin} />}
 
       <Routes>
         <Route path="/" element={<LandingPage />} />

@@ -81,16 +81,16 @@ export const pay = (id) => async (dispatch) => {
 
 
 
-export const reviewPost = (id,post) => async () => {
-
-  const endpoint =  `${API_URL}/codec/api/reviews/${id}`;
+export const reviewPost = (post) => async () => {
+console.log(post)
+  const endpoint =  `https://codecommunity-31wr.onrender.com/codec/api/review/`;
   const data = await axios.post(endpoint,post);
 
 };
 
 export const getReviews = () => async (dispatch) => {
 
-  const endpoint = `${API_URL}/codec/api/reviews`;
+  const endpoint = `${API_URL}/codec/api/review/`;
   const {data }= await axios.get(endpoint);
   dispatch(getReview(data));
 };
