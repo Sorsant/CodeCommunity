@@ -1,4 +1,3 @@
-import requests
 from django.conf import settings
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -26,7 +25,7 @@ class StripeCheckoutView(APIView):
             )
 
             # Retorna la respuesta como JSON
-            return Response(checkout_session)
+            return redirect(checkout_session.url)
         except:
             return Response(
                 {'error': 'Something went wrong when creating stripe checkout session'},

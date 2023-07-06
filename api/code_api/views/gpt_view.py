@@ -1,8 +1,9 @@
 import requests
 from django.conf import settings
+from rest_framework.views import APIView
 from django.http import JsonResponse
 
-class ChatGPTView:
+class ChatGPTView(APIView):
     def __init__(self, GPT_SECRET_KEY):
         self.GPT_SECRET_KEY = settings.GPT_SECRET_KEY
         self.api_url = 'https://api.openai.com/v1/chat/completions'
