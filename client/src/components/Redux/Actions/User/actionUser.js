@@ -11,13 +11,13 @@ import {
 
 import { API_URL } from "../../../../config";
 export const getUsers = () => async (dispatch) => {
-  const endpoint = `${API_URL}/codec/api/users/`;
+  const endpoint = `/codec/api/users/`;
   const { data } = await axios.get(endpoint);
   dispatch(getUser(data));
 };
 
 export const getUserId = (id) => async (dispatch) => {
-  const endpoint = `${API_URL}/codec/api/users/${id}`;
+  const endpoint = `${API_URL}http://localhost:3001/codec/api/users/${id}`;
   const { data } = await axios.get(endpoint);
   dispatch(getUser(data));
 };
