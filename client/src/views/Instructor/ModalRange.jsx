@@ -4,15 +4,15 @@ import style from './modalstyle.module.css'
 import { useDispatch, useSelector } from "react-redux"
 import { reviewPost } from '../../components/Redux/Actions/User/actionUser'
 const BootstrapModal = (userid) => {
-    const uid = userid
+    const uid = userid.user
     const dispatch = useDispatch()
     const [modalOpen, setModalOpen] = useState(false);
     const [post, setPost] = useState({
-        id: uid,
-        review: "",
-        comments: "",
-        is_delete: false
+        review: 0,
+        comment: "",
+        reviews_id: uid
     })
+    console.log(post)
     const handleModalOpen = () => {
         setModalOpen(true);
     };
@@ -40,9 +40,8 @@ const BootstrapModal = (userid) => {
         }
         return stars;
     };
-    const handleOnSubmit = (event) => {
-
-        dispatch(reviewPost(userid, post))
+    const handleOnSubmit = () => {
+        dispatch(reviewPost(post))
         handleModalClose(); // Cerrar el modal después de guardar
         window.location.reload();
 
@@ -63,10 +62,10 @@ const BootstrapModal = (userid) => {
                         onChange={HandleonChange}
                         className="form-control"
                         placeholder="Ingrese un valor"
-                        name="comments"
+                        name="comment"
                     />
                     <div>{renderStars()}</div>
-                    <input className={style.inputss} type="range" autocomplete="off" name="review" min="1" max="5" step="0.1" onChange={HandleonChange} />
+                    <input className={style.inputss} type="range" autocomplete="off" name="review" min="1" max="5" step="0" onChange={HandleonChange} />
                     <span className={style.spans} id="ratingValue">review: {post.review} </span>
                 </Modal.Body>
                 <Modal.Footer>

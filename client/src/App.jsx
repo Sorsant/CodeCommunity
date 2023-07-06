@@ -83,6 +83,13 @@ const App = () => {
     "/line",
     "/faq",
     "/geography",
+    "/communities/1",
+    "/communities/2",
+    "/communities/3",
+    "/communities/4",
+    "/communities/5",
+    "/communities/6",
+    "/communities/6",
     "*",
   ];
 

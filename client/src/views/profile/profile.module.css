@@ -6,7 +6,7 @@
 
 .containerPremio {
   position: absolute;
-  top: calc(24% - 57px);
+  top: calc(26% - 57px);
   left: calc(14% - 62px);
 }
 
@@ -30,6 +30,7 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: rgb(76, 88, 76);
+  margin-left: 15px;
 }
 
 .title {
@@ -46,6 +47,7 @@
 
 .premium {
   color: yellow;
+  margin-left: 15px;
 }
 
 .profile {
@@ -53,7 +55,7 @@
   align-items: center;
   flex-wrap: wrap;
   margin: 20px 25px;
-  width: 55%;
+  width: 100vh;
   height: 220px;
   padding: 20px;
   border: 1px solid #ddd;
@@ -93,8 +95,8 @@
 
 .profile_picture img {
   position: absolute;
-  top: calc(25% - 57px);
-  left: calc(50% - 62px);
+  top: calc(26% - 57px);
+  left: calc(45% - 62px);
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -111,8 +113,8 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: calc(33% - 57px);
-  left: calc(0% - 57px);
+  top: calc(35% - 57px);
+  left: calc(-5% - 57px);
   width: 100%;
 
 }
