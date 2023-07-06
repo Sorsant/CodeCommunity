@@ -135,10 +135,10 @@ const ModalForm = () => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Cerrar
+            Close
           </Button>
           <Button variant="primary" onClick={handleOnSubmit}>
-            Guardar
+          keep
           </Button>
         </Modal.Footer>
       </Modal>
