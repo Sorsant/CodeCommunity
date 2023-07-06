@@ -43,7 +43,7 @@ const BootstrapModal = (userid) => {
     const handleOnSubmit = () => {
         dispatch(reviewPost(post))
         handleModalClose(); // Cerrar el modal después de guardar
-        window.location.reload();
+        // window.location.reload();
 
     };
     return (
