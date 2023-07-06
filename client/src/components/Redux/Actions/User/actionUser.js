@@ -6,6 +6,7 @@ import {
   resetUserExtra,
   allLikesPost,
 } from "../../Reducer/HomeReducer";
+
 import { API_URL } from "../../../../config";
 export const getUsers = () => async (dispatch) => {
   const endpoint = `${API_URL}/codec/api/users/`;

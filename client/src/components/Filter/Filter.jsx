@@ -8,18 +8,9 @@ const Filter = () => {
   const posts = useSelector((state) => state.home.posts);
 
   const handleFilterAZ = (event) => {
-    const { value } = event.target
+      dispatch(filterAZ(event.target.value))
+    }
 
-    if (value === "Acn") {
-      dispatch(filterAZ())
-    }
-    if (value === "Dcn") {
-      dispatch(filterZA())
-    }
-    if (value === "default") {
-      dispatch(getHomePosts())
-    }
-  };
   const handleFilterPublications = (event) => {
     const { value } = event.target;
 

@@ -4,6 +4,7 @@ export const homeSlice = createSlice({
    name: "home",
    initialState: {
       posts: [],
+      posts2: [],
       login: false,
       addPost: [],
       users: [],
@@ -13,10 +14,31 @@ export const homeSlice = createSlice({
    },
    reducers: {
       getAllPosts: (state, action) => {
+         state.posts2 = action.payload
          state.posts = action.payload;
       },
       filterAcendent: (state, action) => {
-         state.posts = action.payload;
+         const sortedPosts = [...state.posts];
+         sortedPosts.sort((a, b) => {
+            if (action.payload === 'Newest') {
+            if (a.nombre > b.nombre) {
+               return 1;
+            } else if (a.nombre < b.nombre) {
+               return -1;
+            }
+            return 0;
+   
+            } else if (action.payload === 'Older') {
+            if (a.nombre > b.nombre) {
+               return -1;
+            } else if (a.nombre < b.nombre) {
+               return 1;
+            }
+            return 0;
+            }
+            return 0;
+          });
+          state.posts = sortedPosts
       },
       filterDesendent: (state, action) => {
          state.posts = action.payload;
@@ -43,6 +65,7 @@ export const homeSlice = createSlice({
          state.posts = action.payload;
       },
       getSearchPosts: (state, action) => {
+         state.posts  = state.posts2;
          state.posts = action.payload;
       },
       loginSwitch: (state, action) => {
@@ -62,16 +85,16 @@ export const homeSlice = createSlice({
             state.comments = action.payload;
          }
       },
-      allLikesPost: (state, action) => {
-         const { postId, userId } = action.payload;
-         console.log(postId, "reducer");
-         console.log(userId, "reducer");
+      // allLikesPost: (state, action) => {
+      //    const { postId, userId } = action.payload;
+      //    console.log(postId, "reducer");
+      //    console.log(userId, "reducer");
 
-         const post = state.posts.find((post) => post.id === postId);
-         if (post) {
-            post.likes.push(userId);
-         }
-      },
+      //    const post = state.posts.find((post) => post.id === postId);
+      //    if (post) {
+      //       post.likes.push(userId);
+      //    }
+      // },
       resetUser: (state, action) => {
          state.users = [];
       },
@@ -79,7 +102,7 @@ export const homeSlice = createSlice({
          state.userExtra = [];
       },
       filterlikes: (state, action) => {
-         state.posts = action.payload.data;
+         state.posts = action.payload;
       },
    },
 });

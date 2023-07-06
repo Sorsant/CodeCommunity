@@ -16,14 +16,13 @@ export const getHomePosts = () => async (dispatch) => {
   const endpoint = `${API_URL}/codec/api/post/`;
   const { data } = await axios.get(endpoint);
   const filteredData = data.filter((item) => !item.is_delete);
-  const sortedData = filteredData.sort(
-    (a, b) => new Date(b.created) - new Date(a.created)
-  );
-  dispatch(getAllPosts(sortedData)); // Despachar los posts ordenados
+  // const sortedData = filteredData.sort(
+  //   (a, b) => new Date(b.created) - new Date(a.created)
+  // );
+  dispatch(getAllPosts(filteredData)); // Despachar los posts ordenados
 };
-export const filterAZ = () => async (dispatch) => {
-  const endpoint = `${API_URL}/codec/api/post/?ordering=title`;
-  const { data } = await axios.get(endpoint);
+export const filterAZ = (data) => async (dispatch) => {
+  console.log(data , "filter")
   dispatch(filterAcendent(data));
 };
 
