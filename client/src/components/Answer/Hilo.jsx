@@ -23,7 +23,7 @@ const Thread = ({ threadId, tweets, addTweet }) => {
 
       <form onSubmit={handleSubmit} className={styles.form}>
         <input type="text" placeholder="Nuevo tuit" />
-        <button type="submit">Enviar</button>
+        <button type="submit">Send</button>
       </form>
     </div>
   );

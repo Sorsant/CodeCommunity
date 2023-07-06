@@ -147,7 +147,7 @@ const NewsPost = () => {
                     {errors.author && (
                         <span className={styles.errorAuthor}>{errors.author}</span>
                     )}
-                    <label>SELECCIONAR CATEGORIA</label>
+                    <label>SELECT CATEGORY</label>
                     <select className={styles.Category} onChange={(event) => handleSelect(event)}>
                         <option name="category" className={styles.category}>Elegir category</option>
                         {
