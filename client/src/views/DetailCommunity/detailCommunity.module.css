@@ -1,5 +1,6 @@
 .container {
     background-color: #808080;
+    height: 100%;
 }
 
 .subContainer {
@@ -8,29 +9,51 @@
     width: 1000px;
     height: 200px;
     margin-bottom: 50px;
-    background-color: antiquewhite;
+    border-radius: 10px;
+    background-image: url("https://cutewallpaper.org/21/white-wallpaper-hd/Digital-Art-White-Wallpaper-HD-Wallpaper-Stream.jpg");
+    background-size: cover;
 }
 
 .container1 {
-    width: 900px;
+    margin-top: 300px;
+    margin-left: 650px;
+    width: 800px;
     height: auto;
-    margin: auto;
+
 }
 
 .name {
-    font-size: xx-large;
+    position: relative;
+    font-size: 70px;
     text-align: center;
-    width: 300px;
+    width: 500px;
+    top: 20px;
+    left: 250px;
+
 }
 
 .image {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+    position: absolute;
+    width: 260px;
+    height: 210px;
+    border-top-left-radius: 10%;
+    border-bottom-left-radius: 10%;
+    margin-top: -110px;
+    margin-left: -10px;
+    top: 110px;
 }
 
 .description {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+    margin-top: 20px;
     font-size: x-large;
+    background-color: #ffffff;
+    height: 200px;
+    border-radius: 10px;
+    top: 200px;
 }
 
 .user {
@@ -39,21 +62,21 @@
 
 .button {
     position: absolute;
-    margin-left: 1050px;
-    margin-top: -200px;
+    margin-left: 900px;
+    margin-top: -275px;
     display: flex;
     height: 3em;
     width: 100px;
     align-items: center;
     justify-content: center;
-    background-color: #eeeeee4b;
+    color: #ffffff;
     border-radius: 3px;
     letter-spacing: 1px;
     transition: all 0.2s linear;
     cursor: pointer;
     border: none;
     font-size: 15px;
-    background: #ffffff;
+    background: #0f0f0f;
 }
 
 .button>svg {

@@ -79,6 +79,7 @@ const PostCard = ({ id }) => {
       <p className={styles.footer}>
         Created by
         <span className={styles.by_name}>
+          <p> {user.first_name} {user.last_name} </p>
           <img
             src={userE?.user_image}
             alt={userE?.name}

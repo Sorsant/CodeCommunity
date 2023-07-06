@@ -28,7 +28,8 @@
   line-height: 22px;
   font-weight: 600;
   margin-top: 10px;
-  margin-left: 260px;
+  display: flex;
+  justify-content: center;
   color: #fff;
   text-decoration: none;
   transition: all .35s ease-in;
@@ -36,14 +37,34 @@
 
 .image_preview {
   flex: 1;
-  min-height: 300px;
-  width: 533px;
+  height: 300px;
+  width: 433px;
+  margin-left: 70px;
   border-radius: 20px;
   background-image: linear-gradient(to top left, blueviolet, rgb(73, 31, 112));
   margin-bottom: 4px;
 }
 
 .image_preview img {
-  width: 533px;
+  height: 400px;
+  width: 433px;
   border-radius: 20px;
+}
+
+.back {
+  position: absolute;
+  top: calc(15% - 57px);
+  left: calc(33% - 57px);
+}
+
+.edit {
+  position: absolute;
+  top: calc(16% - 65px);
+  left: calc(66% - 57px);
+}
+
+.cancel {
+  position: absolute;
+  top: calc(63% - 65px);
+  left: calc(94% - 62px);
 }

@@ -53,7 +53,7 @@
 }
 
 .subContainer:hover {
-    transform: translateY(-20px);
+    transform: translateY(-13px);
     filter: drop-shadow(-3px 12px 20px #745313);
 }
 
@@ -103,15 +103,14 @@
 }
 
 .language {
-    margin-left: 6vw;
-    margin-top: 0vw;
+    margin-left: 3vw;
     font-size: 13px;
     /* background-color: #545454; */
     color: white;
 }
 
 .container span {
-    color: yellow;
+    color: rgb(230, 230, 78);
 }
 
 .image {
