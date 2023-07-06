@@ -5,17 +5,19 @@ import {
   resetUser,
   resetUserExtra,
   allLikesPost,
-  getReview
+  getReview, 
+  getReview_user,
 } from "../../Reducer/HomeReducer";
+
 import { API_URL } from "../../../../config";
 export const getUsers = () => async (dispatch) => {
-  const endpoint = `${API_URL}/codec/api/users/`;
+  const endpoint = `/codec/api/users/`;
   const { data } = await axios.get(endpoint);
   dispatch(getUser(data));
 };
 
 export const getUserId = (id) => async (dispatch) => {
-  const endpoint = `${API_URL}/codec/api/users/${id}`;
+  const endpoint = `${API_URL}http://localhost:3001/codec/api/users/${id}`;
   const { data } = await axios.get(endpoint);
   dispatch(getUser(data));
 };
@@ -79,8 +81,6 @@ export const pay = (id) => async (dispatch) => {
   }
 };
 
-
-
 export const reviewPost = (post) => async () => {
 console.log(post)
   const endpoint =  `https://codecommunity-31wr.onrender.com/codec/api/review/`;
@@ -89,8 +89,14 @@ console.log(post)
 };
 
 export const getReviews = () => async (dispatch) => {
-
   const endpoint = `${API_URL}/codec/api/review/`;
   const {data }= await axios.get(endpoint);
-  dispatch(getReview(data));
+  console.log(data);
+  dispatch(getReview(data, "review"));
+};
+export const getReviews_user = () => async (dispatch) => {
+  const endpoint = `${API_URL}/codec/api/reviews_user/`;
+  const {data }= await axios.get(endpoint);
+  console.log(data);
+  dispatch(getReview_user(data ,"review_data"));
 };
