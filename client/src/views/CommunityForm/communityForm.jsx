@@ -5,7 +5,6 @@ import { addCommunity } from "../../components/Redux/Actions/Community/ActionCom
 import { getAllLanguages } from "../../components/Redux/Actions/Community/ActionCommunity";
 import validate from "./validate";
 import { useDispatch, useSelector } from "react-redux";
-import CommunityCard from "../Community/communityCards";
 import CloudinaryUploadWidget from "./CloudinaryWidget/CloudinaryUploadWidget";
 
 const CommunityForm = () => {
@@ -77,65 +76,71 @@ const CommunityForm = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <div className={styles.container}>
-        {console.log(inputValues)}
-        <div className={styles.form}>
-          <h2>Create Group</h2>
+    <div className={styles["container-community"]}>
+      <div className="card bg-dark text-white w-50 mx-auto my-5">
+        <div className="card-body p-5">
+          {console.log(inputValues)}
+          <form>
+            <div className="form-group mx-auto text-center">
+              <h2>Create Group</h2>
 
-          <input
-            onChange={handleChange}
-            value={inputValues.name}
-            className={styles.data}
-            type="text"
-            name="name"
-            placeholder="Name your group"
-          />
-          {errors.name && <span>{errors.name}</span>}
+              <input
+                onChange={handleChange}
+                value={inputValues.name}
+                className="form-control form-control-lg rounded-pill mb-3"
+                type="text"
+                name="name"
+                placeholder="Name your group"
+              />
+              {errors.name && <span>{errors.name}</span>}
 
-          <input
-            onChange={handleChange}
-            value={inputValues.description}
-            className={styles.data}
-            type="text"
-            name="description"
-            placeholder="Describe your group"
-          />
-          {errors.description && <span>{errors.description}</span>}
+              <input
+                onChange={handleChange}
+                value={inputValues.description}
+                className="form-control form-control-lg rounded-pill mb-3"
+                type="text"
+                name="description"
+                placeholder="Describe your group"
+              />
+              {errors.description && <span>{errors.description}</span>}
 
-          <label htmlFor="languages">Languages:</label>
+              <label htmlFor="languages">Languages:</label>
 
-          <select
-            onChange={handleChangeOption}
-            name="language"
-            value={inputValues.language}
-          >
-            {languages &&
-              languages.map((lan) => (
-                <option
-                  className={styles.opciones}
-                  value={lan.id}
-                  key={lan.id}
-                  selected={inputValues.language.includes(lan.id)}
-                >
-                  {lan.name}
-                </option>
-              ))}
-          </select>
-          {errors.language && <span>{errors.language}</span>}
+              <select
+                onChange={handleChangeOption}
+                name="language"
+                value={inputValues.language}
+                className="form-select form-select-lg rounded-pill mb-3"
+              >
+                {languages &&
+                  languages.map((lan) => (
+                    <option
+                      className="opciones"
+                      value={lan.id}
+                      key={lan.id}
+                      selected={inputValues.language.includes(lan.id)}
+                    >
+                      {lan.name}
+                    </option>
+                  ))}
+              </select>
+              {errors.language && <span>{errors.language}</span>}
 
-          <label className={styles}>Image</label>
-          <div className={styles.image}>
-            <CloudinaryUploadWidget onImageUrl={handleImageUrl} />
-          </div>
+              <label>Image</label>
+              <div className={styles["uploadimage"]}>
+                <CloudinaryUploadWidget onImageUrl={handleImageUrl} />
+              </div>
 
-          <button disabled={disabled} onClick={handleSubmit}>
-            Create
-          </button>
+              <button
+                disabled={disabled}
+                onClick={handleSubmit}
+                className="btn btn-primary"
+              >
+                Create
+              </button>
+            </div>
+          </form>
         </div>
-      </div>
-      <div className={styles.communityCardContainer}>
-        <CommunityCard />
       </div>
     </div>
   );
