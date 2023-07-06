@@ -16,7 +16,7 @@ const PostCard = ({ id }) => {
   const dispatch = useDispatch();
 
   const [likedByCurrentUser, setLikedByCurrentUser] = useState(false);
-  const [posts, setPosts] = useState(); 
+  const [posts, setPosts] = useState();
   useEffect(() => {
     dispatch(getHomePosts());
   }, [dispatch]);
@@ -54,11 +54,11 @@ const PostCard = ({ id }) => {
         const updatedLikes = [...post.likes, loggedInUserId];
         await dispatch(addlikePost(id, updatedLikes));
       }
-      
+
       await dispatch(getHomePosts()); // Despachar la acción getHomePosts después de actualizar los likes
     }
   };
-  
+
 
   return (
     <div className={styles.card}>
@@ -78,6 +78,7 @@ const PostCard = ({ id }) => {
       <p className={styles.footer}>
         Created by
         <span className={styles.by_name}>
+          <p> {user.first_name} {user.last_name} </p>
           <img
             src={userE?.user_image}
             alt={userE?.name}

@@ -8,11 +8,16 @@ import styles from "./books.module.css";
 const Books = () => {
     return (
         <div className={styles.container}>
-            <h3 className={styles.text}>Here you have a little selection of books for your learning, we hope you enjoy it!</h3>
-                <div className={styles.book}>
-                <a href="https://drive.google.com/file/d/1-kcphyfUwRx_RwgPyC3QMG8BMjfDXncO/view?usp=sharing"><h4 className={styles.text}>Clean JavaScript</h4></a>
-                    <img className={styles.image} src={Book1} alt="Front Page"/>
-                    <h5 className={styles.text}>Description: 
+            {/* <h3 className={styles.text}>Here you have a little selection of books for your learning, we hope you enjoy it!</h3> */}
+            <div className={styles.book}>
+                <div className={styles.titleContainer}>
+                    <h4 className={styles.titleStudent}>Clean JavaScript</h4>
+                    <a href="https://drive.google.com/file/d/1-kcphyfUwRx_RwgPyC3QMG8BMjfDXncO/view?usp=sharing">
+                        Go to Book
+                    </a>
+                    <img className={styles.image} src={Book1} alt="Front Page" />
+                </div>
+                <h5 className={styles.paragraph}>
                     JavaScript se ha convertido en uno de los lenguajes más utilizados del mundo,
                     se encuentra en infraestructuras críticas de empresas muy importantes (Facebook,
                     Netflix o Uber lo utilizan).
@@ -26,11 +31,16 @@ const Books = () => {
                     Este pequeño e-book pretende ser una referencia concisa de cómo aplicar clean code,
                     SOLID, unit testing y TDD, para aprender a escribir código JavaScript más legible,
                     mantenible y tolerante a cambios.</h5>
-                </div>
-                <div className={styles.book}>
-                    <a href="https://drive.google.com/file/d/1enp4-q0ITDeindPez9eIF4z4jwx94T9Y/view?usp=sharing"><h4 className={styles.text}>Código Limpio</h4></a>
+            </div>
+            <div className={styles.book}>
+                <div className={styles.titleContainer}>
+                    <h4 className={styles.titleStudent}>Código Limpio</h4>
+                    <a href="https://drive.google.com/file/d/1enp4-q0ITDeindPez9eIF4z4jwx94T9Y/view?usp=sharing">
+                        Go to Book
+                    </a>
                     <img className={styles.image} src={Book2} alt="Front Page" />
-                    <h5 className={styles.text}>Description: 
+                </div>
+                <h5 className={styles.paragraph}>
                     Cada año, se invierten innumerables horas y se pierden numerosos recursos
                     debido a código mal escrito, ralentizando el desarrollo, disminuyendo la
                     productividad, generando graves fallos e incluso pudiendo acabar con la
@@ -50,11 +60,16 @@ const Books = () => {
                     proyectos, jefe de equipo o analista de sistemas interesado en crear código de
                     mejor calidad.
                     ¡El libro que todo programador debe leer!</h5>
-                </div>
-                <div className={styles.book}>
-                    <a href="https://drive.google.com/file/d/13QIosOrdOKjVcQn2hzHU41K4Qz9No3sn/view?usp=sharing"><h4 className={styles.text}>Sumérgete en los Patrones de Diseño</h4></a>
+            </div>
+            <div className={styles.book}>
+                <div className={styles.titleContainer}>
+                    <h4 className={styles.titleStudent}>Sumérgete en los Patrones de Diseño</h4>
+                    <a href="https://drive.google.com/file/d/13QIosOrdOKjVcQn2hzHU41K4Qz9No3sn/view?usp=sharing">
+                        Go to Book
+                    </a>
                     <img className={styles.image} src={Book3} alt="Front Page" />
-                    <h5 className={styles.text}>Description: 
+                </div>
+                <h5 className={styles.paragraph}>
                     Este libro contiene las descripciones de 22 patrones de diseño
                     clásicos formulados por la “banda de los cuatro” (o simplemente
                     GoF, por sus siglas en inglés) en 1994.
@@ -76,11 +91,16 @@ const Books = () => {
                     lo que resulta de utilidad porque hay un montón de ellos en
                     el libro. Por supuesto, si ya sabes todo esto, puedes proceder
                     directamente a aprender sobre patrones.</h5>
-                </div>
-                <div className={styles.book}>
-                    <a href="https://drive.google.com/file/d/11DrBXC8Rcpsi3drtAL7s1FIRHw3d9Ha9/view?usp=sharing"><h4 className={styles.text}>El programador pragmático</h4></a>
+            </div>
+            <div className={styles.book}>
+                <div className={styles.titleContainer}>
+                    <h4 className={styles.titleStudent}>El programador pragmático</h4>
+                    <a href="https://drive.google.com/file/d/11DrBXC8Rcpsi3drtAL7s1FIRHw3d9Ha9/view?usp=sharing">
+                        Go to Book
+                    </a>
                     <img className={styles.image} src={Book4} alt="Front Page" />
-                    <h5 className={styles.text}>Description: 
+                </div>
+                <h5 className={styles.paragraph}>
                     Este libro le dice cómo programar de una manera que pueda
                     seguir. No pensarías que eso sería algo difícil de hacer, pero lo es. ¿Por qué? Por un
                     lado, no todos los libros de programación están escritos por programadores. Muchos
@@ -88,7 +108,7 @@ const Books = () => {
                     ellos para promocionar sus creaciones. Esos libros te dicen cómohablaren un lenguaje
                     de programación, lo cual es ciertamente importante, pero eso es solo una pequeña
                     parte de lo que hace un programador.</h5>
-                </div>
+            </div>
         </div>
     )
 }

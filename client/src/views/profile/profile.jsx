@@ -46,7 +46,7 @@ const Profile = () => {
   }, [user, extra]);
 
   return (
-    <div>
+    <div className={style.container}>
       <header className={style.header}>
         <div className={style.containerTitle}>
           <h1 className={style.title}>Profile</h1>
@@ -54,7 +54,7 @@ const Profile = () => {
         <div className={style.containerButton}></div>
         {extra && extra.premium ? (
           <div>
-            <h1>Premium</h1>
+            <h1 className={style.premium}>Premium ⭐</h1>
           </div>
         ) : (
           <ProductDisplay />
@@ -68,6 +68,11 @@ const Profile = () => {
           <h2 className={style.profile_name}>
             {user && user.first_name ? user.first_name : <p>loading...</p>}{" "}
             {user && user.last_name ? user.last_name : <p>loading...</p>}
+            <div className={style.containerPremio}>
+              <img src="https://i.ibb.co/p3Bcrwr/idea.png" className={style.premio} alt="premio por ser premium" />
+              <img src="https://i.ibb.co/DbQbB2B/viejo.png" className={style.premio} alt="premio por su primer posteo" />
+              <img src="https://i.ibb.co/S0VKwSm/grupo.png" className={style.premio} alt="premio por su primera comunidad" />
+            </div>
           </h2>
           {extra &&
             extra.language &&
@@ -77,10 +82,10 @@ const Profile = () => {
                 ? languages?.find((lang) => lang.id === +languageId)
                 : null;
               const languageName = language?.name || "Unknown Language";
-              console.log(language)
 
               return (
-                <div className={style.div}>
+                <div className={style.language}>
+
                   <ul>
                     <li>{languageName}</li>
                   </ul>
@@ -89,7 +94,9 @@ const Profile = () => {
             })}
         </div>
         <div className={style.profile_picture}>
-          <CloudinaryUploadWidget onImageUrl={handleImageUrl} />
+          <div className={style.cloudinary}>
+            <CloudinaryUploadWidget onImageUrl={handleImageUrl} />
+          </div>
           {extra && extra.user_image ? (
             <img src={extra.user_image} alt="" />
           ) : (

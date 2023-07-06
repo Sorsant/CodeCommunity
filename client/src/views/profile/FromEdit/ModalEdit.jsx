@@ -92,28 +92,30 @@ const ModalForm = () => {
 
   return (
     <div>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="primary" className='fs-4' onClick={handleShow}>
         Info Profile
       </Button>
 
       <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit Profile</Modal.Title>
+          <Modal.Title className='fs-2'>Edit Profile</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={handleOnSubmit}>
+
             <div className="form-group">
-              <label htmlFor="input1">Name</label>
-              <input onChange={HandleonChange} type="text" name="first_name" placeholder="Name" className="form-control" id="input1" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="input2">Lastname</label>
-              <input onChange={HandleonChange} type="text" name="last_name" className="form-control" id="input2" />
+              <label htmlFor="input1" className='fs-3'>Name</label>
+              <input onChange={HandleonChange} type="text" name="first_name" placeholder="My name" className="form-control fs-4" id="input1" />
             </div>
 
             <div className="form-group">
-              <label htmlFor="input2">Birthday</label>
-              <input onChange={HandleonChangeExtra} type="date" name="birthday" className="form-control" id="input2" />
+              <label htmlFor="input2" className='fs-3'>Last name</label>
+              <input onChange={HandleonChange} type="text" name="last_name" placeholder="My last name" className="form-control fs-4" id="input2" />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="input2" className='fs-3'>Birthday</label>
+              <input onChange={HandleonChangeExtra} type="date" name="birthday" className="form-control fs-4" id="input2" />
             </div>
             {extra && extra.premium ? (
               <div>
@@ -134,10 +136,10 @@ const ModalForm = () => {
 
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" className='fs-4' onClick={handleClose}>
             Cerrar
           </Button>
-          <Button variant="primary" onClick={handleOnSubmit}>
+          <Button variant="primary" className='fs-4' onClick={handleOnSubmit}>
             Guardar
           </Button>
         </Modal.Footer>
