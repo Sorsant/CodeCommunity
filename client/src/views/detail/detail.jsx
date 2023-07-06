@@ -38,7 +38,7 @@ const PostDetail = () => {
     navigate(-2);
   };
 
-  const isCurrentUserCreator = post.user === userId;
+  const isCurrentUserCreator = post?.user === userId;
 
   const handleEditClick = () => {
     setShowEditForm(true);
@@ -49,35 +49,51 @@ const PostDetail = () => {
   };
   const handleDelet = () => {
     dispatch(deletPostid(id));
-    navigate("/home")
+    navigate("/home");
   };
- 
+  useEffect(() => {
+    const loadDisqusScript = () => {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://codecommunity-com.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+
+    loadDisqusScript();
+  }, []);
+
   return (
     <div className={style.postDetailContainer}>
-  {isCurrentUserCreator && (
-  <button onClick={handleDelet} className={style.deleteButton} >
-   <lord-icon
-    src="https://cdn.lordicon.com/kfzfxczd.json"
-    trigger="boomerang"
-    colors="primary:#000000"
-    style={{ width: "35px", height: "35px" }}>
-</lord-icon>
-  </button>
-)}
-
-
-      <h1>User: {user && user.first_name} {user && user.last_name}</h1>
-      <h1>Email: {user && user.email}</h1>
+      {isCurrentUserCreator && (
+        <button onClick={handleDelet} className={style.deleteButton} >
+          <lord-icon
+            src="https://cdn.lordicon.com/kfzfxczd.json"
+            trigger="boomerang"
+            colors="primary:#000000"
+            style={{ width: "35px", height: "35px" }}
+          ></lord-icon>
+        </button>
+      )}
 
       <div className={style.post_card}>
         <div className={style.avatar}></div>
-        <div className={style.info}> <h1>{user && user.first_name} {user && user.last_name}</h1>
-          <h1>{user && user.email}</h1></div>
+        <div className={style.info}>
+          {" "}
+          <h1>
+            {user && user?.first_name} {user && user?.last_name}
+          </h1>
+          <h1>{user && user?.email}</h1>
+        </div>
         <hr />
         <h1 className={style.title}>{post && post.title}</h1>
         <hr />
-        <div className={style.image_preview}><img src={post && post.image} alt={post && post.image} className={style.image} /></div>
-        <hr />
+        <div className={style.image_preview}>
+          <img
+            src={post && post?.image}
+            alt={post && post?.image}
+            className={style.image}
+          />
+        </div>
         <h3 className={style.description}>{post && post.description}</h3>
       </div>
 
@@ -93,6 +109,7 @@ const PostDetail = () => {
           <button className={`btn btn-danger fs-4 ${style["cancel"]}`} onClick={handleCancelEdit}>Cancel</button>
         </div>
       )}
+      <div id="disqus_thread"></div>
     </div>
   );
 };

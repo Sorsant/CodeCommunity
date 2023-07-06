@@ -10,7 +10,7 @@ from .models.post import Post
 from .models.comments import Comments
 from .models.category import Category
 from .models.user_comp import UserComplement
-from .models.reviews import Reviews
+from .models.reviews import Reviews, Review
 
 # Register your models here.
 admin.site.register(Language)
@@ -45,15 +45,11 @@ class BookAdmin(admin.ModelAdmin):
     
 @admin.register(Reviews)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('id', 'review', 'comments', 'is_delete')
+    list_display = ('id', 'is_delete')
     
-    def get_review_count(self, obj):
-        return obj.review.count()
-    get_review_count.short_description = 'Reviews'
-    
-    def get_comments_count(self, obj):
-        return obj.comments.count()
-    get_comments_count.short_description = 'Comments'
+@admin.register(Review)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('reviews_id', 'review', 'comment', 'is_delete')
 
 @admin.register(UserComplement)
 class BookAdmin(admin.ModelAdmin):

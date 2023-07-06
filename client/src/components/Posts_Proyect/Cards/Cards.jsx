@@ -17,7 +17,7 @@ const PosteoCards = () => {
 
     // Verificar si posteos es un array
     if (!Array.isArray(posteos)) {
-        return <div>No hay posteos disponibles.</div>;
+        return <div>There are no posts available.</div>;
     }
 
     return (
@@ -31,12 +31,7 @@ const PosteoCards = () => {
                         image={post.image}
                         created={post.created}
                     />
-                    <button
-                        className={styles.button}
-                        onClick={() => handleMoreInfo(post.id)}
-                    >
-                        <span>Comments</span>
-                    </button>
+
                 </div>
             ))}
         </div>

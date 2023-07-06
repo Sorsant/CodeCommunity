@@ -13,7 +13,6 @@ const Nav = () => {
   const extra = extras.find((users) => users.id === (user && user.id));
   const isAuthenticated = useSelector((state) => state.userdb.isAuthenticated);
   const dispatch = useDispatch();
-  const languages = useSelector((state) => state.community.languages.data);
 
   // useEffect(() => {
   //   const checkAdmin = isAdmin(); // Llama a la función isAdmin()
@@ -82,11 +81,6 @@ const Nav = () => {
                         </h2>
                       </div>
                     </div>
-                    {/* {extra && extra.premium !== undefined ? (
-                      <div className={styles.premiumLabel}>
-                        <p>PREMIUM</p>
-                      </div>
-                    ) : null} */}
                   </div>
                 </Link>
               ) : (
@@ -97,7 +91,6 @@ const Nav = () => {
                 className="btn-close btn-close-dark bg-dark mb-5"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
-
               ></button>
             </div>
             <div className={"offcanvas-body" + styles.buttons}>
@@ -127,11 +120,14 @@ const Nav = () => {
                             onClick={() => dispatch(logout())}
                           >
                             Log out
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                              style={{ width: "50px", height: "30px" }}>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              style={{ width: "50px", height: "30px" }}
+                            >
                               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3-9h-2V7h-2v4H9l3 3 3-3z" />
                             </svg>
-
                           </h1>
                         </Link>
                       </li>
@@ -141,19 +137,14 @@ const Nav = () => {
                 {loggin ? (
                   <ul className="list-unstyled mt-5">
                     <li className="nav-item">
-                      <Link
-                        to="/home"
-                        className={styles.sectionLink}
-                      >
-
+                      <Link to="/home" className={styles.sectionLink}>
                         <lord-icon
                           src="https://cdn.lordicon.com/osuxyevn.json"
                           trigger="hover"
                           colors="primary:#FFFFFF"
-                          style={{ width: "35px", height: "35px" }}>
-                        </lord-icon>
+                          style={{ width: "35px", height: "35px" }}
+                        ></lord-icon>
                         <span className={styles.button_text}>Home</span>
-
                       </Link>
                     </li>
 
@@ -178,37 +169,28 @@ const Nav = () => {
                     </li>
 
                     <li className="nav-item">
-                      <Link
-                        to="/Q&A"
-                        className={styles.sectionLink}
-                      >
-
+                      <Link to="/Q&A" className={styles.sectionLink}>
                         <lord-icon
                           src="https://cdn.lordicon.com/amascaoj.json"
                           trigger="hover"
                           colors="primary:#FFFFFF"
-                          style={{ width: "35px", height: "35px" }}>
-                        </lord-icon>
-                        <span className={styles.button_text}>Question & Answer</span>
-
+                          style={{ width: "35px", height: "35px" }}
+                        ></lord-icon>
+                        <span className={styles.button_text}>
+                          Question & Answer
+                        </span>
                       </Link>
                     </li>
 
                     <li className="nav-item">
-
-                      <Link
-                        to="/instructor"
-                        className={styles.sectionLink}
-                      >
-
+                      <Link to="/instructor" className={styles.sectionLink}>
                         <lord-icon
                           src="https://cdn.lordicon.com/wluyqhxh.json"
                           trigger="hover"
                           colors="primary:#FFFFFF"
-                          style={{ width: "35px", height: "35px" }}>
-                        </lord-icon>
+                          style={{ width: "35px", height: "35px" }}
+                        ></lord-icon>
                         <span className={styles.button_text}>Instructor</span>
-
                       </Link>
 
                       {/* <li className="nav-item">
@@ -237,24 +219,19 @@ const Nav = () => {
                               src="https://cdn.lordicon.com/kipaqhoz.json"
                               trigger="hover"
                               colors="primary:#FFFFFF"
-                              style={{ width: "35px", height: "35px" }}>
-                            </lord-icon>
+                              style={{ width: "35px", height: "35px" }}
+                            ></lord-icon>
                             <span className={styles.button_text}>Students</span>
-
                           </Link>
-
                         ) : null}
                       </li>
                     </li>
-
-
                   </ul>
                 ) : (
                   <p className={styles.log}>Go to log!</p>
                 )}
               </ul>
             </div>
-
           </div>
         </div>
       </nav>

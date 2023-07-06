@@ -17,6 +17,23 @@
   margin-right: 60px;
 }
 
+.boton img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+.imgNeg img {
+  filter: saturate(0%);
+}
+
+.imgpositive .button {
+  border: none;
+  outline: none;
+
+}
+
+
 .card:hover {
   translate: 0 -10px;
   filter: drop-shadow(-3px 12px 20px #635e53);
@@ -40,14 +57,24 @@
   text-decoration: none;
   color: rgb(155, 146, 146);
 }
-.likes{
+
+.likes {
   color: white;
   font-size: 15px;
 }
-.boton{
-  width: 50px;
+
+.boton {
+  width: 20px;
   height: 20px;
+  background-color: #ffffff00;
+  border: none;
+  outline: none;
 }
+
+.boton.clicked {
+  border: 1px solid black;
+}
+
 .card_image {
   background-color: #c9c9c9;
   border-radius: 15px;

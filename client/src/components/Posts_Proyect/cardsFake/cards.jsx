@@ -8,7 +8,7 @@ const PosteoCardsFake = () => {
 
     // Verificar si posteos es un array
     if (!Array.isArray(posteos)) {
-        return <div>No hay posteos disponibles.</div>;
+        return <div>There are no posts available.</div>;
     }
 
 

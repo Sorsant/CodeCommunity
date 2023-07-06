@@ -5,10 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { ImgEdit } from "../../components/Redux/Actions/ActionHome";
 import CloudinaryUploadWidget from "./CloudinaryWidget/cloudinary";
 import ModalForm from "./FromEdit/ModalEdit";
-import { useLocation } from "react-router-dom";
-import QueryString from "query-string";
-import { pay } from "../../components/Redux/Actions/User/actionUser";
-import { useEffect } from "react";
 
 const Profile = () => {
   const user = useSelector((state) => state.userdb.user);
@@ -50,6 +46,7 @@ const Profile = () => {
       <header className={style.header}>
         <div className={style.containerTitle}>
           <h1 className={style.title}>Profile</h1>
+          <ModalForm />
         </div>
         <div className={style.containerButton}></div>
         {extra && extra.premium ? (
@@ -62,9 +59,25 @@ const Profile = () => {
 
         <ModalForm />
       </header>
+      <div className={style.containerButton}></div>
 
       <div className={style.profile}>
+        <div className={style.profile_picture}>
+          <CloudinaryUploadWidget onImageUrl={handleImageUrl} />
+          {extra && extra.user_image ? (
+            <img src={extra.user_image} alt="" />
+          ) : (
+            <img src={imagen} alt="" />
+          )}
+        </div>
         <div className={style.profile_info}>
+          {extra && extra.premium ? (
+            <div>
+              <h1>Premium</h1>
+            </div>
+          ) : (
+            <ProductDisplay />
+          )}
           <h2 className={style.profile_name}>
             {user && user.first_name ? user.first_name : <p>loading...</p>}{" "}
             {user && user.last_name ? user.last_name : <p>loading...</p>}

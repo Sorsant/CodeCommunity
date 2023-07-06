@@ -10,7 +10,7 @@ from . import (
     post_urls,
     comments_urls,
     category_urls,
-    reviews_urls,
+    reviews_urls
 )
 
 urlpatterns = [
