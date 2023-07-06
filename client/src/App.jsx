@@ -41,8 +41,9 @@ import Geography from "./dashboard/scenes/geography/index";
 import "../src/dashboard/indexDash.css";
 import NewScenes from "./dashboard/scenes/newScenes";
 import Error404 from "./views/Error/Error404";
-// import QueryString from "query-string";
-// import { pay } from "./components/Redux/Actions/User/actionUser";
+import QueryString from "query-string";
+import { pay } from "./components/Redux/Actions/User/actionUser";
+import { getAllLanguages } from "./components/Redux/Actions/Community/ActionCommunity";
 
 axios.defaults.baseURL = API_URL;
 axios.defaults.withCredentials = true;
@@ -60,6 +61,7 @@ const App = () => {
     dispatch(checkAuth());
     dispatch(getUser());
     dispatch(getUserExtras());
+    dispatch(getAllLanguages())
     dispatch(isAdmin());
 
   }, [dispatch, id]);
@@ -113,6 +115,7 @@ const App = () => {
             <Route path="/communities/:id" element={<DetailCommunity />} />
             <Route path="/groups/:name" element={<DetailCommunity />} />
             <Route path="/education" element={<Books />} />
+
             <Route path="/communities" element={<CommunityForm />} />
             <Route path="/Q&A" element={<Openai />} />
             <Route path="/profile" element={<Profile />} />
