@@ -6,8 +6,8 @@ import styles from "./Instructor.module.css";
 import { Link } from 'react-router-dom';
 import ModalRange from './ModalRange'
 
-
 const Instructor = () => {
+  const [selectedUser, setSelectedUser] = useState(null);
   const users = useSelector(state => state.home.users);
   const user = useSelector(state => state.userdb.user);
   const userExtras = useSelector(state => state.home.userExtra);
@@ -15,19 +15,15 @@ const Instructor = () => {
   const getreview_user = useSelector(state => state.home.review_user);
   const languages = useSelector(state => state.community.languages.data);
   const dispatch = useDispatch();
-  const [myid, setMyID] = useState({ id: 0 });
-  console.log(user);
+
   useEffect(() => {
     dispatch(getUsers());
     dispatch(getUserExtras());
     dispatch(getAllLanguages());
     dispatch(getReviews_user());
     dispatch(getReviews())
-    setMyID((myid) => ({
-      id: user?.id,
-    }));
   }, [dispatch]);
-console.log(myid , "myid")
+
   const [recipient, setRecipient] = useState('');
   const [message, setMessage] = useState('El instructor se estará contactando con usted');
 
@@ -65,15 +61,19 @@ console.log(myid , "myid")
   };
   return (
     <div className={styles.container}>
-      <h1>Instructor Profiles</h1>
+      <h1>Instructors</h1>
       <div className={styles.cardContainer}>
-        {users.map((user) => {
+        {users?.map((user) => {
           const extraUser = userExtras?.find((item) => item.id === user.id);
           const userReviews = getreview.filter((review) => review.id === user.id);
           const userReviewIDs = userReviews.map((review) => review.id);
           const userComments = getreview_user.filter((review) => userReviewIDs.includes(review.reviews_id));
 
           if (extraUser && extraUser?.premium && extraUser.postulation) {
+            const languageNames = extraUser?.language.map(languageId => {
+              const language = languages?.find(lang => lang.id === languageId);
+              return language ? language.name : '';
+            });
             return (
               <div className={styles.card}>
                 <div className={styles.card_img}>
@@ -96,16 +96,24 @@ console.log(myid , "myid")
         <div className={styles.card_title}>
         {user.first_name} {user.last_name}
       </div>
+      <div className={styles.card_subtitle}>
+                  <h2 className={`${styles.info} info`}>
+                    Lenguages:
+                  </h2>
+                  {languageNames.map((languageName, index) => (
+                    <h2 key={index} className={`${styles.info} info`}>{languageName}</h2>
+                  ))}
+                </div>
       {userReviews.length > 0 && (
   <div className={styles.card_reviews}>
-    <h2>Revisiones:</h2>
+    <h2>Reviews:</h2>
     {userReviews.map((review, index) => {
       const userComments = getreview.filter((comment) => userReviewIDs.includes(comment.id));
 
       return (
         <div key={index}>
           <p>Rating: {renderStars([review])}</p>
-          <p>Comentarios:</p>
+          <p>Comments:</p>
           {userComments.map((comment, commentIndex) => (
             <p key={commentIndex}>{comment.comment}</p>
           ))}
@@ -114,8 +122,6 @@ console.log(myid , "myid")
     })}
   </div>
 )}
-
-
                 <div className={styles.card__wrapper}>
                   <button
                     onClick={() => handleButton(user.email)}
@@ -123,9 +129,9 @@ console.log(myid , "myid")
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal"
                   >
-                    <span>Puedes contactar a este instructor</span>
+                    <span>You can contact this instructor</span>
                   </button>
-                  <ModalRange myid={myid} />
+                  <ModalRange user={user.id} />
                 </div>
               </div>
             );

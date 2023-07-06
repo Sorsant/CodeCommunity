@@ -42,7 +42,8 @@ const CloudinaryUploadWidget = ({ onImageUrl }) => {
       }
     );
 
-    const handleClick = () => {
+    const handleClick = (event  ) => {
+      event.preventDefault();
       myWidget.open();
     };
 
