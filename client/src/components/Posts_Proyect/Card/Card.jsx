@@ -87,6 +87,8 @@ const PostCard = ({ id }) => {
           />
         </span>
       </p>
+
+
     </div>
   );
 };
