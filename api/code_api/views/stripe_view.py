@@ -9,7 +9,7 @@ import stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 class StripeCheckoutView(APIView):
-    def get(self, request):
+    def post(self, request):
         try:
             checkout_session = stripe.checkout.Session.create(
                 line_items=[
