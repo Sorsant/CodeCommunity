@@ -54,7 +54,7 @@
 .back {
   position: absolute;
   top: calc(15% - 57px);
-  left: calc(33% - 57px);
+  left: 1180px
 }
 
 .edit {

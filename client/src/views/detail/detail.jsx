@@ -35,7 +35,7 @@ const PostDetail = () => {
   }, [dispatch, post]);
 
   const handleGoBack = () => {
-    navigate(-2);
+    navigate("/home");
   };
 
   const isCurrentUserCreator = post?.user === userId;

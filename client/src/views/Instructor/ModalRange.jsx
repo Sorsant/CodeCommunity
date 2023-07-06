@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import style from './modalstyle.module.css'
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { reviewPost } from '../../components/Redux/Actions/User/actionUser'
 const BootstrapModal = (userid) => {
     const uid = userid.user

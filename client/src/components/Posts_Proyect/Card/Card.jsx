@@ -64,12 +64,12 @@ const PostCard = ({ id }) => {
     <div className={styles.card}>
       <Link to={`/detail/${id}`} className={styles.linkDetail}>
         <div className={styles.card_image}>
-          <img src={post.image} alt={post.title} />
+          <img src={post.image} alt={post?.title} />
         </div>
-        <h2 className={styles.title}>{post.title}</h2>
+        <h2 className={styles.title}>{post?.title}</h2>
       </Link>
-      <p className={styles.card_body}>{post.description}</p>
-      <p className={styles.likes}>💡: {post.likes.length}</p>
+      <p className={styles.card_body}>{post?.description}</p>
+      <p className={styles.likes}>💡: {post?.likes.length}</p>
 
       <button className={styles.boton} onClick={handleLike}>
         {likedByCurrentUser ? <div className={styles.imgpositive}><img src="https://cdn.discordapp.com/attachments/881403103054811170/1126347450739867658/foco-removebg-preview.png" alt={post.title} />
