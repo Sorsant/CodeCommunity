@@ -1,8 +1,24 @@
+.container {
+  background-color: #1A1A1B;
+  height: 70.8vh;
+
+}
+
+.containerPremio {
+  position: absolute;
+  top: calc(24% - 57px);
+  left: calc(14% - 62px);
+}
+
+.premio {
+  width: 20px;
+  margin-left: 10px;
+}
+
 .header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 20px;
+  padding: 10px;
 }
 
 .containerTitle {
@@ -13,12 +29,13 @@
   padding: 14px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  background-color: rgb(76, 88, 76);
 }
 
 .title {
-  width: 90%;
-  justify-content: space-around;
-  font-size: 3em;
+  margin: 0 auto;
+  font-size: 2.5em;
+  color: white;
 }
 
 .edit {
@@ -27,14 +44,21 @@
   margin: 0 10px;
 }
 
+.premium {
+  color: yellow;
+}
+
 .profile {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  margin: 20px 45px;
+  margin: 20px 25px;
+  width: 55%;
+  height: 220px;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  background-color: rgb(76, 88, 76);
 }
 
 .profile-info {
@@ -42,20 +66,25 @@
   flex: 1 1 300px;
 }
 
-.profile-name {
+.profile_name {
+  color: white;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
+  margin-top: -40px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
 }
 
-.profile-description {
+.profile_description {
   font-size: 16px;
   color: #555;
   margin-bottom: 10px;
 }
 
 .profile_picture {
-  flex: 1 1 200px;
+  flex: 1 1 400px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,12 +92,32 @@
 }
 
 .profile_picture img {
+  position: absolute;
+  top: calc(25% - 57px);
+  left: calc(50% - 62px);
   width: 150px;
   height: 150px;
   border-radius: 50%;
+  border: 2px solid white;
 }
 
-@media (max-width: 1024px) {
+.language {
+  color: white;
+  font-size: 15px;
+}
+
+.cloudinary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: calc(33% - 57px);
+  left: calc(0% - 57px);
+  width: 100%;
+
+}
+
+/* @media (max-width: 1024px) {
   .containerTitle {
     padding: 5px 20px;
   }
@@ -138,4 +187,4 @@
     width: 100px;
     height: 100px;
   }
-}
+} */

@@ -11,7 +11,7 @@ const EditPost = ({ postId }) => {
   const login = useSelector((state) => state.home.login);
   const userExtra = useSelector((state) => state.home.userExtra);
   const extra = userExtra.find((users) => users.id === (user && user.id));
-  
+
   const dispatch = useDispatch();
   const navigate = useNavigate()
   const [post, setPost] = useState({
@@ -99,11 +99,11 @@ const EditPost = ({ postId }) => {
     dispatch(uploadPost(post, postId.id));
     alert("Post created");
     navigate(`/post/${postId.id}`)
-    
+
   };
 
   return (
-    <div>
+    <div className={styles.containerForm}>
       {console.log(post)}
       <form className="edit-post-form" onSubmit={handleOnSubmit}>
         <label>Title</label>
@@ -124,22 +124,25 @@ const EditPost = ({ postId }) => {
           value={post.description}
           name="description"
           placeholder="Your description"
+          className={styles.inputDescription}
         ></textarea>
         {errors.description && <span>{errors.description}</span>}
         <br />
         <div className={styles.uploadWidgetContainer}>
           <label>Image</label>
           <br />
-          <br/>
+          <br />
           {post.image && <img src={post.image} alt="Post" />}
-          <br/>
-          <CloudinaryUploadWidget onImageUrl={handleImageUrl} />
+          <br />
+          <div className={styles.cloudinary}>
+            <CloudinaryUploadWidget onImageUrl={handleImageUrl} />
+          </div>
         </div>
         <br />
-        <button className={styles.submitButton} type="submit">
+        <button className={` btn btn-success fs-4 ${styles["submitButton"]}`} type="submit">
           Edit Post
         </button>
-     
+
       </form>
     </div>
   );

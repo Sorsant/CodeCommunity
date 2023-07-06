@@ -3,17 +3,16 @@ import { Button, Modal } from 'react-bootstrap';
 import style from './modalstyle.module.css'
 import { useDispatch, useSelector } from "react-redux"
 import { reviewPost } from '../../components/Redux/Actions/User/actionUser'
-const BootstrapModal = () => {
-    const users = useSelector(state => state.home.users);
-    const [modalOpen, setModalOpen] = useState(false);
+const BootstrapModal = (userid) => {
+    const uid = userid
     const dispatch = useDispatch()
+    const [modalOpen, setModalOpen] = useState(false);
     const [post, setPost] = useState({
-        id: "",
+        id: uid,
         review: "",
         comments: "",
         is_delete: false
     })
-
     const handleModalOpen = () => {
         setModalOpen(true);
     };
@@ -43,7 +42,7 @@ const BootstrapModal = () => {
     };
     const handleOnSubmit = (event) => {
 
-        dispatch(reviewPost(users.id, post))
+        dispatch(reviewPost(userid, post))
         handleModalClose(); // Cerrar el modal después de guardar
         window.location.reload();
 

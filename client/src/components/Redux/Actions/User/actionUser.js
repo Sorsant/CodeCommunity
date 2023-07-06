@@ -83,15 +83,14 @@ export const pay = (id) => async (dispatch) => {
 
 export const reviewPost = (id,post) => async () => {
 
-  const endpoint = `${API_URL}/codec/api/reviews/${id}`;
-  const data = axios.post(endpoint);
+  const endpoint =  `${API_URL}/codec/api/reviews/${id}`;
+  const data = await axios.post(endpoint,post);
 
 };
 
-export const getReviews = (id) => async (dispatch) => {
+export const getReviews = () => async (dispatch) => {
 
-  const endpoint = `${API_URL}/codec/api/reviews/${id}`;
-  const {data }= axios.post(endpoint);
-  console.log(data);
+  const endpoint = `${API_URL}/codec/api/reviews`;
+  const {data }= await axios.get(endpoint);
   dispatch(getReview(data));
 };

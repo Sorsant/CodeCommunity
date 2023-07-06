@@ -69,15 +69,17 @@ const PostCard = ({ id }) => {
         <h2 className={styles.title}>{post.title}</h2>
       </Link>
       <p className={styles.card_body}>{post.description}</p>
-      <p className={styles.likes}>Likes: {post.likes.length}</p>
+      <p className={styles.likes}>💡: {post.likes.length}</p>
 
       <button className={styles.boton} onClick={handleLike}>
-        {likedByCurrentUser ? "Unlike" : "Like"}
+        {likedByCurrentUser ? <div className={styles.imgpositive}><img src="https://cdn.discordapp.com/attachments/881403103054811170/1126347450739867658/foco-removebg-preview.png" alt={post.title} />
+        </div> : <div className={styles.imgNeg}><img src="https://cdn.discordapp.com/attachments/881403103054811170/1126347450739867658/foco-removebg-preview.png" alt={post.title} /></div>}
       </button>
 
       <p className={styles.footer}>
         Created by
         <span className={styles.by_name}>
+          <p> {user.first_name} {user.last_name} </p>
           <img
             src={userE?.user_image}
             alt={userE?.name}

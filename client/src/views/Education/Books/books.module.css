@@ -1,30 +1,73 @@
 .container {
-    border: 3px solid #000;
-    background-color: rgb(190, 185, 176);
+    height: 150vh;
+    background-color: #1A1A1B;
     display: flex;
     flex-wrap: wrap;
-    width: 710px;
-    height: 350px;
-    margin: auto;
-    margin-top: 15%;
-}
-
-.book {
-    background-color: white;
-    border: 2px solid #000;
-    border-radius: 1%;
-    display: table;
-    width: 151px;
-    height: 260px;
-    margin: auto;
-}
-
-.image {
-    width: 150px;
-    height: 200px;
+    justify-content: center;
 }
 
 .text {
-    font-size: medium;
-    text-align: center;
+    color: white;
+}
+
+.book {
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+    background-color: rgb(76, 88, 76);
+    border-radius: 10px;
+    width: 50%;
+    transition: 0.4s;
+}
+
+.book:hover {
+    /* translate: 0 -5px; */
+    filter: drop-shadow(-3px 12px 20px #635e53);
+    /* border: 1px solid #c6ac8f; */
+}
+
+.book a:hover {
+    position: absolute;
+    left: calc(70% - 70px);
+    margin-top: 5px;
+}
+
+.paragraph {
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.titleStudent {
+    position: absolute;
+    font-size: 20px;
+    margin-top: 10px;
+    left: calc(50% - 70px);
+    color: aliceblue;
+}
+
+.titleContainer img {
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    margin: 30px;
+}
+
+/* titleContainer a {
+
+} */
+
+.book a {
+    position: absolute;
+    left: calc(70% - 70px);
+    margin-top: 5px;
+    /* top: calc(10% - 70px); */
+    text-decoration: none;
+    font-size: 13px;
+    background-color: #1A1A1B;
+    border-radius: 10px;
+    color: white;
+    padding: 5px;
 }

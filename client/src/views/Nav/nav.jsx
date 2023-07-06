@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../../components/SearchBar/searchBar";
 import styles from "./nav.module.css";
@@ -13,6 +13,14 @@ const Nav = () => {
   const extra = extras.find((users) => users.id === (user && user.id));
   const isAuthenticated = useSelector((state) => state.userdb.isAuthenticated);
   const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   const checkAdmin = isAdmin(); // Llama a la función isAdmin()
+  //   dispatch(checkAdmin); // Actualiza el estado con el resultado de isAdmin()
+  // }, []);
+
+  // const admin = useSelector((state) => state.userdb.isAdmin);
+
 
   return (
     <div className={styles.containerNav}>
@@ -140,28 +148,24 @@ const Nav = () => {
                       </Link>
                     </li>
 
-                    <li className="nav-item">
-                      <Link to="/news" className={styles.sectionLink}>
-                        <lord-icon
-                          src="https://cdn.lordicon.com/isugonwi.json"
-                          trigger="hover"
-                          colors="primary:#FFFFFF"
-                          style={{ width: "35px", height: "35px" }}
-                        ></lord-icon>
-                        <span className={styles.button_text}>Notices</span>
-                      </Link>
-                    </li>
 
                     <li className="nav-item">
-                      <Link to="/communities" className={styles.sectionLink}>
-                        <lord-icon
-                          src="https://cdn.lordicon.com/bhfjfgqz.json"
-                          trigger="hover"
-                          colors="primary:#FFFFFF"
-                          style={{ width: "35px", height: "35px" }}
-                        ></lord-icon>
-                        <span className={styles.button_text}>Communities</span>
-                      </Link>
+                      {extra && extra.premium !== false ? (
+                        <Link
+                          to="/communities"
+                          className={styles.sectionLink}
+                        >
+
+                          <lord-icon
+                            src="https://cdn.lordicon.com/bhfjfgqz.json"
+                            trigger="hover"
+                            colors="primary:#FFFFFF"
+                            style={{ width: "35px", height: "35px" }}>
+                          </lord-icon>
+                          <span className={styles.button_text}>Communities</span>
+
+                        </Link>
+                      ) : null}
                     </li>
 
                     <li className="nav-item">
@@ -189,8 +193,9 @@ const Nav = () => {
                         <span className={styles.button_text}>Instructor</span>
                       </Link>
 
-                      <li className="nav-item">
-                        {localStorage.getItem("admin") !== undefined ? (
+                      {/* <li className="nav-item">
+                        {console.log("admin:", admin)}
+                        {admin ? (
                           <Link to="/admin" className={styles.sectionLink}>
                             <lord-icon
                               src="https://cdn.lordicon.com/icxqolmx.json"
@@ -201,10 +206,15 @@ const Nav = () => {
                             <span className={styles.button_text}>Admin</span>
                           </Link>
                         ) : null}
-                      </li>
+                      </li> */}
+
                       <li>
-                        {extra && extra.premium !== undefined ? (
-                          <Link to="/education" className={styles.sectionLink}>
+                        {extra && extra.premium !== false ? (
+                          <Link
+                            to="/education"
+                            className={styles.sectionLink}
+                          >
+
                             <lord-icon
                               src="https://cdn.lordicon.com/kipaqhoz.json"
                               trigger="hover"

@@ -8,22 +8,20 @@ import ModalRange from './ModalRange'
 
 
 const Instructor = () => {
+  const [selectedUser, setSelectedUser] = useState(null);
   const users = useSelector(state => state.home.users);
   const user = useSelector(state => state.userdb.user);
   const userExtras = useSelector(state => state.home.userExtra);
   const getreview = useSelector(state => state.home.review);
   const languages = useSelector(state => state.community.languages.data);
   const dispatch = useDispatch();
-  const [myid, setMyID] = useState({ id: 0 });
-  console.log(user);
+
   useEffect(() => {
     dispatch(getUsers());
     dispatch(getUserExtras());
     dispatch(getAllLanguages());
-    // dispatch(getReviews())
-    setMyID((myid) => ({
-      id: user?.id,
-    }));
+    dispatch(getReviews())
+
   }, [dispatch]);
 
   const [recipient, setRecipient] = useState('');
@@ -45,13 +43,14 @@ const Instructor = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Instructor Profiles</h1>
+      <h1>Instructors</h1>
       <div className={styles.cardContainer}>
-        {users.map((user) => {
+        {users?.map((user) => {
           const extraUser = userExtras?.find((item) => item.id === user.id);
           if (extraUser && extraUser?.premium && extraUser.postulation) {
-            const languageNames = extraUser.language.map(languageId => {
-              const language = languages.find(lang => lang.id === languageId);
+
+            const languageNames = extraUser?.language.map(languageId => {
+              const language = languages?.find(lang => lang.id === languageId);
               return language ? language.name : '';
             });
 
@@ -93,7 +92,7 @@ const Instructor = () => {
 
                     <span >You can contact this instructor</span>
                   </button>
-                  <ModalRange myid={myid} />
+                  <ModalRange user={user.id} />
                 </div>
               </div>
             );
