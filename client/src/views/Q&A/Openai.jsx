@@ -1,8 +1,8 @@
 import { useState } from 'react';
+import { API_URL } from '../../config/index'
 
 const OpenAIChat = () => {
 
-    const { REACT_APP_API_URL } = process.env;
     const [inputText, setInputText] = useState('');
     const [outputText, setOutputText] = useState('');
 
@@ -14,7 +14,7 @@ const OpenAIChat = () => {
         event.preventDefault();
 
         try {
-            const response = await fetch(`${REACT_APP_API_URL}/openai_chat`, {
+            const response = await fetch(`${API_URL}/openai_chat`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
