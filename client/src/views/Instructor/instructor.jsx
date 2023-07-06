@@ -89,8 +89,10 @@ const Instructor = () => {
               return language ? language.name : '';
             });
 
-            const userReviewsFiltered = userReviews.filter(review => review.id === user.id);
-            
+          
+            const userReviewsFiltered = getreview_user.map(review => review.id);
+const reviewComments = getreview.filter(comment => userReviewsFiltered.includes(comment.reviews_id));
+
             return (
               <div className={styles.card}>
                 <div className={styles.card_img}>
@@ -120,24 +122,20 @@ const Instructor = () => {
                     <h2 key={index} className={`${styles.info} info`}>{languageName}</h2>
                   ))}
                 </div>
-                {userReviewsFiltered.length > 0 && (
-  <div className={styles.card_reviews}>
-    <h2>Reviews:</h2>
-    {userReviewsFiltered.map((review, index) => {
-      const comments = getreview.filter((comment) => comment.reviews_id === review.id);
+                {getreview_user.map((review, index) => {
+  const comments = reviewComments.filter((comment) => comment.reviews_id === review.id);
 
-      return (
-        <div key={index}>
-          <p>Rating: {renderStars([review])}</p>
-          <p>Comments:</p>
-          {comments.map((comment, commentIndex) => (
-            <p key={commentIndex}>{comment.comment}</p>
-          ))}
-        </div>
-      );
-    })}
-  </div>
-)}
+  return (
+    <div key={index}>
+      <p>Rating: {renderStars([review])}</p>
+      <p>Comments:</p>
+      {comments.map((comment, commentIndex) => (
+        <p key={commentIndex}>{comment.comment}</p>
+      ))}
+    </div>
+  );
+})}
+
                 <div className={styles.card__wrapper}>
                   <button
                     onClick={() => handleButton(user.email)}
