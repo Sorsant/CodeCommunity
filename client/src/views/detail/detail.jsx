@@ -38,7 +38,7 @@ const PostDetail = () => {
     navigate(-2);
   };
 
-  const isCurrentUserCreator = post.user === userId;
+  const isCurrentUserCreator = post?.user === userId;
 
   const handleEditClick = () => {
     setShowEditForm(true);
@@ -51,7 +51,6 @@ const PostDetail = () => {
     dispatch(deletPostid(id));
     navigate("/home");
   };
-
   useEffect(() => {
     const loadDisqusScript = () => {
       var d = document, s = d.createElement('script');
@@ -76,27 +75,22 @@ const PostDetail = () => {
         </button>
       )}
 
-      <h1>
-        User: {user && user.first_name} {user && user.last_name}
-      </h1>
-      <h1>Email: {user && user.email}</h1>
-
       <div className={style.post_card}>
         <div className={style.avatar}></div>
         <div className={style.info}>
           {" "}
           <h1>
-            {user && user.first_name} {user && user.last_name}
+            {user && user?.first_name} {user && user?.last_name}
           </h1>
-          <h1>{user && user.email}</h1>
+          <h1>{user && user?.email}</h1>
         </div>
         <hr />
         <h1 className={style.title}>{post && post.title}</h1>
         <hr />
         <div className={style.image_preview}>
           <img
-            src={post && post.image}
-            alt={post && post.image}
+            src={post && post?.image}
+            alt={post && post?.image}
             className={style.image}
           />
         </div>
