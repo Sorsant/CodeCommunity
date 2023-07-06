@@ -10,6 +10,7 @@ export const homeSlice = createSlice({
       userExtra: [],
       menssageD: "",
       comments: [],
+      review:[]
    },
    reducers: {
       getAllPosts: (state, action) => {
@@ -76,6 +77,10 @@ export const homeSlice = createSlice({
       filterlikes: (state, action) => {
          state.posts = action.payload.data;
       },
+      getReview:(state, action) => {
+         state.review=action.payload
+      }
+
    },
 });
 
@@ -95,6 +100,7 @@ export const {
    resetUserExtra,
    resetUser,
    filterlikes,
+   getReview
 } = homeSlice.actions;
 
 export default homeSlice.reducer;
