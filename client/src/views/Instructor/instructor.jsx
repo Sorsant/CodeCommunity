@@ -1,20 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getUsers, getUserExtras } from "../../components/Redux/Actions/User/actionUser";
+import { getUsers, getUserExtras, getReviews } from "../../components/Redux/Actions/User/actionUser";
 import { getAllLanguages } from '../../components/Redux/Actions/Community/ActionCommunity';
 import styles from "./Instructor.module.css";
 import { Link } from 'react-router-dom';
 import ModalRange from './ModalRange'
+
+
 const Instructor = () => {
   const users = useSelector(state => state.home.users);
+  const user = useSelector(state => state.userdb.user);
   const userExtras = useSelector(state => state.home.userExtra);
+  const getreview = useSelector(state => state.home.review);
   const languages = useSelector(state => state.community.languages.data);
   const dispatch = useDispatch();
-
+  const [myid, setMyID] = useState({ id: 0 });
+  console.log(user);
   useEffect(() => {
     dispatch(getUsers());
     dispatch(getUserExtras());
     dispatch(getAllLanguages());
+    // dispatch(getReviews())
+    setMyID((myid) => ({
+      id: user?.id,
+    }));
   }, [dispatch]);
 
   const [recipient, setRecipient] = useState('');
@@ -36,12 +45,11 @@ const Instructor = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Perfiles de Instructores</h1>
+      <h1>Instructor Profiles</h1>
       <div className={styles.cardContainer}>
         {users.map((user) => {
-          const extraUser = userExtras.find((item) => item.id === user.id);
-
-          if (extraUser && extraUser.premium && extraUser.postulation) {
+          const extraUser = userExtras?.find((item) => item.id === user.id);
+          if (extraUser && extraUser?.premium && extraUser.postulation) {
             const languageNames = extraUser.language.map(languageId => {
               const language = languages.find(lang => lang.id === languageId);
               return language ? language.name : '';
@@ -69,7 +77,7 @@ const Instructor = () => {
                 </div>
                 <div className={styles.card_subtitle}>
                   <h2 className={`${styles.info} info`}>
-                    Lenguajes:
+                    Lenguages:
                   </h2>
                   {languageNames.map((languageName, index) => (
                     <h2 key={index} className={`${styles.info} info`}>{languageName}</h2>
@@ -82,9 +90,10 @@ const Instructor = () => {
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal"
                   >
-                    <span >Puedes contactar a este instructor</span>
+
+                    <span >You can contact this instructor</span>
                   </button>
-                  <ModalRange />
+                  <ModalRange myid={myid} />
                 </div>
               </div>
             );
@@ -97,16 +106,16 @@ const Instructor = () => {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Enviar mensaje</h5>
+              <h5 className="modal-title" id="exampleModalLabel">Send Message</h5>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
               <div className="mb-3">
-                <label htmlFor="recipient" className="form-label">Destinatario:</label>
+                <label htmlFor="recipient" className="form-label">Receiver:</label>
                 <input type="text" className="form-control" id="recipient" value={recipient} readOnly />
               </div>
               <div className="mb-3">
-                <label htmlFor="message" className="form-label">Mensaje:</label>
+                <label htmlFor="message" className="form-label">Message:</label>
                 <textarea className="form-control" id="message" rows="4" value={message} onChange={handleMessageChange}></textarea>
               </div>
             </div>

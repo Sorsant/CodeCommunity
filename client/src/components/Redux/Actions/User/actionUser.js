@@ -5,6 +5,7 @@ import {
   resetUser,
   resetUserExtra,
   allLikesPost,
+  getReview
 } from "../../Reducer/HomeReducer";
 import { API_URL } from "../../../../config";
 export const getUsers = () => async (dispatch) => {
@@ -26,20 +27,19 @@ export const getUserExtras = () => async (dispatch) => {
 };
 
 export const putUserExtras = (id, InfoUserExtra) => async () => {
-  console.log(InfoUserExtra);
+
   const endpoint = `${API_URL}/codec/api/user_extras/${id}/`;
   await axios.patch(endpoint, InfoUserExtra);
 };
 
 export const editUser = (id, putUser) => async (dispatch) => {
-  console.log(putUser);
+
   const endpoint = `${API_URL}/codec/api/users/${id}/`;
   await axios.patch(endpoint, putUser);
 };
 
 export const addlikePost = (id, posts) => async (dispatch) => {
-  console.log("soy el id", id, "DEl post");
-  console.log("soy el like del posteo:", posts, "DEl post");
+ 
   try {
     const response = await axios.patch(`${API_URL}/codec/api/post/${id}/`, {
       likes: posts,
@@ -77,4 +77,21 @@ export const pay = (id) => async (dispatch) => {
   } catch (error) {
     console.error("Error al cambiar la propiedad:", error);
   }
+};
+
+
+
+export const reviewPost = (id,post) => async () => {
+
+  const endpoint = `${API_URL}/codec/api/reviews/${id}`;
+  const data = axios.post(endpoint);
+
+};
+
+export const getReviews = (id) => async (dispatch) => {
+
+  const endpoint = `${API_URL}/codec/api/reviews/${id}`;
+  const {data }= axios.post(endpoint);
+  console.log(data);
+  dispatch(getReview(data));
 };

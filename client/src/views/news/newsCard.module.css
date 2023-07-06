@@ -50,6 +50,7 @@
   text-transform: uppercase;
   cursor: pointer;
   background-color: #47bcd4;
+  text-decoration: none;
 }
 
 .card_body p {

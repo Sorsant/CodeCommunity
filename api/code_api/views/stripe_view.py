@@ -1,4 +1,3 @@
-import requests
 from django.conf import settings
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -9,7 +8,7 @@ import stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 class StripeCheckoutView(APIView):
-    def get(self, request):
+    def post(self, request):
         try:
             checkout_session = stripe.checkout.Session.create(
                 line_items=[
@@ -26,7 +25,7 @@ class StripeCheckoutView(APIView):
             )
 
             # Retorna la respuesta como JSON
-            return Response(checkout_session)
+            return redirect(checkout_session.url)
         except:
             return Response(
                 {'error': 'Something went wrong when creating stripe checkout session'},
