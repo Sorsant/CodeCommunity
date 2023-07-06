@@ -48,7 +48,7 @@ const PostCard = ({ id }) => {
     const loggedInUserId = JSON.parse(localStorage.getItem("loggedInUserId"));
     if (loggedInUserId) {
       if (likedByCurrentUser) {
-        const updatedLikes = post.likes.filter((user) => user !== loggedInUserId);
+        const updatedLikes = post?.likes.filter((user) => user !== loggedInUserId);
         await dispatch(unlikePost(id, updatedLikes));
       } else {
         const updatedLikes = [...post.likes, loggedInUserId];

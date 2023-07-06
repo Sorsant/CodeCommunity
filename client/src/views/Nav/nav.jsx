@@ -162,7 +162,7 @@ const Nav = ({ admin }) => {
                         </Link>
                       ) : null}
                     </li>
-
+                    {/* 
                     <li className="nav-item">
                       <Link to="/Q&A" className={styles.sectionLink}>
                         <lord-icon
@@ -175,7 +175,7 @@ const Nav = ({ admin }) => {
                           Question & Answer
                         </span>
                       </Link>
-                    </li>
+                    </li> */}
 
                     <li className="nav-item">
                       <Link to="/instructor" className={styles.sectionLink}>
