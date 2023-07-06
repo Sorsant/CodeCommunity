@@ -1,13 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Layout from './Layout';
 import { Navigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { register } from '../components/Redux/user';
+import { register, googleRegister } from '../components/Redux/user';
+import { clientID } from "../config";
+import { gapi } from "gapi-script";
+import GoogleLogin from "react-google-login";
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
   const { registered, loading, errors } = useSelector(state => state.userdb);
-	
+	const [auth, setAuth] = useState(false)
+	const [userGoogle, setUserGoogle] = useState({})
+
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -15,6 +20,29 @@ const RegisterPage = () => {
     password: '',
     re_password: '',
   });
+
+	const onSuccess = (response) => {
+    setUserGoogle(response.profileObj);
+    setAuth(true);
+    document.getElementsByClassName("btn").hidden = true;
+  }
+  
+  const onFailure = (response) => {
+    console.log("Something went wrong");
+  }
+  
+  if(auth === true){
+    dispatch(googleRegister({userGoogle}));
+  }
+
+	useEffect(() => {
+		function start() {
+      gapi.client.init({
+        clientId: clientID,
+      });
+    }
+    gapi.load("client:auth2", start);
+	}, [])
 
   const { first_name, last_name, email, password, re_password } = formData;
 
@@ -107,6 +135,13 @@ const RegisterPage = () => {
 							<button className="btn btn-primary mt-4 w-100 rounded-pill fw-bold fs-5" type="submit">Register</button>
 						)}
 					</form>
+					<GoogleLogin
+              clientId={clientID}
+              onSuccess={onSuccess}
+              onFailure={onFailure}
+              buttonText="Continue  with Google"
+              cookiePolicy={"single_host_origin"}
+            />
 				</div>
 			</div>
 		</Layout>

@@ -1,14 +1,10 @@
 import style from "./profile.module.css";
 import imagen from "./default.png";
-import { ProductDisplay } from "../../components/Payment/payment";
+import {ProductDisplay} from "../../components/Payment/payment";
 import { useDispatch, useSelector } from "react-redux";
 import { ImgEdit } from "../../components/Redux/Actions/ActionHome";
 import CloudinaryUploadWidget from "./CloudinaryWidget/cloudinary";
 import ModalForm from "./FromEdit/ModalEdit";
-import { useLocation } from "react-router-dom";
-import QueryString from "query-string";
-import { pay } from "../../components/Redux/Actions/User/actionUser";
-import { useEffect } from "react";
 
 const Profile = () => {
   const user = useSelector((state) => state.userdb.user);
@@ -21,48 +17,34 @@ const Profile = () => {
   const handleImageUrl = (secureUrl) => {
     dispatch(ImgEdit(id, secureUrl));
   };
-  const location = useLocation();
-
-  useEffect(() => {
-    // Check to see if this is a redirect back from Checkout
-    // const query = new URLSearchParams(window.location.search);
-    const values = QueryString.parse(location.search);
-
-    if (values.success === "true") {
-      dispatch(pay(extra?.id));
-      console.log("Order placed! You will receive an email confirmation.");
-    }
-
-    if (values.canceled) {
-      console.log(
-        "Order canceled -- continue to shop around and checkout when you're ready."
-      );
-    }
-  }, [dispatch, extra?.id, location.search]);
-  useEffect(() => {
-    localStorage.setItem("loggedInUserId", JSON.stringify(user?.id));
-  }, [user, extra]);
 
   return (
     <div>
       <header className={style.header}>
         <div className={style.containerTitle}>
           <h1 className={style.title}>Profile</h1>
+          <ModalForm />
         </div>
-        <div className={style.containerButton}></div>
-        {extra && extra.premium ? (
-          <div>
-            <h1>Premium</h1>
-          </div>
-        ) : (
-          <ProductDisplay />
-        )}
-
-        <ModalForm />
       </header>
+      <div className={style.containerButton}></div>
 
       <div className={style.profile}>
+        <div className={style.profile_picture}>
+          <CloudinaryUploadWidget onImageUrl={handleImageUrl} />
+          {extra && extra.user_image ? (
+            <img src={extra.user_image} alt="" />
+          ) : (
+            <img src={imagen} alt="" />
+          )}
+        </div>
         <div className={style.profile_info}>
+          {extra && extra.premium ? (
+            <div>
+              <h1>Premium</h1>
+            </div>
+          ) : (
+            <ProductDisplay />
+          )}
           <h2 className={style.profile_name}>
             {user && user.first_name ? user.first_name : <p>loading...</p>}{" "}
             {user && user.last_name ? user.last_name : <p>loading...</p>}
@@ -84,14 +66,6 @@ const Profile = () => {
                 </div>
               );
             })}
-        </div>
-        <div className={style.profile_picture}>
-          <CloudinaryUploadWidget onImageUrl={handleImageUrl} />
-          {extra && extra.user_image ? (
-            <img src={extra.user_image} alt="" />
-          ) : (
-            <img src={imagen} alt="" />
-          )}
         </div>
       </div>
     </div>

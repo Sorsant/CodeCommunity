@@ -1,19 +1,24 @@
 .header {
   display: flex;
   align-items: center;
-  margin: 20px 30px;
+  justify-content: center;
+  margin: 20px;
 }
 
 .containerTitle {
-  padding: 5px 490px;
-  margin: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vh;
+  padding: 14px;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
 
 .title {
-  margin: 0 auto;
-  font-size: 1.8em;
+  width: 90%;
+  justify-content: space-around;
+  font-size: 3em;
 }
 
 .edit {
