@@ -58,11 +58,6 @@ export const homeSlice = createSlice({
       getUserExtra: (state, action) => {
          state.userExtra = action.payload;
       },
-      getAllComments: (state, action) => {
-         if (Array.isArray(action.payload)) {
-            state.comments = action.payload;
-         }
-      },
       allLikesPost: (state, action) => {
          const { postId, userId } = action.payload;
          console.log(postId, "reducer");
@@ -104,7 +99,6 @@ export const {
    allLikesPost,
    resetUserExtra,
    resetUser,
-   getAllComments,
    filterlikes,
    getReview
 } = homeSlice.actions;

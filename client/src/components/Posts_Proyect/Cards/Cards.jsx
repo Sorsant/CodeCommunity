@@ -31,12 +31,7 @@ const PosteoCards = () => {
                         image={post.image}
                         created={post.created}
                     />
-                    <button
-                        className={styles.button}
-                        onClick={() => handleMoreInfo(post.id)}
-                    >
-                        <span>Comments</span>
-                    </button>
+
                 </div>
             ))}
         </div>
