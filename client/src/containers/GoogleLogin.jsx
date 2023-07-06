@@ -1,22 +1,13 @@
 import React, { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { googleAuthenticate } from "../components/Redux/user";
+import { Link } from "react-router-dom";
+
 import Layout from "./Layout";
 
 const Google = () => {
-  const dispatch = useDispatch();
-  const location = useLocation();
 
   useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const code = searchParams.get("code");
-    const state = searchParams.get("state");
-
-    if (state && code) {
-      dispatch(googleAuthenticate({ state, code }));
-    }
-  }, [location, dispatch]);
+    
+  }, []);
 
   return (
     <Layout>

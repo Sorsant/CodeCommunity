@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import querystring from "querystring";
 import Cookies from "js-cookie";
 import axios from "axios";
 
@@ -23,11 +22,9 @@ export const register = createAsyncThunk("users/register", async ({ first_name, 
       const data = response.data;
 
       if (response.status === 201) {
-         const res = await axios.post("/codec/api/user_extras/", { id: data.id });
-         console.log(res);
+         await axios.post("/codec/api/user_extras/", { id: data.id });
          return data;
       } else {
-         alert(data);
          return thunkAPI.rejectWithValue(data);
       }
    } catch (err) {
@@ -59,25 +56,55 @@ export const getUser = createAsyncThunk("users/me", async (_, thunkAPI) => {
    }
 });
 
-export const googleAuthenticate = createAsyncThunk("users/google", async ({ state, code }, thunkAPI) => {
-   try {
-      const json_obj = {
-         state: state,
-         code: code,
-      };
-      const formData = querystring.stringify(json_obj);
-      const config = {
-         headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-         },
-         withCredentials: true,
-      };
+export const googleRegister = createAsyncThunk("register/google", async ({ userGoogle }, thunkAPI) => {
 
-      const response = await axios.post(`/auth/o/google-oauth2/`, formData, config);
+   const body = JSON.stringify({
+      first_name: userGoogle.familyName,
+      last_name: userGoogle.givenName,
+      email: userGoogle.email,
+      password: `Aa${userGoogle.googleId}`,
+      re_password: `Aa${userGoogle.googleId}`,
+   });
+
+   try {
+      const response = await axios.post(`/auth/users/`, body, {
+         headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+         },
+      });
 
       const data = response.data;
 
       if (response.status === 201) {
+         await axios.post("/codec/api/user_extras/", { id: data.id });
+         return data;
+      } else {
+         return thunkAPI.rejectWithValue(data);
+      }
+   } catch (err) {
+      return thunkAPI.rejectWithValue(err.response.data);
+   }
+});
+
+export const googleAuthenticate = createAsyncThunk("login/google", async ({ userGoogle }, thunkAPI) => {
+   const body = JSON.stringify({
+      email: userGoogle.email,
+      password: `Aa${userGoogle.googleId}`,
+   });
+
+   try {
+      const response = await axios.post(`/auth/jwt/create/`, body, {
+         headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+         },
+      });
+
+      const data = response.data;
+      console.log(data);
+
+      if (response.status === 200) {
          Cookies.set("access", data.access, {
             expires: 5,
             path: "/",
@@ -106,8 +133,8 @@ export const googleAuthenticate = createAsyncThunk("users/google", async ({ stat
 
 export const login = createAsyncThunk("users/login", async ({ email, password }, thunkAPI) => {
    const body = JSON.stringify({
-      email,
-      password,
+      email: email,
+      password: password,
    });
 
    try {
@@ -206,6 +233,7 @@ export const logout = createAsyncThunk("users/logout", async (_, thunkAPI) => {
       localStorage.removeItem("refresh");
       localStorage.removeItem("loggedInUserId");
       localStorage.removeItem("admin");
+      localStorage.removeItem("id");
    } catch (err) {
       return thunkAPI.rejectWithValue(err.response.data);
    }
@@ -262,6 +290,17 @@ const userSlice = createSlice({
             state.registered = true;
          })
          .addCase(register.rejected, (state, action) => {
+            state.loading = false;
+            state.errors = action.payload;
+         })
+         .addCase(googleRegister.pending, (state) => {
+            state.loading = true;
+         })
+         .addCase(googleRegister.fulfilled, (state) => {
+            state.loading = false;
+            state.registered = true;
+         })
+         .addCase(googleRegister.rejected, (state, action) => {
             state.loading = false;
             state.errors = action.payload;
          })
