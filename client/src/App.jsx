@@ -41,8 +41,8 @@ import Geography from "./dashboard/scenes/geography/index";
 import "../src/dashboard/indexDash.css";
 import NewScenes from "./dashboard/scenes/newScenes";
 import Error404 from "./views/Error/Error404";
-import QueryString from "query-string";
-import { pay } from "./components/Redux/Actions/User/actionUser";
+// import QueryString from "query-string";
+// import { pay } from "./components/Redux/Actions/User/actionUser";
 
 axios.defaults.baseURL = API_URL;
 axios.defaults.withCredentials = true;
@@ -56,24 +56,13 @@ const App = () => {
   const admin = localStorage.getItem("admin");
   const id = localStorage.getItem("id");
 
-  const values = QueryString.parse(location.search);
   useEffect(() => {
     dispatch(checkAuth());
     dispatch(getUser());
     dispatch(getUserExtras());
     dispatch(isAdmin());
 
-    if (values.success === "true") {
-      dispatch(pay(id));
-      console.log("Order placed! You will receive an email confirmation.");
-    }
-
-    if (values.canceled) {
-      console.log(
-        "Order canceled -- continue to shop around and checkout when you're ready."
-      );
-    }
-  }, [dispatch, id, location.search, values.canceled, values.success]);
+  }, [dispatch, id]);
 
   const excludedPaths = [
     "/",
