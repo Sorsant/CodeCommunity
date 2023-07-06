@@ -5,6 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { ImgEdit } from "../../components/Redux/Actions/ActionHome";
 import CloudinaryUploadWidget from "./CloudinaryWidget/cloudinary";
 import ModalForm from "./FromEdit/ModalEdit";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { pay } from "../../components/Redux/Actions/User/actionUser";
+import QueryString from "query-string";
 
 const Profile = () => {
   const user = useSelector((state) => state.userdb.user);
@@ -13,8 +17,7 @@ const Profile = () => {
   const languages = useSelector((state) => state.community.languages.data);
   const dispatch = useDispatch();
   const id = localStorage.getItem("id");
-  console.log(languages)
-
+  console.log(languages);
 
   const handleImageUrl = (secureUrl) => {
     dispatch(ImgEdit(id, secureUrl));
@@ -22,7 +25,6 @@ const Profile = () => {
   const location = useLocation();
 
   useEffect(() => {
-
     const values = QueryString.parse(location.search);
 
     if (values.success === "true") {
@@ -46,7 +48,6 @@ const Profile = () => {
       <header className={style.header}>
         <div className={style.containerTitle}>
           <h1 className={style.title}>Profile</h1>
-          <ModalForm />
         </div>
         <div className={style.containerButton}></div>
         {extra && extra.premium ? (
@@ -62,29 +63,26 @@ const Profile = () => {
       <div className={style.containerButton}></div>
 
       <div className={style.profile}>
-        <div className={style.profile_picture}>
-          <CloudinaryUploadWidget onImageUrl={handleImageUrl} />
-          {extra && extra.user_image ? (
-            <img src={extra.user_image} alt="" />
-          ) : (
-            <img src={imagen} alt="" />
-          )}
-        </div>
         <div className={style.profile_info}>
-          {extra && extra.premium ? (
-            <div>
-              <h1>Premium</h1>
-            </div>
-          ) : (
-            <ProductDisplay />
-          )}
           <h2 className={style.profile_name}>
             {user && user.first_name ? user.first_name : <p>loading...</p>}{" "}
             {user && user.last_name ? user.last_name : <p>loading...</p>}
             <div className={style.containerPremio}>
-              <img src="https://i.ibb.co/p3Bcrwr/idea.png" className={style.premio} alt="premio por ser premium" />
-              <img src="https://i.ibb.co/DbQbB2B/viejo.png" className={style.premio} alt="premio por su primer posteo" />
-              <img src="https://i.ibb.co/S0VKwSm/grupo.png" className={style.premio} alt="premio por su primera comunidad" />
+              <img
+                src="https://i.ibb.co/p3Bcrwr/idea.png"
+                className={style.premio}
+                alt="premio por ser premium"
+              />
+              <img
+                src="https://i.ibb.co/DbQbB2B/viejo.png"
+                className={style.premio}
+                alt="premio por su primer posteo"
+              />
+              <img
+                src="https://i.ibb.co/S0VKwSm/grupo.png"
+                className={style.premio}
+                alt="premio por su primera comunidad"
+              />
             </div>
           </h2>
           {extra &&
@@ -98,7 +96,6 @@ const Profile = () => {
 
               return (
                 <div className={style.language}>
-
                   <ul>
                     <li>{languageName}</li>
                   </ul>
