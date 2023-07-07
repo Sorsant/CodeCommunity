@@ -85,7 +85,7 @@ const PostCard = ({ id }) => {
         />
 
         <span className={styles.by_name}>
-          <p> by {user.first_name} {user.last_name} </p>
+          <p> by {user.first_name}  </p>
         </span>
       </p>
 
