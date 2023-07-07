@@ -2,25 +2,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap');
 
 .card {
-  padding: 20px;
+  /* display: block; */
   width: 360px;
-  height: 535px;
+  height: 100%;
   border: 1px solid #5e503f;
-  border-radius: 20px;
-  background: #22303a;
-  /* box-shadow: 5px 5px 6px #dadada,
-    -5px -5px 6px #f6f6f6; */
+  border-radius: 54px 54px 0px 7px;
+  background: #1a1a1b;
   transition: 0.4s;
   margin-top: -50px;
   display: inline-block;
-  margin-bottom: 80px;
+  margin-bottom: 6.0rem;
   margin-right: 60px;
+  border: 6px inset #000;
+}
+
+.Container_card {
+  margin-bottom: 30px;
 }
 
 .boton img {
   width: 30px;
   height: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 2.0rem;
+  margin-left: 1.5rem;
 }
 
 .imgNeg img {
@@ -44,9 +48,10 @@
   font-size: 20px;
   font-weight: 600;
   color: #FFFFFF;
-  margin: 15px 0 0 5px;
+  /* margin: 15px 0 0 5px; */
   font-family: 'Play', sans-serif;
   transition: 0.5s;
+  padding: 10px;
 }
 
 .linkDetail {
@@ -59,13 +64,18 @@
 }
 
 .likes {
+  position: relative;
   color: white;
   font-size: 15px;
+  left: 6.0rem;
+  font-weight: 700;
 }
 
 .boton {
-  width: 20px;
-  height: 20px;
+  position: relative;
+  top: -4.0rem;
+  width: 3.0rem;
+  height: 3.0rem;
   background-color: #ffffff00;
   border: none;
   outline: none;
@@ -76,16 +86,18 @@
 }
 
 .card_image {
-  background-color: #c9c9c9;
-  border-radius: 15px;
-  box-shadow: inset 8px 8px 10px #c3c3c3,
-    inset -8px -8px 10px #cfcfcf;
+  /* background-color: #c9c9c9; */
+  border-radius: 54px 54px 0px 7px;
+  /* box-shadow: inset 8px 8px 10px #c3c3c3,
+    inset -8px -8px 10px #cfcfcf; */
 }
 
 .card_image img {
-  width: 320px;
+  width: 100%;
   height: 240px;
-  border-radius: 15px;
+  /* border-radius: 15px; */
+  border-radius: 54px 54px 0px 7px;
+
 }
 
 .card_body {
@@ -100,21 +112,27 @@
 }
 
 .footer {
-  position: absolute;
-  margin-left: 5px;
-  margin-top: 5px;
+
+  position: relative;
+  margin-left: 20.0rem;
+  margin-top: -8.0rem;
   font-size: 13px;
   color: rgb(228, 220, 220);
 
 }
 
 .by_name {
+  position: relative;
   font-weight: 700;
   margin-left: 5px;
+  left: 2.5rem;
+  top: -2.5rem;
   color: rgb(155, 146, 146);
 }
 
 .imgUser {
+  position: relative;
+  right: 2.5rem;
   width: 35px;
   border-radius: 10px;
   margin-left: 5px;

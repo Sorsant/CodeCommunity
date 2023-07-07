@@ -60,7 +60,8 @@ const PostCard = ({ id }) => {
   };
 
 
-  return (
+  return (<div className={styles.Container_card}>
+
     <div className={styles.card}>
       <Link to={`/detail/${id}`} className={styles.linkDetail}>
         <div className={styles.card_image}>
@@ -68,7 +69,7 @@ const PostCard = ({ id }) => {
         </div>
         <h2 className={styles.title}>{post?.title}</h2>
       </Link>
-      <p className={styles.card_body}>{post?.description}</p>
+      {/* <p className={styles.card_body}>{post?.description}</p> */}
       <p className={styles.likes}>💡: {post?.likes.length}</p>
 
       <button className={styles.boton} onClick={handleLike}>
@@ -77,19 +78,21 @@ const PostCard = ({ id }) => {
       </button>
 
       <p className={styles.footer}>
-        Created by
+        <img
+          src={userE?.user_image}
+          alt={userE?.name}
+          className={styles.imgUser}
+        />
+
         <span className={styles.by_name}>
-          <p> {user.first_name} {user.last_name} </p>
-          <img
-            src={userE?.user_image}
-            alt={userE?.name}
-            className={styles.imgUser}
-          />
+          <p> by {user.first_name} {user.last_name} </p>
         </span>
       </p>
 
 
     </div>
+  </div>
+
   );
 };
 
