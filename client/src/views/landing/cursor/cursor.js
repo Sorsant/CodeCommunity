@@ -33,10 +33,10 @@ const Cursor = ({ scaling }) => {
         animate={{
           x: largecircle.x,
           y: largecircle.y,
-          transition: { type: "tween", duration: 0.3 },
+          transition: { type: "tween"},
         }}
         className="large_circle"
-        style={{ scale: scaling ? 0.5 : 1 }}></motion.div>
+        style={{ scale: scaling ? 0.2 : 1 }}></motion.div>
     </div>
   );
 };
