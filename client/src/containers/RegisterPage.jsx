@@ -62,9 +62,9 @@ const RegisterPage = () => {
 		<Layout title='Auth Site | Register' content='Register page'>
 			<div className='container d-flex justify-content-center align-items-center'>
 				<div className='card bg-dark text-light rounded-lg p-5'>
-					<h1 className='text-center p-3'>Register for an Account</h1>
+					<h1 className='text-center p-1 px-3'>Register for an Account</h1>
 					<form onSubmit={onSubmit} className='needs-validation' noValidate>
-						<div className='form-group mb-3'>
+						<div className='form-group mb-2'>
 							<label htmlFor='first_name'>First Name</label>
 							<input
 								className='form-control form-control-lg'
@@ -76,7 +76,7 @@ const RegisterPage = () => {
 							/>
 							{ errors.first_name && ( <p className="mb-0 text-danger">{errors.first_name}</p> )}
 						</div>
-						<div className='form-group mb-3'>
+						<div className='form-group mb-2'>
 							<label htmlFor='last_name'>Last Name</label>
 							<input
 								className='form-control form-control-lg'
@@ -88,7 +88,7 @@ const RegisterPage = () => {
 							/>
 							{ errors.last_name && ( <p className="mb-0 text-danger">{errors.last_name}</p> )}
 						</div>
-						<div className='form-group mb-3'>
+						<div className='form-group mb-2'>
 							<label htmlFor='email'>Email</label>
 							<input
 								className='form-control form-control-lg'
@@ -100,7 +100,7 @@ const RegisterPage = () => {
 							/>
 							{ errors.email && ( <p className="mb-0 text-danger">{errors.email}</p> )}
 						</div>
-						<div className='form-group mb-3'>
+						<div className='form-group mb-2'>
 							<label htmlFor='password'>Password</label>
 							<input
 								className='form-control form-control-lg'
@@ -112,7 +112,7 @@ const RegisterPage = () => {
 							/>
 							{ errors.password && ( <p className="mb-0 text-danger">{errors.password}</p> )}
 						</div>
-						<div className='form-group mb-3'>
+						<div className='form-group mb-2'>
 							<label htmlFor='re_password'>Confirm Password</label>
 							<input
 								className='form-control form-control-lg'
@@ -136,6 +136,7 @@ const RegisterPage = () => {
 						)}
 					</form>
 					<GoogleLogin
+							className="mt-4 fw-bold fs-5"
               clientId={clientID}
               onSuccess={onSuccess}
               onFailure={onFailure}
