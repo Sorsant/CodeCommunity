@@ -15,7 +15,7 @@ const About = () => {
       if (currentIndex === textToType.length) {
         clearInterval(intervalId);
       }
-    }, 50);
+    }, 30);
 
     return () => {
       clearInterval(intervalId);
