@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../../components/SearchBar/searchBar";
 import styles from "./nav.module.css";
@@ -14,25 +14,15 @@ const Nav = ({ admin }) => {
   const isAuthenticated = useSelector((state) => state.userdb.isAuthenticated);
   const dispatch = useDispatch();
 
-
-
-
   return (
     <div className={styles.containerNav}>
       <nav className={`navbar ${styles.navbar}`}>
         <SearchBar />
         <div className={styles.title}>
-          {loggin ? (
-            <Link to="/home" className={styles.titleNav}>
-              <h1>Code</h1>
-              <h1>Community</h1>
-            </Link>
-          ) : (
-            <Link to="/home" className={styles.titleNav}>
-              <h1>Code</h1>
-              <h1>Community</h1>
-            </Link>
-          )}
+          <Link to="/home" className={styles.titleNav}>
+            <h1>Code</h1>
+            <h1>Community</h1>
+          </Link>
         </div>
         <div className="container-fluid">
           <button
@@ -143,25 +133,22 @@ const Nav = ({ admin }) => {
                       </Link>
                     </li>
 
-
                     <li className="nav-item">
                       {extra && extra.premium !== false ? (
-                        <Link
-                          to="/communities"
-                          className={styles.sectionLink}
-                        >
-
+                        <Link to="/communities" className={styles.sectionLink}>
                           <lord-icon
                             src="https://cdn.lordicon.com/bhfjfgqz.json"
                             trigger="hover"
                             colors="primary:#FFFFFF"
-                            style={{ width: "35px", height: "35px" }}>
-                          </lord-icon>
-                          <span className={styles.button_text}>Communities</span>
-
+                            style={{ width: "35px", height: "35px" }}
+                          ></lord-icon>
+                          <span className={styles.button_text}>
+                            Communities
+                          </span>
                         </Link>
                       ) : null}
                     </li>
+
                     {/* 
                     <li className="nav-item">
                       <Link to="/Q&A" className={styles.sectionLink}>
@@ -204,11 +191,7 @@ const Nav = ({ admin }) => {
 
                       <li>
                         {extra && extra.premium !== false ? (
-                          <Link
-                            to="/education"
-                            className={styles.sectionLink}
-                          >
-
+                          <Link to="/education" className={styles.sectionLink}>
                             <lord-icon
                               src="https://cdn.lordicon.com/kipaqhoz.json"
                               trigger="hover"

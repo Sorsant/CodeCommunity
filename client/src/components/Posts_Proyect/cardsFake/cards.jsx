@@ -13,7 +13,11 @@ const PosteoCardsFake = () => {
 
 
     return (
-        <div className={styles.containerCards}>
+        <div>
+            <div className={styles.titlePostFake}>
+                <h1>Posts</h1>
+            </div>
+            <div className={styles.containerCards}>
             {posteos.map((post) => (
                 <div key={post.id}>
 
@@ -28,6 +32,8 @@ const PosteoCardsFake = () => {
                 </div>
             ))}
         </div>
+        </div>
+       
     );
 };
 

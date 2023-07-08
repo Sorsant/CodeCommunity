@@ -15,13 +15,14 @@ const CommunityCard = ({ id, name, description, language, image }) => {
     }
   };
   return (
-    <div className={styles.container}>
-      <h2 className={styles.titleCom}>{name}</h2>
-      <h3 className={styles.language}>Languages: <span >{language}</span></h3>
+    <div className={styles.containerComm}>
+      <h2 className={styles.titleComm}>{name}</h2>
+      <h3 className={styles.languageComm}>Languages: </h3>
+      <span>{language}</span>
       <Link to={`/communities/${id}`} onClick={handleMoreInfo}>
-        <button className={styles.buttonModal}>
-          <div className={styles.subContainer}>
-            <div className={styles.containerImg}>
+        <button className={styles.buttonModalComm}>
+          <div className={styles.subContainerComm}>
+            <div className={styles.containerImgComm}>
               <img src={image} alt={image} />
             </div>
           </div>

@@ -16,8 +16,9 @@ const CommunityCards = () => {
     dispatch(getAllCommunities());
     dispatch(getAllLanguages());
   }, [dispatch]);
+  
   return (
-    <div className={styles.cards}>
+    <div className={styles.cardsComm}>
       {communities.length > 0 ? (
         communities.map((community) => {
           const language = languages && languages.find(
