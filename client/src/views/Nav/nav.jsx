@@ -17,90 +17,177 @@ const Nav = ({ admin }) => {
   return (
     <div className={styles.containerNav}>
       <nav className={`navbar ${styles.navbar}`}>
-        <SearchBar />
-        <div className={styles.title}>
-          <Link to="/home" className={styles.titleNav}>
-            <h1>Code</h1>
-            <h1>Community</h1>
-          </Link>
+        <div className={styles.navbarPrincipal}>
+          <div className={styles.title}>
+            <Link to="/home" className={styles.titleNav}>
+              <h1>Code</h1>
+              <h1>Community</h1>
+            </Link>
+          </div>
+          <SearchBar />
+          <div className={styles.navButtonSidebar}>
+            <button
+              className={`navbar-toggler bg-light ${styles["toggle"]}`}
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasDarkNavbar"
+              aria-controls="offcanvasDarkNavbar"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+          </div>
         </div>
-        <div className="container-fluid">
-          <button
-            className={`navbar-toggler bg-light ${styles["toggle"]}`}
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasDarkNavbar"
-            aria-controls="offcanvasDarkNavbar"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div
-            className={`offcanvas offcanvas-end ${styles["menu_toggle"]}`}
-            tabIndex={-1}
-            id="offcanvasDarkNavbar"
-            aria-labelledby="offcanvasDarkNavbarLabel"
-          >
-            <div className={`offcanvas-header ${styles["header"]}`}>
-              {user ? (
-                <Link to="/profile" className={styles.profileLink}>
-                  <div className={styles.card}>
-                    <div className={styles.profileImage}>
-                      {extra && extra.user_image ? (
-                        <img src={extra.user_image} alt="" />
-                      ) : (
-                        <img src={imagen} alt="" />
-                      )}
-                      <div className={styles.textContainer}>
-                        <h2 className={styles.name}>
-                          {user && user.first_name ? (
-                            user.first_name
-                          ) : (
-                            <p>loading...</p>
-                          )}{" "}
-                          {user && user.last_name ? (
-                            user.last_name
-                          ) : (
-                            <p>loading...</p>
-                          )}
-                        </h2>
-                      </div>
-                    </div>
+
+        {/* Hasta aca la navbar */}
+        <div
+          className={`offcanvas offcanvas-end ${styles["menu_toggle"]}`}
+          tabIndex={-1}
+          id="offcanvasDarkNavbar"
+          aria-labelledby="offcanvasDarkNavbarLabel"
+        >
+          <div className={`offcanvas-header ${styles["header"]}`}>
+            {user ? (
+              <Link to="/profile" className={styles.profileLink}>
+                <div className={styles.cardSidebar}>
+                  <div className={styles.profileImageSidebar}>
+                    {extra && extra.user_image ? (
+                      <img src={extra.user_image} alt="" />
+                    ) : (
+                      <img src={imagen} alt="" />
+                    )}
                   </div>
-                </Link>
-              ) : (
-                <p>log in to see your profile!</p>
+                  <div className={styles.textContainerSidebar}>
+                    <h2 className={styles.nameSidebar}>
+                      {user && user.first_name ? (
+                        user.first_name
+                      ) : (
+                        <p>loading...</p>
+                      )}{" "}
+                      {user && user.last_name ? (
+                        user.last_name
+                      ) : (
+                        <p>loading...</p>
+                      )}
+                    </h2>
+                  </div>
+                </div>
+              </Link>
+            ) : (
+              <h3 className={styles.textLoginSidebar}>log in to see your profile!</h3>
+            )}
+          </div>
+          <div className={"offcanvas-body" + styles.buttonsSidebar}>
+            <ul className="navbar-nav">
+              {!isAuthenticated && (
+                <div className={styles.SidebarBtns}>
+                  <li className="nav-item">
+                    <Link to="/register" className={styles.linkSidebar}>
+                      <h1 className={styles.signSidebar}>Sign in</h1>
+                    </Link>
+                  </li>
+
+                  <li className="nav-item">
+                    <Link to="/login" className={styles.linkSidebar}>
+                      <h1 className={styles.loginSidebar}>Login</h1>
+                    </Link>
+                  </li>
+                </div>
               )}
-              <button
-                type="button"
-                className="btn-close btn-close-dark bg-dark mb-5"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className={"offcanvas-body" + styles.buttons}>
-              <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <div className={styles.info}>
-                  {!isAuthenticated ? (
-                    <div>
+              {loggin ? (
+                <div className={styles.SidebarBtns}>
+                  <ul className={`list-unstyled ${styles["bodySidebar"]}`}>
+                    <div className={styles.Sidebarwithlogout}>
                       <li className="nav-item">
-                        <Link to="/register" className={styles.link}>
-                          <h1 className={styles.sign}>Sign in</h1>
+                        <Link to="/home" className={styles.sectionLinkSidebar}>
+                          <lord-icon
+                            src="https://cdn.lordicon.com/osuxyevn.json"
+                            trigger="hover"
+                            colors="primary:#FFFFFF"
+                            style={{ width: "35px", height: "35px" }}
+                          ></lord-icon>
+                          <span className={styles.buttonTextSidebar}>Home</span>
                         </Link>
                       </li>
 
                       <li className="nav-item">
-                        <Link to="/login" className={styles.link}>
-                          <h1 className={styles.login}>Login</h1>
+                        {extra && extra.premium !== false ? (
+                          <Link
+                            to="/communities"
+                            className={styles.sectionLinkSidebar}
+                          >
+                            <lord-icon
+                              src="https://cdn.lordicon.com/bhfjfgqz.json"
+                              trigger="hover"
+                              colors="primary:#FFFFFF"
+                              style={{ width: "35px", height: "35px" }}
+                            ></lord-icon>
+                            <span className={styles.buttonTextSidebar}>
+                              Communities
+                            </span>
+                          </Link>
+                        ) : null}
+                      </li>
+                      <li className="nav-item">
+                        <Link
+                          to="/instructor"
+                          className={styles.sectionLinkSidebar}
+                        >
+                          <lord-icon
+                            src="https://cdn.lordicon.com/wluyqhxh.json"
+                            trigger="hover"
+                            colors="primary:#FFFFFF"
+                            style={{ width: "35px", height: "35px" }}
+                          ></lord-icon>
+                          <span className={styles.buttonTextSidebar}>
+                            Instructor
+                          </span>
                         </Link>
+
+                        <li className="nav-item">
+                          {admin ? (
+                            <Link
+                              to="/admin"
+                              className={styles.sectionLinkSidebar}
+                            >
+                              <lord-icon
+                                src="https://cdn.lordicon.com/icxqolmx.json"
+                                trigger="hover"
+                                colors="primary:#FFFFFF"
+                                style={{ width: "35px", height: "35px" }}
+                              ></lord-icon>
+                              <span className={styles.buttonTextSidebar}>
+                                Admin
+                              </span>
+                            </Link>
+                          ) : null}
+                        </li>
+
+                        <li>
+                          {extra && extra.premium !== false ? (
+                            <Link
+                              to="/education"
+                              className={styles.sectionLinkSidebar}
+                            >
+                              <lord-icon
+                                src="https://cdn.lordicon.com/kipaqhoz.json"
+                                trigger="hover"
+                                colors="primary:#FFFFFF"
+                                style={{ width: "35px", height: "35px" }}
+                              ></lord-icon>
+                              <span className={styles.buttonTextSidebar}>
+                                Students
+                              </span>
+                            </Link>
+                          ) : null}
+                        </li>
                       </li>
                     </div>
-                  ) : (
-                    <div className={styles.containerLogOut}>
+                    <div className={styles.containerLogout}>
                       <li className="nav-item">
-                        <Link to="/" className={styles.link}>
+                        <Link to="/" className={styles.linkSidebar}>
                           <h1
-                            className={styles.logOut}
+                            className={styles.logout}
                             href="#!"
                             onClick={() => dispatch(logout())}
                           >
@@ -117,98 +204,12 @@ const Nav = ({ admin }) => {
                         </Link>
                       </li>
                     </div>
-                  )}
-                </div>
-                {loggin ? (
-                  <ul className="list-unstyled mt-5">
-                    <li className="nav-item">
-                      <Link to="/home" className={styles.sectionLink}>
-                        <lord-icon
-                          src="https://cdn.lordicon.com/osuxyevn.json"
-                          trigger="hover"
-                          colors="primary:#FFFFFF"
-                          style={{ width: "35px", height: "35px" }}
-                        ></lord-icon>
-                        <span className={styles.button_text}>Home</span>
-                      </Link>
-                    </li>
-
-                    <li className="nav-item">
-                      {extra && extra.premium !== false ? (
-                        <Link to="/communities" className={styles.sectionLink}>
-                          <lord-icon
-                            src="https://cdn.lordicon.com/bhfjfgqz.json"
-                            trigger="hover"
-                            colors="primary:#FFFFFF"
-                            style={{ width: "35px", height: "35px" }}
-                          ></lord-icon>
-                          <span className={styles.button_text}>
-                            Communities
-                          </span>
-                        </Link>
-                      ) : null}
-                    </li>
-
-                    {/* 
-                    <li className="nav-item">
-                      <Link to="/Q&A" className={styles.sectionLink}>
-                        <lord-icon
-                          src="https://cdn.lordicon.com/amascaoj.json"
-                          trigger="hover"
-                          colors="primary:#FFFFFF"
-                          style={{ width: "35px", height: "35px" }}
-                        ></lord-icon>
-                        <span className={styles.button_text}>
-                          Question & Answer
-                        </span>
-                      </Link>
-                    </li> */}
-
-                    <li className="nav-item">
-                      <Link to="/instructor" className={styles.sectionLink}>
-                        <lord-icon
-                          src="https://cdn.lordicon.com/wluyqhxh.json"
-                          trigger="hover"
-                          colors="primary:#FFFFFF"
-                          style={{ width: "35px", height: "35px" }}
-                        ></lord-icon>
-                        <span className={styles.button_text}>Instructor</span>
-                      </Link>
-
-                      <li className="nav-item">
-                        {admin ? (
-                          <Link to="/admin" className={styles.sectionLink}>
-                            <lord-icon
-                              src="https://cdn.lordicon.com/icxqolmx.json"
-                              trigger="hover"
-                              colors="primary:#FFFFFF"
-                              style={{ width: "35px", height: "35px" }}
-                            ></lord-icon>
-                            <span className={styles.button_text}>Admin</span>
-                          </Link>
-                        ) : null}
-                      </li>
-
-                      <li>
-                        {extra && extra.premium !== false ? (
-                          <Link to="/education" className={styles.sectionLink}>
-                            <lord-icon
-                              src="https://cdn.lordicon.com/kipaqhoz.json"
-                              trigger="hover"
-                              colors="primary:#FFFFFF"
-                              style={{ width: "35px", height: "35px" }}
-                            ></lord-icon>
-                            <span className={styles.button_text}>Students</span>
-                          </Link>
-                        ) : null}
-                      </li>
-                    </li>
                   </ul>
-                ) : (
-                  <p className={styles.log}>Go to log!</p>
-                )}
-              </ul>
-            </div>
+                </div>
+              ) : (
+                <p className={styles.log}>Go to log!</p>
+              )}
+            </ul>
           </div>
         </div>
       </nav>
