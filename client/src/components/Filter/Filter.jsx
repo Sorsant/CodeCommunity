@@ -8,8 +8,7 @@ const Filter = () => {
   const posts = useSelector((state) => state.home.posts);
 
   const handleFilterAZ = (event) => {
-    const { value } = event.target
-
+    const { value } = event.target;
     if (value === "Acn") {
       dispatch(filterAZ())
     }
@@ -20,6 +19,8 @@ const Filter = () => {
       dispatch(getHomePosts())
     }
   };
+    
+
   const handleFilterPublications = (event) => {
     const { value } = event.target;
 
@@ -32,17 +33,18 @@ const Filter = () => {
     }
   };
 
-  const handleLikes = (event) =>{
+  const handleLikes = (event) => {
     const { value } = event.target;
-
+  
     if (value === "All") {
       dispatch(filterAllLikes(value));
     }
-
+  
     if (value === "less") {
       dispatch(filterLessLikes(value));
     }
   };
+  ;
 
   
   return (

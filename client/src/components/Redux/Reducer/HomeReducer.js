@@ -4,16 +4,20 @@ export const homeSlice = createSlice({
    name: "home",
    initialState: {
       posts: [],
+      posts2: [],
       login: false,
       addPost: [],
       users: [],
       userExtra: [],
       menssageD: "",
       comments: [],
-      review:[]
+      review:[],
+      review_user: [],
+
    },
    reducers: {
       getAllPosts: (state, action) => {
+         state.posts2 = action.payload
          state.posts = action.payload;
       },
       filterAcendent: (state, action) => {
@@ -44,6 +48,7 @@ export const homeSlice = createSlice({
          state.posts = action.payload;
       },
       getSearchPosts: (state, action) => {
+         state.posts  = state.posts2;
          state.posts = action.payload;
       },
       loginSwitch: (state, action) => {
@@ -58,16 +63,16 @@ export const homeSlice = createSlice({
       getUserExtra: (state, action) => {
          state.userExtra = action.payload;
       },
-      allLikesPost: (state, action) => {
-         const { postId, userId } = action.payload;
-         console.log(postId, "reducer");
-         console.log(userId, "reducer");
+      // allLikesPost: (state, action) => {
+      //    const { postId, userId } = action.payload;
+      //    console.log(postId, "reducer");
+      //    console.log(userId, "reducer");
 
-         const post = state.posts.find((post) => post.id === postId);
-         if (post) {
-            post.likes.push(userId);
-         }
-      },
+      //    const post = state.posts.find((post) => post.id === postId);
+      //    if (post) {
+      //       post.likes.push(userId);
+      //    }
+      // },
       resetUser: (state, action) => {
          state.users = [];
       },
@@ -75,12 +80,22 @@ export const homeSlice = createSlice({
          state.userExtra = [];
       },
       filterlikes: (state, action) => {
-         state.posts = action.payload.data;
+         const sortedPosts = [...state.posts];
+         if (action.payload === "less") {
+         sortedPosts.sort((a, b) => a.likes.length - b.likes.length);
+         }
+         if (action.payload === "All") {
+         sortedPosts.sort((a, b) => b.likes.length - a.likes.length);
+         }
+         state.posts = sortedPosts;
       },
       getReview:(state, action) => {
-         state.review=action.payload
+         state.review = action.payload
+      },
+      getReview_user:(state, action) => {
+         state.review_user = action.payload
       }
-
+      
    },
 });
 
@@ -100,7 +115,8 @@ export const {
    resetUserExtra,
    resetUser,
    filterlikes,
-   getReview
+   getReview,
+   getReview_user,
 } = homeSlice.actions;
 
 export default homeSlice.reducer;

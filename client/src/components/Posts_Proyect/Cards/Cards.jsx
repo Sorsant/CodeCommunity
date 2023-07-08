@@ -22,7 +22,7 @@ const PosteoCards = () => {
 
     return (
         <div className={styles.containerCards}>
-            {posteos.map((post) => (
+            {posteos?.map((post) => (
                 <div key={post.id}>
                     <PosteoCard
                         id={post.id}
