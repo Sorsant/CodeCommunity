@@ -1,4 +1,15 @@
+.titlePostFake {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 20rem;
+    color: rgb(74, 218, 117);
+}
+
 .containerCards {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }

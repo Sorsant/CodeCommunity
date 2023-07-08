@@ -20,7 +20,6 @@ import About from "./views/About/about";
 import Instructor from "./views/Instructor/instructor";
 import DetailCommunity from "./views/DetailCommunity/detailCommunity";
 import FakeHome from "./views/FakeHome/fakeHome";
-import GoogleLogin from "./containers/GoogleLogin";
 import ResetPasswordPage from "./containers/ResetPasswordPage";
 import LoginPage from "./containers/Login/LoginPage";
 import RegisterPage from "./containers/RegisterPage";
@@ -41,8 +40,6 @@ import Geography from "./dashboard/scenes/geography/index";
 import "../src/dashboard/indexDash.css";
 import NewScenes from "./dashboard/scenes/newScenes";
 import Error404 from "./views/Error/Error404";
-import QueryString from "query-string";
-import { pay } from "./components/Redux/Actions/User/actionUser";
 import { getAllLanguages } from "./components/Redux/Actions/Community/ActionCommunity";
 
 axios.defaults.baseURL = API_URL;
@@ -70,8 +67,8 @@ const App = () => {
     "/",
     "/login",
     "/register",
+    "/Fakehome",
     "/ResetPassword",
-    "/google",
     "/admin",
     "/team",
     "/postscenes",
@@ -114,7 +111,6 @@ const App = () => {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/google" element={<GoogleLogin />} />
         <Route path="*" element={<Error404 />} />
         {isAuthenticated ? (
           <>
@@ -122,7 +118,6 @@ const App = () => {
             <Route path="/communities/:id" element={<DetailCommunity />} />
             <Route path="/groups/:name" element={<DetailCommunity />} />
             <Route path="/education" element={<Books />} />
-
             <Route path="/communities" element={<CommunityForm />} />
             <Route path="/Q&A" element={<Openai />} />
             <Route path="/profile" element={<Profile />} />
@@ -133,7 +128,7 @@ const App = () => {
           </>
         ) : (
           <>
-            <Route path="/fakeHome" element={<FakeHome />} />
+            <Route path="/Fakehome" element={<FakeHome />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/ResetPassword" element={<ResetPasswordPage />} />
           </>

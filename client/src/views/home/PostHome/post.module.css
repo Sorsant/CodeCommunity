@@ -2,17 +2,11 @@
   display: flex;
   flex-wrap: wrap;
   background-color: #1e2122;
-  position: absolute;
   padding: 10px;
   border-radius: 5px;
   margin-top: 45px;
-  width: 440px;
-  height: 385px;
-  margin-bottom: 20px;
-  margin-left: -510px;
+  width: 33vh;
   border: 1px solid #8f8787;
-
-  /* transition: 0.5s; */
 }
 
 .containerForm label {

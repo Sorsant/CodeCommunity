@@ -16,13 +16,17 @@ const CommunityCards = () => {
     dispatch(getAllCommunities());
     dispatch(getAllLanguages());
   }, [dispatch]);
+
   return (
-    <div className={styles.cards}>
+    <div className={styles.cardsComm}>
+      <h1>Communities</h1>
       {communities.length > 0 ? (
         communities.map((community) => {
-          const language = languages && languages.find(
-            (lang) => String(lang.id) === String(community.language)
-          );
+          const language =
+            languages &&
+            languages.find(
+              (lang) => String(lang.id) === String(community.language)
+            );
 
           const languageName = language ? language.name : "Unknown Language";
 

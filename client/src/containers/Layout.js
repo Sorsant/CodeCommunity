@@ -9,7 +9,7 @@ const Layout = ({ title, content, children }) => (
     </Helmet>
     <div className='d-flex flex-column vh-100 bg-dark text-light'>
       <Navbar />
-      <div className='container mt-5 flex-grow-1'>{children}</div>
+      <div>{children}</div>
     </div>
   </>
 );

@@ -9,6 +9,7 @@ import styles from "./fakeHome.module.css";
 import { getUsers } from "../../components/Redux/Actions/User/actionUser";
 import { getUserExtras } from "../../components/Redux/Actions/User/actionUser";
 import { fakeLogin } from "../../components/Redux/Actions/ActionHome.js";
+import Layout from "../../containers/Layout";
 
 const FakeHome = () => {
   const dispatch = useDispatch();
@@ -22,17 +23,19 @@ const FakeHome = () => {
   }, [dispatch]);
 
   return (
-    <div className={styles.Container}>
-      <div className={styles.communityCard}>
-        <CommunityCard />
+    <Layout>
+      <div className={styles.containerFakeHome}>
+        <div className={styles.newsCardFake}>
+          <NewsCardsFake />
+        </div>
+        <div className={styles.PosteoCardFake}>
+          <PosteoCardsFake />
+        </div>
+        <div className={styles.communityCard}>
+          <CommunityCard />
+        </div>
       </div>
-      <div className={styles.PosteoCard}>
-        <PosteoCardsFake />
-      </div>
-      <div className={styles.NewsCard}>
-        <NewsCardsFake />
-      </div>
-    </div>
+    </Layout>
   );
 };
 export default FakeHome;

@@ -12,23 +12,25 @@ import GoogleLogin from "react-google-login";
 const LoginPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { loading, registered, isAuthenticated, errors } = useSelector((state) => state.userdb);
-  const [auth, setAuth] = useState(false)
+  const { loading, registered, isAuthenticated, errors } = useSelector(
+    (state) => state.userdb
+  );
+  const [auth, setAuth] = useState(false);
   const [formData, setFormData] = useState({});
-  const [userGoogle, setUserGoogle] = useState({})
+  const [userGoogle, setUserGoogle] = useState({});
 
   const onSuccess = (response) => {
     setUserGoogle(response.profileObj);
     setAuth(true);
     document.getElementsByClassName("btn").hidden = true;
-  }
-  
+  };
+
   const onFailure = (response) => {
     console.log("Something went wrong");
-  }
-  
-  if(auth === true){
-    dispatch(googleAuthenticate({userGoogle}));
+  };
+
+  if (auth === true) {
+    dispatch(googleAuthenticate({ userGoogle }));
   }
 
   useEffect(() => {
@@ -43,7 +45,6 @@ const LoginPage = () => {
       });
     }
     gapi.load("client:auth2", start);
-
   }, [dispatch, formData, isAuthenticated, navigate, registered]);
 
   const { email, password } = formData;
@@ -59,7 +60,7 @@ const LoginPage = () => {
 
   return (
     <Layout title="Code Community | Login" content="Login page">
-      <div className="container d-flex justify-content-center align-items-center">
+      <div className="container d-flex justify-content-center align-items-center mt-4">
         <div className="card rounded-lg p-5 bg-dark shadow text-light d-flex flex-column login-card">
           <h1 className="text-center">Log into your Account</h1>
           <form
@@ -115,7 +116,7 @@ const LoginPage = () => {
               </div>
             ) : (
               <button
-                className="btn btn-primary mt-4 w-100 rounded-pill fw-bold fs-5"
+                className="btn btn-primary mt-4 w-100 fw-bold fs-5"
                 type="submit"
               >
                 Login
@@ -123,10 +124,11 @@ const LoginPage = () => {
             )}
           </form>
             <GoogleLogin
+              className="mt-4 fw-bold fs-5"
               clientId={clientID}
               onSuccess={onSuccess}
               onFailure={onFailure}
-              buttonText="Continue  with Google"
+              buttonText="Sign in with Google"
               cookiePolicy={"single_host_origin"}
             />
         </div>

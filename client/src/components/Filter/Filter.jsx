@@ -1,11 +1,9 @@
 import styles from "./filter.module.css";
 import { filterAZ, filterZA, getHomePosts, filterPublications } from "../Redux/Actions/ActionHome"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { filterAllLikes, filterLessLikes } from "../Redux/Actions/ActionHome";
 const Filter = () => {
   const dispatch = useDispatch();
-
-  const posts = useSelector((state) => state.home.posts);
 
   const handleFilterAZ = (event) => {
     const { value } = event.target;
