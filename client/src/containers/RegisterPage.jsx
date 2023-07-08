@@ -60,7 +60,7 @@ const RegisterPage = () => {
 
   return (
 		<Layout title='Auth Site | Register' content='Register page'>
-			<div className='container d-flex justify-content-center align-items-center'>
+			<div className='container d-flex justify-content-center align-items-center mt-4'>
 				<div className='card bg-dark text-light rounded-lg p-5'>
 					<h1 className='text-center p-1 px-3'>Register for an Account</h1>
 					<form onSubmit={onSubmit} className='needs-validation' noValidate>

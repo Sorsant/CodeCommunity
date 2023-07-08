@@ -60,7 +60,7 @@ const LoginPage = () => {
 
   return (
     <Layout title="Code Community | Login" content="Login page">
-      <div className="container d-flex justify-content-center align-items-center">
+      <div className="container d-flex justify-content-center align-items-center mt-4">
         <div className="card rounded-lg p-5 bg-dark shadow text-light d-flex flex-column login-card">
           <h1 className="text-center">Log into your Account</h1>
           <form
