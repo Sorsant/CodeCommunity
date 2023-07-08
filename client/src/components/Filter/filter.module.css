@@ -1,9 +1,7 @@
 .container {
-    position: absolute;
-    margin-left: 190px;
-    margin-top: -120px;
+    display: flex;
+    justify-content: center;
     padding: 50px;
-
 }
 
 .container select {
