@@ -5,6 +5,7 @@ import {
   getCommunity,
 
 } from "../../components/Redux/Actions/Community/ActionCommunity";
+import Loading from "../../components/Loading/Loading";
 import styles from "./detailCommunity.module.css";
 
 import CommunityComments from "../CommunitiesInteractions/communityComments";
@@ -15,15 +16,26 @@ const DetailCommunity = () => {
 
 
   const community = useSelector((state) => state.community.communities);
+  const [isLoading, setIsLoading] = useState(true);
+  const [communitys, setCommunity] = useState(null);
 
 
   useEffect(() => {
-    dispatch(getCommunity(id)).catch((error) => {
-      window.alert("Community not found");
-    });
-
-
+    dispatch(getCommunity(id))
+      .then((response) => {
+        setCommunity(response);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        window.alert("Community not found");
+        setIsLoading(false);
+      });
   }, [dispatch, id]);
+
+  if (isLoading) {
+    return <Loading />; // Mostrar el componente Loading mientras se cargan los datos
+  }
+
 
   return (
     <div className={styles.container}>

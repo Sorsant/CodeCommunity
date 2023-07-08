@@ -10,30 +10,25 @@
   flex-direction: column;
   width: 360px;
   height: 100%;
-  border: 1px solid #5e503f;
-  border-radius: 54px 54px 0px 7px;
+  border: 1px solid black;
+  border-radius: 54px 54px 54px 54px;
   background: #1a1a1b;
   transition: 0.4s;
   margin-bottom: 6rem;
   margin-right: 60px;
-  border: 6px inset #000;
+  border: 3px solid rgb(255, 255, 255);
   overflow: hidden;
 }
 
 .cardPost:hover {
   translate: 0 -10px;
   filter: drop-shadow(-3px 12px 20px #635e53);
-  border: 1px solid #c6ac8f;
-}
-
-.cardImagePost {
-  border-radius: 54px 54px 0px 7px;
+  border: 3px solid #c6ac8f;
 }
 
 .cardImagePost img {
   width: 100%;
   height: 240px;
-  border-radius: 54px 54px 0px 7px;
 }
 
 .footerPost {

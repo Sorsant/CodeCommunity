@@ -1,18 +1,20 @@
 .postDetailContainer {
   background-color: #1A1A1B;
+  /* margin-top: 10px; */
 }
 
 .post_card {
-  width: 620px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
   background: lightgrey;
   background-color: rgb(24 27 32);
   border: 1px solid rgb(84 90 106);
   border-radius: 20px;
   color: white;
-  display: flex;
-  flex-direction: column;
   padding: 10px 20px;
-  margin-left: 650px;
+  margin-bottom: 50px;
+
 }
 
 .avatar {
@@ -37,24 +39,33 @@
 
 .image_preview {
   flex: 1;
-  height: 300px;
-  width: 433px;
-  margin-left: 70px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 20px;
   background-image: linear-gradient(to top left, blueviolet, rgb(73, 31, 112));
   margin-bottom: 4px;
 }
 
 .image_preview img {
-  height: 400px;
-  width: 433px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 340px;
+  /* width: 433px; */
   border-radius: 20px;
 }
 
 .back {
   position: absolute;
-  top: calc(15% - 57px);
-  left: 1180px
+  top: calc(15% - 55px);
+  left: calc(74% - 57px)
+}
+
+.description {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .edit {
@@ -67,4 +78,10 @@
   position: absolute;
   top: calc(63% - 65px);
   left: calc(94% - 62px);
+}
+
+.disqus {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
