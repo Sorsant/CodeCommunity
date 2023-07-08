@@ -1,50 +1,142 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
 
-.navbar {
-  background-color: #080c0e !important;
-  width: 100%;
+.containerNav {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  background-color: black;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbarPrincipal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px 0px 10px;
+  width: 100%;
+  height: 100%;
 }
 
 .title h1 {
   color: white;
   font-family: "Orbitron", sans-serif;
-  margin-left: 10px;
 }
 
 .titleNav {
   text-decoration: none;
 }
 
-.title_toggle {
-  font-size: 20px;
-  text-decoration: underline;
+.navButtonSidebar {
+  display: flex;
+  align-items: center;
 }
 
 .toggle {
-  margin-left: auto;
-  margin-top: -70px;
-  width: 50px;
-  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
 }
 
 .title {
   color: white;
-  margin-right: 900px;
 }
 
+/* hasta aqui la navbar */
 
+.menu_toggle {
+  background-color: #212529 !important;
+}
 
-.containerNav {
+.header {
   display: flex;
+  background-color: #3f854e;
+  padding: 10px;
 }
 
-.logOut {
-  margin-right: 5px;
-  padding: 5px 10px;
-  border: 1px solid white;
-  border-radius: 15px;
+.profileLink {
+  text-decoration: none;
+}
+
+.cardSidebar {
+  display: flex;
+  justify-content: center;
+  padding: 6px 6px 10px 6px;
+}
+
+.profileImageSidebar {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+}
+
+.profileImageSidebar img {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  box-shadow: 2px 2px 4px black;
+}
+
+.textContainerSidebar {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  align-items: end;
+  padding-left: 10px;
+}
+
+.nameSidebar {
+  font-size: 23px;
+  font-weight: 600;
+  color: white;
+  transition: 0.2s ease-out;
+}
+
+.nameSidebar:hover {
+  color: #000;
+}
+
+.bodySidebar {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 100px);
+  justify-content: space-between;
+}
+
+.bodySidebar > :last-child {
+  justify-self: flex-end;
+}
+
+.SidebarBtns {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.linkSidebar {
+  text-decoration: none;
+  color: white;
+}
+
+.textLoginSidebar {
+  color: white;
+  padding-left: 6px;
+}
+
+.signSidebar {
+  margin-top: 4px;
+  padding: 10px 16px;
+  border: unset;
   color: #212121;
   z-index: 1;
   background: #e8e8e8;
@@ -57,14 +149,105 @@
   overflow: hidden;
 }
 
-.logOut::before {
+.signSidebar::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 0;
-  border-radius: 15px;
+  background-color: #13b6a8;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+}
+
+.signSidebar:hover {
+  color: #e8e8e8;
+}
+
+.signSidebar:hover::before {
+  width: 100%;
+}
+
+.loginSidebar {
+  padding: 10px 16px;
+  border: unset;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 16px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+}
+
+.loginSidebar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background-color: #13b6a8;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+}
+
+.loginSidebar:hover {
+  color: #e8e8e8;
+}
+
+.loginSidebar:hover::before {
+  width: 100%;
+}
+
+.sectionLinkSidebar {
+  text-decoration: none;
+  display: flex;
+  padding: 4px;
+  color: white;
+  width: 100%;
+}
+
+.sectionLinkSidebar:hover {
+  background-color: #3a4147;
+}
+
+.buttonTextSidebar {
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.logout {
+  padding: 5px 10px;
+  border: 1px solid white;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 16px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+}
+
+.logout::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
   background-color: #b61e13;
   z-index: -1;
   -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
@@ -72,33 +255,18 @@
   transition: all 250ms;
 }
 
-.logOut:hover {
+.logout:hover {
   color: #e8e8e8;
 }
 
-.logOut:hover::before {
+.logout:hover::before {
   width: 100%;
-}
-
-.containerLogOut {
-  position: absolute;
-  margin-top: 790px;
-  margin-left: 5px;
 }
 
 div.containerNav button.navbar-toggler {
   margin-left: auto;
   width: 150px;
   height: 250px;
-}
-
-.info {
-  display: flex;
-}
-
-.link {
-  text-decoration: none;
-  color: white;
 }
 
 .contact {
@@ -118,9 +286,6 @@ div.containerNav button.navbar-toggler {
   overflow: hidden;
 }
 
-.menu_toggle {
-  background-color: #444242 !important;
-}
 
 .contact::before {
   background-color: #cac2c2;
@@ -146,98 +311,6 @@ div.containerNav button.navbar-toggler {
   width: 100%;
 }
 
-.sign {
-  margin-right: 10px;
-  padding: 10px 20px;
-  border: unset;
-  border-radius: 15px;
-  color: #212121;
-  z-index: 1;
-  background: #e8e8e8;
-  position: relative;
-  font-weight: 1000;
-  font-size: 16px;
-  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  transition: all 250ms;
-  overflow: hidden;
-}
-
-.sign::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 0;
-  border-radius: 15px;
-  background-color: #13b6a8;
-  z-index: -1;
-  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  transition: all 250ms;
-}
-
-.sign:hover {
-  color: #e8e8e8;
-}
-
-.sign:hover::before {
-  width: 100%;
-}
-
-.login {
-  margin-right: 5px;
-  padding: 10px 12px;
-  border: unset;
-  border-radius: 15px;
-  color: #212121;
-  z-index: 1;
-  background: #e8e8e8;
-  position: relative;
-  font-weight: 1000;
-  font-size: 16px;
-  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  transition: all 250ms;
-  overflow: hidden;
-}
-
-.login::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 0;
-  border-radius: 15px;
-  background-color: #13b6a8;
-  z-index: -1;
-  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  transition: all 250ms;
-}
-
-.login:hover {
-  color: #e8e8e8;
-}
-
-.login:hover::before {
-  width: 100%;
-}
-
-.sectionLink {
-  text-decoration: none;
-  display: flex;
-  width: 450px;
-  padding: 4px;
-  color: white;
-}
-
-.sectionLink:hover {
-  background-color: #2c2f30;
-}
-
 .buttonSections {
   width: 150px;
   padding: 4px;
@@ -252,70 +325,7 @@ div.containerNav button.navbar-toggler {
 }
 
 .buttonSections:hover {
-  /* filter: drop-shadow(0px 0px 7px #929995); */
-
   background-color: rgb(20, 158, 20);
-}
-
-.button_text {
-  font-size: 25px;
-  font-weight: bold;
-  margin-left: 5px;
-}
-
-.header {
-  display: flex;
-  /* align-items: center; */
-  background-color: #3f854e;
-  height: 100px;
-
-}
-
-.profileLink {
-
-  text-decoration: none;
-  margin-bottom: 50px;
-}
-
-.card {
-
-  width: 90px;
-  height: 20px;
-  border-radius: 12px;
-}
-
-.profileImage {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-}
-
-.profileImage img {
-  position: absolute;
-  width: 70px;
-  height: 60px;
-  border-radius: 50%;
-  box-shadow: 5px 5px 14px 3px #000;
-}
-
-.textContainer {
-  display: flex;
-  flex-direction: row;
-  font-size: 20px;
-}
-
-.name {
-  position: absolute;
-  font-size: 23px;
-  font-weight: 600;
-  color: white;
-  letter-spacing: 0.5px;
-  margin-top: 35px;
-  margin-left: 85px;
-}
-
-.name:hover {
-  color: #000;
 }
 
 .profile {
