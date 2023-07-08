@@ -48,7 +48,9 @@ const PostCard = ({ id }) => {
     const loggedInUserId = JSON.parse(localStorage.getItem("loggedInUserId"));
     if (loggedInUserId) {
       if (likedByCurrentUser) {
-        const updatedLikes = post?.likes.filter((user) => user !== loggedInUserId);
+        const updatedLikes = post?.likes.filter(
+          (user) => user !== loggedInUserId
+        );
         await dispatch(unlikePost(id, updatedLikes));
       } else {
         const updatedLikes = [...post.likes, loggedInUserId];
@@ -59,40 +61,51 @@ const PostCard = ({ id }) => {
     }
   };
 
-
-  return (<div className={styles.Container_card}>
-
-    <div className={styles.card}>
-      <Link to={`/detail/${id}`} className={styles.linkDetail}>
-        <div className={styles.card_image}>
-          <img src={post.image} alt={post?.title} />
+  return (
+    <div className={styles.containerCard}>
+      <div className={styles.cardPost}>
+        <Link to={`/detail/${id}`} className={styles.linkDetail}>
+          <div className={styles.cardImagePost}>
+            <img src={post.image} alt={post?.title} />
+          </div>
+        </Link>
+        <div className={styles.footerPost}>
+          <div className={styles.titleLikes}>
+            <h2 className={styles.title}>{post?.title}</h2>
+            <div className={styles.containerLikes}>
+              <button className={styles.botonPost} onClick={handleLike}>
+                {likedByCurrentUser ? (
+                  <div className={styles.imgpositive}>
+                    <img
+                      src="https://cdn.discordapp.com/attachments/881403103054811170/1126347450739867658/foco-removebg-preview.png"
+                      alt={post.title}
+                    />
+                  </div>
+                ) : (
+                  <div className={styles.imgNeg}>
+                    <img
+                      src="https://cdn.discordapp.com/attachments/881403103054811170/1126347450739867658/foco-removebg-preview.png"
+                      alt={post.title}
+                    />
+                  </div>
+                )}
+              </button>
+              <h5 className={styles.likes}>💡: {post?.likes.length}</h5>
+            </div>
+          </div>
+          <div className={styles.info}>
+            <img
+              src={userE?.user_image}
+              alt={userE?.name}
+              className={styles.imgUser}
+            />
+            <span className={styles.byName}>
+              <p> by {user.first_name} </p>
+            </span>
+          </div>
         </div>
-        <h2 className={styles.title}>{post?.title}</h2>
-      </Link>
-      {/* <p className={styles.card_body}>{post?.description}</p> */}
-      <p className={styles.likes}>💡: {post?.likes.length}</p>
-
-      <button className={styles.boton} onClick={handleLike}>
-        {likedByCurrentUser ? <div className={styles.imgpositive}><img src="https://cdn.discordapp.com/attachments/881403103054811170/1126347450739867658/foco-removebg-preview.png" alt={post.title} />
-        </div> : <div className={styles.imgNeg}><img src="https://cdn.discordapp.com/attachments/881403103054811170/1126347450739867658/foco-removebg-preview.png" alt={post.title} /></div>}
-      </button>
-
-      <p className={styles.footer}>
-        <img
-          src={userE?.user_image}
-          alt={userE?.name}
-          className={styles.imgUser}
-        />
-
-        <span className={styles.by_name}>
-          <p> by {user.first_name}  </p>
-        </span>
-      </p>
-
-
+      </div>
     </div>
-  </div>
-
   );
 };
 

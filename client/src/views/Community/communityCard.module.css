@@ -4,6 +4,13 @@
     width: 33vh;
 }
 
+.cardsComm h1 {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    color: rgb(74, 218, 117);
+}
+
 .containerComm {
     display: flex;
     flex-direction: column;

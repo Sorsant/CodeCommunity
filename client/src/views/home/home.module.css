@@ -1,68 +1,8 @@
-.Container {
-    display: grid;
-    grid-template-columns: 521px 950px 221px;
-    grid-template-rows: auto;
-    /* Elimina la definición de las filas para que se ajusten automáticamente */
-    font-size: 10px;
-    /* margin-top: 100px; */
-    background-color: #1A1A1B;
-}
-
-.title1 {
-    margin-left: 200px;
-    width: 35%;
-    padding: 5px;
-    border-radius: 10px;
-    font-weight: bold;
-    color: rgb(74, 218, 117);
-}
-
-/* .title2 {
-    margin-left: 150px;
-    width: 22%;
-    padding: 5px;
-    border-radius: 10px;
-    font-weight: bold;
-    color: rgb(74, 218, 117);
-} */
-
-.PosteoCard {
-    grid-column: 2;
-    grid-row: 1;
-    margin-top: 150px;
-    margin-left: 50px;
-}
-
-.filter {
-    grid-column: 2;
-    grid-row: 1;
+.containerHome {
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-top: 100px;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #1A1A1B;
+    padding: 30px 10px 0px 10px;
 }
 
-.communityCard {
-    grid-column: 3;
-    grid-row: 1/3;
-    margin-right: 10px;
-    margin-top: 20px;
-    width: 100%;
-}
-
-.NewsCard {
-    grid-column: 1;
-    /* Cambia 1/2 a 1 */
-    grid-row: 1/3;
-    /* Agrega la propiedad grid-row para que ocupe desde la primera fila hasta la tercera fila */
-    font-size: 8px;
-    text-align: left;
-    margin-left: 10px;
-    height: 500px;
-    margin-top: 590px;
-}
-
-.posteoDiv {
-    grid-column: 2;
-    grid-row: 1;
-}
