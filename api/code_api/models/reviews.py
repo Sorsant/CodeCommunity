@@ -30,7 +30,7 @@ class Review(models.Model):
       return self.user.is_delete 
 
     def __str__(self):
-        return self.content
+        return str(self.reviews_id)
     
 @receiver(post_save, sender=Reviews)
 def update_reviews_on_user_account_save(sender, instance, **kwargs):

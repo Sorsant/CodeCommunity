@@ -29,7 +29,7 @@ const NewsCard = ({ Link, Category, Author, Image, Description, Title }) => {
           <div className={styles.user}>
             <div className={styles.user_info}>Author: {Author}</div>
           </div>
-          <div>{Link}</div>
+          {/* <div>{Link}</div> */}
         </div>
       </div>
     </div>

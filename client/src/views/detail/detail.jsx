@@ -94,6 +94,7 @@ const PostDetail = () => {
             className={style.image}
           />
         </div>
+        <hr />
         <h3 className={style.description}>{post && post.description}</h3>
       </div>
 
@@ -109,7 +110,7 @@ const PostDetail = () => {
           <button className={`btn btn-danger fs-4 ${style["cancel"]}`} onClick={handleCancelEdit}>Cancel</button>
         </div>
       )}
-      <div id="disqus_thread"></div>
+      <div id="disqus_thread" className={style.disqus}></div>
     </div>
   );
 };

@@ -41,6 +41,7 @@ import "../src/dashboard/indexDash.css";
 import NewScenes from "./dashboard/scenes/newScenes";
 import Error404 from "./views/Error/Error404";
 import { getAllLanguages } from "./components/Redux/Actions/Community/ActionCommunity";
+import Loading from "./components/Loading/Loading";
 
 axios.defaults.baseURL = API_URL;
 axios.defaults.withCredentials = true;
@@ -50,6 +51,8 @@ const App = () => {
   const { isAuthenticated } = useSelector((state) => state.userdb);
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const LOADING_DELAY = 2000;
   const location = useLocation();
   const admin = localStorage.getItem("admin");
   const id = localStorage.getItem("id");
@@ -58,9 +61,17 @@ const App = () => {
     dispatch(checkAuth());
     dispatch(getUser());
     dispatch(getUserExtras());
-    dispatch(getAllLanguages())
-    dispatch(isAdmin());
-
+    dispatch(getAllLanguages());
+    dispatch(isAdmin())
+      .then(() => {
+        setTimeout(() => {
+          setIsLoading(false); // Cambiar el estado después de un retraso
+        }, LOADING_DELAY);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        console.log("Error occurred while checking admin status:", error);
+      });
   }, [dispatch, id]);
 
   const excludedPaths = [
@@ -106,37 +117,48 @@ const App = () => {
 
   return (
     <div className={styles.containerApp}>
-      {!excludedPaths.includes(location.pathname) && <Nav admin={admin} />}
+      <header>
+        {/* Coloca aquí tu contenido de encabezado si lo tienes */}
+      </header>
 
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="*" element={<Error404 />} />
-        {isAuthenticated ? (
-          <>
-            <Route path="/home" element={<Home />} />
-            <Route path="/communities/:id" element={<DetailCommunity />} />
-            <Route path="/groups/:name" element={<DetailCommunity />} />
-            <Route path="/education" element={<Books />} />
-            <Route path="/communities" element={<CommunityForm />} />
-            <Route path="/Q&A" element={<Openai />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/detail/:id" element={<PostDetail />} />
-            <Route path="/newspost" element={<NewsPost />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/instructor" element={<Instructor />} />
-          </>
+      <nav>
+        {!excludedPaths.includes(location.pathname) && <Nav admin={admin} />}
+      </nav>
+
+      <main>
+        {isLoading ? (
+          <Loading />
         ) : (
-          <>
-            <Route path="/Fakehome" element={<FakeHome />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/ResetPassword" element={<ResetPasswordPage />} />
-          </>
-        )}
-      </Routes >
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="*" element={<Error404 />} />
 
-      {
-        dashboardPaths.includes(location.pathname) && admin && (
+            {isAuthenticated ? (
+              <>
+                <Route path="/home" element={<Home />} />
+                <Route path="/communities/:id" element={<DetailCommunity />} />
+                <Route path="/groups/:name" element={<DetailCommunity />} />
+                <Route path="/education" element={<Books />} />
+                <Route path="/communities" element={<CommunityForm />} />
+                <Route path="/Q&A" element={<Openai />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/detail/:id" element={<PostDetail />} />
+                <Route path="/newspost" element={<NewsPost />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/instructor" element={<Instructor />} />
+              </>
+            ) : (
+              <>
+                <Route path="/Fakehome" element={<FakeHome />} />
+                <Route path="/register" element={<RegisterPage />} />
+                <Route path="/ResetPassword" element={<ResetPasswordPage />} />
+              </>
+            )}
+          </Routes>
+        )}
+
+        {dashboardPaths.includes(location.pathname) && admin && (
           <>
             <ColorModeContext.Provider value={colorMode}>
               <ThemeProvider theme={theme}>
@@ -163,8 +185,8 @@ const App = () => {
               </ThemeProvider>
             </ColorModeContext.Provider>
           </>
-        )
-      }
+        )}
+      </main>
 
       <footer>
         {!excludedPaths.includes(location.pathname) && <Footer />}
