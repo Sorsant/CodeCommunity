@@ -1,6 +1,7 @@
 .container {
     background-color: #212529;
-    height: 100vh;
+    height: 100%;
+    font-family: 'Roboto Serif', serif;
 }
 
 .subContainer {
@@ -41,6 +42,7 @@
     margin-top: -110px;
     margin-left: -10px;
     top: 110px;
+    filter: saturate(170%);
 }
 
 .description {

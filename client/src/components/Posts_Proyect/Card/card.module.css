@@ -15,8 +15,9 @@
   background: #1a1a1b;
   transition: 0.4s;
   margin-bottom: 6rem;
-  margin-right: 60px;
-  border: 3px solid rgb(255, 255, 255);
+  margin-right: 40px;
+  margin-left: 20px;
+  border: 2px solid rgb(134, 128, 128);
   overflow: hidden;
 }
 
@@ -29,6 +30,7 @@
 .cardImagePost img {
   width: 100%;
   height: 240px;
+  filter: saturate(190%);
 }
 
 .footerPost {
@@ -60,13 +62,15 @@
 .likes {
   padding-bottom: 4px;
   padding-left: 12px;
+  color: #dfae54;
+  text-shadow: -1px 0px 12px #D5E47D;
 }
 
 .title {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 600;
   color: #ffffff;
-  font-family: "Play", sans-serif;
+  font-family: 'Roboto Serif', serif;
 }
 
 .info {
@@ -84,7 +88,9 @@
 }
 
 .botonPost img {
-  width: 40px;
+  width: 25px;
+  margin-left: 20px;
+  margin-bottom: 10px;
 }
 
 .imgNeg img {

@@ -13,7 +13,8 @@
   --main-color: #000;
   --submain-color: #78858F;
   --bg-color: #28282a;
-  font-family: system-ui, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* font-family: system-ui, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif; */
+  font-family: 'Roboto Serif', serif;
   position: absolute;
   top: calc(13.8% - 57px);
   left: calc(38% - 70px);
@@ -36,9 +37,9 @@
   justify-content: center;
   align-items: center;
   top: calc(50% - 57px);
-} 
+}
 
-.edit{
+.edit {
   position: absolute;
   top: calc(18% - 57px);
   left: calc(12% - 62px);

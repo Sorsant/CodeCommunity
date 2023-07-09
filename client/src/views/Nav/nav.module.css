@@ -29,6 +29,7 @@
 .title h1 {
   color: white;
   font-family: "Orbitron", sans-serif;
+  /* font-family: 'Roboto Serif', serif; */
 }
 
 .titleNav {
@@ -113,7 +114,7 @@
   justify-content: space-between;
 }
 
-.bodySidebar > :last-child {
+.bodySidebar> :last-child {
   justify-self: flex-end;
 }
 

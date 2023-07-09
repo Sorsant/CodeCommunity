@@ -98,6 +98,7 @@ const App = () => {
     "/communities/5",
     "/communities/6",
     "/communities/6",
+
     "*",
   ];
 
@@ -189,7 +190,10 @@ const App = () => {
       </main>
 
       <footer>
-        {!excludedPaths.includes(location.pathname) && <Footer />}
+        {!excludedPaths.includes(location.pathname) &&
+
+
+          <Footer />}
       </footer>
     </div>
   );

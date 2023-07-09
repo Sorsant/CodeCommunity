@@ -1,9 +1,13 @@
 import styles from "./filter.module.css";
 import { filterAZ, filterZA, getHomePosts, filterPublications } from "../Redux/Actions/ActionHome"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { filterAllLikes, filterLessLikes } from "../Redux/Actions/ActionHome";
+import PostHome from '../../views/home/PostHome/PostHome'
 const Filter = () => {
-  const dispatch = useDispatch();
+  const user = useSelector((state) => state.userdb.user);
+  const extras = useSelector((state) => state.home.userExtra);
+  const extra = extras.find((users) => users.id === (user && user.id));
+  const dispatch = useDispatch()
 
   const handleFilterAZ = (event) => {
     const { value } = event.target;
@@ -17,7 +21,7 @@ const Filter = () => {
       dispatch(getHomePosts())
     }
   };
-    
+
 
   const handleFilterPublications = (event) => {
     const { value } = event.target;
@@ -33,20 +37,23 @@ const Filter = () => {
 
   const handleLikes = (event) => {
     const { value } = event.target;
-  
+
     if (value === "All") {
       dispatch(filterAllLikes(value));
     }
-  
+
     if (value === "less") {
       dispatch(filterLessLikes(value));
     }
   };
   ;
 
-  
-  return (
-    <div className={styles.container}>
+
+  return (<div>
+    <div className={styles.container}>{
+      extra && extra.premium !== false ? (
+        <PostHome />) : null
+    }
       <select className={styles.selectUno} onChange={handleLikes}>
         <option value={'DEFAULT'} disabled>Outstanding</option>
         <option value="All">More like</option>
@@ -65,7 +72,10 @@ const Filter = () => {
         <option value="Dcn">z-a</option>
         <option value="default">Default</option>
       </select>
+
     </div>
+
+  </div>
   );
 };
 

@@ -30,14 +30,14 @@ const Instructor = () => {
   const handleButton = (email) => {
     setRecipient(email);
   };
-;
+  ;
   const handleSend = () => {
     console.log("Recipient:", recipient);
     console.log("Message:", message);
     // ...
   };
- 
-  
+
+
   const renderStars = (rating) => {
     const stars = [];
 
@@ -51,7 +51,7 @@ const Instructor = () => {
 
     return stars;
   };
-  
+
   return (
     <div className={styles.container}>
       <div className={styles.cardContainer}>
@@ -106,9 +106,11 @@ const Instructor = () => {
                 <div className={styles.card_subtitle}>
                   <h2 className={`${styles.info} info`}>
                     Lenguages:
+                    <br />
                   </h2>
                   {languageNames.map((languageName, index) => (
                     <h2 key={index} className={`${styles.info} info`}>{languageName}</h2>
+
                   ))}
                 </div>
                 {totalReviews > 0 && (
@@ -118,11 +120,12 @@ const Instructor = () => {
                       <p>
                         Rating: {renderStars(averageRating)}
                         <br />
-                        Comments: 
+                        Comments:
                         {comments.map((comment, index) => (
                           <span key={index}>
                             {comment}
                             {index !== comments.length - 1 && ", "}
+                            <br />
                           </span>
                         ))}
                       </p>
