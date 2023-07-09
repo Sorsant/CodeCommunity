@@ -1,12 +1,10 @@
 .containerForm {
   display: flex;
   flex-wrap: wrap;
-  background-color: #1e2122;
-  padding: 10px;
   border-radius: 5px;
-  margin-top: 45px;
-  width: 33vh;
-  border: 1px solid #8f8787;
+  margin-right: 1.0rem;
+  /* width: 33vh; */
+  justify-content: center;
 }
 
 .containerForm label {

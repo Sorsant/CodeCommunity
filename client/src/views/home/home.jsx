@@ -9,7 +9,6 @@ import Filter from "../../components/Filter/Filter";
 import { getUsers } from "../../components/Redux/Actions/User/actionUser";
 import { getUserExtras } from "../../components/Redux/Actions/User/actionUser";
 import { fakeLogin } from "../../components/Redux/Actions/ActionHome.js";
-
 const Home = () => {
   const dispatch = useDispatch();
 
@@ -29,6 +28,7 @@ const Home = () => {
       </div>
       <div className={styles.filterPostCard}>
         <div className={styles.filter}>
+
           <Filter />
         </div>
         <div className={styles.PostCard}>

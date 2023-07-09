@@ -16,7 +16,7 @@
   transition: 0.4s;
   margin-bottom: 6rem;
   margin-right: 60px;
-  border: 3px solid rgb(255, 255, 255);
+  border: 2px solid rgb(134, 128, 128);
   overflow: hidden;
 }
 
@@ -60,6 +60,8 @@
 .likes {
   padding-bottom: 4px;
   padding-left: 12px;
+  color: #dfae54;
+  text-shadow: -1px 0px 12px #D5E47D;
 }
 
 .title {
@@ -84,7 +86,9 @@
 }
 
 .botonPost img {
-  width: 40px;
+  width: 25px;
+  margin-left: 20px;
+  margin-bottom: 10px;
 }
 
 .imgNeg img {

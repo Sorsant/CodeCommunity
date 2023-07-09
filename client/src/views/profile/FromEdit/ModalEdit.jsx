@@ -137,10 +137,10 @@ const ModalForm = () => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" className='fs-4' onClick={handleClose}>
-            Cerrar
+            Close
           </Button>
           <Button variant="primary" className='fs-4' onClick={handleOnSubmit}>
-            Guardar
+            Save
           </Button>
         </Modal.Footer>
       </Modal>
