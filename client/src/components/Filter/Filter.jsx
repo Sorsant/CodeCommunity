@@ -1,6 +1,6 @@
 import styles from "./filter.module.css";
 import { filterAZ, filterZA, getHomePosts, filterPublications } from "../Redux/Actions/ActionHome"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { filterAllLikes, filterLessLikes } from "../Redux/Actions/ActionHome";
 
 const Filter = () => {
@@ -27,7 +27,7 @@ const Filter = () => {
   };
   const handleLikes = (event) => {
     const { value } = event.target;
-  
+
     if (value === "All") {
       dispatch(filterAllLikes(value));
     }
@@ -55,7 +55,9 @@ const Filter = () => {
         <option value="Dcn">z-a</option>
         <option value="default">Default</option>
       </select>
+
     </div>
+  
   );
 };
 

@@ -1,5 +1,5 @@
 .landing {
-  background: radial-gradient( #212529 0%, rgb(17, 17, 17) 100%);
+  background: radial-gradient(#212529 0%, rgb(17, 17, 17) 100%);
 }
 
 .section-land {
@@ -13,6 +13,7 @@
 
 .btn-landing {
   background-color: transparent;
+  font-family: 'Roboto Serif', serif;
   border: none;
   padding: 24px 20px;
   border-radius: 20px;

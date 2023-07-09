@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addHomePosts } from "../../../components/Redux/Actions/ActionHome";
 import { getUserExtras } from "../../../components/Redux/Actions/User/actionUser";
 import CloudinaryUploadWidget from "./CloudinaryWidget/CloudinaryUploadWidget";
+import { Modal, Button } from "react-bootstrap";
 
 const Posteohome = () => {
   const login = useSelector((state) => state.home.login);
@@ -25,6 +26,7 @@ const Posteohome = () => {
     description: ""
   });
 
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("loggedInUserId", JSON.stringify(userInfo?.id));
@@ -58,7 +60,6 @@ const Posteohome = () => {
   };
 
   const handleOnSubmit = (event) => {
-
     const userNumber = Number(post.user);
     const premiumUser = userExtra.find(
       (user) => user.id === userNumber && user.premium
@@ -72,6 +73,7 @@ const Posteohome = () => {
         description: "",
         user: post.user
       });
+      handleCloseModal();
     } else {
       alert("You need to be a premium user to post.");
       setPost((prevPost) => ({
@@ -81,6 +83,14 @@ const Posteohome = () => {
     }
   };
 
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
   useEffect(() => {
     dispatch(getUserExtras());
   }, [dispatch]);
@@ -88,51 +98,68 @@ const Posteohome = () => {
   return (
     <div className={styles.containerForm}>
       {login ? (
-        <form onSubmit={handleOnSubmit}>
-          <label>Title</label>
-          <br />
-          <input
-            onChange={handleOnChange}
-            value={post.title}
-            type="text"
-            name="title"
-            placeholder="Your title"
-          />
-          {errors.title && <span>{errors.title}</span>}
-          <br />
-          <label>Description</label>
-          <br />
-          <textarea
-            onChange={handleOnChange}
-            value={post.description}
-            type="text"
-            name="description"
-            placeholder="Your description"
-            className={styles.inputDescription}
-          />
-          {errors.description && <span>{errors.description}</span>}
-          <br />
-          <br />
-          <br />
-          <div className={styles.cloudinary}>
-            <br />
-            <CloudinaryUploadWidget onImageUrl={handleImageUrl} />
+        <>
+          <Button variant="success" onClick={handleOpenModal}>
+            Create a Post
+          </Button>
 
-          </div>
-
-          <button
-            disabled={
-              !post.title ||
-              !post.description ||
-              !!errors.title ||
-              !!errors.description ||
-              !login
-            }
-            className={`bg-success ${styles["button"]}`}
-          >
-            Post
-          </button>
-        </form>
+          <Modal show={showModal} onHide={handleCloseModal}>
+            <Modal.Header closeButton>
+              <Modal.Title>Create a Post</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <form onSubmit={handleOnSubmit}>
+                <label>Title</label>
+                <br />
+                <input
+                  onChange={handleOnChange}
+                  value={post.title}
+                  type="text"
+                  name="title"
+                  placeholder="Your title"
+                />
+                {errors.title && <span>{errors.title}</span>}
+                <br />
+                <label>Description</label>
+                <br />
+                <textarea
+                  onChange={handleOnChange}
+                  value={post.description}
+                  type="text"
+                  name="description"
+                  placeholder="Your description"
+                  className={styles.inputDescription}
+                />
+                {errors.description && <span>{errors.description}</span>}
+                <br />
+                <br />
+                <br />
+                <div className={styles.cloudinary}>
+                  <br />
+                  <CloudinaryUploadWidget onImageUrl={handleImageUrl} />
+                </div>
+              </form>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button
+                variant="success"
+                disabled={
+                  !post.title ||
+                  !post.description ||
+                  !!errors.title ||
+                  !!errors.description ||
+                  !login
+                }
+                onClick={handleOnSubmit}
+              >
+                Post
+              </Button>
+              <Button variant="secondary" onClick={handleCloseModal}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </>
       ) : (
         <p className={styles.advice}>Login to post!</p>
       )}

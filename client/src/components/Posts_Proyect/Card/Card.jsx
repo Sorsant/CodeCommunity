@@ -36,7 +36,7 @@ const PostCard = ({ id }) => {
     return null;
   }
 
-  const user = users?.find((user) => user.id === post.user);
+  const user = users.find((user) => user.id === post.user);
   const userE = userExtra?.find((user) => user.id === post.user);
 
   if (!user) {
@@ -90,7 +90,7 @@ const PostCard = ({ id }) => {
                   </div>
                 )}
               </button>
-              <h5 className={styles.likes}>💡: {post?.likes.length}</h5>
+              <h5 className={styles.likes}>{post?.likes.length}</h5>
             </div>
           </div>
           <div className={styles.info}>

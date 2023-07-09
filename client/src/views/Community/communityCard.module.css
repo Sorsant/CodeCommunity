@@ -9,6 +9,7 @@
     justify-content: center;
     font-weight: bold;
     color: rgb(74, 218, 117);
+    font-family: 'Roboto Serif', serif;
 }
 
 .containerComm {
@@ -30,6 +31,7 @@
     color: white;
     padding: 5px;
     text-shadow: -2px -1px 11px #504b36;
+    font-family: 'Roboto Serif', serif;
 }
 
 .languageComm {
@@ -37,6 +39,7 @@
     justify-content: center;
     font-size: 13px;
     color: white;
+    font-family: 'Roboto Serif', serif;
 }
 
 .buttonModalComm {
@@ -88,6 +91,7 @@
 .containerImgComm img {
     width: 150px;
     height: 120px;
+    filter: saturate(190%);
 }
 
 .text {
@@ -111,6 +115,7 @@
 .containerComm span {
     color: rgb(230, 230, 78);
     font-size: 14px;
+    font-family: 'Roboto Serif', serif;
 }
 
 .image {
