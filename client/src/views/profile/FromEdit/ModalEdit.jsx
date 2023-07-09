@@ -92,8 +92,8 @@ const ModalForm = () => {
 
   return (
     <div>
-      <Button variant="primary" className='fs-4' onClick={handleShow}>
-        Info Profile
+      <Button variant="success" className='fs-4' onClick={handleShow}>
+        Edit
       </Button>
 
       <Modal show={showModal} onHide={handleClose}>

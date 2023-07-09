@@ -10,6 +10,7 @@
   align-items: center;
   border: solid black 0.3px;
   outline: none;
+  font-family: 'Roboto Serif', serif;
 }
 
 .svg {

@@ -190,7 +190,10 @@ const App = () => {
       </main>
 
       <footer>
-        {!excludedPaths.includes(location.pathname) && location.pathname !== "/instructor" ? <Footer /> : null}
+        {!excludedPaths.includes(location.pathname) &&
+
+
+          <Footer />}
       </footer>
     </div>
   );

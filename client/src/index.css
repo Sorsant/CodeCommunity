@@ -6,6 +6,7 @@
 
 html {
   font-size: 62.5%;
+  font-family: 'Roboto Serif', serif;
 }
 
 body {
@@ -16,7 +17,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
   background-color: #808080;
-  font-family: 'Roboto Serif', serif;
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -26,6 +26,5 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Roboto Serif', serif;
 }

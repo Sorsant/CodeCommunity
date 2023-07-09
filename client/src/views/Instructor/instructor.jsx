@@ -106,9 +106,11 @@ const Instructor = () => {
                 <div className={styles.card_subtitle}>
                   <h2 className={`${styles.info} info`}>
                     Lenguages:
+                    <br />
                   </h2>
                   {languageNames.map((languageName, index) => (
                     <h2 key={index} className={`${styles.info} info`}>{languageName}</h2>
+
                   ))}
                 </div>
                 {totalReviews > 0 && (
