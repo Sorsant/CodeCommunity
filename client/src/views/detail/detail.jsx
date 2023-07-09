@@ -99,6 +99,9 @@ const PostDetail = () => {
         </div>
         <hr />
         <h3 className={style.description}>{post && post.description}</h3>
+        <hr />
+        <div id="disqus_thread" className={style.disqus}></div>
+
       </div>
 
       <button className={`btn btn-success fs-3 ${style["back"]}`} onClick={handleGoBack}>Back</button>
@@ -113,7 +116,6 @@ const PostDetail = () => {
           <button className={`btn btn-danger fs-4 ${style["cancel"]}`} onClick={handleCancelEdit}>Cancel</button>
         </div>
       )}
-      <div id="disqus_thread" className={style.disqus}></div>
     </div>
   );
 };

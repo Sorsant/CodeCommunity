@@ -147,7 +147,7 @@ const Nav = ({ admin }) => {
                         <li className="nav-item">
                           {admin ? (
                             <Link
-                              to="/admin"
+                              to="/team"
                               className={styles.sectionLinkSidebar}
                             >
                               <lord-icon

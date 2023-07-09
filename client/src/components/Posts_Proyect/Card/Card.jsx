@@ -90,7 +90,7 @@ const PostCard = ({ id }) => {
                   </div>
                 )}
               </button>
-              <h5 className={styles.likes}>💡: {post?.likes.length}</h5>
+              <h5 className={styles.likes}>{post?.likes.length}</h5>
             </div>
           </div>
           <div className={styles.info}>
