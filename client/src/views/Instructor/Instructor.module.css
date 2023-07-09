@@ -1,3 +1,4 @@
+
 .container h1 {
   width: 100%;
 }
@@ -14,13 +15,14 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   position: relative;
   width: 500px;
-  height: 384px;
+  height: 484px;
   display: inline-block;
   align-items: center;
   border-radius: 25px;
-  border: 1px solid black;
-  background-color: rgba(255, 255, 255, 0.925);
+  border: 2px solid rgb(250, 243, 243);
+  background-color: rgba(235, 229, 237, 0.925);
   margin: 40px;
+  border: 2px solid black;
   transition: 0.5s;
 }
 .modal-text-large {
@@ -44,7 +46,7 @@
 .card_avatar {
   position: absolute;
   width: 114px;
-  height: 114px;
+  height: 10px;
   background: var(--bg-color);
   border-radius: 100%;
   display: flex;
@@ -90,9 +92,123 @@
   font-weight: bold;
   transition: 0.5s;
   color: white;
-  background-color: rgb(68, 151, 88);
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #2d62b0c7;
 }
-
+/* .button {
+  background-color: #2d62b0c7;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  
+ 
+} */
 .button:hover {
   transform: translateY(-5px);
+}
+
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+
+.card_img {
+  text-align: center;
+}
+
+.card_img svg {
+  width: 100%;
+}
+
+.card_avatar {
+  text-align: center;
+}
+
+.card_avatar img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.card_title {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.card_subtitle {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.card_reviews {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.card_reviews p {
+  font-size: 14px;
+}
+
+.card__wrapper {
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-body .form-control {
+  margin-bottom: 10px;
+}
+
+.modal-footer {
+  padding: 20px;
+  justify-content: center;
+}
+
+@media (max-width: 1712px) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .card {
+    margin-bottom: 20px;
+  }
+
+  .card_avatar img {
+    max-width: 180px;
+  }
+
+  .card_title {
+    font-size: 20px;
+  }
+
+  .card_reviews p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .card_avatar img {
+    max-width: 130px;
+  }
+
+  .card_title {
+    font-size: 18px;
+  }
+
+  .card_reviews p {
+    font-size: 12px;
+  }
 }
