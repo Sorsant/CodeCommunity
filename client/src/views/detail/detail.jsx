@@ -12,10 +12,12 @@ const PostDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const user = useSelector((state) => state.home.users);
+  const userId = useSelector((state) => state.userdb.user?.id);
+  const userExtra = useSelector((state) => state.home.userExtra);
+  const userExtraID = useSelector((state) => state.userdb.userExtra?.id);
   const post = useSelector((state) => state.home.posts);
   const [postId, setPostId] = useState({});
   const [isReady, setIsReady] = useState(false);
-  const userId = useSelector((state) => state.userdb.user?.id);
   const [showEditForm, setShowEditForm] = useState(false);
 
   useEffect(() => {
@@ -39,6 +41,7 @@ const PostDetail = () => {
   };
 
   const isCurrentUserCreator = post?.user === userId;
+  const isCurrentUserExtra = post?.userExtra === userExtraID;
 
   const handleEditClick = () => {
     setShowEditForm(true);
@@ -65,25 +68,25 @@ const PostDetail = () => {
   return (
     <div className={style.postDetailContainer}>
       {isCurrentUserCreator && (
-        <button onClick={handleDelet} className={style.deleteButton} >
-          <lord-icon
+        <button onClick={handleDelet} className={style.deleteButton}>
+          <lord-icon className={style.deleteButton}
             src="https://cdn.lordicon.com/kfzfxczd.json"
             trigger="boomerang"
-            colors="primary:#000000"
-            style={{ width: "35px", height: "35px" }}
+            colors="primary:#FFFFFF"
           ></lord-icon>
         </button>
       )}
 
       <div className={style.post_card}>
-        <div className={style.avatar}></div>
+
         <div className={style.info}>
           {" "}
           <h1>
             {user && user?.first_name} {user && user?.last_name}
           </h1>
-          <h1>{user && user?.email}</h1>
+          <h4>{user && user?.email}</h4>
         </div>
+
         <hr />
         <h1 className={style.title}>{post && post.title}</h1>
         <hr />
@@ -96,13 +99,16 @@ const PostDetail = () => {
         </div>
         <hr />
         <h3 className={style.description}>{post && post.description}</h3>
+        <hr />
+        <div id="disqus_thread" className={style.disqus}></div>
+
       </div>
 
       <button className={`btn btn-success fs-3 ${style["back"]}`} onClick={handleGoBack}>Back</button>
 
       {/* Botón "Edit" solo para el creador del post */}
       {isCurrentUserCreator && !showEditForm && (
-        <button className={`btn btn-secondary fs-4 ${style["edit"]}`} onClick={handleEditClick}>Edit</button>
+        <button className={`btn btn-success fs-3 ${style["edit"]}`} onClick={handleEditClick}>Edit</button>
       )}
       {showEditForm && (
         <div>
@@ -110,7 +116,6 @@ const PostDetail = () => {
           <button className={`btn btn-danger fs-4 ${style["cancel"]}`} onClick={handleCancelEdit}>Cancel</button>
         </div>
       )}
-      <div id="disqus_thread" className={style.disqus}></div>
     </div>
   );
 };

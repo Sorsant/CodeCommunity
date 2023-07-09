@@ -1,154 +1,78 @@
-/* .container {
-    height: 150vh;
-    background-color: #1A1A1B;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.text {
-    color: white;
-}
-
-.book {
-    display: flex;
-    justify-content: center;
-    margin: 15px;
-    background-color: rgb(76, 88, 76);
-    border-radius: 10px;
-    width: 50%;
-    transition: 0.4s;
-} */
-
-.book:hover {
-  /* translate: 0 -5px; *
-    filter: drop-shadow(-3px 12px 20px #635e53);
-    /* border: 1px solid #c6ac8f; */
-}
-
-/* 
-.book a:hover {
-    position: absolute;
-    left: calc(70% - 70px);
-    margin-top: 5px;
-}
-
-.paragraph {
-    color: white;
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    margin-right: 10px;
-} */
-
-/* .titleStudent {
-    position: absolute;
-    font-size: 20px;
-    margin-top: 10px;
-    left: calc(50% - 70px);
-    color: aliceblue;
-}
-
-.titleContainer img {
-    width: 250px;
-    height: 250px;
-    border-radius: 20px;
-    margin: 30px;
-} */
-
-/* titleContainer a {
-
-} */
-
-/* .book a {
-    position: absolute;
-    left: calc(70% - 70px);
-    margin-top: 5px;
-   
-    text-decoration: none;
-    font-size: 13px;
-    background-color: #1A1A1B;
-    border-radius: 10px;
-    color: white;
-    padding: 5px;
-} */
-
 .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
-  padding: 20px;
-  justify-items: center;
-  align-items: start;
-  height: 100vh;
-  background-color: #212529;
-  margin: 0 auto;
-  font-family: 'Roboto Serif', serif;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   grid-gap: 20px;
+   padding: 20px;
+   justify-items: center;
+   align-items: start;
+   height: 100vh;
+   background-color: #212529;
+   margin: 0 auto;
 }
 
 .book {
-  background-color: #212529;
-  color: #ffffff;
-  border-radius: 10px;
-  padding: 20px;
-  max-width: 400px;
-  box-shadow: 0 8px 16px rgba(208, 206, 206, 0.2);
-  text-align: center;
-  transition: transform 0.3s ease;
+   background-color: #212529;
+   color: #ffffff;
+   border-radius: 10px;
+   padding: 20px;
+   max-width: 400px;
+   box-shadow: 0 8px 16px rgba(208, 206, 206, 0.2);
+   text-align: center;
+   transition: transform 0.3s ease;
 }
 
 .book:hover {
-  transform: translateY(-5px);
+   transform: translateY(-5px);
 }
 
 .titleContainer {
-  margin-bottom: 20px;
+   margin-bottom: 20px;
 }
 
 .titleStudent {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #eceef0;
+   font-size: 20px;
+   font-weight: bold;
+   margin-bottom: 10px;
+   color: #eceef0;
 }
 
 .image {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  box-shadow: 2px 2px 4px rgba(15, 15, 15, 0.935);
+   width: 100%;
+   height: 500px;
+   border-radius: 10px;
+   margin-bottom: 10px;
+   box-shadow: 2px 2px 4px rgba(15, 15, 15, 0.935);
 }
 
 .paragraph {
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 20px;
+   font-size: 16px;
+   line-height: 1.5;
+   margin-bottom: 20px;
 }
 
 .a {
-  color: #248457;
-  font-size: 20px;
-  text-decoration: none;
-  font-weight: bold;
+   color: #248457;
+   font-size: 20px;
+   text-decoration: none;
+   font-weight: bold;
 }
 
 .a:hover {
-  text-decoration: underline;
+   text-decoration: underline;
 }
 
 .button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #2d62b0;
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
+   padding: 10px 20px;
+   border: none;
+   border-radius: 5px;
+   background-color: #2d62b0;
+   color: #ffffff;
+   font-weight: bold;
+   font-size: 16px;
+   cursor: pointer;
 }
 
 .button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   transform: translateY(-2px);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
