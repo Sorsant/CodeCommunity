@@ -6,7 +6,7 @@
     display: flex;
     position: relative;
     padding: 5px 10px;
-    background-color: #4ecec8;
+    background-color: gray;
     color: white;
     font-family: sans-serif;
     text-decoration: none;
@@ -19,10 +19,11 @@
     font-size: 13px;
     margin-top: 8.0rem;
     /* margin-left: -720px; */
+    z-index: 3;
 }
 
 .buttonDownload:hover {
-    background-color: #1a60a2;
+    background-color: #4c956c;
     color: white;
 }
 

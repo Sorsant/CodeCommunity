@@ -48,7 +48,7 @@
   margin-top: auto;
   font-weight: 500;
   font-size: 30px;
-  color: gray;
+  color: white;
 }
 
 .containerPremio {
@@ -92,12 +92,6 @@
   border-radius: 10px;
 }
 
-.profile_description {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 10px;
-}
-
 .profile_picture {
   flex: 1 1 400px;
   display: flex;
@@ -117,7 +111,10 @@
 
 .language {
   color: white;
-  font-size: 15px;
+  font-size: 18px;
+  position: relative;
+  top: calc(-25% - 57px);
+  left: calc(42% - 70px);
 }
 
 .cloudinary {

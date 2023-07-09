@@ -63,7 +63,11 @@ const CloudinaryUploadWidget = ({ onImageUrl }) => {
     return (
         <div>
             <button id="upload_widget" className={styles.buttonDownload}>
-                Img
+            <lord-icon
+                src="https://cdn.lordicon.com/xsdtfyne.json"
+                trigger="hover"
+                colors="primary:#121331">
+            </lord-icon>
             </button>
             {/* <img id="uploadedimage" alt=" " className={styles.image} /> */}
         </div>
