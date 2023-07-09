@@ -18,14 +18,17 @@ export const getHomePosts = () => async (dispatch) => {
   //  const sortedData = filteredData.sort((a, b) => new Date(b.created) - new Date(a.created));
    dispatch(getAllPosts(filteredData)); // Despachar los posts ordenados
 };
-export const filterAZ = (data) => async (dispatch) => {
-   console.log(data , "filter")
+export const filterAZ = () => async (dispatch) => {
+   const endpoint = `${API_URL}/codec/api/post/?ordering=title`;
+   const { data } = await axios.get(endpoint);
+   console.log(data , "filterAZ")
    dispatch(filterAcendent(data));
- };
+};
 
 export const filterZA = () => async (dispatch) => {
    const endpoint = `${API_URL}/codec/api/post/?ordering=-title`;
    const { data } = await axios.get(endpoint);
+   console.log(data , "filterZA")
    dispatch(filterDesendent(data));
 };
 

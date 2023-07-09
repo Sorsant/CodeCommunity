@@ -48,7 +48,7 @@ export const homeSlice = createSlice({
          state.posts = action.payload;
       },
       getSearchPosts: (state, action) => {
-         state.posts  = state.posts2;
+         state.posts2  = state.payload;
          state.posts = action.payload;
       },
       loginSwitch: (state, action) => {

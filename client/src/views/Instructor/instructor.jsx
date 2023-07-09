@@ -25,7 +25,7 @@ const Instructor = () => {
   }, [dispatch]);
 
   const [recipient, setRecipient] = useState('');
-  const [message, setMessage] = useState('El instructor se estará contactando con usted');
+  const [message, setMessage] = useState('The instructor will be contacting you');
 
   const handleButton = (email) => {
     setRecipient(email);
@@ -36,8 +36,6 @@ const Instructor = () => {
     console.log("Message:", message);
     // ...
   };
- 
-  
   const renderStars = (rating) => {
     const stars = [];
 

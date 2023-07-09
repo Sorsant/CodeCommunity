@@ -13,9 +13,12 @@ const PostDetail = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.home.users);
   const post = useSelector((state) => state.home.posts);
+  const userExtra = useSelector((state) => state.home.userExtra)
+  const userExtraID = userExtra.find(user => user.id === userExtra.user)
   const [postId, setPostId] = useState({});
   const [isReady, setIsReady] = useState(false);
   const userId = useSelector((state) => state.userdb.user?.id);
+  const userIdw = useSelector((state) => state.userdb.user?.user_image);
   const [showEditForm, setShowEditForm] = useState(false);
 
   useEffect(() => {
@@ -63,7 +66,11 @@ const PostDetail = () => {
   }, []);
 
   return (
+    
     <div className={style.postDetailContainer}>
+      {/* {post && user && <img src={user[user.id].user_image} alt="Post User Image" />} */}
+    {userExtraID && userExtraID.user_image }
+      {userExtraID && userExtraID.user_image}
       {isCurrentUserCreator && (
         <button onClick={handleDelet} className={style.deleteButton} >
           <lord-icon
