@@ -3,9 +3,9 @@
 }
 
 .buttonDownload {
-    display: inline-block;
-    position: absolute;
-    padding: 10px 25px;
+    display: flex;
+    position: relative;
+    padding: 5px 10px;
     background-color: #4ecec8;
     color: white;
     font-family: sans-serif;
@@ -26,61 +26,3 @@
     color: white;
 }
 
-.buttonDownload:before,
-.buttonDownload:after {
-    content: ' ';
-    display: block;
-    position: absolute;
-    left: 15px;
-    top: 52%;
-}
-
-.buttonDownload:before {
-    width: 10px;
-    height: 2px;
-    border-style: solid;
-    border-width: 0 2px 2px;
-}
-
-.buttonDownload:after {
-    width: 0;
-    height: 0;
-    margin-left: 3px;
-    margin-top: -7px;
-    border-style: solid;
-    border-width: 4px 4px 0 4px;
-    border-color: transparent;
-    border-top-color: inherit;
-    animation: downloadArrow 1s linear infinite;
-    animation-play-state: paused;
-}
-
-.buttonDownload:hover:before {
-    border-color: #bdd3ef;
-}
-
-.buttonDownload:hover:after {
-    border-top-color: #eff1f7;
-    animation-play-state: running;
-}
-
-@keyframes downloadArrow {
-    0% {
-        margin-top: -7px;
-        opacity: 1;
-    }
-
-    0.001% {
-        margin-top: -15px;
-        opacity: 0.4;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        margin-top: 0;
-        opacity: 0.4;
-    }
-}

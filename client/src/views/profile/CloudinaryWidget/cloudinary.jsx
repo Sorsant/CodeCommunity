@@ -63,7 +63,7 @@ const CloudinaryUploadWidget = ({ onImageUrl }) => {
     return (
         <div>
             <button id="upload_widget" className={styles.buttonDownload}>
-                Image Profile
+                Img
             </button>
             {/* <img id="uploadedimage" alt=" " className={styles.image} /> */}
         </div>
