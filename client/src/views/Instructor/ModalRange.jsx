@@ -3,8 +3,8 @@ import { Button, Modal } from 'react-bootstrap';
 import style from './modalstyle.module.css'
 import { useDispatch } from "react-redux"
 import { reviewPost } from '../../components/Redux/Actions/User/actionUser'
-const BootstrapModal = (userid) => {
-    const uid = userid.user
+const BootstrapModal = ({reviews_id }) => {
+    const uid = reviews_id
     const dispatch = useDispatch()
     const [modalOpen, setModalOpen] = useState(false);
     const [post, setPost] = useState({
@@ -40,12 +40,11 @@ const BootstrapModal = (userid) => {
         }
         return stars;
     };
-    const handleOnSubmit = () => {
-        dispatch(reviewPost(post))
+    const handleOnSubmit = async () => {
+        await dispatch(reviewPost(post)); // Esperar a que se resuelva la promesa de la solicitud
         handleModalClose(); // Cerrar el modal después de guardar
-        // window.location.reload();
-
     };
+    
     return (
         <div>
             <Button variant="primary" onClick={handleModalOpen}>

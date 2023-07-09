@@ -36,44 +36,51 @@ const Instructor = () => {
     console.log("Message:", message);
     // ...
   };
-  const renderStars = (reviews) => {
-    const totalReviews = reviews.length;
-    let totalRating = 0;
+ 
   
-    for (let i = 0; i < totalReviews; i++) {
-      totalRating += reviews[i].review;
-    }
-  
-    const averageRating = totalRating / totalReviews;
-  
+  const renderStars = (rating) => {
     const stars = [];
-    const cantidad = Math.floor(averageRating);
-  
+
     for (let i = 1; i <= 5; i++) {
-      if (i <= cantidad) {
+      if (i <= rating) {
         stars.push(<span key={i}>⭐</span>);
       } else {
         stars.push(<span key={i}>☆</span>);
       }
     }
-  
+
     return stars;
   };
+  
   return (
     <div className={styles.container}>
-      <h1>Instructors</h1>
       <div className={styles.cardContainer}>
         {users?.map((user) => {
           const extraUser = userExtras?.find((item) => item.id === user.id);
-          const userReviews = getreview.filter((review) => review.id === user.id);
-          const userReviewIDs = userReviews.map((review) => review.id);
-          const userComments = getreview_user.filter((review) => userReviewIDs.includes(review.reviews_id));
+          const userReviews = getreview.filter((review) => review.reviews_id === user.id);
+          const userComments = getreview.filter(
+            (comment) => comment.reviews_id === user.id
+          );
 
           if (extraUser && extraUser?.premium && extraUser.postulation) {
             const languageNames = extraUser?.language.map(languageId => {
               const language = languages?.find(lang => lang.id === languageId);
               return language ? language.name : '';
             });
+            const totalReviews = userReviews.length;
+            let totalRating = 0;
+            let comments = [];
+
+            for (let i = 0; i < totalReviews; i++) {
+              totalRating += userReviews[i].review;
+              const reviewComments = userComments.filter(
+                (comment) => comment.reviews_id === userReviews[i].id
+              );
+              comments = comments.concat(reviewComments.map((comment) => comment.comment));
+            }
+            const averageRating = totalReviews > 0 ? totalRating / totalReviews : 0;
+            console.log(userReviews, "userReviews");
+            console.log(userComments, "userComments");
             return (
               <div className={styles.card}>
                 <div className={styles.card_img}>
@@ -90,13 +97,13 @@ const Instructor = () => {
                     </text>
                   </svg>
                 </div>
-              <div className={styles.card_avatar}>
-            <img src={extraUser.user_image} alt={user.first_name} className={styles.img} />
-          </div>
-        <div className={styles.card_title}>
-        {user.first_name} {user.last_name}
-      </div>
-      <div className={styles.card_subtitle}>
+                <div className={styles.card_avatar}>
+                  <img src={extraUser.user_image} alt={user.first_name} className={styles.img} />
+                </div>
+                <div className={styles.card_title}>
+                  {user.first_name} {user.last_name}
+                </div>
+                <div className={styles.card_subtitle}>
                   <h2 className={`${styles.info} info`}>
                     Lenguages:
                   </h2>
@@ -104,24 +111,24 @@ const Instructor = () => {
                     <h2 key={index} className={`${styles.info} info`}>{languageName}</h2>
                   ))}
                 </div>
-      {userReviews.length > 0 && (
-  <div className={styles.card_reviews}>
-    <h2>Reviews:</h2>
-    {userReviews.map((review, index) => {
-      const userComments = getreview.filter((comment) => userReviewIDs.includes(comment.id));
-
-      return (
-        <div key={index}>
-          <p>Rating: {renderStars([review])}</p>
-          <p>Comments:</p>
-          {userComments.map((comment, commentIndex) => (
-            <p key={commentIndex}>{comment.comment}</p>
-          ))}
-        </div>
-      );
-    })}
-  </div>
-)}
+                {totalReviews > 0 && (
+                  <div className={styles.card_reviews}>
+                    <h2>Reviews:</h2>
+                    <div>
+                      <p>
+                        Rating: {renderStars(averageRating)}
+                        <br />
+                        Comments: 
+                        {comments.map((comment, index) => (
+                          <span key={index}>
+                            {comment}
+                            {index !== comments.length - 1 && ", "}
+                          </span>
+                        ))}
+                      </p>
+                    </div>
+                  </div>
+                )}
                 <div className={styles.card__wrapper}>
                   <button
                     onClick={() => handleButton(user.email)}
@@ -131,7 +138,7 @@ const Instructor = () => {
                   >
                     <span>You can contact this instructor</span>
                   </button>
-                  <ModalRange user={user.id} />
+                  <ModalRange reviews_id={user.id} />
                 </div>
               </div>
             );
@@ -153,9 +160,9 @@ const Instructor = () => {
                 <input type="text" className="form-control" id="recipient" value={recipient} readOnly />
               </div>
               <div className="mb-3">
-  <label htmlFor="message" className="form-label">Message:</label>
-  <textarea className="form-control" id="message" rows="4" value={message} readOnly></textarea>
-</div>
+                <label htmlFor="message" className="form-label">Message:</label>
+                <textarea className="form-control" id="message" rows="4" value={message} readOnly></textarea>
+              </div>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
