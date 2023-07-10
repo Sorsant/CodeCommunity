@@ -18,6 +18,20 @@
    padding-top: 10px;
 }
 
+.button {
+   border-radius: 10px;
+   padding: 5px;
+   font-size: 13px;
+   margin-bottom: 5px;
+   margin-top: 5px;
+   border: none;
+   font-weight: bold;
+   transition: 0.5s;
+   color: white;
+   cursor: pointer;
+   font-size: 16px;
+   background-color: #2d62b0c7;
+ }
 .info {
    margin-left: 15px;
    width: 100%;
