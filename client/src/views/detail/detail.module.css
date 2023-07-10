@@ -18,6 +18,23 @@
    padding-top: 10px;
 }
 
+.button {
+   position: absolute;
+   top: calc(15% - 18px);
+   left: calc(70% - 57px);
+   border-radius: 5px;
+   padding: 5px;
+   margin-bottom: 5px;
+   margin-top: 5px;
+   border: none;
+   /* font-weight: bold; */
+   transition: 0.5s;
+   color: white;
+   cursor: pointer;
+   font-size: 17px;
+   background-color: #2d62b0c7;
+}
+
 .info {
    margin-left: 15px;
    width: 100%;
