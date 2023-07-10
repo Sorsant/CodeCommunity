@@ -76,8 +76,8 @@ const CommunityForm = () => {
   }, [dispatch]);
 
   return (
-    <div className={styles["container-community"]}>
-      <div className="card bg-dark text-white w-50 mx-auto my-5">
+    <div className={styles["container_community"]}>
+      <div className="card bg-secondary text-white w-50 mx-auto">
         <div className="card-body p-5">
           {console.log(inputValues)}
           <form>

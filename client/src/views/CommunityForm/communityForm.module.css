@@ -1,3 +1,9 @@
+.container_community {
+  height: 67.6vh;
+  background-color: #212529;
+  padding-top: 30px;
+}
+
 .uploadimage {
   margin: 10px;
   transform: translateX(8px);

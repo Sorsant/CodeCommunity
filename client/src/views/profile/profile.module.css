@@ -16,7 +16,7 @@
   /* font-family: system-ui, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif; */
   font-family: 'Roboto Serif', serif;
   position: absolute;
-  top: calc(13.8% - 57px);
+  top: calc(20% - 57px);
   left: calc(38% - 70px);
   width: 600px;
   height: 400px;
@@ -103,10 +103,10 @@
 
 .profile_picture img {
   position: absolute;
-  top: calc(6% - 70px);
+  top: calc(19% - 70px);
   left: auto;
-  width: 160px;
-  height: 160px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
 }
 
@@ -123,7 +123,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: calc(15% - 57px);
+  top: calc(20% - 57px);
   left: calc(21% - 70px);
   width: 100%;
 

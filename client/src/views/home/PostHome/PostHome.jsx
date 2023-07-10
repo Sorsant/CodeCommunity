@@ -105,7 +105,7 @@ const Posteohome = () => {
 
           <Modal show={showModal} onHide={handleCloseModal}>
             <Modal.Header closeButton>
-              <Modal.Title>Create a Post</Modal.Title>
+              <Modal.Title >Create a Post</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <form onSubmit={handleOnSubmit}>
