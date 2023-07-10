@@ -66,6 +66,7 @@ const PostDetail = () => {
   }, []);
 
   return (
+    
     <div className={style.postDetailContainer}>
       {isCurrentUserCreator && (
         <button onClick={handleDelet} className={style.deleteButton}>

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import classNames from "classnames";
 import styles from "./communityForm.module.css";
 import { useState } from "react";
 import { addCommunity } from "../../components/Redux/Actions/Community/ActionCommunity";
@@ -76,18 +77,19 @@ const CommunityForm = () => {
   }, [dispatch]);
 
   return (
-    <div className={styles["container-community"]}>
-      <div className="card bg-dark text-white w-50 mx-auto my-5">
-        <div className="card-body p-5">
+    <div className={classNames(styles["container-community"], "d-flex align-items-center justify-content-center")}>
+      <div className={styles.card}>
+        <div className={styles.cardbody}>
           {console.log(inputValues)}
-          <form>
-            <div className="form-group mx-auto text-center">
+          <form className={styles.form}>
+            <div className={classNames("form-group", styles["form-group"])}>
               <h2>Create Group</h2>
 
               <input
                 onChange={handleChange}
                 value={inputValues.name}
-                className="form-control form-control-lg rounded-pill mb-3"
+                className={styles.formcontrol}
+                style={{ marginBottom: '20px' }}
                 type="text"
                 name="name"
                 placeholder="Name your group"
@@ -97,7 +99,8 @@ const CommunityForm = () => {
               <input
                 onChange={handleChange}
                 value={inputValues.description}
-                className="form-control form-control-lg rounded-pill mb-3"
+                className={styles.formcontrol}
+                style={{ marginBottom: '20px' }}
                 type="text"
                 name="description"
                 placeholder="Describe your group"
@@ -109,8 +112,9 @@ const CommunityForm = () => {
               <select
                 onChange={handleChangeOption}
                 name="language"
+                style={{ marginBottom: '20px' }}
                 value={inputValues.language}
-                className="form-select form-select-lg rounded-pill mb-3"
+                className={styles.formcontrol}
               >
                 {languages &&
                   languages.map((lan) => (
@@ -127,17 +131,18 @@ const CommunityForm = () => {
               {errors.language && <span>{errors.language}</span>}
 
               <label>Image</label>
-              <div className={styles["uploadimage"]}>
+              <div className={classNames(styles.uploadimage)} style={{ marginBottom: '20px' }}>
                 <CloudinaryUploadWidget onImageUrl={handleImageUrl} />
               </div>
 
               <button
-                disabled={disabled}
-                onClick={handleSubmit}
-                className="btn btn-primary"
-              >
-                Create
-              </button>
+  disabled={disabled}
+  onClick={handleSubmit}
+  style={{ marginBottom: '20px' }}
+  className={classNames("btn btn-primary", styles.button)}
+>
+  Create
+</button>
             </div>
           </form>
         </div>
