@@ -7,6 +7,7 @@ import { resetPostData } from "../../components/Redux/Actions/User/actionUser";
 import style from "./detail.module.css";
 import EditPost from "../EditPost/EditPost";
 import { deletPostid } from "../../components/Redux/Actions/ActionHome";
+import { Link } from "react-router-dom";
 const PostDetail = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -66,7 +67,7 @@ const PostDetail = () => {
   }, []);
 
   return (
-    
+
     <div className={style.postDetailContainer}>
       {isCurrentUserCreator && (
         <button onClick={handleDelet} className={style.deleteButton}>
@@ -105,7 +106,9 @@ const PostDetail = () => {
 
       </div>
 
-      <button className={`btn btn-success fs-3 ${style["back"]}`} onClick={handleGoBack}>Back</button>
+      <Link to={"/home"}>
+        <button className={`btn btn-success fs-3 ${style["back"]}`}>Back</button>
+      </Link>
 
       {/* Botón "Edit" solo para el creador del post */}
       {isCurrentUserCreator && !showEditForm && (

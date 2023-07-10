@@ -8,11 +8,8 @@
   /* Cambio aquí */
   grid-gap: 20px;
   padding: 20px;
-}
-
-.container {
+  height: 80vh;
   background-color: #1A1A1B;
-  height: 100%;
 }
 
 .card {
@@ -76,6 +73,7 @@
 
 .card_title {
   margin-top: 60px;
+  margin-left: 50px;
   font-weight: 500;
   font-size: 18px;
   color: var(--main-color);
@@ -84,19 +82,18 @@
 .card_subtitle {
   display: flex;
   margin-top: 10px;
-  font-weight: 400;
-  font-size: 15px;
-  color: var(--submain-color);
+  color: rgb(73, 70, 70);
 }
 
 .info {
   margin-left: 5px;
+  font-family: 'Roboto Serif', serif;
+  font-weight: bold;
 }
 
 .button {
-  border-radius: 10px;
-  padding: 5px;
-  font-size: 13px;
+  border-radius: 5px;
+  padding: 7px;
   margin-bottom: 5px;
   margin-top: 5px;
   border: none;
@@ -104,7 +101,8 @@
   transition: 0.5s;
   color: white;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 15px;
+  font-family: 'Roboto Serif', serif;
   background-color: #2d62b0c7;
 }
 

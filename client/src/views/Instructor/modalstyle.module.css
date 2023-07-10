@@ -1,3 +1,7 @@
+.containerModal button {
+    font-family: 'Roboto Serif', serif;
+}
+
 .modal {
     position: fixed;
     top: 0;
@@ -16,13 +20,7 @@
     border-radius: 5px;
 }
 
-.spans {
-    .spans {
-        color: gray;
-        font-size: 9px;
-    }
-}
-
 .inputss {
     margin-left: 10.0rem;
+    font-size: 15px;
 }

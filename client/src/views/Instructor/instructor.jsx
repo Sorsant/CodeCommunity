@@ -101,6 +101,7 @@ const Instructor = () => {
                 <div className={styles.card_title}>
                   {user.first_name} {user.last_name}
                 </div>
+                <br />
                 <div className={styles.card_subtitle}>
                   <h2 className={`${styles.info} info`}>
                     Lenguages:
@@ -152,22 +153,24 @@ const Instructor = () => {
         <div className="modal-dialog modal-lg">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Contact</h5>
+              <h5 className="modal-title fs-2" id="exampleModalLabel">Contact</h5>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
               <div className="mb-3">
-                <label htmlFor="recipient" className="form-label">Receiver:</label>
-                <input type="text" className="form-control" id="recipient" value={recipient} readOnly />
+                <label htmlFor="recipient" className="form-label fs-3">Receiver:</label>
+                <input type="text" className="form-control fs-4" id="recipient" value={recipient} readOnly />
               </div>
               <div className="mb-3">
-                <label htmlFor="message" className="form-label">Message:</label>
-                <textarea className="form-control" id="message" rows="4" value={message} readOnly></textarea>
+                <label htmlFor="message" className="form-label fs-3">Message:</label>
+                <textarea className="form-control fs-4" id="message" rows="4" value={message} readOnly></textarea>
               </div>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" className="btn btn-primary" onClick={handleSend}>Enviar</button>
+              <button type="button" className="btn btn-secondary fs-3" data-bs-dismiss="modal">Close</button>
+              <Link to={'/home'}>
+                <button type="button" className="btn btn-primary fs-3" onClick={handleSend}>Send</button>
+              </Link>
             </div>
           </div>
         </div>
