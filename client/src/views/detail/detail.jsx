@@ -7,7 +7,7 @@ import { resetPostData } from "../../components/Redux/Actions/User/actionUser";
 import style from "./detail.module.css";
 import EditPost from "../EditPost/EditPost";
 import { deletPostid } from "../../components/Redux/Actions/ActionHome";
-
+import { Link } from "react-router-dom";
 const PostDetail = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -118,12 +118,9 @@ const PostDetail = () => {
         <div id="disqus_thread" className={style.disqus}></div>
       </div>
 
-      <button
-        className={`btn btn-success fs-3 ${style["back"]}`}
-        onClick={handleGoBack}
-      >
-        Back
-      </button>
+      <Link to={"/home"}>
+        <button className={`btn btn-success fs-3 ${style["back"]}`}>Back</button>
+      </Link>
 
       {/* Botón "Edit" solo para el creador del post */}
       {isCurrentUserCreator && !showEditForm && (
@@ -140,7 +137,7 @@ const PostDetail = () => {
           <button
             className={`btn btn-danger fs-4 ${style["cancel"]}`}
             onClick={handleCancelEdit}
-            
+
           >
             Cancel
           </button>
@@ -186,4 +183,4 @@ const PostDetail = () => {
 };
 
 
-  export default PostDetail
+export default PostDetail

@@ -99,13 +99,13 @@ const Posteohome = () => {
     <div className={styles.containerForm}>
       {login ? (
         <>
-          <Button variant="success" onClick={handleOpenModal}>
+          <Button variant="success" className="fs-2" onClick={handleOpenModal} style={{ fontFamily: 'Roboto Serif, serif' }}>
             Create a Post
           </Button>
 
           <Modal show={showModal} onHide={handleCloseModal}>
             <Modal.Header closeButton>
-              <Modal.Title>Create a Post</Modal.Title>
+              <Modal.Title >Create a Post</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <form onSubmit={handleOnSubmit}>

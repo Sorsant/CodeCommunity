@@ -20,8 +20,10 @@ const Nav = ({ admin }) => {
         <div className={styles.navbarPrincipal}>
           <div className={styles.title}>
             <Link to="/home" className={styles.titleNav}>
-              <h1>Code</h1>
-              <h1>Community</h1>
+              <h1>Code
+                <br />
+                <span>Community</span>
+              </h1>
             </Link>
           </div>
           <SearchBar />

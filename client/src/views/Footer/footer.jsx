@@ -18,13 +18,8 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/news">
-                      <p>News</p>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/home">
-                      <p>Comunitys</p>
+                    <Link to="/instructor">
+                      <p>Instructor</p>
                     </Link>
                   </li>
                 </ul>
@@ -34,7 +29,7 @@ const Footer = () => {
                   <h3>About</h3>
                 </Link>
               </div>
-              <div className="col-md-6 item text">
+              <div className="col-md-6 item text fs-5">
                 <h3>CodeCommunity</h3>
                 <p>
                   Welcome to Code Community, a comprehensive platform that
@@ -65,7 +60,7 @@ const Footer = () => {
                 </p>
               </div>
             </div>
-            <p className="copyright">CodeCommunity © 2018</p>
+            <p className="copyright">CodeCommunity © 2023</p>
           </div>
         </footer>
       </div>

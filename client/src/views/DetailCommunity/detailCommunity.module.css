@@ -20,7 +20,6 @@
     margin-left: 650px;
     width: 800px;
     height: auto;
-
 }
 
 .name {
@@ -30,15 +29,14 @@
     width: 500px;
     top: 20px;
     left: 250px;
-
 }
 
 .image {
     position: absolute;
     width: 260px;
     height: 200px;
-    border-top-left-radius: 10%;
-    border-bottom-left-radius: 10%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     margin-top: -110px;
     margin-left: -10px;
     top: 110px;
