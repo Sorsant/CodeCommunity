@@ -11,7 +11,6 @@ import { getUserExtras } from "../../components/Redux/Actions/User/actionUser";
 import { fakeLogin } from "../../components/Redux/Actions/ActionHome.js";
 const Home = () => {
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getHomePosts());
     dispatch(fakeLogin());

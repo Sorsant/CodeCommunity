@@ -1,7 +1,8 @@
 .cardsComm {
     display: flex;
     flex-direction: column;
-    width: 33vh;
+    width: 35vh;
+    padding: 15px;
 }
 
 .cardsComm h1 {
@@ -52,7 +53,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    border-radius: 10px;
+    border-radius: 17px;
     border-right: 2px solid rgba(255, 255, 255, 0.2);
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 5px 45px rgba(0, 0, 0, 0.3);
@@ -91,6 +92,7 @@
 .containerImgComm img {
     width: 150px;
     height: 120px;
+    /* border-radius: -15px; */
     filter: saturate(190%);
 }
 
@@ -121,5 +123,5 @@
 .image {
     width: 5vw;
     height: 5vw;
-    border-radius: 90%;
+    border-radius: 10px;
 }

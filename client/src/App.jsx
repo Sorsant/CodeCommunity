@@ -42,7 +42,7 @@ import NewScenes from "./dashboard/scenes/newScenes";
 import Error404 from "./views/Error/Error404";
 import { getAllLanguages } from "./components/Redux/Actions/Community/ActionCommunity";
 import Loading from "./components/Loading/Loading";
-
+import { getHomePosts } from "./components/Redux/Actions/ActionHome";
 axios.defaults.baseURL = API_URL;
 axios.defaults.withCredentials = true;
 
@@ -60,6 +60,7 @@ const App = () => {
   useEffect(() => {
     dispatch(checkAuth());
     dispatch(getUser());
+    // dispatch(getHomePosts());
     dispatch(getUserExtras());
     dispatch(getAllLanguages());
     dispatch(isAdmin())

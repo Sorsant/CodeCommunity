@@ -1,5 +1,5 @@
 .container_community {
-  height: 67.6vh;
+  height: 70.8vh;
   background-color: #212529;
   padding-top: 30px;
 }
@@ -7,4 +7,14 @@
 .uploadimage {
   margin: 10px;
   transform: translateX(8px);
+}
+
+.container_community span {
+  font-size: 15px;
+  color: rgb(153, 5, 5);
+  font-weight: bold;
+}
+
+.container {
+  width: 40%;
 }

@@ -77,12 +77,12 @@ const CommunityForm = () => {
 
   return (
     <div className={styles["container_community"]}>
-      <div className="card bg-secondary text-white w-50 mx-auto">
+      <div className={`card bg-secondary text-white mx-auto ${styles["container"]}`}>
         <div className="card-body p-5">
           {console.log(inputValues)}
           <form>
             <div className="form-group mx-auto text-center">
-              <h2>Create Group</h2>
+              <h2>Create Community</h2>
 
               <input
                 onChange={handleChange}
@@ -90,20 +90,20 @@ const CommunityForm = () => {
                 className="form-control form-control-lg rounded-pill mb-3"
                 type="text"
                 name="name"
-                placeholder="Name your group"
+                placeholder="Name your community"
               />
               {errors.name && <span>{errors.name}</span>}
-
+              <br />
               <input
                 onChange={handleChange}
                 value={inputValues.description}
                 className="form-control form-control-lg rounded-pill mb-3"
                 type="text"
                 name="description"
-                placeholder="Describe your group"
+                placeholder="Describe your community"
               />
               {errors.description && <span>{errors.description}</span>}
-
+              <br />
               <label htmlFor="languages">Languages:</label>
 
               <select
@@ -134,7 +134,7 @@ const CommunityForm = () => {
               <button
                 disabled={disabled}
                 onClick={handleSubmit}
-                className="btn btn-primary"
+                className="btn btn-primary fs-5"
               >
                 Create
               </button>

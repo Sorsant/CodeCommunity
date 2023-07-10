@@ -27,9 +27,14 @@
 }
 
 .title h1 {
-  color: white;
+  color: rgb(255, 255, 255);
   font-family: "Orbitron", sans-serif;
-  /* font-family: 'Roboto Serif', serif; */
+  filter: drop-shadow(0px 0px 3px #9ee47d);
+}
+
+.title h1:hover {
+  color: rgb(47, 202, 42);
+
 }
 
 .titleNav {
@@ -47,10 +52,6 @@
   justify-content: center;
   height: 40px;
   width: 40px;
-}
-
-.title {
-  color: white;
 }
 
 /* hasta aqui la navbar */
