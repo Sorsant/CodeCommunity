@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   border-radius: 5px;
   margin-right: 1.0rem;
-  /* width: 33vh; */
+ /* width: 33vh;  */
   justify-content: center;
 }
 
@@ -60,7 +60,7 @@
   border-radius: 15px;
   color: white;
   z-index: 1;
-  /* background: #4c956c; */
+  background: #4c956c; 
   position: relative;
   margin-left: 270px;
   margin-top: 5px;
